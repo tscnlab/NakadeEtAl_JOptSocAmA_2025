@@ -86,17 +86,5 @@ def main():
     export_random_meshes(shape_keys, rng)
 
 
-def main_test():
-    ict_face_model = bpy.data.objects['ICTFaceModel']
-    ict_face_model.select_set(True)
-    shape_keys = ict_face_model.data.shape_keys.key_blocks
-    change_all_shape_key_slider_limits(shape_keys)
-    export_generic_neutral_mesh(shape_keys)
-    export_id_pm_meshes(shape_keys, 2)
-    rng = np.random.default_rng(NUMBERS.np_seed)
-    export_random_meshes(shape_keys, rng, 2, 1)
-
-
 if __name__ == '__main__':
     main()
-    # main_test()

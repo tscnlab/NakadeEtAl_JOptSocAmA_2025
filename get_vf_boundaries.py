@@ -84,28 +84,5 @@ def main():
     })
 
 
-def main_test(num_images=2):
-    import matplotlib.pyplot as plt
-    thetas_phis_for_img_pixels = get_pixel_theta_phi(CAMERA.directions, CAMERA.image_shape, CAMERA.fov)
-    ls = DIRECTORIES.rendered_imgs_np.glob(NAMING.npy.add_suffix('*', 'rendered'))
-    ls = sorted(ls, key=str)
-    p_mids = get_bin_mids(0, 2 * np.pi, NUMBERS.num_phi_bins)
-    for file_path in ls[:num_images]:
-        file_stem = NAMING.npy.get_stem(file_path.name)
-        images = np.load(file_path)
-        t_mids = binned_interpolated(
-            *binned(*get_theta_phi_boundary(images, thetas_phis_for_img_pixels)))
-        np.save(DIRECTORIES.boundaries / NAMING.npy.add_suffix(file_stem, 'theta_boundary'), t_mids)
-        plt.clf()
-        plt.plot(p_mids, t_mids)
-        plt.title(file_stem)
-        plt.ylabel('Theta')
-        plt.xlabel('Phi')
-        plt.savefig(DIRECTORIES.boundaries / f'{file_stem}_boundary.png')
-    np.save(DIRECTORIES.boundaries / NAMING.npy.phis, p_mids)
-
-
-
 if __name__ == '__main__':
     main()
-    # main_test()

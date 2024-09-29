@@ -109,13 +109,5 @@ def main():
         np.save(DIRECTORIES.rendered_imgs_np / NAMING.npy.add_suffix(file_stem, 'rendered'), images)
 
 
-def main_test(num_images=2):
-    for i, file_stem in enumerate(eye_centers_right):
-        if i < num_images:
-            images = render(file_stem)
-            np.save(DIRECTORIES.rendered_imgs_np / NAMING.npy.add_suffix(file_stem, 'rendered'), images)
-
-
 if __name__ == '__main__':
     main()
-    # main_test()
