@@ -43,21 +43,20 @@ def loss_pred(visual_fields, generic, params_=PARAMS, rand_=RANDOM):
 
 
 @tf.function
-def loss_pred_per(visual_fields, generic, params_=PARAMS, rand_=RANDOM):
-    loss_pred_temp = loss_pred(visual_fields, generic, params_, rand_)
-    return loss_pred_temp / NUMBERS.num_rand
+def loss_pred(visual_fields, generic, params_=PARAMS, rand_=RANDOM):
+    return loss_pred(visual_fields, generic, params_, rand_)
 
 
 @tf.function
-def loss_orig_per(visual_fields, generic):
+def loss_orig(visual_fields, generic):
     return (tf.reduce_sum((visual_fields - VF) ** 2) +
-            tf.reduce_sum((generic - G) ** 2)) / (2 * NUMBERS.num_ids + 1)
+            tf.reduce_sum((generic - G) ** 2))
 
 
 @tf.function
 def loss(visual_fields, generic, params_=PARAMS, rand_=RANDOM, frac_pred=0.75):
-    return (frac_pred * loss_pred_per(visual_fields, generic, params_, rand_) +
-            (1 - frac_pred) * loss_orig_per(visual_fields, generic))
+    return (frac_pred * loss_pred(visual_fields, generic, params_, rand_) +
+            (1 - frac_pred) * loss_orig(visual_fields, generic))
 
 
 @tf.function
