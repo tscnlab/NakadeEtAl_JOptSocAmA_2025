@@ -38,3 +38,5 @@ We used Blender version 3.3.21. The commit hash of the version of Mitsuba 3 we u
  8b05b3188d84ddf623b45af22e45a6d77ba079d2 resources/data (heads/master)
  0b77266a0eff13719ee5000a049d33320d3637bf tutorials (heads/master)
 ```
+We only installed `numpy`, `scipy`, `matplotlib` and `tensorflow` in the Python environment. 
+For reference, we have included a `requirements.txt` file in the repository (result of `pip freeze`).
