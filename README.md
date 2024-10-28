@@ -11,6 +11,7 @@ blender -b ICT-FaceKit-just-face-tri.blend -P export_from_blender.py
 python3 get_eye_centers.py
 source /path/to/mitsuba3/setpath.sh
 python3 render_ply.py
+source /path/to/venv/bin/activate
 python3 get_vf_boundaries.py
 python3 optimize_vf_boundaries.py
 python3 plotting.py
