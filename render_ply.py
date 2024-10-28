@@ -6,7 +6,18 @@ from common_params import CAMERA, NUMBERS, DIRECTORIES, NAMING
 import mitsuba as mi
 from mitsuba import ScalarTransform4f as Transform
 
-mi.set_variant('cuda_ad_spectral')
+MI_VARIANTS_PRIORITY = ['cuda_ad_spectral', 'cuda_spectral', 'llvm_ad_spectral', 'llvm_spectral', 'scalar_ad_spectral']
+
+MI_VARIANTS_AVAILABLE = mi.variants()
+
+MI_VARIANTS_AVAILABLE_PRIORITY = [variant for variant in MI_VARIANTS_PRIORITY if variant in MI_VARIANTS_AVAILABLE]
+
+if not MI_VARIANTS_AVAILABLE_PRIORITY:
+    raise ValueError('None of the available Mitsuba variants are suitable.\n'
+                     'Please make sure that at least one of the following variants is available: '
+                     f'{MI_VARIANTS_PRIORITY}')
+
+mi.set_variant(MI_VARIANTS_AVAILABLE_PRIORITY[0])
 
 with open(DIRECTORIES.vf / NAMING.json.eye_centers_right, 'r') as f:
     eye_centers_right = json.load(f)
