@@ -6,8 +6,14 @@ from warnings import warn
 
 
 def normalize(x):
-    """Normalize a vector, a list of vectors or an array of vectors.
-    x must be numpy array."""
+    """
+    Normalize a vector, a list of vectors or an array of vectors.
+    x must be numpy array.
+    :param x: numpy.ndarray
+        The last dimension must be 3 (x,y,z).
+    :return: numpy.ndarray
+        Has the same shape as x.
+    """
     if x.shape[-1] != 3:
         warn('normalize(x): last dimension not 3', UserWarning)
     return x / np.linalg.norm(x, axis=-1, keepdims=True)
@@ -88,8 +94,15 @@ def gray_img_to_single_color(img: np.ndarray, color: tuple[int, int, int]) -> np
 
 
 def xyz_to_theta_phi(xyz):
-    # theta is measured away from +x
-    # phi is measured away from -y around -x
+    """
+    Convert 3D coordinates to spherical coordinates.
+    Theta is measured away from +x.
+    Phi is measured away from -y around -x.
+    :param xyz: numpy.ndarray
+        The last dimension must be 3 (x,y,z).
+    :return: tuple[numpy.ndarray]
+        theta, phi
+    """
     xyz = normalize(xyz)
     theta = np.arccos(xyz[..., 0])
     phi = np.arctan2(xyz[..., 2], -xyz[..., 1])
@@ -97,6 +110,22 @@ def xyz_to_theta_phi(xyz):
 
 
 def img_shape_to_3d_coordinates(camera_direction, up, image_shape_, fov_, fov_axis_='x'):
+    """
+    Gives the 3D coordinates of the centers of the pixels in the image.
+    The origin is assumed to be at the eye (center of projection) of the perspective camera.
+    :param camera_direction: numpy.ndarray
+        The direction in which the camera is pointing.
+    :param up: numpy.ndarray
+        The up direction of the camera. It is assumed to be orthogonal to the camera direction.
+    :param image_shape_: tuple
+        The shape of the image.
+    :param fov_: float
+        The field of view of the camera.
+    :param fov_axis_: str
+        The axis along which the field of view is measured.
+    :return: numpy.ndarray
+        The 3D coordinates of the centers of the pixels in the image.
+    """
     camera_direction = normalize(camera_direction)
     up = normalize(up)
     assert np.isclose(np.dot(camera_direction, up), 0)
@@ -128,24 +157,89 @@ def binary_search(func, target, low, high, tol=1e-6):
 
 
 def phi_neg_to_pos(phi):
+    """
+    Change phi from the range (-pi, pi] to the range [0, 2*pi).
+    :param phi: numpy.ndarray
+    :return: numpy.ndarray
+    """
     return np.where(phi < 0, phi + 2 * np.pi, phi)
 
 
 def solid_angle_integral(x_by_d, y_by_d):
+    """
+    To calculate the solid angle subtended by a pixel at the eye,
+    this gives the indefinite integral.
+    The perpendicular distance of the sensor from the eye is assumed to be d.
+    :param x_by_d: numpy.ndarray
+        The x coordinate in the plane of the sensor divided by d.
+    :param y_by_d: numpy.ndarray
+        The y coordinate in the plane of the sensor divided by d.
+    :return: numpy.ndarray
+    """
     return np.arctan(x_by_d * y_by_d / np.sqrt(1 + x_by_d ** 2 + y_by_d ** 2))
 
 
 def solid_angle_limits_x(x_by_d_min, x_by_d_max, y_by_d):
+    """
+    To calculate the solid angle subtended by a pixel at the eye,
+    this gives the definite integral along the x-axis and
+    the indefinite integral along the y-axis.
+    The perpendicular distance of the sensor from the eye is assumed to be d.
+    :param x_by_d_min: numpy.ndarray
+        The lower limit of the x coordinate in the plane of the sensor divided by d.
+    :param x_by_d_max: numpy.ndarray
+        The upper limit of the x coordinate in the plane of the sensor divided by d.
+    :param y_by_d: numpy.ndarray
+        The y coordinate in the plane of the sensor divided by d.
+    :return: numpy.ndarray
+    """
     return solid_angle_integral(x_by_d_max, y_by_d) - \
         solid_angle_integral(x_by_d_min, y_by_d)
 
 
 def solid_angle_limits_x_y(x_by_d_min, x_by_d_max, y_by_d_min, y_by_d_max):
+    """
+    The solid angle subtended by a pixel at the eye.
+    The perpendicular distance of the sensor from the eye is assumed to be d.
+    :param x_by_d_min: numpy.ndarray
+        The lower limit of the x coordinate of the pixel in the plane of the sensor divided by d.
+    :param x_by_d_max: numpy.ndarray
+        The upper limit of the x coordinate of the pixel in the plane of the sensor divided by d.
+    :param y_by_d_min: numpy.ndarray
+        The lower limit of the y coordinate of the pixel in the plane of the sensor divided by d.
+    :param y_by_d_max: numpy.ndarray
+        The upper limit of the y coordinate of the pixel in the plane of the sensor divided by d.
+    :return: numpy.ndarray
+    """
     return solid_angle_limits_x(x_by_d_min, x_by_d_max, y_by_d_max) - \
         solid_angle_limits_x(x_by_d_min, x_by_d_max, y_by_d_min)
 
 
 def xy_min_max_mid(image_shape_, fov_, fov_axis_='x'):
+    """The x and y coordinates of the lower,
+    middle and upper limits of the pixels in the image.
+
+    The origin is assumed to be at the center of the image.
+    :param image_shape_: tuple
+        The shape of the image.
+    :param fov_: float
+        The field of view of the camera.
+    :param fov_axis_: str
+        The axis along which the field of view is measured.
+    :return: tuple
+        x_by_d_min: numpy.ndarray,
+            The lower limit of the x coordinate of the pixel in the plane of the sensor divided by d.
+        x_by_d_max: numpy.ndarray,
+            The upper limit of the x coordinate of the pixel in the plane of the sensor divided by d.
+        x_by_d_mid: numpy.ndarray,
+            The x coordinates of the centers of the pixels.
+        y_by_d_min: numpy.ndarray,
+            The lower limit of the y coordinate of the pixel in the plane of the sensor divided by d.
+        y_by_d_max: numpy.ndarray,
+            The upper limit of the y coordinate of the pixel in the plane of the sensor divided by d.
+        y_by_d_mid: numpy.ndarray,
+            The y coordinates of the centers of the pixels
+    """
     j_array, i_array = np.meshgrid(np.arange(image_shape_[1]), np.arange(image_shape_[0]))
     fov_ = fov_ * np.pi / 180
     if fov_axis_ == 'x':
@@ -168,7 +262,16 @@ def xy_min_max_mid(image_shape_, fov_, fov_axis_='x'):
 
 
 def transformation_matrix_transpose(camera_direction, up):
-    """It is assumed that both the camera_direction and up are normalized."""
+    """Gives the matrix needed to transform a point from camera to world coordinates.
+
+    It is assumed that both the camera_direction and up are normalized.
+    :param camera_direction: numpy.ndarray
+        The direction in which the camera is pointing.
+    :param up: numpy.ndarray
+        The up direction of the camera. It is assumed to be orthogonal to the camera direction.
+    :return: numpy.ndarray
+        The transformation matrix.
+    """
     return np.array([np.cross(camera_direction, up), up, -camera_direction])
 
 
