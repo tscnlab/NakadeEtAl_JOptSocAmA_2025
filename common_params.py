@@ -87,7 +87,7 @@ class Numbers:
         self.np_seed = 42
         self.mitsuba_seed = 42
         self.tf_seed = 42
-        self.learn_rate = 1e-4
+        self.learn_rate = 1e-6
         self.patience = 50
         self.training_patience = 5
         self.x_tick_every = 60
