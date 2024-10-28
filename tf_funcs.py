@@ -43,11 +43,6 @@ def loss_pred(visual_fields, generic, params_=PARAMS, rand_=RANDOM):
 
 
 @tf.function
-def loss_pred(visual_fields, generic, params_=PARAMS, rand_=RANDOM):
-    return loss_pred(visual_fields, generic, params_, rand_)
-
-
-@tf.function
 def loss_orig(visual_fields, generic):
     return (tf.reduce_sum((visual_fields - VF) ** 2) +
             tf.reduce_sum((generic - G) ** 2))
