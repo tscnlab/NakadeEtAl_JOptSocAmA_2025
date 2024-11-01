@@ -1,26 +1,29 @@
-# Repository for the code used in the paper "The impact of face shape on the extent of the visual field in humans"
+# Repository for the code used in the paper "Predicting visual field boundaries from head features"
 ### Authors: Uday Nakade and Prof. Dr. Manuel Spitschan
 
 This repository contains the code used in our paper. In order to run it, 
-you will need [Mitsuba 3](https://www.mitsuba-renderer.org/) and [Blender](https://www.blender.org/). 
+you will need at least one of the following variants of [Mitsuba 3](https://www.mitsuba-renderer.org/): 
+`cuda_ad_spectral` (the one we used), `cuda_spectral`, `llvm_ad_spectral`, `llvm_spectral`, `scalar_spectral`, and [Blender](https://www.blender.org/).
 
 In a terminal, run the following commands in the given order to reproduce our results:
 
 ```bash
 blender -b ICT-FaceKit-just-face-tri.blend -P export_from_blender.py
+source /path/to/venv/bin/activate
 python3 get_eye_centers.py
 source /path/to/mitsuba3/setpath.sh
 python3 render_ply.py
-source /path/to/venv/bin/activate
 python3 get_vf_boundaries.py
 python3 optimize_vf_boundaries.py
+python3 create_hemispherical_vf_images.py  # Time consuming, can be skipped
 python3 plotting.py
 ```
 
 The `ICT-FaceKit-just-face-tri.blend` file was generated using the [ICT FaceKit](https://github.com/ICT-VGL/ICT-FaceKit).
-We first imported the face model into Blender, removed irrelevant parts (eyeballs, eyelashes, internal structure of the mouth, etc.) and triangulated all faces.
+We first imported the face model into Blender, removed irrelevant parts (eyeballs, eyelashes, internal structure of the 
+mouth, etc.) and triangulated all faces (required by Mitsuba 3).
 
-We used Blender version 3.3.21. The commit hash of the version of Mitsuba 3 we used was 
+We used `python` version `3.10.12` and `Blender` version `3.3.21`. The commit hash of the version of `Mitsuba 3` we used was 
 `d310cfd4dc5662903e0ebcbaf4a3704e8d57c953` with the output of `git submodule status` as follows:
 ```
  cae01e3964a44d76cb32ba574d80828217636704 ext/asmjit (heads/master)
