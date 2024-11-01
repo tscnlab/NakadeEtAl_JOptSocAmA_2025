@@ -117,10 +117,13 @@ def main():
         random_rendered=np.concatenate([random_thetas, random_val_thetas], axis=0),
         phis=phis
     )
-    plot_id_pm_diffs(range(NUMBERS.num_ids))
-    ls = sorted(list(DIRECTORIES.boundaries.glob(NAMING.npy.add_suffix('*', 'hemispherical_vf'))), key=str)
-    images = [np.load(file) for file in ls]
-    polar_plot_grayscale_images(images, [DIRECTORIES.comparison_plots / NAMING.png.add_file_type(file.stem) for file in ls])
+    try:
+        plot_id_pm_diffs(range(NUMBERS.num_ids))
+        ls = sorted(list(DIRECTORIES.boundaries.glob(NAMING.npy.add_suffix('*', 'hemispherical_vf'))), key=str)
+        images = [np.load(file) for file in ls]
+        polar_plot_grayscale_images(images, [DIRECTORIES.comparison_plots / NAMING.png.add_file_type(file.stem) for file in ls])
+    except FileNotFoundError:
+        print("No hemispherical VF images found, skipping")
 
 
 if __name__ == '__main__':
