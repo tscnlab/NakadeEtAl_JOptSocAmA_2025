@@ -2,8 +2,13 @@
 ### Authors: Uday Nakade and Prof. Dr. Manuel Spitschan
 
 This repository contains the code used in our paper. In order to run it, 
-you will need at least one of the following variants of [Mitsuba 3](https://www.mitsuba-renderer.org/): 
-`cuda_ad_spectral` (the one we used), `cuda_spectral`, `llvm_ad_spectral`, `llvm_spectral`, `scalar_spectral`, and [Blender](https://www.blender.org/).
+you will need `python3` with `numpy`, `matplotlib`, `scipy` and `tensorflow`, [Blender](https://www.blender.org/) and at least one of the following variants of [Mitsuba 3](https://www.mitsuba-renderer.org/): 
+`cuda_ad_spectral` (the one we used), `cuda_spectral`, `llvm_ad_spectral`, `llvm_spectral` or `scalar_spectral`.
+
+Cloning with `git clone <url>` will only download the code. By default, the code writes output to a new folder `Visual_Field_PCA`.
+For the sake of reproducibility, we have included our outputs in a submodule to this repository. 
+If you would like to download it for comparison, either clone with `git clone --recurse-submodules <url>`,
+or if you have already cloned the repository in the usual way, issue the command `git submodule update --init`.
 
 In a terminal, run the following commands in the given order to reproduce our results:
 
@@ -21,7 +26,7 @@ python3 plotting.py
 
 The `ICT-FaceKit-just-face-tri.blend` file was generated using the [ICT FaceKit](https://github.com/ICT-VGL/ICT-FaceKit).
 We first imported the face model into Blender, removed irrelevant parts (eyeballs, eyelashes, internal structure of the 
-mouth, etc.) and triangulated all faces (required by Mitsuba 3).
+mouth, etc.) and triangulated all faces, which is required by Mitsuba 3.
 
 We used `python` version `3.10.12` and `Blender` version `3.3.21`. The commit hash of the version of `Mitsuba 3` we used was 
 `d310cfd4dc5662903e0ebcbaf4a3704e8d57c953` with the output of `git submodule status` as follows:
