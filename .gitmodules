@@ -1,0 +1,3 @@
+[submodule "outputs"]
+	path = outputs
+	url = https://github.com/tscnlab/NakadeEtAl_xxx_202x_outputs
