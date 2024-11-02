@@ -107,7 +107,7 @@ NUMBERS = Numbers()
 class BaseNaming:
     def __init__(self):
         self.generic = 'generic_neutral_mesh'
-        self.id_pm_ = 'id{id_num:02d}_{pm:+}'
+        self.id_pm_ = 'id_{id_num:02d}_{pm:+}'
         self.random_ = 'random_{:0{digits_num_rand}}'
         self.id_start = 'id'
         self.random_start = 'random'
@@ -195,7 +195,7 @@ class PngNaming(SubNaming):
         super().__init__(base_naming)
         self.file_type = '.png'
         self.hemispherical_vf = self.add_file_type('hemispherical_vf')
-        self.id_diff_ = 'id_diff_{:02d}'
+        self.id_diff_ = 'id_{:02d}_diff'
     def id_diff(self, id_num):
         return self.add_file_type(self.id_diff_.format(id_num))
 
