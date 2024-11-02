@@ -6,7 +6,7 @@ you will need `python3` with `numpy`, `matplotlib`, `scipy` and `tensorflow`, [B
 `cuda_ad_spectral` (the one we used), `cuda_spectral`, `llvm_ad_spectral`, `llvm_spectral` or `scalar_spectral`.
 
 Cloning with `git clone <url>` will only download the code. By default, the code writes output to a new folder `Visual_Field_PCA`.
-For the sake of reproducibility, we have included our outputs in a submodule to this repository. 
+For the sake of reproducibility, we have included our outputs in a submodule to this repository (in a directory `outputs`). 
 If you would like to download it for comparison, either clone with `git clone --recurse-submodules <url>`,
 or if you have already cloned the repository in the usual way, issue the command `git submodule update --init`.
 
