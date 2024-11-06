@@ -1,7 +1,6 @@
-import matplotlib.pyplot as plt
 import numpy as np
 
-from utils_img import ImageSet, add_transparency
+from hemispherical_interpolator import ImageSet
 from common_params import DIRECTORIES, NAMING
 
 
