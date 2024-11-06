@@ -76,6 +76,7 @@ def export_random_meshes(shape_keys_, rng_, num_random_=NUMBERS.num_rand, num_va
 
 
 def main():
+    DIRECTORIES.create_directories()
     ict_face_model = bpy.data.objects['ICTFaceModel']
     ict_face_model.select_set(True)
     shape_keys = ict_face_model.data.shape_keys.key_blocks

@@ -56,7 +56,6 @@ class Directories:
         self.rendered_imgs_np = self.vf / 'rendered_images_numpy'
         self.boundaries = self.vf / 'boundaries'
         self.comparison_plots = self.vf / 'comparison_plots'
-        self.create_directories()
     def create_directories(self):
         for k, v in self.__dict__.items():
             if isinstance(v, Path):
