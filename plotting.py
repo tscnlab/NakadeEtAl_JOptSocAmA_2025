@@ -2,7 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from utils_img import add_transparency
-from common_params import DIRECTORIES, NAMING, NUMBERS, COLORS
+from common_params import DIRECTORIES, NUMBERS, COLORS
+from naming import NAMING
 
 
 def add_polar_axes(fig_, axes_coords_):
@@ -87,19 +88,19 @@ def plot_rendered_predicted_comparisons(random_predicted, random_rendered, phis)
     for i in range(random_rendered.shape[0]):
         plot_rendered_predicted_comparison(
             random_rendered[i], random_predicted[i], phis,
-            DIRECTORIES.comparison_plots / NAMING.png.random_suffix(i, 'comparison')
+            DIRECTORIES.comparison_plots / NAMING.random(i).comparison.png
         )
 
 
 def get_id_pm_diff(id_num):
-    p_img = np.load(DIRECTORIES.boundaries / NAMING.npy.id_pm_suffix(id_num, +1, 'hemispherical_vf'))
-    m_img = np.load(DIRECTORIES.boundaries / NAMING.npy.id_pm_suffix(id_num, -1, 'hemispherical_vf'))
+    p_img = np.load(DIRECTORIES.boundaries / NAMING.id(id_num).pos.hemispherical_vf.npy)
+    m_img = np.load(DIRECTORIES.boundaries / NAMING.id(id_num).neg.hemispherical_vf.npy)
     return p_img - m_img
 
 
 def plot_id_pm_diff(id_num):
     diff = get_id_pm_diff(id_num)
-    polar_plot_color_image(diff, DIRECTORIES.comparison_plots / NAMING.png.id_diff(id_num))
+    polar_plot_color_image(diff, DIRECTORIES.comparison_plots / NAMING.id(id_num).diff.png)
 
 
 def plot_id_pm_diffs(id_nums_arr):
@@ -108,10 +109,10 @@ def plot_id_pm_diffs(id_nums_arr):
 
 
 def main():
-    random_thetas = np.load(DIRECTORIES.vf / NAMING.npy.random_thetas)
-    random_val_thetas = np.load(DIRECTORIES.vf / NAMING.npy.random_val_thetas)
-    predicted_thetas = np.load(DIRECTORIES.vf / NAMING.npy.predictions)
-    phis = np.load(DIRECTORIES.vf / NAMING.npy.phis)
+    random_thetas = np.load(DIRECTORIES.vf / NAMING.random.theta_boundary.npy)
+    random_val_thetas = np.load(DIRECTORIES.vf / NAMING.random.val.theta_boundary.npy)
+    predicted_thetas = np.load(DIRECTORIES.vf / NAMING.optimization.predictions.npy)
+    phis = np.load(DIRECTORIES.vf / NAMING.phis.npy)
     plot_rendered_predicted_comparisons(
         random_predicted=predicted_thetas,
         random_rendered=np.concatenate([random_thetas, random_val_thetas], axis=0),
@@ -119,9 +120,9 @@ def main():
     )
     try:
         plot_id_pm_diffs(range(NUMBERS.num_ids))
-        ls = sorted(list(DIRECTORIES.boundaries.glob(NAMING.npy.add_suffix('*', 'hemispherical_vf'))), key=str)
+        ls = sorted(list(DIRECTORIES.boundaries.glob(str(NAMING.asterisk.hemispherical_vf.npy))), key=str)
         images = [np.load(file) for file in ls]
-        polar_plot_grayscale_images(images, [DIRECTORIES.comparison_plots / NAMING.png.add_file_type(file.stem) for file in ls])
+        polar_plot_grayscale_images(images, [DIRECTORIES.comparison_plots / NAMING.make_pathlike(file.stem).png for file in ls])
     except FileNotFoundError:
         print("No hemispherical VF images found, skipping")
 

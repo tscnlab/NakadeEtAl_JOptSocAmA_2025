@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
-from common_params import DIRECTORIES, NAMING, NUMBERS
+from common_params import DIRECTORIES, NUMBERS
+from naming import NAMING
 
 
 def separate_pos_neg_params(params_):
@@ -13,16 +14,16 @@ def separate_pos_neg_params(params_):
     return np.concatenate((pos_params, neg_params), axis=1)
 
 
-VF_POS_NP = np.load(DIRECTORIES.vf / NAMING.npy.id_p_thetas)
-VF_NEG_NP = np.load(DIRECTORIES.vf / NAMING.npy.id_m_thetas)
-RANDOM_NP = np.load(DIRECTORIES.vf / NAMING.npy.random_thetas)
-RANDOM_VAL_NP = np.load(DIRECTORIES.vf / NAMING.npy.random_val_thetas)
-PARAMS_NP = np.load(DIRECTORIES.vf / NAMING.npy.random_params)
-PARAMS_VAL_NP = np.load(DIRECTORIES.vf / NAMING.npy.random_val_params)
+VF_POS_NP = np.load(DIRECTORIES.vf / NAMING.id.pos.theta_boundary.npy)
+VF_NEG_NP = np.load(DIRECTORIES.vf / NAMING.id.neg.theta_boundary.npy)
+RANDOM_NP = np.load(DIRECTORIES.vf / NAMING.random.theta_boundary.npy)
+RANDOM_VAL_NP = np.load(DIRECTORIES.vf / NAMING.random.val.theta_boundary.npy)
+PARAMS_NP = np.load(DIRECTORIES.vf / NAMING.random.params.npy)
+PARAMS_VAL_NP = np.load(DIRECTORIES.vf / NAMING.random.val.params.npy)
 
 
 VF = tf.constant(np.concatenate([VF_POS_NP, VF_NEG_NP], axis=0))
-G = tf.constant(np.load(DIRECTORIES.vf / NAMING.npy.generic_thetas))
+G = tf.constant(np.load(DIRECTORIES.vf / NAMING.generic.theta_boundary.npy))
 
 RANDOM = tf.constant(RANDOM_NP)
 PARAMS = tf.constant(separate_pos_neg_params(PARAMS_NP))

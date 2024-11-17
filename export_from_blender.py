@@ -4,7 +4,8 @@ import numpy as np
 from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parent))
-from common_params import DIRECTORIES, NUMBERS, NAMING
+from common_params import DIRECTORIES, NUMBERS  #, NAMING
+from naming import NAMING
 
 
 def change_shape_key_slider_limits(shape_keys_, shape_key_name_, min_=-1, max_=1):
@@ -14,7 +15,7 @@ def change_shape_key_slider_limits(shape_keys_, shape_key_name_, min_=-1, max_=1
 
 def change_all_shape_key_slider_limits(shape_keys_, min_=-1, max_=1):
     for id_num in range(NUMBERS.num_ids):
-        shape_key_name = NAMING.shape_key(id_num=id_num)
+        shape_key_name = NAMING.shape_key(id_num)
         change_shape_key_slider_limits(shape_keys_, shape_key_name, min_, max_)
 
 
@@ -24,7 +25,7 @@ def set_shape_key_value(shape_keys_, shape_key_name_, value_):
 
 def set_all_shape_key_values(shape_keys_, values_):
     for id_num, value in enumerate(values_):
-        shape_key_name = NAMING.shape_key(id_num=id_num)
+        shape_key_name = NAMING.shape_key(id_num)
         set_shape_key_value(shape_keys_, shape_key_name, value)
 
 
@@ -45,19 +46,19 @@ def export_ply(filepath_, shape_keys_, shape_key_values_, use_selection_=True, u
 
 
 def export_generic_neutral_mesh(shape_keys_):
-    export_ply(DIRECTORIES.ply / NAMING.ply.generic_suffix(''), shape_keys_,
+    export_ply(DIRECTORIES.ply / NAMING.generic.ply, shape_keys_,
                np.zeros(NUMBERS.num_ids), use_ascii_=False)
-    export_ply(DIRECTORIES.ply / NAMING.ply.generic_suffix('ascii'), shape_keys_,
+    export_ply(DIRECTORIES.ply / NAMING.generic.ascii.ply, shape_keys_,
                np.zeros(NUMBERS.num_ids), use_ascii_=True)
 
 
 def export_id_pm_meshes(shape_keys_, num_ids_=NUMBERS.num_ids):
     for id_num in range(num_ids_):
-        for pm in [1, -1]:
+        for pm, pos_neg in zip([1, -1], ['pos', 'neg']):
             shape_key_values = id_pm_shape_key_values(id_num, pm)
-            export_ply(DIRECTORIES.ply / NAMING.ply.id_pm_suffix(id_num=id_num, pm=pm, suffix_key=''),
+            export_ply(DIRECTORIES.ply / NAMING.id(id_num).get(pos_neg).ply,
                        shape_keys_, shape_key_values, use_ascii_=False)
-            export_ply(DIRECTORIES.ply / NAMING.ply.id_pm_suffix(id_num=id_num, pm=pm, suffix_key='ascii'),
+            export_ply(DIRECTORIES.ply / NAMING.id(id_num).get(pos_neg).ascii.ply,
                        shape_keys_, shape_key_values)
 
 
@@ -66,13 +67,13 @@ def export_random_meshes(shape_keys_, rng_, num_random_=NUMBERS.num_rand, num_va
     for j in range(num_random_ + num_validation_):
         set_all_shape_key_values(shape_keys_, random_params[j])
         export_ply(
-            DIRECTORIES.ply / NAMING.ply.random_suffix(j, suffix_key=''),
+            DIRECTORIES.ply / NAMING.random(j).ply,
             shape_keys_, random_params[j], use_ascii_=False)
         export_ply(
-            DIRECTORIES.ply / NAMING.ply.random_suffix(j, suffix_key='ascii'),
+            DIRECTORIES.ply / NAMING.random(j).ascii.ply,
             shape_keys_, random_params[j], use_ascii_=True)
-    np.save(DIRECTORIES.vf / NAMING.npy.random_params, random_params[:NUMBERS.num_rand])
-    np.save(DIRECTORIES.vf / NAMING.npy.random_val_params, random_params[NUMBERS.num_rand:])
+    np.save(DIRECTORIES.vf / NAMING.random.params.npy, random_params[:NUMBERS.num_rand])
+    np.save(DIRECTORIES.vf / NAMING.random.val.params.npy, random_params[NUMBERS.num_rand:])
 
 
 def main():

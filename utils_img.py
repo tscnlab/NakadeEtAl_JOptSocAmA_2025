@@ -1,7 +1,4 @@
 import numpy as np
-from scipy.interpolate import LinearNDInterpolator
-
-from common_params import CAMERA
 
 __doc__ = """Library containing utility functions for dealing with images."""
 
