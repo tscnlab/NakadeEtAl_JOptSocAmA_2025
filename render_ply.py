@@ -1,7 +1,8 @@
 import json
 import numpy as np
 
-from common_params import CAMERA, NUMBERS, DIRECTORIES, NAMING
+from common_params import CAMERA, NUMBERS, DIRECTORIES
+from naming import NAMING
 
 import mitsuba as mi
 from mitsuba import ScalarTransform4f as Transform
@@ -19,7 +20,7 @@ if not MI_VARIANTS_AVAILABLE_PRIORITY:
 
 mi.set_variant(MI_VARIANTS_AVAILABLE_PRIORITY[0])
 
-with open(DIRECTORIES.vf / NAMING.json.eye_centers_right, 'r') as f:
+with open(DIRECTORIES.vf / NAMING.eye_centers.right.json, 'r') as f:
     eye_centers_right = json.load(f)
 
 
@@ -31,9 +32,9 @@ FILM = {
     'rfilter': {
         'type': 'box'
     },
-    NAMING.spd.film_spd_stem: {
+    str(NAMING.y_cie): {
         "type": "spectrum",
-        "filename": str(DIRECTORIES.output_channels / NAMING.spd.film_spd)
+        "filename": str(DIRECTORIES.output_channels / NAMING.y_cie.spd)
     }
 }
 
@@ -93,7 +94,7 @@ def camera_is_in_front_of_eye(image):
 
 
 def render(file_stem):
-    scene = mi.load_dict(scene_dict(str(DIRECTORIES.ply / (NAMING.ply.add_file_type(file_stem)))))
+    scene = mi.load_dict(scene_dict(str(DIRECTORIES.ply / NAMING.make_pathlike(file_stem).ply)))
     camera_origin = np.array(eye_centers_right[file_stem]) + np.array([np.tan(CAMERA.fov / 2) * CAMERA.near_clip, 0, 0])
     camera_dictionary = camera_dict(camera_origin, CAMERA.directions[0]['camera_direction'],
                                     CAMERA.directions[0]['up'], CAMERA.fov)
@@ -117,7 +118,7 @@ def render(file_stem):
 def main():
     for file_stem in eye_centers_right:
         images = render(file_stem)
-        np.save(DIRECTORIES.rendered_imgs_np / NAMING.npy.add_suffix(file_stem, 'rendered'), images)
+        np.save(DIRECTORIES.rendered_imgs_np / NAMING.add_suffix(file_stem, 'rendered').npy, images)
 
 
 if __name__ == '__main__':

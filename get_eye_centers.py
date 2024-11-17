@@ -2,7 +2,8 @@ import os
 import json
 import numpy as np
 
-from common_params import NUMBERS, DIRECTORIES, NAMING
+from common_params import NUMBERS, DIRECTORIES
+from naming import NAMING
 
 INDEX_R = 23728
 INDEX_L = 23577
@@ -25,7 +26,7 @@ def get_eye_centers(file_paths):
     for filepath in file_paths:
         with open(filepath.resolve(), 'r') as file:
             lines = file.readlines()
-        file_key = NAMING.ply.get_stem(filepath.name)
+        file_key = str(NAMING.replace_suffix(filepath.stem, 'ascii', ''))
         eye_centers_right_dict[file_key] = get_ply_vertex_coordinates(INDEX_R, lines)
         eye_centers_left_dict[file_key] = get_ply_vertex_coordinates(INDEX_L, lines)
         os.remove(filepath)
@@ -33,12 +34,12 @@ def get_eye_centers(file_paths):
 
 
 def main():
-    ls = DIRECTORIES.ply.glob(NAMING.ply.add_suffix('*', 'ascii'))
+    ls = DIRECTORIES.ply.glob(str(NAMING.asterisk.ascii.ply))
     ls = sorted(ls, key=str)
     eye_centers_right_dict, eye_centers_left_dict = get_eye_centers(ls)
-    with open(DIRECTORIES.vf / NAMING.json.eye_centers_right, 'w') as file:
+    with open(DIRECTORIES.vf / NAMING.eye_centers.right.json, 'w') as file:
         json.dump(eye_centers_right_dict, file, indent=2)
-    with open(DIRECTORIES.vf / NAMING.json.eye_centers_left, 'w') as file:
+    with open(DIRECTORIES.vf / NAMING.eye_centers.left.json, 'w') as file:
         json.dump(eye_centers_left_dict, file, indent=2)
 
 

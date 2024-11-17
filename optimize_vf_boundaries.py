@@ -1,7 +1,8 @@
 import numpy as np
 import tensorflow as tf
 
-from common_params import DIRECTORIES, NAMING, NUMBERS, save_npy_files
+from common_params import DIRECTORIES, NUMBERS, save_npy_files
+from naming import NAMING
 from tf_funcs import predict, loss, loss_val, any_nan, VF, G, PARAMS_VAL
 
 
@@ -63,10 +64,10 @@ def optimize():
         lowest_val_loss.record(val_loss_at_step, vf_var, g_var, iteration)
         iteration += 1
     save_npy_files({
-        DIRECTORIES.vf / NAMING.npy.lowest_val_vf: lowest_val_loss.vf,
-        DIRECTORIES.vf / NAMING.npy.lowest_val_g: lowest_val_loss.g,
-        DIRECTORIES.vf / NAMING.npy.losses: train_losses_record.losses,
-        DIRECTORIES.vf / NAMING.npy.losses_val: train_losses_record.losses_val
+        DIRECTORIES.vf / NAMING.id.optimized.theta_boundary.npy: lowest_val_loss.vf,
+        DIRECTORIES.vf / NAMING.generic.optimized.theta_boundary.npy: lowest_val_loss.g,
+        DIRECTORIES.vf / NAMING.optimization.losses.npy: train_losses_record.losses,
+        DIRECTORIES.vf / NAMING.optimization.losses.val.npy: train_losses_record.losses_val
     })
     return lowest_val_loss
 
@@ -75,7 +76,7 @@ def create_predictions(visual_fields, generic):
     predictions = predict(visual_fields, generic).numpy()
     predictions_val = predict(visual_fields, generic, params_=PARAMS_VAL).numpy()
     save_npy_files({
-        DIRECTORIES.vf / NAMING.npy.predictions: np.concatenate([predictions, predictions_val], axis=0)
+        DIRECTORIES.vf / NAMING.optimization.predictions.npy: np.concatenate([predictions, predictions_val], axis=0)
     })
 
 

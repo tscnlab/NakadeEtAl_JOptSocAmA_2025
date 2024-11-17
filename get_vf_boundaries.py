@@ -1,7 +1,8 @@
 import numpy as np
 
 import utils_img
-from common_params import CAMERA, NUMBERS, DIRECTORIES, NAMING, save_npy_files
+from common_params import CAMERA, NUMBERS, DIRECTORIES, save_npy_files
+from naming import NAMING
 
 
 def get_pixel_theta_phi(camera_directions_, image_shape_, fov_):
@@ -51,36 +52,37 @@ def binned_interpolated(t_bins, p_bins, p_mids_):
 
 def main():
     thetas_phis_for_img_pixels = get_pixel_theta_phi(CAMERA.directions, CAMERA.image_shape, CAMERA.fov)
-    ls = DIRECTORIES.rendered_imgs_np.glob(NAMING.npy.add_suffix('*', 'rendered'))
+    ls = DIRECTORIES.rendered_imgs_np.glob(str(NAMING.asterisk.rendered.npy))
     p_mids = get_bin_mids(0, 2 * np.pi, NUMBERS.num_phi_bins)
     id_p_t_mids = np.zeros((NUMBERS.num_ids, NUMBERS.num_phi_bins))
     id_m_t_mids = np.zeros((NUMBERS.num_ids, NUMBERS.num_phi_bins))
     rand_t_mids = np.zeros((NUMBERS.num_total_rand, NUMBERS.num_phi_bins))
     generic_t_mids = np.zeros(NUMBERS.num_phi_bins)
     for file_path in ls:
-        file_stem = NAMING.npy.get_stem(file_path.name)
+        file_pathlike = NAMING.replace_suffix(file_path.stem, 'rendered', '')
+        file_stem = str(file_pathlike)
         images = np.load(file_path)
         t_mids = binned_interpolated(
             *binned(*get_theta_phi_boundary(images, thetas_phis_for_img_pixels)))
-        np.save(DIRECTORIES.boundaries / NAMING.npy.add_suffix(file_stem, 'theta_boundary'), t_mids)
-        if file_stem.startswith(NAMING.base.id_start):
-            id_num, pm = NAMING.base.get_id_pm(file_stem)
+        np.save(DIRECTORIES.boundaries / file_pathlike.theta_boundary.npy, t_mids)
+        if file_stem.startswith(str(NAMING.id_)):
+            id_num, pm = NAMING.get_id_pm(file_stem)
             if pm == '+':
                 id_p_t_mids[id_num] = t_mids
             else:
                 id_m_t_mids[id_num] = t_mids
-        elif file_stem.startswith(NAMING.base.random_start):
-            rand_num = NAMING.base.get_random_num(file_stem)
+        elif file_stem.startswith(str(NAMING.random_)):
+            rand_num = NAMING.get_random_num(file_stem)
             rand_t_mids[rand_num] = t_mids
-        elif file_stem.startswith(NAMING.base.generic):
+        elif file_stem.startswith(str(NAMING.generic_)):
             generic_t_mids = t_mids
     save_npy_files({
-        DIRECTORIES.vf / NAMING.npy.phis: p_mids,
-        DIRECTORIES.vf / NAMING.npy.id_p_thetas: id_p_t_mids,
-        DIRECTORIES.vf / NAMING.npy.id_m_thetas: id_m_t_mids,
-        DIRECTORIES.vf / NAMING.npy.random_thetas: rand_t_mids[:NUMBERS.num_rand],
-        DIRECTORIES.vf / NAMING.npy.random_val_thetas: rand_t_mids[NUMBERS.num_rand:],
-        DIRECTORIES.vf / NAMING.npy.generic_thetas: generic_t_mids
+        DIRECTORIES.vf / NAMING.phis.npy: p_mids,
+        DIRECTORIES.vf / NAMING.id.pos.theta_boundary.npy: id_p_t_mids,
+        DIRECTORIES.vf / NAMING.id.neg.theta_boundary.npy: id_m_t_mids,
+        DIRECTORIES.vf / NAMING.random.theta_boundary.npy: rand_t_mids[:NUMBERS.num_rand],
+        DIRECTORIES.vf / NAMING.random.val.theta_boundary.npy: rand_t_mids[NUMBERS.num_rand:],
+        DIRECTORIES.vf / NAMING.generic.theta_boundary.npy: generic_t_mids
     })
 
 

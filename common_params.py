@@ -77,8 +77,10 @@ COLORS = Colors()
 class Numbers:
     def __init__(self):
         self.cm_to_mm = 10
+        self.digits_shape_key_ids = 3
         self.num_phi_bins = 36000
         self.num_ids = 100
+        self.digits_num_ids = len(str(self.num_ids - 1))
         self.num_rand = 200
         self.num_val = 20
         self.num_total_rand = self.num_rand + self.num_val
@@ -101,131 +103,3 @@ class Numbers:
 
 
 NUMBERS = Numbers()
-
-
-class BaseNaming:
-    def __init__(self):
-        self.generic = 'generic_neutral_mesh'
-        self.id_pm_ = 'id_{id_num:02d}_{pm:+}'
-        self.random_ = 'random_{:0{digits_num_rand}}'
-        self.id_start = 'id'
-        self.random_start = 'random'
-    def id_pm(self, id_num, pm):
-        return self.id_pm_.format(id_num=id_num, pm=pm)
-    def random(self, num):
-        return self.random_.format(num, digits_num_rand=NUMBERS.digits_num_rand)
-    @staticmethod
-    def get_id_pm(name):
-        return int(name[2:4]), name.split('_')[1][0]
-    @staticmethod
-    def get_random_num(name):
-        return int(name.split('_')[1].split('.')[0])
-
-
-BASE_NAMING = BaseNaming()
-
-
-class SubNaming:
-    def __init__(self, base):
-        self.file_type = ''
-        self.suffixes = {
-            '': '',
-            'ascii': '_ascii',
-            'rendered': '_rendered_images',
-            'theta_boundary': '_t_mids',
-            'hemispherical_vf': '_hemispherical_vf',
-            'comparison': '_rendered_vs_predicted',
-            'diff': '_diff',
-        }
-        self.base = base
-    def add_file_type(self, name):
-        return name + self.file_type
-    def add_suffix(self, stem, suffix):
-        return self.add_file_type(stem + self.suffixes[suffix])
-    def add_suffix_anew(self, name, suffix):
-        return self.add_suffix(self.get_stem(name), suffix)
-    def generic_suffix(self, suffix_key):
-        return self.add_suffix(self.base.generic, suffix_key)
-    def id_pm_suffix(self, id_num, pm, suffix_key):
-        return self.add_suffix(self.base.id_pm(id_num, pm), suffix_key)
-    def random_suffix(self, num, suffix_key):
-        return self.add_suffix(self.base.random(num), suffix_key)
-    def remove_suffix(self, name, suffix):
-        return name.replace(self.suffixes[suffix], self.suffixes[''])
-    def remove_all_suffixes(self, name):
-        name_temp = name
-        for suffix in self.suffixes:
-            name_temp = self.remove_suffix(name_temp, suffix)
-        return name_temp
-    def get_stem(self, name):
-        name_temp = self.remove_all_suffixes(name)
-        return name_temp.replace(self.file_type, '')
-
-
-class PlyNaming(SubNaming):
-    def __init__(self, base_naming):
-        super().__init__(base_naming)
-        self.file_type = '.ply'
-        self.generic = self.add_suffix(self.base.generic, '')
-        self.generic_ascii = self.add_suffix(self.base.generic, 'ascii')
-
-
-class NpyNaming(SubNaming):
-    def __init__(self, base_naming):
-        super().__init__(base_naming)
-        self.file_type = '.npy'
-        self.phis = self.add_file_type('p_mids')
-        self.random_params = self.add_file_type('random_params')
-        self.random_val_params = self.add_file_type('random_val_params')
-        self.id_p_thetas = self.add_file_type('id_+_t_mids')
-        self.id_m_thetas = self.add_file_type('id_-_t_mids')
-        self.random_thetas = self.add_file_type('random_t_mids')
-        self.random_val_thetas = self.add_file_type('random_val_t_mids')
-        self.generic_thetas = self.add_file_type('generic_t_mids')
-        self.lowest_val_vf = self.add_file_type('optimized_ids_vf')
-        self.lowest_val_g = self.add_file_type('optimized_generic_vf')
-        self.losses = self.add_file_type('optimization_losses')
-        self.losses_val = self.add_file_type('optimization_losses_validation')
-        self.predictions = self.add_file_type('predictions')
-
-
-class PngNaming(SubNaming):
-    def __init__(self, base_naming):
-        super().__init__(base_naming)
-        self.file_type = '.png'
-        self.hemispherical_vf = self.add_file_type('hemispherical_vf')
-        self.id_diff_ = 'id_{:02d}_diff'
-    def id_diff(self, id_num):
-        return self.add_file_type(self.id_diff_.format(id_num))
-
-
-class JsonNaming(SubNaming):
-    def __init__(self, base_naming):
-        super().__init__(base_naming)
-        self.file_type = '.json'
-        self.eye_centers_right = self.add_file_type('eye_centers_right')
-        self.eye_centers_left = self.add_file_type('eye_centers_left')
-
-
-class SpdNaming(SubNaming):
-    def __init__(self, base_naming):
-        super().__init__(base_naming)
-        self.file_type = '.spd'
-        self.film_spd_stem = 'y_CIE_1931'
-        self.film_spd = self.add_file_type(self.film_spd_stem)
-
-
-class Naming:
-    def __init__(self):
-        self.shape_key_ = 'identity{id_num:03d}'
-        self.base = BASE_NAMING
-        self.ply = PlyNaming(self.base)
-        self.npy = NpyNaming(self.base)
-        self.json = JsonNaming(self.base)
-        self.spd = SpdNaming(self.base)
-        self.png = PngNaming(self.base)
-    def shape_key(self, id_num):
-        return self.shape_key_.format(id_num=id_num)
-
-
-NAMING = Naming()
