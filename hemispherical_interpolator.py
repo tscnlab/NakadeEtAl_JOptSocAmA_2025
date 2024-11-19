@@ -44,7 +44,7 @@ class HemisphericInterpolator:
         temp_internal_coords = utils_img.theta_phi_to_graph_coordinates(
             *utils_img.xyz_to_theta_phi(vector),
             graph_res_=self.mapping_resolution,
-            front=front)
+            front_=front)
         return np.stack(temp_internal_coords, axis=-1)
     def output(self):
         output = self.interpolator_front(self.output_xy)
