@@ -5,22 +5,55 @@ import numpy as np
 from common_params import NUMBERS, DIRECTORIES
 from naming import NAMING
 
-INDEX_R = 23728
-INDEX_L = 23577
-LEN_HEADER = 15
+__doc__ = """Get the eye centers from the PLY files and save them to JSON files."""
 
+INDEX_R = 23728  # Index of the center of the right eye pupil in the PLY file
+INDEX_L = 23577  # Index of the center of the left eye pupil in the PLY file
+LEN_HEADER = 15  # Number of lines in the header of the PLY file
+
+# Matrix to rotate the mesh in the PLY file to the desired orientation
 ROTATION = np.array([[0, -1, 0],
                      [1, 0, 0],
                      [0, 0, 1]])
 
 
 def get_ply_vertex_coordinates(index_, lines_):
+    """Get the coordinates of the vertex in the PLY file.
+
+    Rotates the vertex by 90 degrees around the z-axis and scales it by 10.
+
+    Parameters
+    ----------
+    index_ : int
+        The index of the vertex in the PLY file.
+    lines_ : list
+        The lines in the ascii PLY file, obtained by file.readlines().
+
+    Returns
+    -------
+    list
+        The coordinates of the vertex in the PLY file.
+    """
     vertex = list(map(float, lines_[index_ + LEN_HEADER].split(' ')[:3]))
     vertex_rotated_scaled = NUMBERS.cm_to_mm * ROTATION @ np.array(vertex)
     return vertex_rotated_scaled.tolist()
 
 
 def get_eye_centers(file_paths):
+    """Get the eye centers from the PLY files.
+
+    Rotates the eye centers by pi/2 around the z-axis and scales them by 10.
+
+    Parameters
+    ----------
+    file_paths : list[pathlib.Path]
+        The paths to the PLY files.
+
+    Returns
+    -------
+    tuple[dict, dict]
+        The eye centers of the right and left eyes.
+    """
     eye_centers_right_dict = {}
     eye_centers_left_dict = {}
     for filepath in file_paths:
@@ -34,6 +67,12 @@ def get_eye_centers(file_paths):
 
 
 def main():
+    """Get the eye centers from the PLY files and save them to JSON files.
+
+    Searches for the PLY files in the Visual_Field_PCA/ply_files directory.
+    Saves the eye centers to Visual_Field_PCA/eye_centers_right.json and
+    Visual_Field_PCA/eye_centers_left.json.
+    """
     ls = DIRECTORIES.ply.glob(str(NAMING.asterisk.ascii.ply))
     ls = sorted(ls, key=str)
     eye_centers_right_dict, eye_centers_left_dict = get_eye_centers(ls)

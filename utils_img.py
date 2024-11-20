@@ -169,7 +169,7 @@ def gray_img_to_single_color(
         img * color
     """
     if isinstance(color[0], int):
-        return np.stack([img * color[i]/255 for i in range(3)], axis=-1).astype(img.dtype)
+        return np.stack([img * color[i] / 255 for i in range(3)], axis=-1).astype(img.dtype)
     return np.stack([img * color[i] for i in range(3)], axis=-1).astype(img.dtype)
 
 
@@ -594,9 +594,9 @@ def theta_phi_to_graph_coordinates(theta_, phi_, graph_res_, front_=True):
     if theta_.shape != phi_.shape:
         raise ValueError('theta_ and phi_ must have the same shape')
     if front_:
-        graph_r = theta_*graph_res_/np.pi
+        graph_r = theta_ * graph_res_ / np.pi
     else:
-        graph_r = (np.pi - theta_)*graph_res_/np.pi
+        graph_r = (np.pi - theta_) * graph_res_ / np.pi
     graph_theta = phi_
     return graph_r * np.cos(graph_theta), graph_r * np.sin(graph_theta)
 
@@ -622,8 +622,8 @@ def get_transparency(img):
         0 is transparent, 1 is opaque.
     """
     xx, yy = img_shape_to_xy(img.shape)
-    r = np.sqrt(xx**2 + yy**2)
-    return np.where(r>min(xx.max(), yy.max()), 0, 1)
+    r = np.sqrt(xx ** 2 + yy ** 2)
+    return np.where(r > min(xx.max(), yy.max()), 0, 1)
 
 
 def add_transparency(img):
@@ -647,5 +647,3 @@ def add_transparency(img):
     else:
         img_ = np.stack([img_[..., 0], img_[..., 1], img_[..., 2], transparency], axis=-1)
     return img_
-
-

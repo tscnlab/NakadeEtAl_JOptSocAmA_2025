@@ -13,7 +13,7 @@ FILE_TYPE_SUFFIXES = ['png', 'npy', 'ply', 'json', 'spd']
 
 
 class NamingPathLike(os.PathLike):
-    def __init__(self, start, suffix, separator = '_', next_suffixes = None):
+    def __init__(self, start, suffix, separator='_', next_suffixes=None):
         self.start = start
         self.suffix = suffix
         self.separator = separator
@@ -21,6 +21,7 @@ class NamingPathLike(os.PathLike):
             self.next_suffixes = {}
         else:
             self.next_suffixes = next_suffixes
+
     def __getattr__(self, item):
         if item in FILE_TYPE_SUFFIXES:
             return NamingPathLike(self, item, separator='.')
@@ -28,14 +29,19 @@ class NamingPathLike(os.PathLike):
             return NamingPathLike(self, self.next_suffixes[item])
         else:
             raise AttributeError(f"'{self.__class__.__name__}' object has no attribute '{item}'")
+
     def get(self, name, default=None):
         return getattr(self, name, default)
+
     def remove_suffix(self):
         return self.start
+
     def add_suffix_anew(self, suffix):
         return NamingPathLike(self.start, suffix)
+
     def __str__(self):
         return self.__fspath__()
+
     def __fspath__(self):
         if self.start.__fspath__() != '' and self.suffix != '':
             return self.start.__fspath__() + self.separator + self.suffix
@@ -75,6 +81,7 @@ OPTIMIZATION_SUFFIXES = {
     'predictions': 'predictions'
 }
 
+
 class Naming:
     def __init__(self, base):
         self.base = base
@@ -103,18 +110,23 @@ class Naming:
         self.asterisk = NamingPathLike(self.base, '*', next_suffixes=ID_NUM_RANDOM_SUFFIXES)
         self.y_cie = NamingPathLike(self.base, 'y_CIE_1931')
         self.phis = NamingPathLike(self.base, 'phis')
+
     def id(self, num):
         id_num_pathlike_temp = NamingPathLike(self.id_,
                                               f'{num:0{NUMBERS.digits_num_ids}d}',
                                               next_suffixes=ID_NUM_PM_SUFFIXES | ID_NUM_RANDOM_SUFFIXES)
         for k, v in ID_NUM_PM_SUFFIXES.items():
-            id_num_pathlike_temp.__dict__[k] = NamingPathLike(id_num_pathlike_temp, v, next_suffixes=ID_NUM_RANDOM_SUFFIXES)
+            id_num_pathlike_temp.__dict__[k] = NamingPathLike(id_num_pathlike_temp, v,
+                                                              next_suffixes=ID_NUM_RANDOM_SUFFIXES)
         return id_num_pathlike_temp
+
     def random(self, num):
         return NamingPathLike(self.random_, f'{num:0{NUMBERS.digits_num_rand}d}', next_suffixes=ID_NUM_RANDOM_SUFFIXES)
+
     @staticmethod
     def shape_key(num):
         return f'identity{num:0{NUMBERS.digits_shape_key_ids}d}'
+
     def replace_suffix(self, old_name, old_suffix, new_suffix, suffixes_dict=None, next_suffixes_dict=None):
         if suffixes_dict is None:
             suffixes_dict = ID_NUM_RANDOM_SUFFIXES
@@ -130,18 +142,22 @@ class Naming:
             else:
                 return NamingPathLike(NamingPathLike(self.base, old_name),
                                       suffixes_dict[new_suffix], next_suffixes=next_suffixes_dict)
+
     def make_pathlike(self, name, suffixes_dict=None):
         if suffixes_dict is None:
             suffixes_dict = ID_NUM_RANDOM_SUFFIXES
         return NamingPathLike(self.base, name, next_suffixes=suffixes_dict)
+
     def add_suffix(self, name, suffix, suffixes_dict=None):
         return self.replace_suffix(name, '', suffix, suffixes_dict)
+
     @staticmethod
     def get_id_num_pm(name):
         name_stem = name.split('.')[0]
         id_num = int(name_stem.split('_')[1])
         pm = name_stem.split('_')[2][0]
         return id_num, pm
+
     @staticmethod
     def get_random_num(name):
         name_stem = name.split('.')[0]

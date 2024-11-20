@@ -4,7 +4,7 @@ import numpy as np
 from pathlib import Path
 
 sys.path.append(str(Path(__file__).resolve().parent))
-from common_params import DIRECTORIES, NUMBERS  #, NAMING
+from common_params import DIRECTORIES, NUMBERS
 from naming import NAMING
 
 __doc__ = """Export the generic neutral, id+-, and random meshes to PLY files."""
