@@ -6,6 +6,26 @@ from naming import NAMING
 
 
 def get_pixel_theta_phi(camera_directions_, image_shape_, fov_):
+    """Get the theta and phi values for pixels in all the images.
+
+    Get `utils_img.img_shape_to_theta_phi` for all the `camera_directions_`.
+
+    Parameters
+    ----------
+    camera_directions_ : dict
+        The camera directions for the images. The keys are integers from 0 to
+        (number of images - 1).
+    image_shape_ : tuple[int]
+        (height, width) of the images.
+    fov_ : float
+        The field of view of the camera in degrees.
+
+    Returns
+    -------
+    numpy.ndarray
+        An array of shape (len(camera_directions_), *image_shape_, 2) containing
+        the theta and phi values for the pixels in all the images.
+    """
     thetas_phis_for_img_pixels_ = np.zeros((len(camera_directions_), *image_shape_, 2))
     for i, v in camera_directions_.items():
         theta, phi = utils_img.img_shape_to_theta_phi(v['camera_direction'], v['up'],
@@ -16,6 +36,30 @@ def get_pixel_theta_phi(camera_directions_, image_shape_, fov_):
 
 
 def get_theta_phi_boundary(images_, thetas_phis_for_img_pixels_, tol=2e-1):
+    """Get the theta and phi values for the boundary pixels in the images.
+
+    Get the theta and phi values for the pixels in the images that are not
+    within `tol` of either 0 or the maximum value in the images
+    (expected to be 106.857).
+
+    Parameters
+    ----------
+    images_ : numpy.ndarray
+        An array of shape (number of images, height, width) containing the images.
+    thetas_phis_for_img_pixels_ : numpy.ndarray
+        An array of shape (number of images, height, width, 2) containing
+        the theta and phi values for the pixels in the images.
+        To be obtained from `get_pixel_theta_phi`.
+    tol : float, default 2e-1
+        The tolerance around 0 and `images_.max()` to determine
+        non-boundary pixels.
+
+    Returns
+    -------
+    tuple[numpy.ndarray]
+        The theta and phi values for the boundary pixels in the images.
+        Both returned arrays are 1D.
+    """
     images_max = images_.max()
     is_close_0 = np.isclose(images_, 0, atol=tol)
     is_close_max = np.isclose(images_, images_max, atol=tol)
@@ -28,11 +72,52 @@ def get_theta_phi_boundary(images_, thetas_phis_for_img_pixels_, tol=2e-1):
 
 
 def get_bin_mids(minima, maxima, num_bins):
+    """Get the midpoints of the bins.
+
+    Divide the range from `minima` to `maxima` into `num_bins` bins and return
+    their midpoints.
+
+    Parameters
+    ----------
+    minima : float
+        The minimum value of the range.
+    maxima : float
+        The maximum value of the range.
+    num_bins : int
+        The number of bins to divide the range into.
+
+    Returns
+    -------
+    numpy.ndarray
+        An array of shape (num_bins,) containing the midpoints of the bins.
+    """
     bin_size = (maxima - minima) / num_bins
     return np.linspace(minima + bin_size / 2, maxima - bin_size / 2, num_bins)
 
 
 def binned(t_, p_, num_phi_bins=NUMBERS.num_phi_bins):
+    """Get theta values corresponding to phi bins.
+
+    Create equally spaced bins for phi values and get the mean of the
+    theta values for points in each bin. Empty bins (bins with no points) are
+    not included in the output.
+
+    Parameters
+    ----------
+    t_ : numpy.ndarray
+        A 1D array of the theta values.
+    p_ : numpy.ndarray
+        A 1D array of the corresponding phi values.
+    num_phi_bins : int, default NUMBERS.num_phi_bins
+        The number of bins to divide the range of phi values (0 to 2*pi) into.
+
+    Returns
+    -------
+    tuple[numpy.ndarray]
+        The mean theta value for each non-empty bin,
+        the mean phi value for each non-empty bin,
+        the midpoints of `num_phi_bins` equally spaced phi bins from 0 to 2*pi.
+    """
     rad_bin = 2 * np.pi / num_phi_bins
     p_bin_edges = np.arange(0, 2 * np.pi + rad_bin, rad_bin)
     p_bins = []
@@ -45,13 +130,39 @@ def binned(t_, p_, num_phi_bins=NUMBERS.num_phi_bins):
     return np.array(t_bins), np.array(p_bins), get_bin_mids(0, 2 * np.pi, num_phi_bins)
 
 
-def binned_interpolated(t_bins, p_bins, p_mids_):
-    t_mids_ = np.interp(p_mids_, p_bins, t_bins, period=2 * np.pi)
+def binned_interpolated(t_bins_, p_bins_, p_mids_):
+    """Interpolate theta values for phi bins.
+
+    Interpolate the theta values for the midpoints of the equally spaced
+    phi bins.
+
+    Parameters
+    ----------
+    t_bins_ : numpy.ndarray
+        1D array with theta values.
+    p_bins_ : numpy.ndarray
+        1D array with phi values corresponding to `t_bins_`.
+    p_mids_: numpy.ndarray
+        1D array with the midpoints of the phi bins.
+
+    Returns
+    -------
+    numpy.ndarray
+        1D array with the interpolated theta values for `p_mids_`.
+    """
+    t_mids_ = np.interp(p_mids_, p_bins_, t_bins_, period=2 * np.pi)
     return t_mids_
 
 
 def main():
-    thetas_phis_for_img_pixels = get_pixel_theta_phi(CAMERA.directions, CAMERA.image_shape, CAMERA.fov)
+    """Get theta(phi) boundaries from the visual field images.
+
+    Gets the theta(phi) boundaries from the rendered images,
+    groups them into the id_+, id_-, random, and generic categories,
+    and saves them.
+    """
+    thetas_phis_for_img_pixels = get_pixel_theta_phi(CAMERA.directions,
+                                                     CAMERA.image_shape, CAMERA.fov)
     ls = DIRECTORIES.rendered_imgs_np.glob(str(NAMING.asterisk.rendered.npy))
     p_mids = get_bin_mids(0, 2 * np.pi, NUMBERS.num_phi_bins)
     id_p_t_mids = np.zeros((NUMBERS.num_ids, NUMBERS.num_phi_bins))

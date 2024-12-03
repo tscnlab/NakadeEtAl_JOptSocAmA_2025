@@ -60,8 +60,9 @@ FILM = {
 def camera_dict(origin, camera_direction, up, fov, fov_axis=CAMERA.fov_axis):
     """Create a dictionary with the camera parameters.
 
-    The camera is placed at the center of the right eye of the head model
-    and points towards `camera_direction`. The field of view is `fov` degrees.
+    The camera is placed at the center of the right eye of the
+    head model (`origin`) and points towards `camera_direction`.
+    The field of view is `fov` degrees.
 
     Parameters
     ----------
@@ -221,7 +222,7 @@ def render(file_stem):
 
 
 def main():
-    """Render images from the perspective of the right eye of the head model.
+    """Render images from the perspective of the right eye of the head models.
 
     The images are saved as npy files in the 'rendered_images_numpy' directory.
     """

@@ -215,7 +215,7 @@ def img_shape_to_3d_coordinates(camera_direction, up, image_shape_, fov_, fov_ax
     image_shape_ : tuple[int, int]
         The shape of the image as a (height, width) tuple.
     fov_ : float
-        The field of view of the camera.
+        The field of view of the camera in degrees.
     fov_axis_ : str, default 'x'
         The axis along which the field of view is specified.
 
@@ -267,7 +267,7 @@ def img_shape_to_theta_phi(camera_direction, up, image_shape_, fov_, fov_axis_='
     image_shape_ : tuple[int, int]
         The shape of the image as a (height, width) tuple.
     fov_ : float
-        The field of view of the camera.
+        The field of view of the camera in degrees.
     fov_axis_ : str, default 'x'
         The axis along which the field of view is specified.
 
