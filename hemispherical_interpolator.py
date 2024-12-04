@@ -126,12 +126,15 @@ class HemisphericInterpolator:
             The 3D coordinates of the points on the sphere.
         values : numpy.ndarray
             The values at the lattice points.
-        interpolator : scipy.interpolate.NDInterpolatorBase
-            The interpolator for the lattice points.
+        interpolator : scipy.interpolate.interpnd.NDInterpolatorBase
             default scipy.interpolate.LinearNDInterpolator
+            The interpolator for the lattice points.
         mapping_resolution : int, default 1024
             The resolution of the internal mapping.
-        cos_cutoff
+        cos_cutoff : float, default 0.1
+            The cosine of the angle at which the hemisphere is cut off.
+            We include points outside the hemisphere in the interpolator to
+            avoid edge effects at the boundary of the hemisphere.
         """
         self.lattice = lattice_
         self.values = values
