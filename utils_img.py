@@ -41,8 +41,8 @@ def img_shape_to_xy(img_shape: tuple) -> list[np.ndarray]:
 
     Returns
     -------
-    list[numpy.ndarray]
-        [x: numpy.ndarray, y: numpy.ndarray]
+    list[numpy.ndarray, numpy.ndarray]
+        [x, y]
         The x and y coordinates of the centers of pixels.
         x and y are 2D arrays with the shape = `img_shape`.
 
@@ -63,7 +63,7 @@ def img_shape_to_xy(img_shape: tuple) -> list[np.ndarray]:
     return [*np.meshgrid(x, y)]
 
 
-def img_to_xy(img: np.ndarray) -> list[np.ndarray]:
+def img_to_xy(img: np.ndarray) -> list[np.ndarray, np.ndarray]:
     """Get (x, y) coordinates of the centers of pixels of an image.
 
     Please see `img_shape_to_xy` for more details.
@@ -75,8 +75,8 @@ def img_to_xy(img: np.ndarray) -> list[np.ndarray]:
 
     Returns
     -------
-    list[numpy.ndarray]
-        [x: numpy.ndarray, y: numpy.ndarray]
+    list[numpy.ndarray, numpy.ndarray]
+        [x, y]
         The x and y coordinates of the centers of pixels.
         x and y are 2D arrays with the same shape as `img.shape[:2]`.
     """
@@ -94,15 +94,15 @@ def xy_to_r_phi(xy: list[np.ndarray]) -> list[np.ndarray]:
 
     Parameters
     ----------
-    xy : list[numpy.ndarray]
-        [x: numpy.ndarray, y: numpy.ndarray]
+    xy : list[numpy.ndarray, numpy.ndarray]
+        [x, y]
         The x and y coordinates of the centers of pixels.
         x and y are 2D arrays with the same shape as img_shape[:2].
 
     Returns
     -------
-    list[numpy.ndarray]
-        [r: numpy.ndarray, phi: numpy.ndarray]
+    list[numpy.ndarray, numpy.ndarray]
+        [r, phi]
         r is the distance from the origin.
         phi is the angle measured anticlockwise from +x.
     """
@@ -124,8 +124,8 @@ def img_shape_to_r_phi(img_shape: tuple) -> list[np.ndarray]:
 
     Returns
     -------
-    list[numpy.ndarray]
-        [r: numpy.ndarray, phi: numpy.ndarray]
+    list[numpy.ndarray, numpy.ndarray]
+        [r, phi]
     """
     return xy_to_r_phi(img_shape_to_xy(img_shape))
 
@@ -142,8 +142,8 @@ def img_to_r_phi(img: np.ndarray) -> list[np.ndarray]:
 
     Returns
     -------
-    list[numpy.ndarray]
-        [r: numpy.ndarray, phi: numpy.ndarray]
+    list[numpy.ndarray, numpy.ndarray]
+        [r, phi]
     """
     return img_shape_to_r_phi(img.shape[:2])
 

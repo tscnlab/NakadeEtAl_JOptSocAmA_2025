@@ -26,12 +26,12 @@ def get_ply_vertex_coordinates(index_, lines_):
     ----------
     index_ : int
         The index of the vertex in the PLY file.
-    lines_ : list
+    lines_ : list[str, ...]
         The lines in the ascii PLY file, obtained by file.readlines().
 
     Returns
     -------
-    list
+    list[float, float, float]
         The coordinates of the vertex in the PLY file.
     """
     vertex = list(map(float, lines_[index_ + LEN_HEADER].split(' ')[:3]))
@@ -46,7 +46,7 @@ def get_eye_centers(file_paths):
 
     Parameters
     ----------
-    file_paths : list[pathlib.Path]
+    file_paths : list[pathlib.Path, ...]
         The paths to the PLY files.
 
     Returns

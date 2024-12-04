@@ -100,9 +100,9 @@ class TrainLossesRecord:
 
     Attributes
     ----------
-    losses : list[float]
+    losses : list[float, ...]
         The training losses.
-    losses_val : list[float]
+    losses_val : list[float, ...]
         The validation losses.
     """
     def __init__(self):
