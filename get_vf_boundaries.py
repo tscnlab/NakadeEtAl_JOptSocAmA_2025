@@ -177,7 +177,7 @@ def main():
             *binned(*get_theta_phi_boundary(images, thetas_phis_for_img_pixels)))
         np.save(DIRECTORIES.boundaries / file_pathlike.theta_boundary.npy, t_mids)
         if file_stem.startswith(str(NAMING.id_)):
-            id_num, pm = NAMING.get_id_pm(file_stem)
+            id_num, pm = NAMING.get_id_num_pm(file_stem)
             if pm == '+':
                 id_p_t_mids[id_num] = t_mids
             else:
