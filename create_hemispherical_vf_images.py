@@ -6,6 +6,18 @@ from naming import NAMING
 
 
 def create_hemispherical_vf_image(rendered_images_file_path):
+    """Create a hemispherical visual field image from the rendered images.
+
+    Parameters
+    ----------
+    rendered_images_file_path : str | pathlib.Path
+        Path to the rendered images file.
+
+    Returns
+    -------
+    np.ndarray
+        Hemispherical visual field image.
+    """
     array = np.load(rendered_images_file_path)
     array /= np.max(array)
     img_set = ImageSet(array)
@@ -23,6 +35,7 @@ def main():
         hemispherical_vf_image = np.clip(hemispherical_vf_image, 0, 1)
         np.save(DIRECTORIES.boundaries / NAMING.replace_suffix(file_path.stem, 'rendered', 'hemispherical_vf').npy,
                 hemispherical_vf_image)
+
 
 if __name__ == '__main__':
     main()
