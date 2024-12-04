@@ -17,7 +17,7 @@ def get_pixel_theta_phi(camera_directions_, image_shape_, fov_):
     camera_directions_ : dict
         The camera directions for the images. The keys are integers from 0 to
         (number of images - 1).
-    image_shape_ : tuple[int]
+    image_shape_ : tuple[int, int]
         (height, width) of the images.
     fov_ : float
         The field of view of the camera in degrees.
@@ -58,7 +58,7 @@ def get_theta_phi_boundary(images_, thetas_phis_for_img_pixels_, tol=2e-1):
 
     Returns
     -------
-    tuple[numpy.ndarray]
+    tuple[numpy.ndarray, numpy.ndarray]
         The theta and phi values for the boundary pixels in the images.
         Both returned arrays are 1D.
     """
@@ -115,7 +115,7 @@ def binned(t_, p_, num_phi_bins=NUMBERS.num_phi_bins):
 
     Returns
     -------
-    tuple[numpy.ndarray]
+    tuple[numpy.ndarray, numpy.ndarray, numpy.ndarray]
         The mean theta value for each non-empty bin,
         the mean phi value for each non-empty bin,
         the midpoints of `num_phi_bins` equally spaced phi bins from 0 to 2*pi.

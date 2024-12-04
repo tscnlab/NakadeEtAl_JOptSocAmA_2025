@@ -36,8 +36,8 @@ def img_shape_to_xy(img_shape: tuple) -> list[np.ndarray]:
 
     Parameters
     ----------
-    img_shape : tuple
-        (height: int, width: int) of the image.
+    img_shape : tuple[int, int]
+        (height, width) of the image.
 
     Returns
     -------
@@ -119,8 +119,8 @@ def img_shape_to_r_phi(img_shape: tuple) -> list[np.ndarray]:
 
     Parameters
     ----------
-    img_shape : tuple
-        (height: int, width: int) of the image.
+    img_shape : tuple[int, int]
+        (height, width) of the image.
 
     Returns
     -------
@@ -150,7 +150,7 @@ def img_to_r_phi(img: np.ndarray) -> list[np.ndarray]:
 
 def gray_img_to_single_color(
         img: np.ndarray,
-        color: tuple[float] | tuple[int]
+        color: tuple[float, float, float] | tuple[int, int, int]
 ) -> np.ndarray:
     """Convert gray image to single color image.
 
@@ -158,7 +158,7 @@ def gray_img_to_single_color(
     ----------
     img : numpy.ndarray
         Gray image.
-    color : tuple[float] | tuple[int]
+    color : tuple[float, float, float] | tuple[int, int, int]
         Color to convert to.
         If the values are floats, they are assumed to be in the range [0, 1].
         If the values are integers, they are assumed to be in the range [0, 255].
@@ -186,8 +186,8 @@ def xyz_to_theta_phi(xyz):
 
     Returns
     -------
-    tuple[numpy.ndarray]
-        (theta: numpy.ndarray, phi: numpy.ndarray)
+    tuple[numpy.ndarray, numpy.ndarray]
+        (theta, phi)
         Theta is measured away from +x.
         Phi is measured away from -y around -x.
     """
@@ -273,8 +273,8 @@ def img_shape_to_theta_phi(camera_direction, up, image_shape_, fov_, fov_axis_='
 
     Returns
     -------
-    tuple[numpy.ndarray]
-        (theta: numpy.ndarray, phi: numpy.ndarray)
+    tuple[numpy.ndarray, numpy.ndarray]
+        (theta, phi)
         Theta is measured away from +x.
         Phi is measured away from -y around -x.
 
@@ -456,7 +456,10 @@ def xy_min_max_mid(image_shape_, fov_, fov_axis_='x'):
 
     Returns
     -------
-    tuple[numpy.ndarray]
+    tuple[
+    numpy.ndarray, numpy.ndarray, numpy.ndarray,
+    numpy.ndarray, numpy.ndarray, numpy.ndarray
+    ]
         x_min: numpy.ndarray
             The lower limits of the x coordinates (left edges) of the pixels.
         x_max: numpy.ndarray
@@ -582,8 +585,8 @@ def theta_phi_to_graph_coordinates(theta_, phi_, graph_res_, front_=True):
 
     Returns
     -------
-    tuple[numpy.ndarray]
-        (x: numpy.ndarray, y: numpy.ndarray)
+    tuple[numpy.ndarray, numpy.ndarray]
+        (x, y)
         `theta_` and `phi_` converted to graph coordinates.
 
     Raises

@@ -33,7 +33,7 @@ class CameraParameters:
         Axis along which the FOV is specified. Set to 'x'.
     image_size : int
         Size of the image in pixels. Set to 1024.
-    image_shape : tuple
+    image_shape : tuple[int, int]
         Shape of the image. Set to (1024, 1024).
     near_clip : float
         Distance to the near clipping plane. Set to 1e-6 (mm).

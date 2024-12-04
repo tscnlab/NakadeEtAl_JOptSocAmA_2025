@@ -20,7 +20,7 @@ def gradient_step(vf_var_, g_var_, lr_):
 
     Returns
     -------
-    tuple[float]
+    tuple[float, float]
         The loss and validation loss values at the step.
     """
     with tf.GradientTape() as tape:
