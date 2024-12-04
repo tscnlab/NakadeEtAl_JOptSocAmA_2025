@@ -241,8 +241,8 @@ class Numbers:
         self.polar_r_ticks = np.linspace(30, 90, 3, endpoint=True, dtype=int)
         self.polar_y_ticks = np.linspace(0, 360, 8, endpoint=False, dtype=int)
         self.polar_axes_coords_colorbar = (2.5 / 12.5, 1 / 11, 9 / 12.5, 9 / 11)
-        self.figsize_colorbar = (12.5/2,11/2)
-        self.colorbar_axes_coords_colorbar = (1/12.5,1/11,.5/12.5,9/11)
+        self.figsize_colorbar = (12.5/2, 11/2)
+        self.colorbar_axes_coords_colorbar = (1/12.5, 1/11, 0.5/12.5, 9/11)
         self.dpi = 250
 
 

@@ -495,7 +495,7 @@ def xy_min_max_mid(image_shape_, fov_, fov_axis_='x'):
     x_min = x_0 + j_array * delta_
     x_max = x_min + delta_
     x_mid = (x_min + x_max) / 2  # the x coordinates of the centers of the pixels
-    y_max = y_0 - i_array * delta_
+    y_max = y_0 - i_array * delta_  # y decreases when index increases
     y_min = y_max - delta_
     y_mid = (y_min + y_max) / 2
     return x_min, x_max, x_mid, y_min, y_max, y_mid
@@ -605,12 +605,14 @@ def theta_phi_to_graph_coordinates(theta_, phi_, graph_res_, front_=True):
 
 
 def get_transparency(img):
-    """Gives a 2D array that's 0 where distance from the center is larger than
-    the distance to the closest edge of the image and 1 otherwise.
+    """Array to make everything outside the largest circle transparent.
 
+    Gives a 2D array that's 0 where distance from the center is larger than
+    the distance to the closest edge of the image and 1 otherwise.
+    This highlights the largest circle that can be drawn in the image
+    with its center at the center of the image.
     This array can be added as the transparency channel to an image to make
-    everything lying outside the largest circle centered at the center
-    of the image transparent.
+    everything lying outside this circle transparent.
 
     Parameters
     ----------
@@ -631,6 +633,10 @@ def get_transparency(img):
 
 def add_transparency(img):
     """Add an edge to edge circular transparency to the image.
+
+    Consider the largest circle that can be drawn in the image with its center
+    at the center of the image. This function makes everything outside this
+    circle transparent and everything inside it opaque.
 
     Parameters
     ----------

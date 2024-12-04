@@ -201,7 +201,11 @@ def render(file_stem):
         An array of shape (5, *CAMERA.image_shape) containing the rendered images.
     """
     scene = mi.load_dict(scene_dict(str(DIRECTORIES.ply / NAMING.make_pathlike(file_stem).ply)))
-    camera_origin = np.array(EYE_CENTERS_RIGHT[file_stem]) + np.array([np.tan(CAMERA.fov / 2) * CAMERA.near_clip, 0, 0])
+    # The further shift forward by tan(FOV / 2) * near_clip is to ensure that
+    # the near clip plane of the camera pointing in directions other than
+    # the front does not intersect the mesh.
+    camera_origin = (np.array(EYE_CENTERS_RIGHT[file_stem]) +
+                     np.array([np.tan(CAMERA.fov / 2) * CAMERA.near_clip, 0, 0]))
     camera_dictionary = camera_dict(camera_origin, CAMERA.directions[0]['camera_direction'],
                                     CAMERA.directions[0]['up'], CAMERA.fov)
     camera = mi.load_dict(camera_dictionary)

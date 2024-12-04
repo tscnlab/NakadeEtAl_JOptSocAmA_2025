@@ -145,7 +145,7 @@ def optimize():
         if iteration % 100 == 0:
             print(f'Iteration: {iteration}')
         if (iteration > NUMBERS.training_patience and
-                monotonically_increasing(train_losses_record,NUMBERS.training_patience)):
+                monotonically_increasing(train_losses_record, NUMBERS.training_patience)):
             break  # Training loss has been increasing for the last training_patience iterations
         if any_nan(vf_var).numpy() or any_nan(g_var).numpy():
             break  # NaN found
@@ -183,7 +183,8 @@ def create_predictions(visual_fields, generic):
     predictions = predict(visual_fields, generic).numpy()
     predictions_val = predict(visual_fields, generic, params_=PARAMS_VAL).numpy()
     save_npy_files({
-        DIRECTORIES.vf / NAMING.optimization.predictions.npy: np.concatenate([predictions, predictions_val], axis=0)
+        DIRECTORIES.vf / NAMING.optimization.predictions.npy:
+            np.concatenate([predictions, predictions_val], axis=0)
     })
 
 

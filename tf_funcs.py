@@ -60,11 +60,11 @@ def predict(visual_fields, generic, params_=PARAMS):
 
     Parameters
     ----------
-    visual_fields : tf.Tensor
+    visual_fields : tf.Tensor | numpy.ndarray
         The VF boundaries corresponding to the id parameters.
-    generic : tf.Tensor
+    generic : tf.Tensor | numpy.ndarray
         The VF boundary corresponding to the generic mesh.
-    params_ : tf.Tensor
+    params_ : tf.Tensor | numpy.ndarray
         The parameters of the faces for which the VF boundaries
         are to be predicted.
         The shape is (number of faces, 2 * number of parameters) because
@@ -84,16 +84,16 @@ def loss_pred(visual_fields, generic, params_=PARAMS, rand_=RANDOM):
 
     Parameters
     ----------
-    visual_fields : tf.Tensor
+    visual_fields : tf.Tensor | numpy.ndarray
         The VF boundaries corresponding to the id parameters.
-    generic : tf.Tensor
+    generic : tf.Tensor | numpy.ndarray
         The VF boundary corresponding to the generic mesh.
-    params_ : tf.Tensor
+    params_ : tf.Tensor | numpy.ndarray
         The parameters of the faces for which the VF boundaries
         are to be predicted.
         The shape is (number of faces, 2 * number of parameters) because
         the parameters are separated into positive and negative parts.
-    rand_ : tf.Tensor
+    rand_ : tf.Tensor | numpy.ndarray
         The rendered VF boundaries for the faces given by `params_`.
 
     Returns
@@ -112,9 +112,9 @@ def loss_orig(visual_fields, generic):
 
     Parameters
     ----------
-    visual_fields : tf.Tensor
+    visual_fields : tf.Tensor | numpy.ndarray
         The optimized VF boundaries corresponding to the id parameters.
-    generic : tf.Tensor
+    generic : tf.Tensor | numpy.ndarray
         The optimized VF boundary corresponding to the generic mesh.
 
     Returns
@@ -136,16 +136,16 @@ def loss(visual_fields, generic, params_=PARAMS, rand_=RANDOM, frac_pred=0.75):
 
     Parameters
     ----------
-    visual_fields : tf.Tensor
+    visual_fields : tf.Tensor | numpy.ndarray
         The optimized VF boundaries corresponding to the id parameters.
-    generic : tf.Tensor
+    generic : tf.Tensor | numpy.ndarray
         The optimized VF boundary corresponding to the generic mesh.
-    params_ : tf.Tensor
+    params_ : tf.Tensor | numpy.ndarray
         The parameters of the faces for which the VF boundaries
         are to be predicted.
         The shape is (number of faces, 2 * number of parameters) because
         the parameters are separated into positive and negative parts.
-    rand_ : tf.Tensor
+    rand_ : tf.Tensor | numpy.ndarray
         The rendered VF boundaries for the faces given by `params_`.
     frac_pred : float, default 0.75
         The weight for the loss of the predicted VF boundaries for random faces.
@@ -167,9 +167,9 @@ def loss_val(visual_fields, generic):
 
     Parameters
     ----------
-    visual_fields : tf.Tensor
+    visual_fields : tf.Tensor | numpy.ndarray
         The VF boundaries corresponding to the id parameters.
-    generic : tf.Tensor
+    generic : tf.Tensor | numpy.ndarray
         The VF boundary corresponding to the generic mesh.
 
     Returns
@@ -187,12 +187,13 @@ def any_nan(arr):
 
     Parameters
     ----------
-    arr : tf.Tensor
+    arr : tf.Tensor | numpy.ndarray
         The array to check for NaN values.
 
     Returns
     -------
-    bool
+    tf.Tensor
         True if there are any NaN values in the array, False otherwise.
+        To get the boolean value, use `.numpy()`.
     """
     return tf.math.reduce_any(tf.math.is_nan(arr))

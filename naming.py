@@ -227,8 +227,9 @@ class Naming:
         self.random_ = NamingPathLike(self.base, 'random')
         self.generic_ = NamingPathLike(self.base, 'generic_neutral_mesh')
         self.generic = NamingPathLike(self.generic_, '', next_suffixes=ID_NUM_RANDOM_SUFFIXES)
+        # __dict__ needs to be updated to add the attributes dynamically
         for k, v in ID_PM_SUFFIXES.items():
-            Naming.id.__dict__[k] = NamingPathLike(self.id_, v, next_suffixes=ID_NUM_RANDOM_SUFFIXES)
+            self.id.__dict__[k] = NamingPathLike(self.id_, v, next_suffixes=ID_NUM_RANDOM_SUFFIXES)
         for k, v in OPTIMIZED_SUFFIXES.items():
             self.id.__dict__[k] = NamingPathLike(self.id_, v, next_suffixes=ID_NUM_RANDOM_SUFFIXES)
             self.generic.__dict__[k] = NamingPathLike(self.generic_, v, next_suffixes=ID_NUM_RANDOM_SUFFIXES)

@@ -25,7 +25,7 @@ def add_polar_axes(fig_, axes_coords_):
     """
     ax_polar = fig_.add_axes(axes_coords_, projection='polar')
     ax_polar.set_yticks(np.deg2rad(NUMBERS.polar_y_ticks))
-    ax_polar.set_rlim(0, 90)
+    ax_polar.set_rlim(0, 90)  # 0 to 90 because this represents theta on a hemisphere
     ax_polar.set_rticks(NUMBERS.polar_r_ticks)
     ax_polar.yaxis.set_major_formatter('{x}°')
     ax_polar.patch.set_alpha(0)
@@ -264,13 +264,12 @@ def plot_rendered_predicted_comparisons(random_predicted, random_rendered, phis)
 
 
 def get_id_pm_diff(id_num):
-    """Get the difference in the Visual Field when an id parameter changes
-    from -1 to 1.
+    """Difference in the Visual Field when an id parameter changes from -1 to 1.
 
     Parameters
     ----------
     id_num : int
-        The id number.
+        The id parameter number.
 
     Returns
     -------
@@ -283,8 +282,9 @@ def get_id_pm_diff(id_num):
 
 
 def plot_id_pm_diff(id_num):
-    """Plot the difference in the Visual Field when an id parameter changes
-    from -1 to 1 and save the plot to a png file.
+    """Plot the difference in the VF when an id parameter changes from -1 to 1
+
+    Saves the plot to a png file.
 
     Parameters
     ----------
@@ -300,8 +300,7 @@ def plot_id_pm_diff(id_num):
 
 
 def plot_id_pm_diffs(id_nums_arr):
-    """Plot the difference in the Visual Field when id parameters change
-    from -1 to 1 for multiple id numbers.
+    """Plot the differences in the VFs when id parameters change from -1 to 1.
 
     Calls `plot_id_pm_diff` for multiple id numbers.
 

@@ -178,6 +178,7 @@ def main():
         t_mids = binned_interpolated(
             *binned(*get_theta_phi_boundary(images, thetas_phis_for_img_pixels)))
         np.save(DIRECTORIES.boundaries / file_pathlike.theta_boundary.npy, t_mids)
+        # Group the boundaries into id_+, id_-, random, and generic categories
         if file_stem.startswith(str(NAMING.id_)):
             id_num, pm = NAMING.get_id_num_pm(file_stem)
             if pm == '+':

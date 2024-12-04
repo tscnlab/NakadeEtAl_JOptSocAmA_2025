@@ -252,7 +252,7 @@ class ImageSet:
 
         Parameters
         ----------
-        weightings : list[str, ...], default None
+        weightings : list[str, ...], default []
             The weightings to be applied to the images.
             The options are 'solid_angle' and 'cosine'.
             If None, no weightings are applied.

@@ -33,7 +33,8 @@ def main():
     for file_path in sorted(rendered_images_file_paths, key=str):
         hemispherical_vf_image = create_hemispherical_vf_image(file_path)
         hemispherical_vf_image = np.clip(hemispherical_vf_image, 0, 1)
-        np.save(DIRECTORIES.boundaries / NAMING.replace_suffix(file_path.stem, 'rendered', 'hemispherical_vf').npy,
+        np.save(DIRECTORIES.boundaries / NAMING.replace_suffix(
+            file_path.stem, 'rendered', 'hemispherical_vf').npy,
                 hemispherical_vf_image)
 
 

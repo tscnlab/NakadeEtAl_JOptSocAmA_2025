@@ -21,6 +21,8 @@ def get_ply_vertex_coordinates(index_, lines_):
     """Get the coordinates of the vertex in the PLY file.
 
     Rotates the vertex by 90 degrees around the z-axis and scales it by 10.
+    This is done to match the orientation of the mesh in the PLY file with
+    the one that Mitsuba will render.
 
     Parameters
     ----------
@@ -42,7 +44,10 @@ def get_ply_vertex_coordinates(index_, lines_):
 def get_eye_centers(file_paths):
     """Get the eye centers from the PLY files.
 
-    Rotates the eye centers by pi/2 around the z-axis and scales them by 10.
+    Rotates the eye centers by 90 degrees around the z-axis and
+    scales them by 10.
+    This is done to match the orientation of the mesh in the PLY file with
+    the one that Mitsuba will render.
 
     Parameters
     ----------
@@ -62,7 +67,7 @@ def get_eye_centers(file_paths):
         file_key = str(NAMING.replace_suffix(filepath.stem, 'ascii', ''))
         eye_centers_right_dict[file_key] = get_ply_vertex_coordinates(INDEX_R, lines)
         eye_centers_left_dict[file_key] = get_ply_vertex_coordinates(INDEX_L, lines)
-        os.remove(filepath)
+        os.remove(filepath)  # PLY files in the ascii format are no longer needed
     return eye_centers_right_dict, eye_centers_left_dict
 
 
