@@ -4,6 +4,8 @@ import utils_img
 from common_params import CAMERA, NUMBERS, DIRECTORIES, save_npy_files
 from naming import NAMING
 
+__doc__ = """Module used to get theta(phi) boundaries from the rendered images."""
+
 
 def get_pixel_theta_phi(camera_directions_, image_shape_, fov_):
     """Get the theta and phi values for pixels in all the images.
