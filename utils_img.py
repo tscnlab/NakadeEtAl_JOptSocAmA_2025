@@ -21,7 +21,7 @@ def normalize(xyz_):
     return xyz_ / np.linalg.norm(xyz_, axis=-1, keepdims=True)
 
 
-def img_shape_to_xy(img_shape: tuple) -> list[np.ndarray]:
+def img_shape_to_xy(img_shape: tuple) -> list[np.ndarray, np.ndarray]:
     """Get (x, y) coordinates of the centers of pixels from image size.
 
     The x and y axes are in the plane of the sensor.
@@ -83,7 +83,7 @@ def img_to_xy(img: np.ndarray) -> list[np.ndarray, np.ndarray]:
     return img_shape_to_xy(img.shape)
 
 
-def xy_to_r_phi(xy: list[np.ndarray]) -> list[np.ndarray]:
+def xy_to_r_phi(xy: list[np.ndarray, np.ndarray]) -> list[np.ndarray, np.ndarray]:
     """Convert cartesian to polar coordinates in the image plane.
 
     The origin is at the center of the image.
@@ -112,7 +112,7 @@ def xy_to_r_phi(xy: list[np.ndarray]) -> list[np.ndarray]:
     return [r, phi]
 
 
-def img_shape_to_r_phi(img_shape: tuple) -> list[np.ndarray]:
+def img_shape_to_r_phi(img_shape: tuple) -> list[np.ndarray, np.ndarray]:
     """Get (r, phi) coordinates of the centers of pixels from image size.
 
     Refer to `img_shape_to_xy` and `xy_to_r_phi` for more details.
@@ -130,7 +130,7 @@ def img_shape_to_r_phi(img_shape: tuple) -> list[np.ndarray]:
     return xy_to_r_phi(img_shape_to_xy(img_shape))
 
 
-def img_to_r_phi(img: np.ndarray) -> list[np.ndarray]:
+def img_to_r_phi(img: np.ndarray) -> list[np.ndarray, np.ndarray]:
     """Get (r, phi) coordinates of the centers of pixels of an image.
 
     Refer to `img_shape_to_xy` and `xy_to_r_phi` for more details.
