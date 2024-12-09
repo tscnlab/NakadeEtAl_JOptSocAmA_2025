@@ -1,0 +1,644 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>export_from_blender &#8212; visual-field-pca 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/export_from_blender';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">visual-field-pca 0.0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">README</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../common_params.html">common_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../naming.html">naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils_img.html">utils_img</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../export_from_blender.html">export_from_blender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_eye_centers.html">get_eye_centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render_ply.html">render_ply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_vf_boundaries.html">get_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tf_funcs.html">tf_funcs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optimize_vf_boundaries.html">optimize_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hemispherical_interpolator.html">hemispherical_interpolator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_hemispherical_vf_images.html">create_hemispherical_vf_images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">plotting</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for export_from_blender</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">bpy</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">common_params</span> <span class="kn">import</span> <span class="n">DIRECTORIES</span><span class="p">,</span> <span class="n">NUMBERS</span>
+<span class="kn">from</span> <span class="nn">naming</span> <span class="kn">import</span> <span class="n">NAMING</span>
+
+<span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Export the generic neutral, id+-, and random meshes to PLY files.&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="change_shape_key_slider_limits">
+<a class="viewcode-back" href="../export_from_blender.html#export_from_blender.change_shape_key_slider_limits">[docs]</a>
+<span class="k">def</span> <span class="nf">change_shape_key_slider_limits</span><span class="p">(</span><span class="n">shape_keys_</span><span class="p">,</span> <span class="n">shape_key_name_</span><span class="p">,</span> <span class="n">min_</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Change the slider limits for one shape key.</span>
+
+<span class="sd">    The blendshape sliders in Blender are limited to the range ``[0, 1]`` by</span>
+<span class="sd">    default. This function changes the limits to the specified range</span>
+<span class="sd">    (``[-1, 1]`` by default).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape_keys_ : bpy.types.bpy_prop_collection</span>
+<span class="sd">        A dict like object containing the shape keys.</span>
+<span class="sd">    shape_key_name_ : str</span>
+<span class="sd">        The name of the shape key.</span>
+<span class="sd">    min_ : float, default -1</span>
+<span class="sd">        The intended lower limit.</span>
+<span class="sd">    max_ : float, default 1</span>
+<span class="sd">        The intended upper limit.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">        Changes the slider limits in place.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">shape_keys_</span><span class="p">[</span><span class="n">shape_key_name_</span><span class="p">]</span><span class="o">.</span><span class="n">slider_min</span> <span class="o">=</span> <span class="n">min_</span>
+    <span class="n">shape_keys_</span><span class="p">[</span><span class="n">shape_key_name_</span><span class="p">]</span><span class="o">.</span><span class="n">slider_max</span> <span class="o">=</span> <span class="n">max_</span></div>
+
+
+
+<div class="viewcode-block" id="change_all_shape_key_slider_limits">
+<a class="viewcode-back" href="../export_from_blender.html#export_from_blender.change_all_shape_key_slider_limits">[docs]</a>
+<span class="k">def</span> <span class="nf">change_all_shape_key_slider_limits</span><span class="p">(</span><span class="n">shape_keys_</span><span class="p">,</span> <span class="n">min_</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Change the slider limits of all shape keys.</span>
+
+<span class="sd">    Refer to :py:func:`change_shape_key_slider_limits` for more details.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape_keys_ : bpy.types.bpy_prop_collection</span>
+<span class="sd">        A dict like object containing the shape keys.</span>
+<span class="sd">    min_ : float, default -1</span>
+<span class="sd">        The intended lower limit.</span>
+<span class="sd">    max_ : float, default 1</span>
+<span class="sd">        The intended upper limit.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">        Changes the slider limits in place.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">id_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">num_ids</span><span class="p">):</span>
+        <span class="n">shape_key_name</span> <span class="o">=</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">shape_key</span><span class="p">(</span><span class="n">id_num</span><span class="p">)</span>
+        <span class="n">change_shape_key_slider_limits</span><span class="p">(</span><span class="n">shape_keys_</span><span class="p">,</span> <span class="n">shape_key_name</span><span class="p">,</span> <span class="n">min_</span><span class="p">,</span> <span class="n">max_</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="set_shape_key_value">
+<a class="viewcode-back" href="../export_from_blender.html#export_from_blender.set_shape_key_value">[docs]</a>
+<span class="k">def</span> <span class="nf">set_shape_key_value</span><span class="p">(</span><span class="n">shape_keys_</span><span class="p">,</span> <span class="n">shape_key_name_</span><span class="p">,</span> <span class="n">value_</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set the value of a shape key.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape_keys_ : bpy.types.bpy_prop_collection</span>
+<span class="sd">        A dict like object containing the shape keys.</span>
+<span class="sd">    shape_key_name_ : str</span>
+<span class="sd">        The name of the shape key.</span>
+<span class="sd">    value_ : float</span>
+<span class="sd">        The value to set the shape key to.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">        Sets the shape key value in place.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">shape_keys_</span><span class="p">[</span><span class="n">shape_key_name_</span><span class="p">]</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value_</span></div>
+
+
+
+<div class="viewcode-block" id="set_all_shape_key_values">
+<a class="viewcode-back" href="../export_from_blender.html#export_from_blender.set_all_shape_key_values">[docs]</a>
+<span class="k">def</span> <span class="nf">set_all_shape_key_values</span><span class="p">(</span><span class="n">shape_keys_</span><span class="p">,</span> <span class="n">values_</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Set the values of all shape keys.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape_keys_ : bpy.types.bpy_prop_collection</span>
+<span class="sd">        A dict like object containing the shape keys.</span>
+<span class="sd">    values_ : numpy.ndarray</span>
+<span class="sd">        An array of shape key values.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">        Sets the shape key values in place.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">id_num</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">values_</span><span class="p">):</span>
+        <span class="n">shape_key_name</span> <span class="o">=</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">shape_key</span><span class="p">(</span><span class="n">id_num</span><span class="p">)</span>
+        <span class="n">set_shape_key_value</span><span class="p">(</span><span class="n">shape_keys_</span><span class="p">,</span> <span class="n">shape_key_name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="id_pm_shape_key_values">
+<a class="viewcode-back" href="../export_from_blender.html#export_from_blender.id_pm_shape_key_values">[docs]</a>
+<span class="k">def</span> <span class="nf">id_pm_shape_key_values</span><span class="p">(</span><span class="n">id_num_</span><span class="p">,</span> <span class="n">pm1_</span><span class="p">,</span> <span class="n">num_ids_</span><span class="o">=</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">num_ids</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get an array with only one non-zero value for shape keys.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    id_num_ : int</span>
+<span class="sd">        The index of the shape key which is to be non-zero.</span>
+<span class="sd">    pm1_ : int</span>
+<span class="sd">        Either 1 or -1.</span>
+<span class="sd">    num_ids_ : int, default NUMBERS.num_ids = 100</span>
+<span class="sd">        The total number of shape keys.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        An array of size :py:attr:`num_ids_` with the :py:attr:`id_num_`\\th</span>
+<span class="sd">        value equal to :py:attr:`pm1_` and others 0.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">values_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_ids_</span><span class="p">)</span>
+    <span class="n">values_temp</span><span class="p">[</span><span class="n">id_num_</span><span class="p">]</span> <span class="o">=</span> <span class="n">pm1_</span>
+    <span class="k">return</span> <span class="n">values_temp</span></div>
+
+
+
+<div class="viewcode-block" id="random_shape_key_values">
+<a class="viewcode-back" href="../export_from_blender.html#export_from_blender.random_shape_key_values">[docs]</a>
+<span class="k">def</span> <span class="nf">random_shape_key_values</span><span class="p">(</span><span class="n">rng_</span><span class="p">,</span> <span class="n">size_</span><span class="p">,</span> <span class="n">min_</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get uniform random values.</span>
+
+<span class="sd">    To be used to generate random faces using shape keys.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    rng_ : numpy.random.Generator</span>
+<span class="sd">        A random number generator.</span>
+<span class="sd">    size_ : int | tuple[int, int]</span>
+<span class="sd">        In case it&#39;s an int, the number of shape keys</span>
+<span class="sd">        (also the number of random values generated).</span>
+<span class="sd">        In case it&#39;s a tuple, the shape of the random array to be generated.</span>
+<span class="sd">        (number of faces, number of shape keys).</span>
+<span class="sd">    min_ : float, default -1</span>
+<span class="sd">        The lower limit for the uniform distribution</span>
+<span class="sd">        (lower limit of the shape key slider).</span>
+<span class="sd">    max_ : float, default 1</span>
+<span class="sd">        The upper limit for the uniform distribution</span>
+<span class="sd">        (upper limit of the shape key slider).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        An array of uniform random values between :py:attr:`min_` and</span>
+<span class="sd">        :py:attr:`max_`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">rng_</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">min_</span><span class="p">,</span> <span class="n">max_</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">size_</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="export_ply">
+<a class="viewcode-back" href="../export_from_blender.html#export_from_blender.export_ply">[docs]</a>
+<span class="k">def</span> <span class="nf">export_ply</span><span class="p">(</span><span class="n">filepath_</span><span class="p">,</span> <span class="n">shape_keys_</span><span class="p">,</span> <span class="n">shape_key_values_</span><span class="p">,</span> <span class="n">use_selection_</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_ascii_</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Export the mesh to a PLY file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filepath_ : pathlib.Path</span>
+<span class="sd">        The path to the PLY file.</span>
+<span class="sd">    shape_keys_ : bpy.types.bpy_prop_collection</span>
+<span class="sd">        A dict like object containing the shape keys.</span>
+<span class="sd">    shape_key_values_ : numpy.ndarray</span>
+<span class="sd">        An array of shape key values.</span>
+<span class="sd">    use_selection_ : bool, default True</span>
+<span class="sd">        Whether to export only the selected mesh.</span>
+<span class="sd">    use_ascii_ : bool, default True</span>
+<span class="sd">        Whether to use ASCII encoding.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">        Exports the mesh to the PLY file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">set_all_shape_key_values</span><span class="p">(</span><span class="n">shape_keys_</span><span class="p">,</span> <span class="n">shape_key_values_</span><span class="p">)</span>
+    <span class="n">bpy</span><span class="o">.</span><span class="n">ops</span><span class="o">.</span><span class="n">export_mesh</span><span class="o">.</span><span class="n">ply</span><span class="p">(</span><span class="n">filepath</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">filepath_</span><span class="o">.</span><span class="n">resolve</span><span class="p">()),</span> <span class="n">use_selection</span><span class="o">=</span><span class="n">use_selection_</span><span class="p">,</span>
+                            <span class="n">use_ascii</span><span class="o">=</span><span class="n">use_ascii_</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="export_generic_neutral_mesh">
+<a class="viewcode-back" href="../export_from_blender.html#export_from_blender.export_generic_neutral_mesh">[docs]</a>
+<span class="k">def</span> <span class="nf">export_generic_neutral_mesh</span><span class="p">(</span><span class="n">shape_keys_</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Export the mesh with all shape keys 0.</span>
+
+<span class="sd">    Two PLY files are exported: one in ASCII format and the other in binary</span>
+<span class="sd">    format. The ASCII format is required to get the coordinates of the eye</span>
+<span class="sd">    centers. The binary format is used with ``Mitsuba 3`` as it&#39;s faster to load.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape_keys_ : bpy.types.bpy_prop_collection</span>
+<span class="sd">        A dict like object containing the shape keys.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">        Exports the mesh to the generic neutral PLY file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">export_ply</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">ply</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">ply</span><span class="p">,</span> <span class="n">shape_keys_</span><span class="p">,</span>
+               <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">num_ids</span><span class="p">),</span> <span class="n">use_ascii_</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">export_ply</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">ply</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">ascii</span><span class="o">.</span><span class="n">ply</span><span class="p">,</span> <span class="n">shape_keys_</span><span class="p">,</span>
+               <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">num_ids</span><span class="p">),</span> <span class="n">use_ascii_</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="export_id_pm_meshes">
+<a class="viewcode-back" href="../export_from_blender.html#export_from_blender.export_id_pm_meshes">[docs]</a>
+<span class="k">def</span> <span class="nf">export_id_pm_meshes</span><span class="p">(</span><span class="n">shape_keys_</span><span class="p">,</span> <span class="n">num_ids_</span><span class="o">=</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">num_ids</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Export meshes with individual shape keys set to 1 and -1.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape_keys_ : bpy.types.bpy_prop_collection</span>
+<span class="sd">        A dict like object containing the shape keys.</span>
+<span class="sd">    num_ids_ : int, default NUMBERS.num_ids = 100</span>
+<span class="sd">        The total number of shape keys.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">        Exports the meshes to the PLY files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">id_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_ids_</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">pm</span><span class="p">,</span> <span class="n">pos_neg</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">,</span> <span class="s1">&#39;neg&#39;</span><span class="p">]):</span>
+            <span class="n">shape_key_values</span> <span class="o">=</span> <span class="n">id_pm_shape_key_values</span><span class="p">(</span><span class="n">id_num</span><span class="p">,</span> <span class="n">pm</span><span class="p">)</span>
+            <span class="n">export_ply</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">ply</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="n">id_num</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pos_neg</span><span class="p">)</span><span class="o">.</span><span class="n">ply</span><span class="p">,</span>
+                       <span class="n">shape_keys_</span><span class="p">,</span> <span class="n">shape_key_values</span><span class="p">,</span> <span class="n">use_ascii_</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">export_ply</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">ply</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="n">id_num</span><span class="p">)</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pos_neg</span><span class="p">)</span><span class="o">.</span><span class="n">ascii</span><span class="o">.</span><span class="n">ply</span><span class="p">,</span>
+                       <span class="n">shape_keys_</span><span class="p">,</span> <span class="n">shape_key_values</span><span class="p">,</span> <span class="n">use_ascii_</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="export_random_meshes">
+<a class="viewcode-back" href="../export_from_blender.html#export_from_blender.export_random_meshes">[docs]</a>
+<span class="k">def</span> <span class="nf">export_random_meshes</span><span class="p">(</span><span class="n">shape_keys_</span><span class="p">,</span> <span class="n">rng_</span><span class="p">,</span> <span class="n">num_random_</span><span class="o">=</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">num_rand</span><span class="p">,</span>
+                         <span class="n">num_validation_</span><span class="o">=</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">num_val</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Export random meshes.</span>
+
+<span class="sd">    The random meshes are generated by setting the shape keys to random values.</span>
+<span class="sd">    The meshes are exported to PLY files and</span>
+<span class="sd">    the random parameters are saved to numpy files.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    shape_keys_ : bpy.types.bpy_prop_collection</span>
+<span class="sd">        A dict like object containing the shape keys.</span>
+<span class="sd">    rng_ : numpy.random.Generator</span>
+<span class="sd">        A random number generator.</span>
+<span class="sd">    num_random_ : int, default NUMBERS.num_rand = 200</span>
+<span class="sd">        The number of random meshes to generate.</span>
+<span class="sd">    num_validation_ : int, default NUMBERS.num_val = 20</span>
+<span class="sd">        The number of validation meshes to generate.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">        Exports the meshes to the PLY files and saves the random parameters</span>
+<span class="sd">        to numpy files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">random_params</span> <span class="o">=</span> <span class="n">random_shape_key_values</span><span class="p">(</span><span class="n">rng_</span><span class="p">,</span> <span class="p">(</span><span class="n">num_random_</span> <span class="o">+</span> <span class="n">num_validation_</span><span class="p">,</span> <span class="n">NUMBERS</span><span class="o">.</span><span class="n">num_ids</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_random_</span> <span class="o">+</span> <span class="n">num_validation_</span><span class="p">):</span>
+        <span class="n">set_all_shape_key_values</span><span class="p">(</span><span class="n">shape_keys_</span><span class="p">,</span> <span class="n">random_params</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+        <span class="n">export_ply</span><span class="p">(</span>
+            <span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">ply</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">ply</span><span class="p">,</span>
+            <span class="n">shape_keys_</span><span class="p">,</span> <span class="n">random_params</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">use_ascii_</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">export_ply</span><span class="p">(</span>
+            <span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">ply</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">ascii</span><span class="o">.</span><span class="n">ply</span><span class="p">,</span>
+            <span class="n">shape_keys_</span><span class="p">,</span> <span class="n">random_params</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">use_ascii_</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">npy</span><span class="p">,</span> <span class="n">random_params</span><span class="p">[:</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">num_rand</span><span class="p">])</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">npy</span><span class="p">,</span> <span class="n">random_params</span><span class="p">[</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">num_rand</span><span class="p">:])</span></div>
+
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../export_from_blender.html#export_from_blender.main">[docs]</a>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Export generic neutral, id+-, and random meshes.</span>
+
+<span class="sd">    | Changes all shape key limits to -1 to 1.</span>
+<span class="sd">    | Exports the generic neutral mesh to a PLY file.</span>
+<span class="sd">    | Exports the meshes with individual id parameters set to -1 and 1 to PLY files.</span>
+<span class="sd">    | Exports the random meshes to PLY files.</span>
+<span class="sd">    | Saves the random parameters to numpy files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">create_directories</span><span class="p">()</span>
+    <span class="n">ict_face_model</span> <span class="o">=</span> <span class="n">bpy</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s1">&#39;ICTFaceModel&#39;</span><span class="p">]</span>
+    <span class="n">ict_face_model</span><span class="o">.</span><span class="n">select_set</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">shape_keys</span> <span class="o">=</span> <span class="n">ict_face_model</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape_keys</span><span class="o">.</span><span class="n">key_blocks</span>
+    <span class="n">change_all_shape_key_slider_limits</span><span class="p">(</span><span class="n">shape_keys</span><span class="p">)</span>
+    <span class="n">export_generic_neutral_mesh</span><span class="p">(</span><span class="n">shape_keys</span><span class="p">)</span>
+    <span class="n">export_id_pm_meshes</span><span class="p">(</span><span class="n">shape_keys</span><span class="p">)</span>
+    <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">np_seed</span><span class="p">)</span>
+    <span class="n">export_random_meshes</span><span class="p">(</span><span class="n">shape_keys</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Uday Nakade, Prof. Dr. Manuel Spitschan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Uday Nakade, Prof. Dr. Manuel Spitschan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

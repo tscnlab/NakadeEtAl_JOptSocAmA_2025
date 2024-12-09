@@ -1,0 +1,712 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>export_from_blender &#8212; visual-field-pca 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'export_from_blender';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="get_eye_centers" href="get_eye_centers.html" />
+    <link rel="prev" title="utils_img" href="utils_img.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">visual-field-pca 0.0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="modules.html">Modules</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common_params.html">common_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="naming.html">naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_img.html">utils_img</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">export_from_blender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_eye_centers.html">get_eye_centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="render_ply.html">render_ply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_vf_boundaries.html">get_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tf_funcs.html">tf_funcs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimize_vf_boundaries.html">optimize_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hemispherical_interpolator.html">hemispherical_interpolator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_hemispherical_vf_images.html">create_hemispherical_vf_images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting.html">plotting</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/export_from_blender.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>export_from_blender</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.change_shape_key_slider_limits"><code class="docutils literal notranslate"><span class="pre">change_shape_key_slider_limits</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.change_all_shape_key_slider_limits"><code class="docutils literal notranslate"><span class="pre">change_all_shape_key_slider_limits</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.set_shape_key_value"><code class="docutils literal notranslate"><span class="pre">set_shape_key_value</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.set_all_shape_key_values"><code class="docutils literal notranslate"><span class="pre">set_all_shape_key_values</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.id_pm_shape_key_values"><code class="docutils literal notranslate"><span class="pre">id_pm_shape_key_values</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.random_shape_key_values"><code class="docutils literal notranslate"><span class="pre">random_shape_key_values</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.export_ply"><code class="docutils literal notranslate"><span class="pre">export_ply</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.export_generic_neutral_mesh"><code class="docutils literal notranslate"><span class="pre">export_generic_neutral_mesh</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.export_id_pm_meshes"><code class="docutils literal notranslate"><span class="pre">export_id_pm_meshes</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.export_random_meshes"><code class="docutils literal notranslate"><span class="pre">export_random_meshes</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.main"><code class="docutils literal notranslate"><span class="pre">main</span></code></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-export_from_blender">
+<span id="export-from-blender"></span><h1>export_from_blender<a class="headerlink" href="#module-export_from_blender" title="Link to this heading">#</a></h1>
+<p>Export the generic neutral, id+-, and random meshes to PLY files.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="export_from_blender.change_shape_key_slider_limits">
+<span class="sig-prename descclassname"><span class="pre">export_from_blender.</span></span><span class="sig-name descname"><span class="pre">change_shape_key_slider_limits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape_keys_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_key_name_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/export_from_blender.html#change_shape_key_slider_limits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#export_from_blender.change_shape_key_slider_limits" title="Link to this definition">#</a></dt>
+<dd><p>Change the slider limits for one shape key.</p>
+<p>The blendshape sliders in Blender are limited to the range <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code> by
+default. This function changes the limits to the specified range
+(<code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code> by default).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>shape_keys_</strong><span class="classifier">bpy.types.bpy_prop_collection</span></dt><dd><p>A dict like object containing the shape keys.</p>
+</dd>
+<dt><strong>shape_key_name_</strong><span class="classifier">str</span></dt><dd><p>The name of the shape key.</p>
+</dd>
+<dt><strong>min_</strong><span class="classifier">float, default -1</span></dt><dd><p>The intended lower limit.</p>
+</dd>
+<dt><strong>max_</strong><span class="classifier">float, default 1</span></dt><dd><p>The intended upper limit.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd><p>Changes the slider limits in place.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="export_from_blender.change_all_shape_key_slider_limits">
+<span class="sig-prename descclassname"><span class="pre">export_from_blender.</span></span><span class="sig-name descname"><span class="pre">change_all_shape_key_slider_limits</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape_keys_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/export_from_blender.html#change_all_shape_key_slider_limits"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#export_from_blender.change_all_shape_key_slider_limits" title="Link to this definition">#</a></dt>
+<dd><p>Change the slider limits of all shape keys.</p>
+<p>Refer to <a class="reference internal" href="#export_from_blender.change_shape_key_slider_limits" title="export_from_blender.change_shape_key_slider_limits"><code class="xref py py-func docutils literal notranslate"><span class="pre">change_shape_key_slider_limits</span></code></a> for more details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>shape_keys_</strong><span class="classifier">bpy.types.bpy_prop_collection</span></dt><dd><p>A dict like object containing the shape keys.</p>
+</dd>
+<dt><strong>min_</strong><span class="classifier">float, default -1</span></dt><dd><p>The intended lower limit.</p>
+</dd>
+<dt><strong>max_</strong><span class="classifier">float, default 1</span></dt><dd><p>The intended upper limit.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd><p>Changes the slider limits in place.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="export_from_blender.set_shape_key_value">
+<span class="sig-prename descclassname"><span class="pre">export_from_blender.</span></span><span class="sig-name descname"><span class="pre">set_shape_key_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape_keys_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_key_name_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/export_from_blender.html#set_shape_key_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#export_from_blender.set_shape_key_value" title="Link to this definition">#</a></dt>
+<dd><p>Set the value of a shape key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>shape_keys_</strong><span class="classifier">bpy.types.bpy_prop_collection</span></dt><dd><p>A dict like object containing the shape keys.</p>
+</dd>
+<dt><strong>shape_key_name_</strong><span class="classifier">str</span></dt><dd><p>The name of the shape key.</p>
+</dd>
+<dt><strong>value_</strong><span class="classifier">float</span></dt><dd><p>The value to set the shape key to.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd><p>Sets the shape key value in place.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="export_from_blender.set_all_shape_key_values">
+<span class="sig-prename descclassname"><span class="pre">export_from_blender.</span></span><span class="sig-name descname"><span class="pre">set_all_shape_key_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape_keys_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">values_</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/export_from_blender.html#set_all_shape_key_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#export_from_blender.set_all_shape_key_values" title="Link to this definition">#</a></dt>
+<dd><p>Set the values of all shape keys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>shape_keys_</strong><span class="classifier">bpy.types.bpy_prop_collection</span></dt><dd><p>A dict like object containing the shape keys.</p>
+</dd>
+<dt><strong>values_</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>An array of shape key values.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd><p>Sets the shape key values in place.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="export_from_blender.id_pm_shape_key_values">
+<span class="sig-prename descclassname"><span class="pre">export_from_blender.</span></span><span class="sig-name descname"><span class="pre">id_pm_shape_key_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_num_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pm1_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_ids_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NUMBERS.num_ids</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/export_from_blender.html#id_pm_shape_key_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#export_from_blender.id_pm_shape_key_values" title="Link to this definition">#</a></dt>
+<dd><p>Get an array with only one non-zero value for shape keys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>id_num_</strong><span class="classifier">int</span></dt><dd><p>The index of the shape key which is to be non-zero.</p>
+</dd>
+<dt><strong>pm1_</strong><span class="classifier">int</span></dt><dd><p>Either 1 or -1.</p>
+</dd>
+<dt><strong>num_ids_</strong><span class="classifier">int, default NUMBERS.num_ids = 100</span></dt><dd><p>The total number of shape keys.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>numpy.ndarray</dt><dd><p>An array of size <code class="xref py py-attr docutils literal notranslate"><span class="pre">num_ids_</span></code> with the <code class="xref py py-attr docutils literal notranslate"><span class="pre">id_num_</span></code>th
+value equal to <code class="xref py py-attr docutils literal notranslate"><span class="pre">pm1_</span></code> and others 0.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="export_from_blender.random_shape_key_values">
+<span class="sig-prename descclassname"><span class="pre">export_from_blender.</span></span><span class="sig-name descname"><span class="pre">random_shape_key_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rng_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/export_from_blender.html#random_shape_key_values"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#export_from_blender.random_shape_key_values" title="Link to this definition">#</a></dt>
+<dd><p>Get uniform random values.</p>
+<p>To be used to generate random faces using shape keys.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>rng_</strong><span class="classifier">numpy.random.Generator</span></dt><dd><p>A random number generator.</p>
+</dd>
+<dt><strong>size_</strong><span class="classifier">int | tuple[int, int]</span></dt><dd><p>In case it’s an int, the number of shape keys
+(also the number of random values generated).
+In case it’s a tuple, the shape of the random array to be generated.
+(number of faces, number of shape keys).</p>
+</dd>
+<dt><strong>min_</strong><span class="classifier">float, default -1</span></dt><dd><p>The lower limit for the uniform distribution
+(lower limit of the shape key slider).</p>
+</dd>
+<dt><strong>max_</strong><span class="classifier">float, default 1</span></dt><dd><p>The upper limit for the uniform distribution
+(upper limit of the shape key slider).</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>numpy.ndarray</dt><dd><p>An array of uniform random values between <code class="xref py py-attr docutils literal notranslate"><span class="pre">min_</span></code> and
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">max_</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="export_from_blender.export_ply">
+<span class="sig-prename descclassname"><span class="pre">export_from_blender.</span></span><span class="sig-name descname"><span class="pre">export_ply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_keys_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape_key_values_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_selection_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_ascii_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/export_from_blender.html#export_ply"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#export_from_blender.export_ply" title="Link to this definition">#</a></dt>
+<dd><p>Export the mesh to a PLY file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filepath_</strong><span class="classifier">pathlib.Path</span></dt><dd><p>The path to the PLY file.</p>
+</dd>
+<dt><strong>shape_keys_</strong><span class="classifier">bpy.types.bpy_prop_collection</span></dt><dd><p>A dict like object containing the shape keys.</p>
+</dd>
+<dt><strong>shape_key_values_</strong><span class="classifier">numpy.ndarray</span></dt><dd><p>An array of shape key values.</p>
+</dd>
+<dt><strong>use_selection_</strong><span class="classifier">bool, default True</span></dt><dd><p>Whether to export only the selected mesh.</p>
+</dd>
+<dt><strong>use_ascii_</strong><span class="classifier">bool, default True</span></dt><dd><p>Whether to use ASCII encoding.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd><p>Exports the mesh to the PLY file.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="export_from_blender.export_generic_neutral_mesh">
+<span class="sig-prename descclassname"><span class="pre">export_from_blender.</span></span><span class="sig-name descname"><span class="pre">export_generic_neutral_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape_keys_</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/export_from_blender.html#export_generic_neutral_mesh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#export_from_blender.export_generic_neutral_mesh" title="Link to this definition">#</a></dt>
+<dd><p>Export the mesh with all shape keys 0.</p>
+<p>Two PLY files are exported: one in ASCII format and the other in binary
+format. The ASCII format is required to get the coordinates of the eye
+centers. The binary format is used with <code class="docutils literal notranslate"><span class="pre">Mitsuba</span> <span class="pre">3</span></code> as it’s faster to load.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>shape_keys_</strong><span class="classifier">bpy.types.bpy_prop_collection</span></dt><dd><p>A dict like object containing the shape keys.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd><p>Exports the mesh to the generic neutral PLY file.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="export_from_blender.export_id_pm_meshes">
+<span class="sig-prename descclassname"><span class="pre">export_from_blender.</span></span><span class="sig-name descname"><span class="pre">export_id_pm_meshes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape_keys_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_ids_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NUMBERS.num_ids</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/export_from_blender.html#export_id_pm_meshes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#export_from_blender.export_id_pm_meshes" title="Link to this definition">#</a></dt>
+<dd><p>Export meshes with individual shape keys set to 1 and -1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>shape_keys_</strong><span class="classifier">bpy.types.bpy_prop_collection</span></dt><dd><p>A dict like object containing the shape keys.</p>
+</dd>
+<dt><strong>num_ids_</strong><span class="classifier">int, default NUMBERS.num_ids = 100</span></dt><dd><p>The total number of shape keys.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd><p>Exports the meshes to the PLY files.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="export_from_blender.export_random_meshes">
+<span class="sig-prename descclassname"><span class="pre">export_from_blender.</span></span><span class="sig-name descname"><span class="pre">export_random_meshes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape_keys_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_random_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NUMBERS.num_rand</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_validation_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NUMBERS.num_val</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/export_from_blender.html#export_random_meshes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#export_from_blender.export_random_meshes" title="Link to this definition">#</a></dt>
+<dd><p>Export random meshes.</p>
+<p>The random meshes are generated by setting the shape keys to random values.
+The meshes are exported to PLY files and
+the random parameters are saved to numpy files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>shape_keys_</strong><span class="classifier">bpy.types.bpy_prop_collection</span></dt><dd><p>A dict like object containing the shape keys.</p>
+</dd>
+<dt><strong>rng_</strong><span class="classifier">numpy.random.Generator</span></dt><dd><p>A random number generator.</p>
+</dd>
+<dt><strong>num_random_</strong><span class="classifier">int, default NUMBERS.num_rand = 200</span></dt><dd><p>The number of random meshes to generate.</p>
+</dd>
+<dt><strong>num_validation_</strong><span class="classifier">int, default NUMBERS.num_val = 20</span></dt><dd><p>The number of validation meshes to generate.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd><p>Exports the meshes to the PLY files and saves the random parameters
+to numpy files.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="export_from_blender.main">
+<span class="sig-prename descclassname"><span class="pre">export_from_blender.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/export_from_blender.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#export_from_blender.main" title="Link to this definition">#</a></dt>
+<dd><p>Export generic neutral, id+-, and random meshes.</p>
+<div class="line-block">
+<div class="line">Changes all shape key limits to -1 to 1.</div>
+<div class="line">Exports the generic neutral mesh to a PLY file.</div>
+<div class="line">Exports the meshes with individual id parameters set to -1 and 1 to PLY files.</div>
+<div class="line">Exports the random meshes to PLY files.</div>
+<div class="line">Saves the random parameters to numpy files.</div>
+</div>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="utils_img.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">utils_img</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="get_eye_centers.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">get_eye_centers</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.change_shape_key_slider_limits"><code class="docutils literal notranslate"><span class="pre">change_shape_key_slider_limits</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.change_all_shape_key_slider_limits"><code class="docutils literal notranslate"><span class="pre">change_all_shape_key_slider_limits</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.set_shape_key_value"><code class="docutils literal notranslate"><span class="pre">set_shape_key_value</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.set_all_shape_key_values"><code class="docutils literal notranslate"><span class="pre">set_all_shape_key_values</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.id_pm_shape_key_values"><code class="docutils literal notranslate"><span class="pre">id_pm_shape_key_values</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.random_shape_key_values"><code class="docutils literal notranslate"><span class="pre">random_shape_key_values</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.export_ply"><code class="docutils literal notranslate"><span class="pre">export_ply</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.export_generic_neutral_mesh"><code class="docutils literal notranslate"><span class="pre">export_generic_neutral_mesh</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.export_id_pm_meshes"><code class="docutils literal notranslate"><span class="pre">export_id_pm_meshes</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.export_random_meshes"><code class="docutils literal notranslate"><span class="pre">export_random_meshes</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#export_from_blender.main"><code class="docutils literal notranslate"><span class="pre">main</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Uday Nakade, Prof. Dr. Manuel Spitschan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Uday Nakade, Prof. Dr. Manuel Spitschan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

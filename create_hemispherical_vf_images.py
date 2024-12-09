@@ -26,6 +26,11 @@ def create_hemispherical_vf_image(rendered_images_file_path):
 
 
 def main():
+    """Create hemispherical Visual Field images from rendered images.
+
+    Use the 5 rendered images for all the id+- and generic faces to create
+    2D polar graphs of the hemispherical Visual Fields.
+    """
     rendered_images_file_paths = DIRECTORIES.rendered_imgs_np.glob(
         str(NAMING.asterisk.rendered.npy))
     rendered_images_file_paths = list(filter(lambda x: not x.name.startswith(str(NAMING.random_)),

@@ -1,0 +1,634 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>optimize_vf_boundaries &#8212; visual-field-pca 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'optimize_vf_boundaries';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="hemispherical_interpolator" href="hemispherical_interpolator.html" />
+    <link rel="prev" title="tf_funcs" href="tf_funcs.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">visual-field-pca 0.0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="modules.html">Modules</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common_params.html">common_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="naming.html">naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_img.html">utils_img</a></li>
+<li class="toctree-l2"><a class="reference internal" href="export_from_blender.html">export_from_blender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_eye_centers.html">get_eye_centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="render_ply.html">render_ply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_vf_boundaries.html">get_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tf_funcs.html">tf_funcs</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">optimize_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hemispherical_interpolator.html">hemispherical_interpolator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_hemispherical_vf_images.html">create_hemispherical_vf_images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting.html">plotting</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/optimize_vf_boundaries.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>optimize_vf_boundaries</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.gradient_step"><code class="docutils literal notranslate"><span class="pre">gradient_step</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.monotonically_increasing"><code class="docutils literal notranslate"><span class="pre">monotonically_increasing</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.LowestValLoss"><code class="docutils literal notranslate"><span class="pre">LowestValLoss</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.LowestValLoss.record"><code class="docutils literal notranslate"><span class="pre">LowestValLoss.record</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.TrainLossesRecord"><code class="docutils literal notranslate"><span class="pre">TrainLossesRecord</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.TrainLossesRecord.record"><code class="docutils literal notranslate"><span class="pre">TrainLossesRecord.record</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.optimize"><code class="docutils literal notranslate"><span class="pre">optimize</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.create_predictions"><code class="docutils literal notranslate"><span class="pre">create_predictions</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.main"><code class="docutils literal notranslate"><span class="pre">main</span></code></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-optimize_vf_boundaries">
+<span id="optimize-vf-boundaries"></span><h1>optimize_vf_boundaries<a class="headerlink" href="#module-optimize_vf_boundaries" title="Link to this heading">#</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="optimize_vf_boundaries.gradient_step">
+<span class="sig-prename descclassname"><span class="pre">optimize_vf_boundaries.</span></span><span class="sig-name descname"><span class="pre">gradient_step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vf_var_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g_var_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr_</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/optimize_vf_boundaries.html#gradient_step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#optimize_vf_boundaries.gradient_step" title="Link to this definition">#</a></dt>
+<dd><p>Perform a gradient descent step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>vf_var_</strong><span class="classifier">tf.Variable</span></dt><dd><p>The variable containing the visual field boundaries for id parameters.</p>
+</dd>
+<dt><strong>g_var_</strong><span class="classifier">tf.Variable</span></dt><dd><p>The variable containing the generic visual field boundary.</p>
+</dd>
+<dt><strong>lr_</strong><span class="classifier">float</span></dt><dd><p>The learning rate.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>tuple[float, float]</dt><dd><p>The loss and validation loss values at the step.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="optimize_vf_boundaries.monotonically_increasing">
+<span class="sig-prename descclassname"><span class="pre">optimize_vf_boundaries.</span></span><span class="sig-name descname"><span class="pre">monotonically_increasing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">losses_record_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/optimize_vf_boundaries.html#monotonically_increasing"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#optimize_vf_boundaries.monotonically_increasing" title="Link to this definition">#</a></dt>
+<dd><p>Check if the last <code class="xref py py-attr docutils literal notranslate"><span class="pre">n_</span></code> losses are monotonically increasing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>losses_record_</strong><span class="classifier">TrainLossesRecord</span></dt><dd><p>The record of losses.</p>
+</dd>
+<dt><strong>n_</strong><span class="classifier">int</span></dt><dd><p>The number of losses to check.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>bool</dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the last <code class="xref py py-attr docutils literal notranslate"><span class="pre">n_</span></code> losses are monotonically increasing,
+<code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="optimize_vf_boundaries.LowestValLoss">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">optimize_vf_boundaries.</span></span><span class="sig-name descname"><span class="pre">LowestValLoss</span></span><a class="reference internal" href="_modules/optimize_vf_boundaries.html#LowestValLoss"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#optimize_vf_boundaries.LowestValLoss" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Record the Visual Fields corresponding to the lowest validation loss.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>val_loss</strong><span class="classifier">float</span></dt><dd><p>The lowest validation loss yet.</p>
+</dd>
+<dt><strong>iteration</strong><span class="classifier">int</span></dt><dd><p>The iteration at which the lowest validation loss occurred.</p>
+</dd>
+<dt><strong>vf</strong><span class="classifier">np.ndarray</span></dt><dd><p>The id Visual Fields corresponding to the lowest validation loss.</p>
+</dd>
+<dt><strong>g</strong><span class="classifier">np.ndarray</span></dt><dd><p>The generic Visual Field corresponding to the lowest validation loss.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>record(val_loss_, vf_var_, g_var_, iteration_)</strong></p></td>
+<td><p>Update the attributes if the new <code class="xref py py-attr docutils literal notranslate"><span class="pre">val_loss_</span></code> is lower than the recorded <code class="xref py py-attr docutils literal notranslate"><span class="pre">val_loss</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="optimize_vf_boundaries.LowestValLoss.record">
+<span class="sig-name descname"><span class="pre">record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">val_loss_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vf_var_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g_var_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iteration_</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/optimize_vf_boundaries.html#LowestValLoss.record"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#optimize_vf_boundaries.LowestValLoss.record" title="Link to this definition">#</a></dt>
+<dd><p>Update the attributes if the <code class="xref py py-attr docutils literal notranslate"><span class="pre">val_loss_</span></code> is lower than
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">val_loss</span></code></p>
+<p>During training, the new val loss is compared to the stored val loss.
+If the new val loss is lower, the attributes are updated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>val_loss_</strong><span class="classifier">float</span></dt><dd><p>The new validation loss.</p>
+</dd>
+<dt><strong>vf_var_</strong><span class="classifier">tf.Variable</span></dt><dd><p>The new id Visual Fields.</p>
+</dd>
+<dt><strong>g_var_</strong><span class="classifier">tf.Variable</span></dt><dd><p>The new generic Visual Field.</p>
+</dd>
+<dt><strong>iteration_</strong><span class="classifier">int</span></dt><dd><p>The iteration at which the new validation loss occurred.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="optimize_vf_boundaries.TrainLossesRecord">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">optimize_vf_boundaries.</span></span><span class="sig-name descname"><span class="pre">TrainLossesRecord</span></span><a class="reference internal" href="_modules/optimize_vf_boundaries.html#TrainLossesRecord"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#optimize_vf_boundaries.TrainLossesRecord" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Record the training and validation losses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>losses</strong><span class="classifier">list[float, …]</span></dt><dd><p>The training losses.</p>
+</dd>
+<dt><strong>losses_val</strong><span class="classifier">list[float, …]</span></dt><dd><p>The validation losses.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>record(loss_, val_loss_)</strong></p></td>
+<td><p>Add the new losses to the records.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="optimize_vf_boundaries.TrainLossesRecord.record">
+<span class="sig-name descname"><span class="pre">record</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">loss_</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_loss_</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/optimize_vf_boundaries.html#TrainLossesRecord.record"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#optimize_vf_boundaries.TrainLossesRecord.record" title="Link to this definition">#</a></dt>
+<dd><p>Add the new losses to the records.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>loss_</strong><span class="classifier">float</span></dt><dd><p>The new training loss.</p>
+</dd>
+<dt><strong>val_loss_</strong><span class="classifier">float</span></dt><dd><p>The new validation loss.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="optimize_vf_boundaries.optimize">
+<span class="sig-prename descclassname"><span class="pre">optimize_vf_boundaries.</span></span><span class="sig-name descname"><span class="pre">optimize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/optimize_vf_boundaries.html#optimize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#optimize_vf_boundaries.optimize" title="Link to this definition">#</a></dt>
+<dd><p>Optimize the Visual Fields (VFs).</p>
+<p>Optimizes the VFs till the validation loss stops decreasing.
+The training data is obtained from the rendered VF boundaries for
+<code class="docutils literal notranslate"><span class="pre">NUMBERS.num_rand</span></code> random faces and validation data from
+<code class="docutils literal notranslate"><span class="pre">NUMBERS.num_val</span></code> random faces.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>LowestValLoss</dt><dd><p>The Visual Fields corresponding to the lowest validation loss.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="optimize_vf_boundaries.create_predictions">
+<span class="sig-prename descclassname"><span class="pre">optimize_vf_boundaries.</span></span><span class="sig-name descname"><span class="pre">create_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">visual_fields</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generic</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/optimize_vf_boundaries.html#create_predictions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#optimize_vf_boundaries.create_predictions" title="Link to this definition">#</a></dt>
+<dd><p>Create predictions for the Visual Fields of the random faces.</p>
+<p>Create predictions for the Visual Fields (VFs) of random faces
+from the optimized id and generic VFs.
+Saves the predictions in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">NAMING.optimization.predictions.npy</span></code>
+file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>visual_fields</strong><span class="classifier">np.ndarray</span></dt><dd><p>The Visual Fields corresponding to the id parameters.</p>
+</dd>
+<dt><strong>generic</strong><span class="classifier">np.ndarray</span></dt><dd><p>The Visual Field corresponding to the generic mesh.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="optimize_vf_boundaries.main">
+<span class="sig-prename descclassname"><span class="pre">optimize_vf_boundaries.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/optimize_vf_boundaries.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#optimize_vf_boundaries.main" title="Link to this definition">#</a></dt>
+<dd><p>Optimize the Visual Fields and create predictions.</p>
+<p>Optimize the Visual Field boundaries of id+, id- and generic faces and
+create predictions for the random faces using the linear model.</p>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tf_funcs.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">tf_funcs</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="hemispherical_interpolator.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">hemispherical_interpolator</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.gradient_step"><code class="docutils literal notranslate"><span class="pre">gradient_step</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.monotonically_increasing"><code class="docutils literal notranslate"><span class="pre">monotonically_increasing</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.LowestValLoss"><code class="docutils literal notranslate"><span class="pre">LowestValLoss</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.LowestValLoss.record"><code class="docutils literal notranslate"><span class="pre">LowestValLoss.record</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.TrainLossesRecord"><code class="docutils literal notranslate"><span class="pre">TrainLossesRecord</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.TrainLossesRecord.record"><code class="docutils literal notranslate"><span class="pre">TrainLossesRecord.record</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.optimize"><code class="docutils literal notranslate"><span class="pre">optimize</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.create_predictions"><code class="docutils literal notranslate"><span class="pre">create_predictions</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize_vf_boundaries.main"><code class="docutils literal notranslate"><span class="pre">main</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Uday Nakade, Prof. Dr. Manuel Spitschan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Uday Nakade, Prof. Dr. Manuel Spitschan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

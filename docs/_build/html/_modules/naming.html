@@ -1,0 +1,924 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>naming &#8212; visual-field-pca 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/naming';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">visual-field-pca 0.0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">README</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../common_params.html">common_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../naming.html">naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils_img.html">utils_img</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../export_from_blender.html">export_from_blender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_eye_centers.html">get_eye_centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render_ply.html">render_ply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_vf_boundaries.html">get_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tf_funcs.html">tf_funcs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optimize_vf_boundaries.html">optimize_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hemispherical_interpolator.html">hemispherical_interpolator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_hemispherical_vf_images.html">create_hemispherical_vf_images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">plotting</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for naming</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">common_params</span> <span class="kn">import</span> <span class="n">NUMBERS</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Module for simplifying the naming of files.</span>
+
+<span class="s2">In order to avoid hard-coding, this module provides a way to create file names </span>
+<span class="s2">in a structured manner. The goal is to have an object :py:obj:`NAMING` that can </span>
+<span class="s2">be used as follows::</span>
+
+<span class="s2">    NAMING.generic.theta_boundary.npy -&gt; &#39;generic_neutral_mesh_thetas.npy&#39;</span>
+<span class="s2">    NAMING.id(1).pos.rendered.npy -&gt; &#39;id_01_+1_rendered_images.npy&#39;</span>
+<span class="s2">    NAMING.random(20).comparison.png -&gt; &#39;random_020_rendered_vs_predicted.png&#39;</span>
+
+<span class="s2">The reason for inheriting from :py:class:`os.PathLike` is that such objects </span>
+<span class="s2">can be used along with :py:class:`pathlib.Path` objects. For example:</span>
+
+<span class="s2">&gt;&gt;&gt; from pathlib import Path</span>
+<span class="s2">&gt;&gt;&gt; from naming import NAMING</span>
+<span class="s2">&gt;&gt;&gt; Path(&#39;path/to/directory&#39;) / NAMING.generic.theta_boundary.npy</span>
+<span class="s2">Path(&#39;path/to/directory/generic_neutral_mesh_thetas.npy&#39;)</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="BaseNaming">
+<a class="viewcode-back" href="../naming.html#naming.BaseNaming">[docs]</a>
+<span class="k">class</span> <span class="nc">BaseNaming</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for naming paths.</span>
+
+<span class="sd">    Since the :py:class:`NamingPathLike` class requires the</span>
+<span class="sd">    :py:attr:`~NamingPathLike.start` attribute to have inherited from</span>
+<span class="sd">    :py:class:`os.PathLike`, this class is used to create the</span>
+<span class="sd">    :py:const:`BASE_NAMING` object that can be used as the starting point</span>
+<span class="sd">    for creating file names.</span>
+
+<span class="sd">    The :py:meth:`__fspath__` method returns an empty string.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="BaseNaming.__fspath__">
+<a class="viewcode-back" href="../naming.html#naming.BaseNaming.__fspath__">[docs]</a>
+    <span class="k">def</span> <span class="nf">__fspath__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
+</div>
+
+
+
+<span class="n">BASE_NAMING</span> <span class="o">=</span> <span class="n">BaseNaming</span><span class="p">()</span>
+
+<span class="n">FILE_TYPE_SUFFIXES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="s1">&#39;npy&#39;</span><span class="p">,</span> <span class="s1">&#39;ply&#39;</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">,</span> <span class="s1">&#39;spd&#39;</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="NamingPathLike">
+<a class="viewcode-back" href="../naming.html#naming.NamingPathLike">[docs]</a>
+<span class="k">class</span> <span class="nc">NamingPathLike</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for creating PathLike objects used by the :py:class:`Naming` class.</span>
+
+<span class="sd">    A base class for file names represented as PathLike objects.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    start : os.PathLike</span>
+<span class="sd">        The starting point for the file name.</span>
+<span class="sd">        Must have inherited from :py:class:`os.PathLike`, i.e., must have an</span>
+<span class="sd">        :py:meth:`__fspath__` method.</span>
+<span class="sd">    suffix : str</span>
+<span class="sd">        The suffix to be added to the file name.</span>
+<span class="sd">        This can either be an internal suffix or a file type suffix.</span>
+<span class="sd">        For an internal suffix, the :py:attr:`separator` should preferably</span>
+<span class="sd">        be &#39;_&#39;, but can be changed if necessary.</span>
+<span class="sd">        For a file type suffix, the :py:attr:`separator` must be &#39;.&#39;.</span>
+<span class="sd">    separator : str, default &#39;_&#39;</span>
+<span class="sd">        The separator between the :py:attr:`start` and :py:attr:`suffix`.</span>
+<span class="sd">    next_suffixes : dict, optional</span>
+<span class="sd">        A dictionary with the next suffixes that can be added to the file name.</span>
+<span class="sd">        The keys are the names of the suffixes, and the values are the suffixes.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    __getattr__(item)</span>
+<span class="sd">        This method is defined to allow the creation of new</span>
+<span class="sd">        :py:type:`NamingPathLike` objects by accessing attributes that are not</span>
+<span class="sd">        defined in the class but are present in the :py:attr:`next_suffixes`</span>
+<span class="sd">        dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="NamingPathLike.__init__">
+<a class="viewcode-back" href="../naming.html#naming.NamingPathLike.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">suffix</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="n">next_suffixes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="n">start</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">suffix</span> <span class="o">=</span> <span class="n">suffix</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">separator</span> <span class="o">=</span> <span class="n">separator</span>
+        <span class="k">if</span> <span class="n">next_suffixes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">next_suffixes</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">next_suffixes</span> <span class="o">=</span> <span class="n">next_suffixes</span></div>
+
+
+<div class="viewcode-block" id="NamingPathLike.__getattr__">
+<a class="viewcode-back" href="../naming.html#naming.NamingPathLike.__getattr__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return new :py:class:`NamingPathLike` objects if the attribute is in</span>
+<span class="sd">        :py:attr:`next_suffixes`.</span>
+
+<span class="sd">        For example:</span>
+
+<span class="sd">        &gt;&gt;&gt; id_naming = NamingPathLike(BASE_NAMING, &#39;id&#39;, next_suffixes={&#39;pos&#39;: &#39;+&#39;})</span>
+<span class="sd">        &gt;&gt;&gt; id_naming.__fspath__()</span>
+<span class="sd">        &#39;id&#39;</span>
+<span class="sd">        &gt;&gt;&gt; id_naming.pos.__fspath__()</span>
+<span class="sd">        &#39;id_+&#39;</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        item : str</span>
+<span class="sd">            The name of the attribute to be accessed.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        NamingPathLike</span>
+<span class="sd">            A new :py:class:`NamingPathLike` object with the :py:attr:`item`</span>
+<span class="sd">            suffix. If :py:attr:`item` is in :py:const:`FILE_TYPE_SUFFIXES`,</span>
+<span class="sd">            the :py:attr:`separator` is ``&#39;.&#39;``, otherwise it is ``&#39;_&#39;``.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        AttributeError</span>
+<span class="sd">            If the attribute is not in :py:attr:`next_suffixes`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">FILE_TYPE_SUFFIXES</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">item</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_suffixes</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_suffixes</span><span class="p">[</span><span class="n">item</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">separator</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&#39; object has no attribute &#39;</span><span class="si">{</span><span class="n">item</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NamingPathLike.remove_suffix">
+<a class="viewcode-back" href="../naming.html#naming.NamingPathLike.remove_suffix">[docs]</a>
+    <span class="k">def</span> <span class="nf">remove_suffix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Remove the suffix from the file name.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        NamingPathLike</span>
+<span class="sd">            A new :py:class:`NamingPathLike` object with the suffix removed.</span>
+<span class="sd">            Returns the :py:attr:`start` attribute of the object on which this</span>
+<span class="sd">            is called.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span></div>
+
+
+<div class="viewcode-block" id="NamingPathLike.add_suffix_anew">
+<a class="viewcode-back" href="../naming.html#naming.NamingPathLike.add_suffix_anew">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_suffix_anew</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_suffix</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Replace the suffix in the file name with a new one.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        new_suffix : str</span>
+<span class="sd">            The new suffix to be added to the file name.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        NamingPathLike</span>
+<span class="sd">            A new :py:class:`NamingPathLike` object with the new suffix.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="p">,</span> <span class="n">new_suffix</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NamingPathLike.__str__">
+<a class="viewcode-back" href="../naming.html#naming.NamingPathLike.__str__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Redefined to return :py:meth:`__fspath__`.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__fspath__</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="NamingPathLike.__fspath__">
+<a class="viewcode-back" href="../naming.html#naming.NamingPathLike.__fspath__">[docs]</a>
+    <span class="k">def</span> <span class="nf">__fspath__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the file name as a string.</span>
+
+<span class="sd">        Returns ``start.__fspath__() + suffix`` if either are ``&#39;&#39;``,</span>
+<span class="sd">        otherwise returns ``start.__fspath__() + separator + suffix``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="o">.</span><span class="n">__fspath__</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">suffix</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="o">.</span><span class="n">__fspath__</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">separator</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">suffix</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span><span class="o">.</span><span class="n">__fspath__</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">suffix</span></div>
+</div>
+
+
+
+<span class="n">ID_NUM_RANDOM_SUFFIXES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ascii&#39;</span><span class="p">:</span> <span class="s1">&#39;ascii&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;rendered&#39;</span><span class="p">:</span> <span class="s1">&#39;rendered_images&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;theta_boundary&#39;</span><span class="p">:</span> <span class="s1">&#39;thetas&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;hemispherical_vf&#39;</span><span class="p">:</span> <span class="s1">&#39;hemispherical_vf&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;comparison&#39;</span><span class="p">:</span> <span class="s1">&#39;rendered_vs_predicted&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;diff&#39;</span><span class="p">:</span> <span class="s1">&#39;diff&#39;</span>
+<span class="p">}</span>
+
+<span class="n">ID_PM_SUFFIXES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;pos&#39;</span><span class="p">:</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;neg&#39;</span><span class="p">:</span> <span class="s1">&#39;-&#39;</span>
+<span class="p">}</span>
+
+<span class="n">ID_NUM_PM_SUFFIXES</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="o">+</span> <span class="s1">&#39;1&#39;</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ID_PM_SUFFIXES</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+<span class="n">RANDOM_SUFFIXES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="s1">&#39;params&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;theta_boundary&#39;</span><span class="p">:</span> <span class="s1">&#39;thetas&#39;</span>
+<span class="p">}</span>
+
+<span class="n">VAL_SUFFIX</span> <span class="o">=</span> <span class="s1">&#39;val&#39;</span>
+
+<span class="n">EYE_CENTER_SUFFIXES</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">}</span>
+
+<span class="n">OPTIMIZED_SUFFIXES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;optimized&#39;</span><span class="p">:</span> <span class="s1">&#39;optimized&#39;</span>
+<span class="p">}</span>
+
+<span class="n">OPTIMIZATION_SUFFIXES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;losses&#39;</span><span class="p">:</span> <span class="s1">&#39;losses&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;predictions&#39;</span><span class="p">:</span> <span class="s1">&#39;predictions&#39;</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="Naming">
+<a class="viewcode-back" href="../naming.html#naming.Naming">[docs]</a>
+<span class="k">class</span> <span class="nc">Naming</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for creating file names in a structured manner.</span>
+
+<span class="sd">    :py:const:`NAMING` is an instance of this class.</span>
+<span class="sd">    It is used to create file names as follows:</span>
+
+<span class="sd">    &gt;&gt;&gt; str(NAMING.generic.theta_boundary.npy)</span>
+<span class="sd">    &#39;generic_neutral_mesh_thetas.npy&#39;</span>
+<span class="sd">    &gt;&gt;&gt; str(NAMING.id(1).pos.rendered.npy)</span>
+<span class="sd">    &#39;id_01_+1_rendered_images.npy&#39;</span>
+<span class="sd">    &gt;&gt;&gt; str(NAMING.random(20).comparison.png)</span>
+<span class="sd">    &#39;random_020_rendered_vs_predicted.png&#39;</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    base : os.PathLike</span>
+<span class="sd">        The base name for the file names.</span>
+<span class="sd">        Must have inherited from :py:class:`os.PathLike`, i.e., must have an</span>
+<span class="sd">        :py:meth:`__fspath__` method.</span>
+<span class="sd">        For the :py:const:`NAMING` instance, this is :py:const:`BASE_NAMING`.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    base : os.PathLike</span>
+<span class="sd">        The base name for the file names.</span>
+<span class="sd">        Must have inherited from :py:class:`os.PathLike`, i.e., must have an</span>
+<span class="sd">        :py:meth:`__fspath__` method.</span>
+<span class="sd">    id_ : NamingPathLike</span>
+<span class="sd">        Base PathLike object for the id file names.</span>
+<span class="sd">    random_ : NamingPathLike</span>
+<span class="sd">        Base PathLike object for the random file names.</span>
+<span class="sd">    generic_ : NamingPathLike</span>
+<span class="sd">        Base PathLike object for the generic neutral mesh file names.</span>
+<span class="sd">    generic : NamingPathLike</span>
+<span class="sd">        Base PathLike object for the generic neutral mesh file names with</span>
+<span class="sd">        suffixes.</span>
+<span class="sd">    optimization : NamingPathLike</span>
+<span class="sd">        Base PathLike object for file names involved in</span>
+<span class="sd">        Visual Field boundary optimizations.</span>
+<span class="sd">    eye_centers : NamingPathLike</span>
+<span class="sd">        Base PathLike object for the json files containing eye centers.</span>
+<span class="sd">    asterisk : NamingPathLike</span>
+<span class="sd">        Base PathLike object used to create file names with an asterisk.</span>
+<span class="sd">        These can be used as regular expressions in the</span>
+<span class="sd">        :py:meth:`pathlib.Path.glob` method.</span>
+<span class="sd">    y_cie : NamingPathLike</span>
+<span class="sd">        Base PathLike object for the y_CIE_1931 spectrum file name.</span>
+<span class="sd">    phis : NamingPathLike</span>
+<span class="sd">        Base PathLike object for the file storing regularly spaced phi values.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    id(num)</span>
+<span class="sd">        Create a new :py:class:`NamingPathLike` object for the id file names.</span>
+<span class="sd">    random(num)</span>
+<span class="sd">        Create a new :py:class:`NamingPathLike` object for the random head file</span>
+<span class="sd">        names.</span>
+<span class="sd">    shape_key(num)</span>
+<span class="sd">        Create a shape key name.</span>
+<span class="sd">    replace_suffix(old_name, old_suffix, new_suffix, suffixes_dict=None, next_suffixes_dict=None)</span>
+<span class="sd">        Replace the suffix in the file name with a new one.</span>
+<span class="sd">    make_pathlike(name, suffixes_dict=None)</span>
+<span class="sd">        Create a new :py:class:`NamingPathLike` object from a file name string.</span>
+<span class="sd">    add_suffix(name, suffix, suffixes_dict=None)</span>
+<span class="sd">        Add a suffix to the file name.</span>
+<span class="sd">    get_id_num_pm(name)</span>
+<span class="sd">        Get the id number and the sign of the id parameter from the file name.</span>
+<span class="sd">    get_random_num(name)</span>
+<span class="sd">        Get the random face number from the file name.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Naming.__init__">
+<a class="viewcode-back" href="../naming.html#naming.Naming.__init__">[docs]</a>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">base</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">base</span> <span class="o">=</span> <span class="n">base</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id_</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random_</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;random&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generic_</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;generic_neutral_mesh&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">generic</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">generic_</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">next_suffixes</span><span class="o">=</span><span class="n">ID_NUM_RANDOM_SUFFIXES</span><span class="p">)</span>
+        <span class="c1"># __dict__ needs to be updated to add the attributes dynamically</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ID_PM_SUFFIXES</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">next_suffixes</span><span class="o">=</span><span class="n">ID_NUM_RANDOM_SUFFIXES</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">OPTIMIZED_SUFFIXES</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">next_suffixes</span><span class="o">=</span><span class="n">ID_NUM_RANDOM_SUFFIXES</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">generic_</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">next_suffixes</span><span class="o">=</span><span class="n">ID_NUM_RANDOM_SUFFIXES</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">optimization</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;optimization&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">OPTIMIZATION_SUFFIXES</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">optimization</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">optimization</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">optimization</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">VAL_SUFFIX</span><span class="p">]</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">optimization</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">VAL_SUFFIX</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eye_centers</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;eye_centers&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">eye</span> <span class="ow">in</span> <span class="n">EYE_CENTER_SUFFIXES</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">eye_centers</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">eye</span><span class="p">]</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eye_centers</span><span class="p">,</span> <span class="n">eye</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">VAL_SUFFIX</span><span class="p">]</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_</span><span class="p">,</span> <span class="n">VAL_SUFFIX</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">suffix_name</span><span class="p">,</span> <span class="n">suffix</span> <span class="ow">in</span> <span class="n">RANDOM_SUFFIXES</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">suffix_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">random_</span><span class="p">,</span> <span class="n">suffix</span><span class="p">,</span> <span class="n">next_suffixes</span><span class="o">=</span><span class="n">ID_NUM_RANDOM_SUFFIXES</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">VAL_SUFFIX</span><span class="p">]</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">suffix_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">VAL_SUFFIX</span><span class="p">],</span> <span class="n">suffix</span><span class="p">,</span> <span class="n">next_suffixes</span><span class="o">=</span><span class="n">ID_NUM_RANDOM_SUFFIXES</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">asterisk</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">next_suffixes</span><span class="o">=</span><span class="n">ID_NUM_RANDOM_SUFFIXES</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y_cie</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;y_CIE_1931&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phis</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;phis&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Naming.id">
+<a class="viewcode-back" href="../naming.html#naming.Naming.id">[docs]</a>
+    <span class="k">def</span> <span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a new :py:class:`NamingPathLike` object for the id file names.</span>
+
+<span class="sd">        When called with a number (say 4), this method creates a new</span>
+<span class="sd">        :py:class:`NamingPathLike` object with ``__fspath__() == &#39;id_04&#39;``.</span>
+<span class="sd">        When the class is initialized, a few other attributes are added to this</span>
+<span class="sd">        method, such as :py:attr:`pos`, :py:attr:`neg`, :py:attr:`optimized`,</span>
+<span class="sd">        etc., so that file names that are related to the id parameters but do</span>
+<span class="sd">        not depend explicitly on any one id number can be created (see examples).</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        num : int</span>
+<span class="sd">            The id parameter number.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        NamingPathLike</span>
+<span class="sd">            A new :py:class:`NamingPathLike` object with the id number.</span>
+<span class="sd">            Also has attributes :py:attr:`pos` and :py:attr:`neg` for adding</span>
+<span class="sd">            the ``+1`` and ``-1`` suffixes to the file names.</span>
+<span class="sd">            :py:attr:`next_suffixes` is the :py:const:`ID_NUM_RANDOM_SUFFIXES`</span>
+<span class="sd">            dict.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+
+<span class="sd">        &gt;&gt;&gt; NAMING.id.pos.theta_boundary.npy.__fspath__()</span>
+<span class="sd">        &#39;id_+_thetas.npy&#39;</span>
+<span class="sd">        &gt;&gt;&gt; NAMING.id(20).hemispherical_vf.npy.__fspath__()</span>
+<span class="sd">        &#39;id_20_hemispherical_vf.npy&#39;</span>
+<span class="sd">        &gt;&gt;&gt; NAMING.id(20).diff.png.__fspath__()</span>
+<span class="sd">        &#39;id_20_diff.png&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">id_num_pathlike_temp</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id_</span><span class="p">,</span>
+                                              <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">num</span><span class="si">:</span><span class="s1">0</span><span class="si">{</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">digits_num_ids</span><span class="si">}</span><span class="s1">d</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                                              <span class="n">next_suffixes</span><span class="o">=</span><span class="n">ID_NUM_PM_SUFFIXES</span> <span class="o">|</span> <span class="n">ID_NUM_RANDOM_SUFFIXES</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ID_NUM_PM_SUFFIXES</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">id_num_pathlike_temp</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="n">id_num_pathlike_temp</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span>
+                                                              <span class="n">next_suffixes</span><span class="o">=</span><span class="n">ID_NUM_RANDOM_SUFFIXES</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">id_num_pathlike_temp</span></div>
+
+
+<div class="viewcode-block" id="Naming.random">
+<a class="viewcode-back" href="../naming.html#naming.Naming.random">[docs]</a>
+    <span class="k">def</span> <span class="nf">random</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a new :py:class:`NamingPathLike` object for the random</span>
+<span class="sd">        parameter files.</span>
+
+<span class="sd">        When called with a number (say 4), this method creates a new</span>
+<span class="sd">        :py:class:`NamingPathLike` object with ``__fspath__() = &#39;random_004&#39;``.</span>
+<span class="sd">        When the class is initialized, a few other attributes are added to this</span>
+<span class="sd">        method, such as :py:attr:`params`, :py:attr:`theta_boundary`, etc.,</span>
+<span class="sd">        so that file names that are related to the random faces but do not</span>
+<span class="sd">        depend explicitly on any one of them can be created.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        num : int</span>
+<span class="sd">            The random face number.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        NamingPathLike</span>
+<span class="sd">            A new :py:class:`NamingPathLike` object with the random face number.</span>
+<span class="sd">            Also has attributes :py:attr:`params` and :py:attr:`theta_boundary`</span>
+<span class="sd">            for adding the ``params`` and ``thetas`` suffixes to the file names.</span>
+<span class="sd">            :py:attr:`next_suffixes` is the :py:const:`ID_NUM_RANDOM_SUFFIXES`</span>
+<span class="sd">            dict.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+
+<span class="sd">        &gt;&gt;&gt; NAMING.random.val.theta_boundary.npy.__fspath__()</span>
+<span class="sd">        &#39;random_val_thetas.npy&#39;</span>
+<span class="sd">        &gt;&gt;&gt; NAMING.random(20).comparison.png.__fspath__()</span>
+<span class="sd">        &#39;random_020_rendered_vs_predicted.png&#39;</span>
+<span class="sd">        &gt;&gt;&gt; NAMING.random(20).hemispherical_vf.npy.__fspath__()</span>
+<span class="sd">        &#39;random_020_hemispherical_vf.npy&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">random_</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">num</span><span class="si">:</span><span class="s1">0</span><span class="si">{</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">digits_num_rand</span><span class="si">}</span><span class="s1">d</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                              <span class="n">next_suffixes</span><span class="o">=</span><span class="n">ID_NUM_RANDOM_SUFFIXES</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Naming.shape_key">
+<a class="viewcode-back" href="../naming.html#naming.Naming.shape_key">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">shape_key</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a shape key name.</span>
+
+<span class="sd">        Used in Blender to get the shape key from the parameter number.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        num : int</span>
+<span class="sd">            The id parameter number.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The shape key name.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+
+<span class="sd">        &gt;&gt;&gt; NAMING.shape_key(4)</span>
+<span class="sd">        &#39;identity004&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;identity</span><span class="si">{</span><span class="n">num</span><span class="si">:</span><span class="s1">0</span><span class="si">{</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">digits_shape_key_ids</span><span class="si">}</span><span class="s1">d</span><span class="si">}</span><span class="s1">&#39;</span></div>
+
+
+<div class="viewcode-block" id="Naming.replace_suffix">
+<a class="viewcode-back" href="../naming.html#naming.Naming.replace_suffix">[docs]</a>
+    <span class="k">def</span> <span class="nf">replace_suffix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old_name</span><span class="p">,</span> <span class="n">old_suffix</span><span class="p">,</span> <span class="n">new_suffix</span><span class="p">,</span>
+                       <span class="n">suffixes_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">next_suffixes_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Replace the suffix in the file name with a new one.</span>
+
+<span class="sd">        This takes in an :py:attr:`old_name` string and returns a new</span>
+<span class="sd">        :py:class:`NamingPathLike` object with the :py:attr:`old_suffix`</span>
+<span class="sd">        replaced by the :py:attr:`new_suffix`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        old_name : str</span>
+<span class="sd">            The old file stem or file name.</span>
+<span class="sd">        old_suffix : str</span>
+<span class="sd">            The name of the old suffix to be replaced.</span>
+<span class="sd">        new_suffix : str</span>
+<span class="sd">            The name of the new suffix to be added.</span>
+<span class="sd">        suffixes_dict : dict, default ID_NUM_RANDOM_SUFFIXES</span>
+<span class="sd">            The dictionary with the suffix names and suffixes.</span>
+<span class="sd">        next_suffixes_dict : dict, default ID_NUM_RANDOM_SUFFIXES</span>
+<span class="sd">            The dictionary with the next suffix names and suffixes that can</span>
+<span class="sd">            be added to the file name.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        NamingPathLike</span>
+<span class="sd">            A new :py:class:`NamingPathLike` object with the</span>
+<span class="sd">            :py:attr:`old_suffix` in :py:attr:`old_name` replaced by the</span>
+<span class="sd">            :py:attr:`new_suffix`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">suffixes_dict</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">suffixes_dict</span> <span class="o">=</span> <span class="n">ID_NUM_RANDOM_SUFFIXES</span>
+        <span class="k">if</span> <span class="n">next_suffixes_dict</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">next_suffixes_dict</span> <span class="o">=</span> <span class="n">ID_NUM_RANDOM_SUFFIXES</span>
+        <span class="k">if</span> <span class="n">old_suffix</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">NamingPathLike</span><span class="p">(</span>
+                <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="n">old_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="n">suffixes_dict</span><span class="p">[</span><span class="n">old_suffix</span><span class="p">],</span> <span class="s1">&#39;&#39;</span><span class="p">)),</span>
+                <span class="n">suffixes_dict</span><span class="p">[</span><span class="n">new_suffix</span><span class="p">],</span> <span class="n">next_suffixes</span><span class="o">=</span><span class="n">next_suffixes_dict</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">new_suffix</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="n">old_name</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="n">old_name</span><span class="p">),</span>
+                                      <span class="n">suffixes_dict</span><span class="p">[</span><span class="n">new_suffix</span><span class="p">],</span> <span class="n">next_suffixes</span><span class="o">=</span><span class="n">next_suffixes_dict</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Naming.make_pathlike">
+<a class="viewcode-back" href="../naming.html#naming.Naming.make_pathlike">[docs]</a>
+    <span class="k">def</span> <span class="nf">make_pathlike</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">suffixes_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a new :py:class:`NamingPathLike` object from a file name</span>
+<span class="sd">        string.</span>
+
+<span class="sd">        Used to convert a file name or file stem string to a</span>
+<span class="sd">        :py:class:`NamingPathLike` object. This is useful when the file name is</span>
+<span class="sd">        found by searching a directory using either :py:meth:`os.listdir` or</span>
+<span class="sd">        :py:meth:`pathlib.Path.glob`.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The file name or file stem.</span>
+<span class="sd">        suffixes_dict : dict, default ID_NUM_RANDOM_SUFFIXES</span>
+<span class="sd">            The dictionary with the next suffix names and suffixes.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        NamingPathLike</span>
+<span class="sd">            A new :py:class:`NamingPathLike` object with the given file name or</span>
+<span class="sd">            file stem.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">suffixes_dict</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">suffixes_dict</span> <span class="o">=</span> <span class="n">ID_NUM_RANDOM_SUFFIXES</span>
+        <span class="k">return</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">next_suffixes</span><span class="o">=</span><span class="n">suffixes_dict</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Naming.add_suffix">
+<a class="viewcode-back" href="../naming.html#naming.Naming.add_suffix">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_suffix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">suffix</span><span class="p">,</span> <span class="n">suffixes_dict</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add a suffix to the file name.</span>
+
+<span class="sd">        :py:attr:`name` is a file name or file stem string and not a</span>
+<span class="sd">        :py:class:`NamingPathLike`</span>
+<span class="sd">        object.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The file name or file stem.</span>
+<span class="sd">        suffix : str</span>
+<span class="sd">            The name of the suffix to be added to the file name.</span>
+<span class="sd">        suffixes_dict : dict, default ID_NUM_RANDOM_SUFFIXES</span>
+<span class="sd">            The dictionary with the suffix names and suffixes.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        NamingPathLike</span>
+<span class="sd">            A new :py:class:`NamingPathLike` object with</span>
+<span class="sd">            ``suffixes_dict[suffix]`` added to the file name.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">replace_suffix</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">suffix</span><span class="p">,</span> <span class="n">suffixes_dict</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Naming.get_id_num_pm">
+<a class="viewcode-back" href="../naming.html#naming.Naming.get_id_num_pm">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_id_num_pm</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the id number and the sign of the id parameter from the file name.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The file name or file stem.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tuple[int, str]</span>
+<span class="sd">            The id number and the sign of the id parameter.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+
+<span class="sd">        &gt;&gt;&gt; NAMING.get_id_num_pm(&#39;id_01_+1_rendered_images.npy&#39;)</span>
+<span class="sd">        (1, &#39;+&#39;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name_stem</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">id_num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">name_stem</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">pm</span> <span class="o">=</span> <span class="n">name_stem</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">id_num</span><span class="p">,</span> <span class="n">pm</span></div>
+
+
+<div class="viewcode-block" id="Naming.get_random_num">
+<a class="viewcode-back" href="../naming.html#naming.Naming.get_random_num">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">get_random_num</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the random face number from the file name.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name : str</span>
+<span class="sd">            The file name or file stem.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+<span class="sd">            The random face number.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+
+<span class="sd">        &gt;&gt;&gt; NAMING.get_random_num(&#39;random_020_rendered_vs_predicted.png&#39;)</span>
+<span class="sd">        20</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name_stem</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">name_stem</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span></div>
+</div>
+
+
+
+<span class="n">NAMING</span> <span class="o">=</span> <span class="n">Naming</span><span class="p">(</span><span class="n">BASE_NAMING</span><span class="p">)</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Uday Nakade, Prof. Dr. Manuel Spitschan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Uday Nakade, Prof. Dr. Manuel Spitschan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

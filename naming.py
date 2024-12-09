@@ -3,15 +3,16 @@ import os
 
 __doc__ = """Module for simplifying the naming of files.
 
-In order to avoid hardcoding, this module provides a way to create file names 
-in a structured manner. The goal is to have an object `NAMING` that can be used
-as follows:
-NAMING.generic.theta_boundary.npy -> 'generic_neutral_mesh_thetas.npy'
-NAMING.id(1).pos.rendered.npy -> 'id_01_+1_rendered_images.npy'
-NAMING.random(20).comparison.png -> 'random_020_rendered_vs_predicted.png'
+In order to avoid hard-coding, this module provides a way to create file names 
+in a structured manner. The goal is to have an object :py:obj:`NAMING` that can 
+be used as follows::
 
-The reason for inheriting from `os.PathLike` is that such objects can be used 
-along with `pathlib.Path` objects. For example:
+    NAMING.generic.theta_boundary.npy -> 'generic_neutral_mesh_thetas.npy'
+    NAMING.id(1).pos.rendered.npy -> 'id_01_+1_rendered_images.npy'
+    NAMING.random(20).comparison.png -> 'random_020_rendered_vs_predicted.png'
+
+The reason for inheriting from :py:class:`os.PathLike` is that such objects 
+can be used along with :py:class:`pathlib.Path` objects. For example:
 
 >>> from pathlib import Path
 >>> from naming import NAMING
@@ -23,11 +24,13 @@ Path('path/to/directory/generic_neutral_mesh_thetas.npy')
 class BaseNaming(os.PathLike):
     """Base class for naming paths.
 
-    Since the `NamingPathLike` class requires the `start` attribute to have
-    inherited from `os.PathLike`, this class is used to create the `BASE_NAMING`
-    object that can be used as the starting point for creating file names.
+    Since the :py:class:`NamingPathLike` class requires the
+    :py:attr:`~NamingPathLike.start` attribute to have inherited from
+    :py:class:`os.PathLike`, this class is used to create the
+    :py:const:`BASE_NAMING` object that can be used as the starting point
+    for creating file names.
 
-    The `__fspath__` method returns an empty string.
+    The :py:meth:`__fspath__` method returns an empty string.
     """
     def __fspath__(self):
         return ''
@@ -39,7 +42,7 @@ FILE_TYPE_SUFFIXES = ['png', 'npy', 'ply', 'json', 'spd']
 
 
 class NamingPathLike(os.PathLike):
-    """Class for creating PathLike objects used by the `Naming` class.
+    """Class for creating PathLike objects used by the :py:class:`Naming` class.
 
     A base class for file names represented as PathLike objects.
 
@@ -47,16 +50,16 @@ class NamingPathLike(os.PathLike):
     ----------
     start : os.PathLike
         The starting point for the file name.
-        Must have inherited from `os.PathLike`, i.e., must have an
-        `__fspath__` method.
+        Must have inherited from :py:class:`os.PathLike`, i.e., must have an
+        :py:meth:`__fspath__` method.
     suffix : str
         The suffix to be added to the file name.
         This can either be an internal suffix or a file type suffix.
-        For an internal suffix, the `separator` should preferably be '_',
-        but can be changed if necessary.
-        For a file type suffix, the `separator` must be '.'.
+        For an internal suffix, the :py:attr:`separator` should preferably
+        be '_', but can be changed if necessary.
+        For a file type suffix, the :py:attr:`separator` must be '.'.
     separator : str, default '_'
-        The separator between the `start` and `suffix`.
+        The separator between the :py:attr:`start` and :py:attr:`suffix`.
     next_suffixes : dict, optional
         A dictionary with the next suffixes that can be added to the file name.
         The keys are the names of the suffixes, and the values are the suffixes.
@@ -64,15 +67,10 @@ class NamingPathLike(os.PathLike):
     Methods
     -------
     __getattr__(item)
-        This method is defined to allow the creation of new `NamingPathLike`
-        objects by accessing attributes that are not defined in the class
-        but are present in the `next_suffixes` dictionary.
-        For example:
-        >>> id_naming = NamingPathLike(BASE_NAMING, 'id', next_suffixes={'pos': '+'})
-        >>> id_naming.__fspath__()
-        'id'
-        >>> id_naming.pos.__fspath__()
-        'id_+'
+        This method is defined to allow the creation of new
+        :py:type:`NamingPathLike` objects by accessing attributes that are not
+        defined in the class but are present in the :py:attr:`next_suffixes`
+        dictionary.
     """
     def __init__(self, start, suffix, separator='_', next_suffixes=None):
         self.start = start
@@ -84,6 +82,34 @@ class NamingPathLike(os.PathLike):
             self.next_suffixes = next_suffixes
 
     def __getattr__(self, item):
+        """Return new :py:class:`NamingPathLike` objects if the attribute is in
+        :py:attr:`next_suffixes`.
+
+        For example:
+
+        >>> id_naming = NamingPathLike(BASE_NAMING, 'id', next_suffixes={'pos': '+'})
+        >>> id_naming.__fspath__()
+        'id'
+        >>> id_naming.pos.__fspath__()
+        'id_+'
+
+        Parameters
+        ----------
+        item : str
+            The name of the attribute to be accessed.
+
+        Returns
+        -------
+        NamingPathLike
+            A new :py:class:`NamingPathLike` object with the :py:attr:`item`
+            suffix. If :py:attr:`item` is in :py:const:`FILE_TYPE_SUFFIXES`,
+            the :py:attr:`separator` is ``'.'``, otherwise it is ``'_'``.
+
+        Raises
+        ------
+        AttributeError
+            If the attribute is not in :py:attr:`next_suffixes`.
+        """
         if item in FILE_TYPE_SUFFIXES:
             return NamingPathLike(self, item, separator='.')
         elif item in self.next_suffixes:
@@ -91,17 +117,15 @@ class NamingPathLike(os.PathLike):
         else:
             raise AttributeError(f"'{self.__class__.__name__}' object has no attribute '{item}'")
 
-    def get(self, name, default=None):
-        return getattr(self, name, default)
-
     def remove_suffix(self):
         """Remove the suffix from the file name.
 
         Returns
         -------
         NamingPathLike
-            A new `NamingPathLike` object with the suffix removed.
-            Returns the `start` attribute of the object on which this is called.
+            A new :py:class:`NamingPathLike` object with the suffix removed.
+            Returns the :py:attr:`start` attribute of the object on which this
+            is called.
         """
         return self.start
 
@@ -116,19 +140,19 @@ class NamingPathLike(os.PathLike):
         Returns
         -------
         NamingPathLike
-            A new `NamingPathLike` object with the new suffix.
+            A new :py:class:`NamingPathLike` object with the new suffix.
         """
         return NamingPathLike(self.start, new_suffix)
 
     def __str__(self):
-        """Redefined to return `__fspath__`."""
+        """Redefined to return :py:meth:`__fspath__`."""
         return self.__fspath__()
 
     def __fspath__(self):
         """Return the file name as a string.
 
-        Returns `start.__fspath__() + suffix` if either are '',
-        otherwise returns `start.__fspath__() + separator + suffix`.
+        Returns ``start.__fspath__() + suffix`` if either are ``''``,
+        otherwise returns ``start.__fspath__() + separator + suffix``.
         """
         if self.start.__fspath__() != '' and self.suffix != '':
             return self.start.__fspath__() + self.separator + self.suffix
@@ -175,8 +199,9 @@ OPTIMIZATION_SUFFIXES = {
 class Naming:
     """Class for creating file names in a structured manner.
 
-    `NAMING` is an instance of this class.
+    :py:const:`NAMING` is an instance of this class.
     It is used to create file names as follows:
+
     >>> str(NAMING.generic.theta_boundary.npy)
     'generic_neutral_mesh_thetas.npy'
     >>> str(NAMING.id(1).pos.rendered.npy)
@@ -188,16 +213,16 @@ class Naming:
     ----------
     base : os.PathLike
         The base name for the file names.
-        Must have inherited from `os.PathLike`, i.e., must have an
-        `__fspath__` method.
-        For the `NAMING` instance, this is `BASE_NAMING`.
+        Must have inherited from :py:class:`os.PathLike`, i.e., must have an
+        :py:meth:`__fspath__` method.
+        For the :py:const:`NAMING` instance, this is :py:const:`BASE_NAMING`.
 
     Attributes
     ----------
     base : os.PathLike
         The base name for the file names.
-        Must have inherited from `os.PathLike`, i.e., must have an
-        `__fspath__` method.
+        Must have inherited from :py:class:`os.PathLike`, i.e., must have an
+        :py:meth:`__fspath__` method.
     id_ : NamingPathLike
         Base PathLike object for the id file names.
     random_ : NamingPathLike
@@ -205,7 +230,8 @@ class Naming:
     generic_ : NamingPathLike
         Base PathLike object for the generic neutral mesh file names.
     generic : NamingPathLike
-        Base PathLike object for the generic neutral mesh file names with suffixes.
+        Base PathLike object for the generic neutral mesh file names with
+        suffixes.
     optimization : NamingPathLike
         Base PathLike object for file names involved in
         Visual Field boundary optimizations.
@@ -214,12 +240,31 @@ class Naming:
     asterisk : NamingPathLike
         Base PathLike object used to create file names with an asterisk.
         These can be used as regular expressions in the
-        `pathlib.Path.glob` method.
+        :py:meth:`pathlib.Path.glob` method.
     y_cie : NamingPathLike
         Base PathLike object for the y_CIE_1931 spectrum file name.
     phis : NamingPathLike
         Base PathLike object for the file storing regularly spaced phi values.
 
+    Methods
+    -------
+    id(num)
+        Create a new :py:class:`NamingPathLike` object for the id file names.
+    random(num)
+        Create a new :py:class:`NamingPathLike` object for the random head file
+        names.
+    shape_key(num)
+        Create a shape key name.
+    replace_suffix(old_name, old_suffix, new_suffix, suffixes_dict=None, next_suffixes_dict=None)
+        Replace the suffix in the file name with a new one.
+    make_pathlike(name, suffixes_dict=None)
+        Create a new :py:class:`NamingPathLike` object from a file name string.
+    add_suffix(name, suffix, suffixes_dict=None)
+        Add a suffix to the file name.
+    get_id_num_pm(name)
+        Get the id number and the sign of the id parameter from the file name.
+    get_random_num(name)
+        Get the random face number from the file name.
     """
     def __init__(self, base):
         self.base = base
@@ -251,14 +296,14 @@ class Naming:
         self.phis = NamingPathLike(self.base, 'phis')
 
     def id(self, num):
-        """Create a new `NamingPathLike` object for the id file names.
+        """Create a new :py:class:`NamingPathLike` object for the id file names.
 
         When called with a number (say 4), this method creates a new
-        `NamingPathLike` object with `__fspath__ = 'id_04'`.
+        :py:class:`NamingPathLike` object with ``__fspath__() == 'id_04'``.
         When the class is initialized, a few other attributes are added to this
-        method, such as `pos`, `neg`, `optimized`, etc., so that file names that
-        are related to the id parameters but do not depend explicitly on any one
-        id number can be created.
+        method, such as :py:attr:`pos`, :py:attr:`neg`, :py:attr:`optimized`,
+        etc., so that file names that are related to the id parameters but do
+        not depend explicitly on any one id number can be created (see examples).
 
         Parameters
         ----------
@@ -268,13 +313,15 @@ class Naming:
         Returns
         -------
         NamingPathLike
-            A new `NamingPathLike` object with the id number.
-            Also has attributes `pos` and `neg` for adding the `+1` and `-1`
-            suffixes to the file names.
-            `next_suffixes` is the `ID_NUM_RANDOM_SUFFIXES` dict.
+            A new :py:class:`NamingPathLike` object with the id number.
+            Also has attributes :py:attr:`pos` and :py:attr:`neg` for adding
+            the ``+1`` and ``-1`` suffixes to the file names.
+            :py:attr:`next_suffixes` is the :py:const:`ID_NUM_RANDOM_SUFFIXES`
+            dict.
 
         Examples
         --------
+
         >>> NAMING.id.pos.theta_boundary.npy.__fspath__()
         'id_+_thetas.npy'
         >>> NAMING.id(20).hemispherical_vf.npy.__fspath__()
@@ -291,14 +338,15 @@ class Naming:
         return id_num_pathlike_temp
 
     def random(self, num):
-        """Create a new `NamingPathLike` object for the random parameter files.
+        """Create a new :py:class:`NamingPathLike` object for the random
+        parameter files.
 
         When called with a number (say 4), this method creates a new
-        `NamingPathLike` object with `__fspath__ = 'random_004'`.
+        :py:class:`NamingPathLike` object with ``__fspath__() = 'random_004'``.
         When the class is initialized, a few other attributes are added to this
-        method, such as 'params', 'theta_boundary', etc., so that file names that
-        are related to the random faces but do not depend explicitly on any one
-        of them can be created.
+        method, such as :py:attr:`params`, :py:attr:`theta_boundary`, etc.,
+        so that file names that are related to the random faces but do not
+        depend explicitly on any one of them can be created.
 
         Parameters
         ----------
@@ -308,13 +356,15 @@ class Naming:
         Returns
         -------
         NamingPathLike
-            A new `NamingPathLike` object with the random face number.
-            Also has attributes `params` and `theta_boundary` for adding the
-            `params` and `thetas` suffixes to the file names.
-            `next_suffixes` is the `ID_NUM_RANDOM_SUFFIXES` dict.
+            A new :py:class:`NamingPathLike` object with the random face number.
+            Also has attributes :py:attr:`params` and :py:attr:`theta_boundary`
+            for adding the ``params`` and ``thetas`` suffixes to the file names.
+            :py:attr:`next_suffixes` is the :py:const:`ID_NUM_RANDOM_SUFFIXES`
+            dict.
 
         Examples
         --------
+
         >>> NAMING.random.val.theta_boundary.npy.__fspath__()
         'random_val_thetas.npy'
         >>> NAMING.random(20).comparison.png.__fspath__()
@@ -343,6 +393,7 @@ class Naming:
 
         Examples
         --------
+
         >>> NAMING.shape_key(4)
         'identity004'
         """
@@ -352,8 +403,9 @@ class Naming:
                        suffixes_dict=None, next_suffixes_dict=None):
         """Replace the suffix in the file name with a new one.
 
-        This takes in an `old_name` string and returns a new `NamingPathLike`
-        object with the `old_suffix` replaced by the `new_suffix`.
+        This takes in an :py:attr:`old_name` string and returns a new
+        :py:class:`NamingPathLike` object with the :py:attr:`old_suffix`
+        replaced by the :py:attr:`new_suffix`.
 
         Parameters
         ----------
@@ -372,8 +424,9 @@ class Naming:
         Returns
         -------
         NamingPathLike
-            A new `NamingPathLike` object with the `old_suffix` in `old_name`
-            replaced by the `new_suffix`.
+            A new :py:class:`NamingPathLike` object with the
+            :py:attr:`old_suffix` in :py:attr:`old_name` replaced by the
+            :py:attr:`new_suffix`.
         """
         if suffixes_dict is None:
             suffixes_dict = ID_NUM_RANDOM_SUFFIXES
@@ -391,11 +444,13 @@ class Naming:
                                       suffixes_dict[new_suffix], next_suffixes=next_suffixes_dict)
 
     def make_pathlike(self, name, suffixes_dict=None):
-        """Create a new `NamingPathLike` object from a file name string.
+        """Create a new :py:class:`NamingPathLike` object from a file name
+        string.
 
-        Used to convert a file name or file stem string to a `NamingPathLike`
-        object. This is useful when the file name is found by searching a
-        directory using either `os.listdir` or `pathlib.Path.glob`.
+        Used to convert a file name or file stem string to a
+        :py:class:`NamingPathLike` object. This is useful when the file name is
+        found by searching a directory using either :py:meth:`os.listdir` or
+        :py:meth:`pathlib.Path.glob`.
 
         Parameters
         ----------
@@ -407,7 +462,8 @@ class Naming:
         Returns
         -------
         NamingPathLike
-            A new `NamingPathLike` object with the given file name or file stem.
+            A new :py:class:`NamingPathLike` object with the given file name or
+            file stem.
         """
         if suffixes_dict is None:
             suffixes_dict = ID_NUM_RANDOM_SUFFIXES
@@ -416,7 +472,8 @@ class Naming:
     def add_suffix(self, name, suffix, suffixes_dict=None):
         """Add a suffix to the file name.
 
-        `name` is a file name or file stem string and not a `NamingPathLike`
+        :py:attr:`name` is a file name or file stem string and not a
+        :py:class:`NamingPathLike`
         object.
 
         Parameters
@@ -431,8 +488,8 @@ class Naming:
         Returns
         -------
         NamingPathLike
-            A new `NamingPathLike` object with the `suffix` added to the
-            file name.
+            A new :py:class:`NamingPathLike` object with
+            ``suffixes_dict[suffix]`` added to the file name.
         """
         return self.replace_suffix(name, '', suffix, suffixes_dict)
 
@@ -449,6 +506,12 @@ class Naming:
         -------
         tuple[int, str]
             The id number and the sign of the id parameter.
+
+        Examples
+        --------
+
+        >>> NAMING.get_id_num_pm('id_01_+1_rendered_images.npy')
+        (1, '+')
         """
         name_stem = name.split('.')[0]
         id_num = int(name_stem.split('_')[1])
@@ -468,6 +531,12 @@ class Naming:
         -------
         int
             The random face number.
+
+        Examples
+        --------
+
+        >>> NAMING.get_random_num('random_020_rendered_vs_predicted.png')
+        20
         """
         name_stem = name.split('.')[0]
         return int(name_stem.split('_')[1])

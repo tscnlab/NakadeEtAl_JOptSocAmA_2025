@@ -1,0 +1,717 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>plotting &#8212; visual-field-pca 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/plotting';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">visual-field-pca 0.0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">README</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../common_params.html">common_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../naming.html">naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils_img.html">utils_img</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../export_from_blender.html">export_from_blender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_eye_centers.html">get_eye_centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render_ply.html">render_ply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_vf_boundaries.html">get_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tf_funcs.html">tf_funcs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optimize_vf_boundaries.html">optimize_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hemispherical_interpolator.html">hemispherical_interpolator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_hemispherical_vf_images.html">create_hemispherical_vf_images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">plotting</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for plotting</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">utils_img</span> <span class="kn">import</span> <span class="n">add_transparency</span>
+<span class="kn">from</span> <span class="nn">common_params</span> <span class="kn">import</span> <span class="n">DIRECTORIES</span><span class="p">,</span> <span class="n">NUMBERS</span><span class="p">,</span> <span class="n">COLORS</span>
+<span class="kn">from</span> <span class="nn">naming</span> <span class="kn">import</span> <span class="n">NAMING</span>
+
+
+<div class="viewcode-block" id="add_polar_axes">
+<a class="viewcode-back" href="../plotting.html#plotting.add_polar_axes">[docs]</a>
+<span class="k">def</span> <span class="nf">add_polar_axes</span><span class="p">(</span><span class="n">fig_</span><span class="p">,</span> <span class="n">axes_coords_</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add polar axes to the figure.</span>
+
+<span class="sd">    Adds polar axes to the figure at the specified coordinates and</span>
+<span class="sd">    sets the ticks and limits for the polar plot.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fig_ : matplotlib.figure.Figure</span>
+<span class="sd">        The figure to which the polar axes are to be added.</span>
+<span class="sd">    axes_coords_ : tuple[float, float, float, float]</span>
+<span class="sd">        The coordinates of the polar axes in the figure.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ax_polar</span> <span class="o">=</span> <span class="n">fig_</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="n">axes_coords_</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;polar&#39;</span><span class="p">)</span>
+    <span class="n">ax_polar</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">polar_y_ticks</span><span class="p">))</span>
+    <span class="n">ax_polar</span><span class="o">.</span><span class="n">set_rlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>  <span class="c1"># 0 to 90 because this represents theta on a hemisphere</span>
+    <span class="n">ax_polar</span><span class="o">.</span><span class="n">set_rticks</span><span class="p">(</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">polar_r_ticks</span><span class="p">)</span>
+    <span class="n">ax_polar</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{x}</span><span class="s1">°&#39;</span><span class="p">)</span>
+    <span class="n">ax_polar</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="add_image">
+<a class="viewcode-back" href="../plotting.html#plotting.add_image">[docs]</a>
+<span class="k">def</span> <span class="nf">add_image</span><span class="p">(</span><span class="n">fig_</span><span class="p">,</span> <span class="n">image_</span><span class="p">,</span> <span class="n">axes_coords_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add an image to the figure at the specified coordinates.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fig_ : matplotlib.figure.Figure</span>
+<span class="sd">        The figure to which the image is to be added.</span>
+<span class="sd">    image_ : numpy.ndarray</span>
+<span class="sd">        The image to be added.</span>
+<span class="sd">    axes_coords_ : tuple[float, float, float, float]</span>
+<span class="sd">        The coordinates of the image in the figure.</span>
+<span class="sd">    cmap : str, default &#39;gray&#39;</span>
+<span class="sd">        The colormap to be used for the image.</span>
+<span class="sd">    kwargs : dict</span>
+<span class="sd">        Additional keyword arguments to be passed to</span>
+<span class="sd">        :py:func:`matplotlib.axes.Axes.imshow`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    matplotlib.image.AxesImage</span>
+<span class="sd">        The image added to the figure.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ax_img</span> <span class="o">=</span> <span class="n">fig_</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="n">axes_coords_</span><span class="p">)</span>
+    <span class="n">axes_image</span> <span class="o">=</span> <span class="n">ax_img</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">ax_img</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">axes_image</span></div>
+
+
+
+<div class="viewcode-block" id="polar_plot_grayscale_image">
+<a class="viewcode-back" href="../plotting.html#plotting.polar_plot_grayscale_image">[docs]</a>
+<span class="k">def</span> <span class="nf">polar_plot_grayscale_image</span><span class="p">(</span><span class="n">image_</span><span class="p">,</span> <span class="n">output_file_path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot a grayscale image and add polar axes with ticks.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image_ : numpy.ndarray</span>
+<span class="sd">        The grayscale image to be plotted.</span>
+<span class="sd">    output_file_path : str | pathlib.Path</span>
+<span class="sd">        The path to the output file.</span>
+<span class="sd">    kwargs : dict</span>
+<span class="sd">        Additional keyword arguments to be passed to</span>
+<span class="sd">        :py:func:`matplotlib.axes.Axes.imshow`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">image_</span> <span class="o">=</span> <span class="n">add_transparency</span><span class="p">(</span><span class="n">image_</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">add_image</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">image_</span><span class="p">,</span> <span class="n">NUMBERS</span><span class="o">.</span><span class="n">polar_axes_coords</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">add_polar_axes</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">NUMBERS</span><span class="o">.</span><span class="n">polar_axes_coords</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="polar_plot_grayscale_images">
+<a class="viewcode-back" href="../plotting.html#plotting.polar_plot_grayscale_images">[docs]</a>
+<span class="k">def</span> <span class="nf">polar_plot_grayscale_images</span><span class="p">(</span><span class="n">images_</span><span class="p">,</span> <span class="n">output_file_paths</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot grayscale images and add polar axes with ticks.</span>
+
+<span class="sd">    Calls :py:func:`polar_plot_grayscale_image` for multiple images.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    images_ : list[numpy.ndarray, ...]</span>
+<span class="sd">        The grayscale images to be plotted.</span>
+<span class="sd">    output_file_paths : list[str | pathlib.Path, ...]</span>
+<span class="sd">        The paths to the output files.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">image_</span><span class="p">,</span> <span class="n">output_file_path</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">images_</span><span class="p">,</span> <span class="n">output_file_paths</span><span class="p">):</span>
+        <span class="n">polar_plot_grayscale_image</span><span class="p">(</span><span class="n">image_</span><span class="p">,</span> <span class="n">output_file_path</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="add_colorbar">
+<a class="viewcode-back" href="../plotting.html#plotting.add_colorbar">[docs]</a>
+<span class="k">def</span> <span class="nf">add_colorbar</span><span class="p">(</span><span class="n">fig_</span><span class="p">,</span> <span class="n">axes_image_</span><span class="p">,</span> <span class="n">cax_coords_</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add a colorbar to the figure.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    fig_ : matplotlib.figure.Figure</span>
+<span class="sd">        The figure to which the colorbar is to be added.</span>
+<span class="sd">    axes_image_ : matplotlib.image.AxesImage</span>
+<span class="sd">        The image for which the colorbar is to be added.</span>
+<span class="sd">    cax_coords_ : tuple[float, float, float, float]</span>
+<span class="sd">        The coordinates of the colorbar in the figure.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cax</span> <span class="o">=</span> <span class="n">fig_</span><span class="o">.</span><span class="n">add_axes</span><span class="p">(</span><span class="n">cax_coords_</span><span class="p">)</span>
+    <span class="n">fig_</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">axes_image_</span><span class="p">,</span> <span class="n">cax</span><span class="o">=</span><span class="n">cax</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
+    <span class="n">cax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_ticks_position</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="polar_plot_color_image">
+<a class="viewcode-back" href="../plotting.html#plotting.polar_plot_color_image">[docs]</a>
+<span class="k">def</span> <span class="nf">polar_plot_color_image</span><span class="p">(</span><span class="n">image_</span><span class="p">,</span> <span class="n">output_file_path</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot a color image, add polar axes with ticks and add a colorbar.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image_ : numpy.ndarray</span>
+<span class="sd">        The color image to be plotted.</span>
+<span class="sd">    output_file_path : str | pathlib.Path</span>
+<span class="sd">        The path to the output file.</span>
+<span class="sd">    cmap : str | matplotlib.colors.Colormap, default &#39;bwr&#39;</span>
+<span class="sd">        The colormap to be used for the image.</span>
+<span class="sd">    kwargs : dict</span>
+<span class="sd">        Additional keyword arguments to be passed to</span>
+<span class="sd">        :py:func:`matplotlib.axes.Axes.imshow`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">figsize_colorbar</span><span class="p">,</span> <span class="n">constrained_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">vmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">image_</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="n">axes_image</span> <span class="o">=</span> <span class="n">add_image</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">image_</span><span class="p">,</span> <span class="n">NUMBERS</span><span class="o">.</span><span class="n">polar_axes_coords_colorbar</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="n">vmax</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">add_colorbar</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">axes_image</span><span class="p">,</span> <span class="n">NUMBERS</span><span class="o">.</span><span class="n">colorbar_axes_coords_colorbar</span><span class="p">)</span>
+    <span class="n">add_polar_axes</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">NUMBERS</span><span class="o">.</span><span class="n">polar_axes_coords_colorbar</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="get_ticks">
+<a class="viewcode-back" href="../plotting.html#plotting.get_ticks">[docs]</a>
+<span class="k">def</span> <span class="nf">get_ticks</span><span class="p">(</span><span class="n">min_</span><span class="p">,</span> <span class="n">max_</span><span class="p">,</span> <span class="n">tick_at_every_</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get all the multiples of :py:attr:`tick_at_every_` between</span>
+<span class="sd">    :py:attr:`min_` and :py:attr:`max_`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    min_ : int</span>
+<span class="sd">        The minimum value.</span>
+<span class="sd">    max_ : int</span>
+<span class="sd">        The maximum value.</span>
+<span class="sd">    tick_at_every_ : int</span>
+<span class="sd">        The number for which multiples are to be returned.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        An array containing all the multiples of :py:attr:`tick_at_every_`</span>
+<span class="sd">        between :py:attr:`min_` and :py:attr:`max_`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tick_min</span> <span class="o">=</span> <span class="p">(</span><span class="n">min_</span> <span class="o">//</span> <span class="n">tick_at_every_</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">tick_at_every_</span>
+    <span class="n">tick_max</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_</span> <span class="o">//</span> <span class="n">tick_at_every_</span><span class="p">)</span> <span class="o">*</span> <span class="n">tick_at_every_</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">tick_min</span><span class="p">,</span> <span class="n">tick_max</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">tick_at_every_</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="plot_vf_xy">
+<a class="viewcode-back" href="../plotting.html#plotting.plot_vf_xy">[docs]</a>
+<span class="k">def</span> <span class="nf">plot_vf_xy</span><span class="p">(</span><span class="n">plots_dict</span><span class="p">,</span> <span class="n">output_file_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot the Visual Field boundaries with theta on the y-axis and</span>
+<span class="sd">    phi on the x-axis.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    plots_dict : dict</span>
+<span class="sd">        A dictionary containing the data to be plotted.</span>
+<span class="sd">        The keys are the labels for the plots and the values are</span>
+<span class="sd">        dictionaries with the following keys</span>
+
+<span class="sd">        - &#39;thetas&#39; : numpy.ndarray</span>
+<span class="sd">            The theta values for the boundary pixels.</span>
+<span class="sd">        - &#39;phis&#39; : numpy.ndarray</span>
+<span class="sd">            The phi values for the boundary pixels.</span>
+<span class="sd">        - &#39;kwargs&#39; : dict</span>
+<span class="sd">            Additional keyword arguments to be passed to</span>
+<span class="sd">            :py:meth:`matplotlib.pyplot.plot`.</span>
+
+<span class="sd">    output_file_path : str | pathlib.Path</span>
+<span class="sd">        The path to the output file</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">plots_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;phis&#39;</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;thetas&#39;</span><span class="p">]),</span>
+                 <span class="n">label</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="o">**</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;kwargs&#39;</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">NUMBERS</span><span class="o">.</span><span class="n">x_tick_every</span><span class="p">))</span>
+    <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">get_ticks</span><span class="p">(</span><span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="n">NUMBERS</span><span class="o">.</span><span class="n">y_tick_every</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\phi$ [degrees]&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\theta$ [degrees]&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="plot_rendered_predicted_comparison">
+<a class="viewcode-back" href="../plotting.html#plotting.plot_rendered_predicted_comparison">[docs]</a>
+<span class="k">def</span> <span class="nf">plot_rendered_predicted_comparison</span><span class="p">(</span><span class="n">rendered_thetas</span><span class="p">,</span> <span class="n">predicted_thetas</span><span class="p">,</span> <span class="n">phis</span><span class="p">,</span> <span class="n">output_file_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot the rendered and predicted Visual Field boundaries.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    rendered_thetas : numpy.ndarray</span>
+<span class="sd">        The theta values for the rendered boundary.</span>
+<span class="sd">    predicted_thetas : numpy.ndarray</span>
+<span class="sd">        The theta values for the predicted boundary.</span>
+<span class="sd">    phis : numpy.ndarray</span>
+<span class="sd">        The phi values for the boundary.</span>
+<span class="sd">    output_file_path : str | pathlib.Path</span>
+<span class="sd">        The path to the output file.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">plot_vf_xy</span><span class="p">({</span>
+        <span class="s1">&#39;rendered&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;thetas&#39;</span><span class="p">:</span> <span class="n">rendered_thetas</span><span class="p">,</span> <span class="s1">&#39;phis&#39;</span><span class="p">:</span> <span class="n">phis</span><span class="p">,</span>
+                     <span class="s1">&#39;kwargs&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="n">COLORS</span><span class="o">.</span><span class="n">rendered</span><span class="p">,</span> <span class="s1">&#39;linewidth&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}},</span>
+        <span class="s1">&#39;predicted&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;thetas&#39;</span><span class="p">:</span> <span class="n">predicted_thetas</span><span class="p">,</span> <span class="s1">&#39;phis&#39;</span><span class="p">:</span> <span class="n">phis</span><span class="p">,</span>
+                      <span class="s1">&#39;kwargs&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="n">COLORS</span><span class="o">.</span><span class="n">predicted</span><span class="p">,</span> <span class="s1">&#39;linewidth&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}}},</span>
+               <span class="n">output_file_path</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="plot_rendered_predicted_comparisons">
+<a class="viewcode-back" href="../plotting.html#plotting.plot_rendered_predicted_comparisons">[docs]</a>
+<span class="k">def</span> <span class="nf">plot_rendered_predicted_comparisons</span><span class="p">(</span><span class="n">random_predicted</span><span class="p">,</span> <span class="n">random_rendered</span><span class="p">,</span> <span class="n">phis</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot the rendered and predicted Visual Field boundaries for random faces.</span>
+
+<span class="sd">    Calls :py:func:`plot_rendered_predicted_comparison` for multiple faces.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    random_predicted : numpy.ndarray</span>
+<span class="sd">        The predicted theta values for the random faces.</span>
+<span class="sd">    random_rendered : numpy.ndarray</span>
+<span class="sd">        The rendered theta values for the random faces.</span>
+<span class="sd">    phis : numpy.ndarray</span>
+<span class="sd">        The phi values for the boundary.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">random_rendered</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">plot_rendered_predicted_comparison</span><span class="p">(</span>
+            <span class="n">random_rendered</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">random_predicted</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">phis</span><span class="p">,</span>
+            <span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">comparison_plots</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">comparison</span><span class="o">.</span><span class="n">png</span>
+        <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_id_pm_diff">
+<a class="viewcode-back" href="../plotting.html#plotting.get_id_pm_diff">[docs]</a>
+<span class="k">def</span> <span class="nf">get_id_pm_diff</span><span class="p">(</span><span class="n">id_num</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Difference in the Visual Field when an id parameter changes from -1 to 1.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    id_num : int</span>
+<span class="sd">        The id parameter number.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        The difference in the Visual Field.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">p_img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">boundaries</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="n">id_num</span><span class="p">)</span><span class="o">.</span><span class="n">pos</span><span class="o">.</span><span class="n">hemispherical_vf</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
+    <span class="n">m_img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">boundaries</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="n">id_num</span><span class="p">)</span><span class="o">.</span><span class="n">neg</span><span class="o">.</span><span class="n">hemispherical_vf</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p_img</span> <span class="o">-</span> <span class="n">m_img</span></div>
+
+
+
+<div class="viewcode-block" id="plot_id_pm_diff">
+<a class="viewcode-back" href="../plotting.html#plotting.plot_id_pm_diff">[docs]</a>
+<span class="k">def</span> <span class="nf">plot_id_pm_diff</span><span class="p">(</span><span class="n">id_num</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot the difference in the VF when an id parameter changes from -1 to 1</span>
+
+<span class="sd">    Saves the plot to a png file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    id_num : int</span>
+<span class="sd">        The id number.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">diff</span> <span class="o">=</span> <span class="n">get_id_pm_diff</span><span class="p">(</span><span class="n">id_num</span><span class="p">)</span>
+    <span class="n">polar_plot_color_image</span><span class="p">(</span><span class="n">diff</span><span class="p">,</span> <span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">comparison_plots</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="n">id_num</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="o">.</span><span class="n">png</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="plot_id_pm_diffs">
+<a class="viewcode-back" href="../plotting.html#plotting.plot_id_pm_diffs">[docs]</a>
+<span class="k">def</span> <span class="nf">plot_id_pm_diffs</span><span class="p">(</span><span class="n">id_nums_arr</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot the differences in the VFs when id parameters change from -1 to 1.</span>
+
+<span class="sd">    Calls :py:func:`plot_id_pm_diff` for multiple id numbers.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    id_nums_arr : list[int, ...]</span>
+<span class="sd">        The id numbers.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">id_num</span> <span class="ow">in</span> <span class="n">id_nums_arr</span><span class="p">:</span>
+        <span class="n">plot_id_pm_diff</span><span class="p">(</span><span class="n">id_num</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../plotting.html#plotting.main">[docs]</a>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot various Visual Field (VF) boundaries and VF differences.</span>
+
+<span class="sd">    Plot the rendered and predicted VF boundaries for random faces,</span>
+<span class="sd">    the difference in the VF when an id parameter changes from -1 to 1,</span>
+<span class="sd">    and the hemispherical VF images for all faces.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">random_thetas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">theta_boundary</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
+    <span class="n">random_val_thetas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">theta_boundary</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
+    <span class="n">predicted_thetas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">optimization</span><span class="o">.</span><span class="n">predictions</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
+    <span class="n">phis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">phis</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
+    <span class="n">plot_rendered_predicted_comparisons</span><span class="p">(</span>
+        <span class="n">random_predicted</span><span class="o">=</span><span class="n">predicted_thetas</span><span class="p">,</span>
+        <span class="n">random_rendered</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">random_thetas</span><span class="p">,</span> <span class="n">random_val_thetas</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+        <span class="n">phis</span><span class="o">=</span><span class="n">phis</span>
+    <span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">plot_id_pm_diffs</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">num_ids</span><span class="p">))</span>
+        <span class="n">ls</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">boundaries</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">NAMING</span><span class="o">.</span><span class="n">asterisk</span><span class="o">.</span><span class="n">hemispherical_vf</span><span class="o">.</span><span class="n">npy</span><span class="p">))),</span> <span class="n">key</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">]</span>
+        <span class="n">polar_plot_grayscale_images</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="p">[</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">comparison_plots</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">make_pathlike</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">stem</span><span class="p">)</span><span class="o">.</span><span class="n">png</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">])</span>
+    <span class="k">except</span> <span class="ne">FileNotFoundError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No hemispherical VF images found, skipping&quot;</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Uday Nakade, Prof. Dr. Manuel Spitschan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Uday Nakade, Prof. Dr. Manuel Spitschan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

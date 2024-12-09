@@ -1,0 +1,969 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>naming &#8212; visual-field-pca 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'naming';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="utils_img" href="utils_img.html" />
+    <link rel="prev" title="common_params" href="common_params.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">visual-field-pca 0.0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="modules.html">Modules</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="common_params.html">common_params</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utils_img.html">utils_img</a></li>
+<li class="toctree-l2"><a class="reference internal" href="export_from_blender.html">export_from_blender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_eye_centers.html">get_eye_centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="render_ply.html">render_ply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_vf_boundaries.html">get_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tf_funcs.html">tf_funcs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimize_vf_boundaries.html">optimize_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hemispherical_interpolator.html">hemispherical_interpolator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_hemispherical_vf_images.html">create_hemispherical_vf_images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotting.html">plotting</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/naming.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>naming</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.BaseNaming"><code class="docutils literal notranslate"><span class="pre">BaseNaming</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.BaseNaming.__fspath__"><code class="docutils literal notranslate"><span class="pre">BaseNaming.__fspath__</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.NamingPathLike"><code class="docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.NamingPathLike.__init__"><code class="docutils literal notranslate"><span class="pre">NamingPathLike.__init__</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.NamingPathLike.__getattr__"><code class="docutils literal notranslate"><span class="pre">NamingPathLike.__getattr__</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.NamingPathLike.remove_suffix"><code class="docutils literal notranslate"><span class="pre">NamingPathLike.remove_suffix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.NamingPathLike.add_suffix_anew"><code class="docutils literal notranslate"><span class="pre">NamingPathLike.add_suffix_anew</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.NamingPathLike.__str__"><code class="docutils literal notranslate"><span class="pre">NamingPathLike.__str__</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.NamingPathLike.__fspath__"><code class="docutils literal notranslate"><span class="pre">NamingPathLike.__fspath__</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming"><code class="docutils literal notranslate"><span class="pre">Naming</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.__init__"><code class="docutils literal notranslate"><span class="pre">Naming.__init__</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.id"><code class="docutils literal notranslate"><span class="pre">Naming.id</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.random"><code class="docutils literal notranslate"><span class="pre">Naming.random</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.shape_key"><code class="docutils literal notranslate"><span class="pre">Naming.shape_key</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.replace_suffix"><code class="docutils literal notranslate"><span class="pre">Naming.replace_suffix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.make_pathlike"><code class="docutils literal notranslate"><span class="pre">Naming.make_pathlike</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.add_suffix"><code class="docutils literal notranslate"><span class="pre">Naming.add_suffix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.get_id_num_pm"><code class="docutils literal notranslate"><span class="pre">Naming.get_id_num_pm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.get_random_num"><code class="docutils literal notranslate"><span class="pre">Naming.get_random_num</span></code></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-naming">
+<span id="naming"></span><h1>naming<a class="headerlink" href="#module-naming" title="Link to this heading">#</a></h1>
+<p>Module for simplifying the naming of files.</p>
+<p>In order to avoid hard-coding, this module provides a way to create file names 
+in a structured manner. The goal is to have an object <code class="xref py py-obj docutils literal notranslate"><span class="pre">NAMING</span></code> that can 
+be used as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NAMING</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">theta_boundary</span><span class="o">.</span><span class="n">npy</span> <span class="o">-&gt;</span> <span class="s1">&#39;generic_neutral_mesh_thetas.npy&#39;</span>
+<span class="n">NAMING</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">pos</span><span class="o">.</span><span class="n">rendered</span><span class="o">.</span><span class="n">npy</span> <span class="o">-&gt;</span> <span class="s1">&#39;id_01_+1_rendered_images.npy&#39;</span>
+<span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">comparison</span><span class="o">.</span><span class="n">png</span> <span class="o">-&gt;</span> <span class="s1">&#39;random_020_rendered_vs_predicted.png&#39;</span>
+</pre></div>
+</div>
+<p>The reason for inheriting from <code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code> is that such objects 
+can be used along with <code class="xref py py-class docutils literal notranslate"><span class="pre">pathlib.Path</span></code> objects. For example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">naming</span> <span class="kn">import</span> <span class="n">NAMING</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;path/to/directory&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">theta_boundary</span><span class="o">.</span><span class="n">npy</span>
+<span class="go">Path(&#39;path/to/directory/generic_neutral_mesh_thetas.npy&#39;)</span>
+</pre></div>
+</div>
+<dl class="py class">
+<dt class="sig sig-object py" id="naming.BaseNaming">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">naming.</span></span><span class="sig-name descname"><span class="pre">BaseNaming</span></span><a class="reference internal" href="_modules/naming.html#BaseNaming"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.BaseNaming" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PathLike</span></code></p>
+<p>Base class for naming paths.</p>
+<p>Since the <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> class requires the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">start</span></code> attribute to have inherited from
+<code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code>, this class is used to create the
+<code class="xref py py-const docutils literal notranslate"><span class="pre">BASE_NAMING</span></code> object that can be used as the starting point
+for creating file names.</p>
+<p>The <a class="reference internal" href="#naming.BaseNaming.__fspath__" title="naming.BaseNaming.__fspath__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__fspath__</span></code></a> method returns an empty string.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="naming.BaseNaming.__fspath__">
+<span class="sig-name descname"><span class="pre">__fspath__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#BaseNaming.__fspath__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.BaseNaming.__fspath__" title="Link to this definition">#</a></dt>
+<dd><p>Return the file system path representation of the object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="naming.NamingPathLike">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">naming.</span></span><span class="sig-name descname"><span class="pre">NamingPathLike</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_suffixes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#NamingPathLike"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.NamingPathLike" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PathLike</span></code></p>
+<p>Class for creating PathLike objects used by the <a class="reference internal" href="#naming.Naming" title="naming.Naming"><code class="xref py py-class docutils literal notranslate"><span class="pre">Naming</span></code></a> class.</p>
+<p>A base class for file names represented as PathLike objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>start</strong><span class="classifier">os.PathLike</span></dt><dd><p>The starting point for the file name.
+Must have inherited from <code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code>, i.e., must have an
+<a class="reference internal" href="#naming.NamingPathLike.__fspath__" title="naming.NamingPathLike.__fspath__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__fspath__</span></code></a> method.</p>
+</dd>
+<dt><strong>suffix</strong><span class="classifier">str</span></dt><dd><p>The suffix to be added to the file name.
+This can either be an internal suffix or a file type suffix.
+For an internal suffix, the <code class="xref py py-attr docutils literal notranslate"><span class="pre">separator</span></code> should preferably
+be ‘_’, but can be changed if necessary.
+For a file type suffix, the <code class="xref py py-attr docutils literal notranslate"><span class="pre">separator</span></code> must be ‘.’.</p>
+</dd>
+<dt><strong>separator</strong><span class="classifier">str, default ‘_’</span></dt><dd><p>The separator between the <code class="xref py py-attr docutils literal notranslate"><span class="pre">start</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">suffix</span></code>.</p>
+</dd>
+<dt><strong>next_suffixes</strong><span class="classifier">dict, optional</span></dt><dd><p>A dictionary with the next suffixes that can be added to the file name.
+The keys are the names of the suffixes, and the values are the suffixes.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>__getattr__(item)</strong></p></td>
+<td><p>This method is defined to allow the creation of new <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-type docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> objects by accessing attributes that are not defined in the class but are present in the <code class="xref py py-attr docutils literal notranslate"><span class="pre">next_suffixes</span></code> dictionary.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="naming.NamingPathLike.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'_'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_suffixes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#NamingPathLike.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.NamingPathLike.__init__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="naming.NamingPathLike.__getattr__">
+<span class="sig-name descname"><span class="pre">__getattr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#NamingPathLike.__getattr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.NamingPathLike.__getattr__" title="Link to this definition">#</a></dt>
+<dd><p>Return new <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> objects if the attribute is in
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">next_suffixes</span></code>.</p>
+<p>For example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">id_naming</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="n">BASE_NAMING</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">next_suffixes</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;pos&#39;</span><span class="p">:</span> <span class="s1">&#39;+&#39;</span><span class="p">})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">id_naming</span><span class="o">.</span><span class="n">__fspath__</span><span class="p">()</span>
+<span class="go">&#39;id&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">id_naming</span><span class="o">.</span><span class="n">pos</span><span class="o">.</span><span class="n">__fspath__</span><span class="p">()</span>
+<span class="go">&#39;id_+&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>item</strong><span class="classifier">str</span></dt><dd><p>The name of the attribute to be accessed.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>NamingPathLike</dt><dd><p>A new <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object with the <code class="xref py py-attr docutils literal notranslate"><span class="pre">item</span></code>
+suffix. If <code class="xref py py-attr docutils literal notranslate"><span class="pre">item</span></code> is in <code class="xref py py-const docutils literal notranslate"><span class="pre">FILE_TYPE_SUFFIXES</span></code>,
+the <code class="xref py py-attr docutils literal notranslate"><span class="pre">separator</span></code> is <code class="docutils literal notranslate"><span class="pre">'.'</span></code>, otherwise it is <code class="docutils literal notranslate"><span class="pre">'_'</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>AttributeError</dt><dd><p>If the attribute is not in <code class="xref py py-attr docutils literal notranslate"><span class="pre">next_suffixes</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="naming.NamingPathLike.remove_suffix">
+<span class="sig-name descname"><span class="pre">remove_suffix</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#NamingPathLike.remove_suffix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.NamingPathLike.remove_suffix" title="Link to this definition">#</a></dt>
+<dd><p>Remove the suffix from the file name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>NamingPathLike</dt><dd><p>A new <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object with the suffix removed.
+Returns the <code class="xref py py-attr docutils literal notranslate"><span class="pre">start</span></code> attribute of the object on which this
+is called.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="naming.NamingPathLike.add_suffix_anew">
+<span class="sig-name descname"><span class="pre">add_suffix_anew</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_suffix</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#NamingPathLike.add_suffix_anew"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.NamingPathLike.add_suffix_anew" title="Link to this definition">#</a></dt>
+<dd><p>Replace the suffix in the file name with a new one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>new_suffix</strong><span class="classifier">str</span></dt><dd><p>The new suffix to be added to the file name.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>NamingPathLike</dt><dd><p>A new <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object with the new suffix.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="naming.NamingPathLike.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#NamingPathLike.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.NamingPathLike.__str__" title="Link to this definition">#</a></dt>
+<dd><p>Redefined to return <a class="reference internal" href="#naming.NamingPathLike.__fspath__" title="naming.NamingPathLike.__fspath__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">__fspath__</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="naming.NamingPathLike.__fspath__">
+<span class="sig-name descname"><span class="pre">__fspath__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#NamingPathLike.__fspath__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.NamingPathLike.__fspath__" title="Link to this definition">#</a></dt>
+<dd><p>Return the file name as a string.</p>
+<p>Returns <code class="docutils literal notranslate"><span class="pre">start.__fspath__()</span> <span class="pre">+</span> <span class="pre">suffix</span></code> if either are <code class="docutils literal notranslate"><span class="pre">''</span></code>,
+otherwise returns <code class="docutils literal notranslate"><span class="pre">start.__fspath__()</span> <span class="pre">+</span> <span class="pre">separator</span> <span class="pre">+</span> <span class="pre">suffix</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="naming.Naming">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">naming.</span></span><span class="sig-name descname"><span class="pre">Naming</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#Naming"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.Naming" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for creating file names in a structured manner.</p>
+<p><code class="xref py py-const docutils literal notranslate"><span class="pre">NAMING</span></code> is an instance of this class.
+It is used to create file names as follows:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">NAMING</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">theta_boundary</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
+<span class="go">&#39;generic_neutral_mesh_thetas.npy&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">NAMING</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">pos</span><span class="o">.</span><span class="n">rendered</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
+<span class="go">&#39;id_01_+1_rendered_images.npy&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">comparison</span><span class="o">.</span><span class="n">png</span><span class="p">)</span>
+<span class="go">&#39;random_020_rendered_vs_predicted.png&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>base</strong><span class="classifier">os.PathLike</span></dt><dd><p>The base name for the file names.
+Must have inherited from <code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code>, i.e., must have an
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__fspath__</span></code> method.
+For the <code class="xref py py-const docutils literal notranslate"><span class="pre">NAMING</span></code> instance, this is <code class="xref py py-const docutils literal notranslate"><span class="pre">BASE_NAMING</span></code>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>base</strong><span class="classifier">os.PathLike</span></dt><dd><p>The base name for the file names.
+Must have inherited from <code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code>, i.e., must have an
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">__fspath__</span></code> method.</p>
+</dd>
+<dt><strong>id_</strong><span class="classifier">NamingPathLike</span></dt><dd><p>Base PathLike object for the id file names.</p>
+</dd>
+<dt><strong>random_</strong><span class="classifier">NamingPathLike</span></dt><dd><p>Base PathLike object for the random file names.</p>
+</dd>
+<dt><strong>generic_</strong><span class="classifier">NamingPathLike</span></dt><dd><p>Base PathLike object for the generic neutral mesh file names.</p>
+</dd>
+<dt><strong>generic</strong><span class="classifier">NamingPathLike</span></dt><dd><p>Base PathLike object for the generic neutral mesh file names with
+suffixes.</p>
+</dd>
+<dt><strong>optimization</strong><span class="classifier">NamingPathLike</span></dt><dd><p>Base PathLike object for file names involved in
+Visual Field boundary optimizations.</p>
+</dd>
+<dt><strong>eye_centers</strong><span class="classifier">NamingPathLike</span></dt><dd><p>Base PathLike object for the json files containing eye centers.</p>
+</dd>
+<dt><strong>asterisk</strong><span class="classifier">NamingPathLike</span></dt><dd><p>Base PathLike object used to create file names with an asterisk.
+These can be used as regular expressions in the
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">pathlib.Path.glob</span></code> method.</p>
+</dd>
+<dt><strong>y_cie</strong><span class="classifier">NamingPathLike</span></dt><dd><p>Base PathLike object for the y_CIE_1931 spectrum file name.</p>
+</dd>
+<dt><strong>phis</strong><span class="classifier">NamingPathLike</span></dt><dd><p>Base PathLike object for the file storing regularly spaced phi values.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<tbody>
+<tr class="row-odd"><td><p><strong>id(num)</strong></p></td>
+<td><p>Create a new <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object for the id file names.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>random(num)</strong></p></td>
+<td><p>Create a new <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object for the random head file names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>shape_key(num)</strong></p></td>
+<td><p>Create a shape key name.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>replace_suffix(old_name, old_suffix, new_suffix, suffixes_dict=None, next_suffixes_dict=None)</strong></p></td>
+<td><p>Replace the suffix in the file name with a new one.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>make_pathlike(name, suffixes_dict=None)</strong></p></td>
+<td><p>Create a new <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object from a file name string.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>add_suffix(name, suffix, suffixes_dict=None)</strong></p></td>
+<td><p>Add a suffix to the file name.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>get_id_num_pm(name)</strong></p></td>
+<td><p>Get the id number and the sign of the id parameter from the file name.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>get_random_num(name)</strong></p></td>
+<td><p>Get the random face number from the file name.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="naming.Naming.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#Naming.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.Naming.__init__" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="naming.Naming.id">
+<span class="sig-name descname"><span class="pre">id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#Naming.id"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.Naming.id" title="Link to this definition">#</a></dt>
+<dd><p>Create a new <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object for the id file names.</p>
+<p>When called with a number (say 4), this method creates a new
+<a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object with <code class="docutils literal notranslate"><span class="pre">__fspath__()</span> <span class="pre">==</span> <span class="pre">'id_04'</span></code>.
+When the class is initialized, a few other attributes are added to this
+method, such as <code class="xref py py-attr docutils literal notranslate"><span class="pre">pos</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">neg</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">optimized</span></code>,
+etc., so that file names that are related to the id parameters but do
+not depend explicitly on any one id number can be created (see examples).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>num</strong><span class="classifier">int</span></dt><dd><p>The id parameter number.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>NamingPathLike</dt><dd><p>A new <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object with the id number.
+Also has attributes <code class="xref py py-attr docutils literal notranslate"><span class="pre">pos</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">neg</span></code> for adding
+the <code class="docutils literal notranslate"><span class="pre">+1</span></code> and <code class="docutils literal notranslate"><span class="pre">-1</span></code> suffixes to the file names.
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">next_suffixes</span></code> is the <code class="xref py py-const docutils literal notranslate"><span class="pre">ID_NUM_RANDOM_SUFFIXES</span></code>
+dict.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">NAMING</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">pos</span><span class="o">.</span><span class="n">theta_boundary</span><span class="o">.</span><span class="n">npy</span><span class="o">.</span><span class="n">__fspath__</span><span class="p">()</span>
+<span class="go">&#39;id_+_thetas.npy&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">NAMING</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">hemispherical_vf</span><span class="o">.</span><span class="n">npy</span><span class="o">.</span><span class="n">__fspath__</span><span class="p">()</span>
+<span class="go">&#39;id_20_hemispherical_vf.npy&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">NAMING</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">diff</span><span class="o">.</span><span class="n">png</span><span class="o">.</span><span class="n">__fspath__</span><span class="p">()</span>
+<span class="go">&#39;id_20_diff.png&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="naming.Naming.random">
+<span class="sig-name descname"><span class="pre">random</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#Naming.random"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.Naming.random" title="Link to this definition">#</a></dt>
+<dd><p>Create a new <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object for the random
+parameter files.</p>
+<p>When called with a number (say 4), this method creates a new
+<a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object with <code class="docutils literal notranslate"><span class="pre">__fspath__()</span> <span class="pre">=</span> <span class="pre">'random_004'</span></code>.
+When the class is initialized, a few other attributes are added to this
+method, such as <code class="xref py py-attr docutils literal notranslate"><span class="pre">params</span></code>, <code class="xref py py-attr docutils literal notranslate"><span class="pre">theta_boundary</span></code>, etc.,
+so that file names that are related to the random faces but do not
+depend explicitly on any one of them can be created.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>num</strong><span class="classifier">int</span></dt><dd><p>The random face number.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>NamingPathLike</dt><dd><p>A new <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object with the random face number.
+Also has attributes <code class="xref py py-attr docutils literal notranslate"><span class="pre">params</span></code> and <code class="xref py py-attr docutils literal notranslate"><span class="pre">theta_boundary</span></code>
+for adding the <code class="docutils literal notranslate"><span class="pre">params</span></code> and <code class="docutils literal notranslate"><span class="pre">thetas</span></code> suffixes to the file names.
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">next_suffixes</span></code> is the <code class="xref py py-const docutils literal notranslate"><span class="pre">ID_NUM_RANDOM_SUFFIXES</span></code>
+dict.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">theta_boundary</span><span class="o">.</span><span class="n">npy</span><span class="o">.</span><span class="n">__fspath__</span><span class="p">()</span>
+<span class="go">&#39;random_val_thetas.npy&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">comparison</span><span class="o">.</span><span class="n">png</span><span class="o">.</span><span class="n">__fspath__</span><span class="p">()</span>
+<span class="go">&#39;random_020_rendered_vs_predicted.png&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">hemispherical_vf</span><span class="o">.</span><span class="n">npy</span><span class="o">.</span><span class="n">__fspath__</span><span class="p">()</span>
+<span class="go">&#39;random_020_hemispherical_vf.npy&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="naming.Naming.shape_key">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#Naming.shape_key"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.Naming.shape_key" title="Link to this definition">#</a></dt>
+<dd><p>Create a shape key name.</p>
+<p>Used in Blender to get the shape key from the parameter number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>num</strong><span class="classifier">int</span></dt><dd><p>The id parameter number.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>str</dt><dd><p>The shape key name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">NAMING</span><span class="o">.</span><span class="n">shape_key</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">&#39;identity004&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="naming.Naming.replace_suffix">
+<span class="sig-name descname"><span class="pre">replace_suffix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">old_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">old_suffix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_suffix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffixes_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">next_suffixes_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#Naming.replace_suffix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.Naming.replace_suffix" title="Link to this definition">#</a></dt>
+<dd><p>Replace the suffix in the file name with a new one.</p>
+<p>This takes in an <code class="xref py py-attr docutils literal notranslate"><span class="pre">old_name</span></code> string and returns a new
+<a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object with the <code class="xref py py-attr docutils literal notranslate"><span class="pre">old_suffix</span></code>
+replaced by the <code class="xref py py-attr docutils literal notranslate"><span class="pre">new_suffix</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>old_name</strong><span class="classifier">str</span></dt><dd><p>The old file stem or file name.</p>
+</dd>
+<dt><strong>old_suffix</strong><span class="classifier">str</span></dt><dd><p>The name of the old suffix to be replaced.</p>
+</dd>
+<dt><strong>new_suffix</strong><span class="classifier">str</span></dt><dd><p>The name of the new suffix to be added.</p>
+</dd>
+<dt><strong>suffixes_dict</strong><span class="classifier">dict, default ID_NUM_RANDOM_SUFFIXES</span></dt><dd><p>The dictionary with the suffix names and suffixes.</p>
+</dd>
+<dt><strong>next_suffixes_dict</strong><span class="classifier">dict, default ID_NUM_RANDOM_SUFFIXES</span></dt><dd><p>The dictionary with the next suffix names and suffixes that can
+be added to the file name.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>NamingPathLike</dt><dd><p>A new <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object with the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">old_suffix</span></code> in <code class="xref py py-attr docutils literal notranslate"><span class="pre">old_name</span></code> replaced by the
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">new_suffix</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="naming.Naming.make_pathlike">
+<span class="sig-name descname"><span class="pre">make_pathlike</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffixes_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#Naming.make_pathlike"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.Naming.make_pathlike" title="Link to this definition">#</a></dt>
+<dd><p>Create a new <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object from a file name
+string.</p>
+<p>Used to convert a file name or file stem string to a
+<a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object. This is useful when the file name is
+found by searching a directory using either <code class="xref py py-meth docutils literal notranslate"><span class="pre">os.listdir</span></code> or
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">pathlib.Path.glob</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The file name or file stem.</p>
+</dd>
+<dt><strong>suffixes_dict</strong><span class="classifier">dict, default ID_NUM_RANDOM_SUFFIXES</span></dt><dd><p>The dictionary with the next suffix names and suffixes.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>NamingPathLike</dt><dd><p>A new <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object with the given file name or
+file stem.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="naming.Naming.add_suffix">
+<span class="sig-name descname"><span class="pre">add_suffix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffixes_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#Naming.add_suffix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.Naming.add_suffix" title="Link to this definition">#</a></dt>
+<dd><p>Add a suffix to the file name.</p>
+<p><code class="xref py py-attr docutils literal notranslate"><span class="pre">name</span></code> is a file name or file stem string and not a
+<a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a>
+object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The file name or file stem.</p>
+</dd>
+<dt><strong>suffix</strong><span class="classifier">str</span></dt><dd><p>The name of the suffix to be added to the file name.</p>
+</dd>
+<dt><strong>suffixes_dict</strong><span class="classifier">dict, default ID_NUM_RANDOM_SUFFIXES</span></dt><dd><p>The dictionary with the suffix names and suffixes.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>NamingPathLike</dt><dd><p>A new <a class="reference internal" href="#naming.NamingPathLike" title="naming.NamingPathLike"><code class="xref py py-class docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a> object with
+<code class="docutils literal notranslate"><span class="pre">suffixes_dict[suffix]</span></code> added to the file name.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="naming.Naming.get_id_num_pm">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_id_num_pm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#Naming.get_id_num_pm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.Naming.get_id_num_pm" title="Link to this definition">#</a></dt>
+<dd><p>Get the id number and the sign of the id parameter from the file name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The file name or file stem.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>tuple[int, str]</dt><dd><p>The id number and the sign of the id parameter.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">NAMING</span><span class="o">.</span><span class="n">get_id_num_pm</span><span class="p">(</span><span class="s1">&#39;id_01_+1_rendered_images.npy&#39;</span><span class="p">)</span>
+<span class="go">(1, &#39;+&#39;)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="naming.Naming.get_random_num">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_random_num</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#Naming.get_random_num"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.Naming.get_random_num" title="Link to this definition">#</a></dt>
+<dd><p>Get the random face number from the file name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>The file name or file stem.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>int</dt><dd><p>The random face number.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">NAMING</span><span class="o">.</span><span class="n">get_random_num</span><span class="p">(</span><span class="s1">&#39;random_020_rendered_vs_predicted.png&#39;</span><span class="p">)</span>
+<span class="go">20</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="common_params.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">common_params</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="utils_img.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">utils_img</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.BaseNaming"><code class="docutils literal notranslate"><span class="pre">BaseNaming</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.BaseNaming.__fspath__"><code class="docutils literal notranslate"><span class="pre">BaseNaming.__fspath__</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.NamingPathLike"><code class="docutils literal notranslate"><span class="pre">NamingPathLike</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.NamingPathLike.__init__"><code class="docutils literal notranslate"><span class="pre">NamingPathLike.__init__</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.NamingPathLike.__getattr__"><code class="docutils literal notranslate"><span class="pre">NamingPathLike.__getattr__</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.NamingPathLike.remove_suffix"><code class="docutils literal notranslate"><span class="pre">NamingPathLike.remove_suffix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.NamingPathLike.add_suffix_anew"><code class="docutils literal notranslate"><span class="pre">NamingPathLike.add_suffix_anew</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.NamingPathLike.__str__"><code class="docutils literal notranslate"><span class="pre">NamingPathLike.__str__</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.NamingPathLike.__fspath__"><code class="docutils literal notranslate"><span class="pre">NamingPathLike.__fspath__</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming"><code class="docutils literal notranslate"><span class="pre">Naming</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.__init__"><code class="docutils literal notranslate"><span class="pre">Naming.__init__</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.id"><code class="docutils literal notranslate"><span class="pre">Naming.id</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.random"><code class="docutils literal notranslate"><span class="pre">Naming.random</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.shape_key"><code class="docutils literal notranslate"><span class="pre">Naming.shape_key</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.replace_suffix"><code class="docutils literal notranslate"><span class="pre">Naming.replace_suffix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.make_pathlike"><code class="docutils literal notranslate"><span class="pre">Naming.make_pathlike</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.add_suffix"><code class="docutils literal notranslate"><span class="pre">Naming.add_suffix</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.get_id_num_pm"><code class="docutils literal notranslate"><span class="pre">Naming.get_id_num_pm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naming.Naming.get_random_num"><code class="docutils literal notranslate"><span class="pre">Naming.get_random_num</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Uday Nakade, Prof. Dr. Manuel Spitschan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Uday Nakade, Prof. Dr. Manuel Spitschan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

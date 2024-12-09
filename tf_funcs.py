@@ -7,25 +7,24 @@ from naming import NAMING
 def separate_pos_neg_params(params_):
     """Create separate arrays for positive and negative parameters.
 
-    `params_` is a 2D array with shape (number of faces, number of parameters).
-    First, two separate arrays with the same shape as `params_` are created.
-    They are named `pos_params` and `neg_params` and set to 0.
-    Then, for each element in `params_`, if it is positive,
-    pos_params[corresponding index] is set to the element.
-    If it is negative, neg_params[corresponding index] is set to
-    the negative of the element.
+    :py:attr:`params_` is a 2D array with shape (number of faces, number of
+    parameters). First, two separate arrays with the same shape as
+    :py:attr:`params_` are created. They are named :py:obj:`pos_params` and
+    :py:obj:`neg_params` and set to 0. Then, for each element in
+    :py:attr:`params_`, if it is positive, ``pos_params[corresponding index]``
+    is set to the element. If it is negative, ``neg_params[corresponding index]``
+    is set to the negative of the element.
     Finally, the two arrays are concatenated along the second axis and returned.
-
 
     Parameters
     ----------
     params_ : numpy.ndarray
-        2D array with shape (number of faces, number of parameters).
+        2D array with ``shape = (number of faces, number of parameters)``.
 
     Returns
     -------
     numpy.ndarray
-        2D array with shape (number of faces, 2 * number of parameters).
+        2D array with ``shape = (number of faces, 2 * number of parameters)``.
     """
     pos_params = np.zeros(params_.shape)
     neg_params = np.zeros(params_.shape)
@@ -56,7 +55,7 @@ PARAMS_VAL = tf.constant(separate_pos_neg_params(PARAMS_VAL_NP))
 
 @tf.function
 def predict(visual_fields, generic, params_=PARAMS):
-    """Predict the Visual Field boundaries for faces given by `params_`.
+    """Predict the Visual Field boundaries for faces given by :py:attr:`params_`.
 
     Parameters
     ----------
@@ -91,10 +90,10 @@ def loss_pred(visual_fields, generic, params_=PARAMS, rand_=RANDOM):
     params_ : tf.Tensor | numpy.ndarray
         The parameters of the faces for which the VF boundaries
         are to be predicted.
-        The shape is (number of faces, 2 * number of parameters) because
+        The shape is ``(number of faces, 2 * number of parameters)`` because
         the parameters are separated into positive and negative parts.
     rand_ : tf.Tensor | numpy.ndarray
-        The rendered VF boundaries for the faces given by `params_`.
+        The rendered VF boundaries for the faces given by :py:attr:`params_`.
 
     Returns
     -------
@@ -143,19 +142,20 @@ def loss(visual_fields, generic, params_=PARAMS, rand_=RANDOM, frac_pred=0.75):
     params_ : tf.Tensor | numpy.ndarray
         The parameters of the faces for which the VF boundaries
         are to be predicted.
-        The shape is (number of faces, 2 * number of parameters) because
+        The shape is ``(number of faces, 2 * number of parameters)`` because
         the parameters are separated into positive and negative parts.
     rand_ : tf.Tensor | numpy.ndarray
-        The rendered VF boundaries for the faces given by `params_`.
+        The rendered VF boundaries for the faces given by :py:attr:`params_`.
     frac_pred : float, default 0.75
         The weight for the loss of the predicted VF boundaries for random faces.
-        The weight for the loss of the optimized VF boundaries is `1 - frac_pred`.
+        The weight for the loss of the optimized VF boundaries is
+        ``1 - frac_pred``.
 
     Returns
     -------
     tf.Tensor
         The loss for the VF boundary optimization.
-        `frac_pred` * `loss_pred` + (1 - `frac_pred`) * `loss_orig`
+        ``frac_pred * loss_pred + (1 - frac_pred) * loss_orig``
     """
     return (frac_pred * loss_pred(visual_fields, generic, params_, rand_) +
             (1 - frac_pred) * loss_orig(visual_fields, generic))
@@ -175,7 +175,7 @@ def loss_val(visual_fields, generic):
     Returns
     -------
     tf.Tensor
-        The loss for the validation set. Calculated using `loss_pred`.
+        The loss for the validation set. Calculated using :py:attr:`loss_pred`.
         Divided by the number of faces in the validation set.
     """
     return loss_pred(visual_fields, generic, PARAMS_VAL, RANDOM_VAL) / NUMBERS.num_val
@@ -183,17 +183,17 @@ def loss_val(visual_fields, generic):
 
 @tf.function
 def any_nan(arr):
-    """Check if there are any NaN values in the array.
+    """Check if there are any ``NaN`` values in the array.
 
     Parameters
     ----------
     arr : tf.Tensor | numpy.ndarray
-        The array to check for NaN values.
+        The array to check for ``NaN`` values.
 
     Returns
     -------
     tf.Tensor
-        True if there are any NaN values in the array, False otherwise.
-        To get the boolean value, use `.numpy()`.
+        ``True`` if there are any ``NaN`` values in the array, ``False``
+        otherwise. To get the boolean value, use :py:obj:`.numpy()`.
     """
     return tf.math.reduce_any(tf.math.is_nan(arr))

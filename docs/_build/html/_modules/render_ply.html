@@ -1,0 +1,578 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>render_ply &#8212; visual-field-pca 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/render_ply';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">visual-field-pca 0.0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">README</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../common_params.html">common_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../naming.html">naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils_img.html">utils_img</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../export_from_blender.html">export_from_blender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_eye_centers.html">get_eye_centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render_ply.html">render_ply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_vf_boundaries.html">get_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tf_funcs.html">tf_funcs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optimize_vf_boundaries.html">optimize_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hemispherical_interpolator.html">hemispherical_interpolator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_hemispherical_vf_images.html">create_hemispherical_vf_images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">plotting</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for render_ply</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">common_params</span> <span class="kn">import</span> <span class="n">CAMERA</span><span class="p">,</span> <span class="n">NUMBERS</span><span class="p">,</span> <span class="n">DIRECTORIES</span>
+<span class="kn">from</span> <span class="nn">naming</span> <span class="kn">import</span> <span class="n">NAMING</span>
+
+<span class="kn">import</span> <span class="nn">mitsuba</span> <span class="k">as</span> <span class="nn">mi</span>
+
+<span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Render images from the perspective of the right eye of the head model.</span>
+
+<span class="s2">For each of the head models exported by </span>
+<span class="s2">:py:mod:`export_from_blender.py &lt;export_from_blender&gt;` </span>
+<span class="s2">(generic with all shape parameters 0, id +- meshes with individual parameters </span>
+<span class="s2">set to 1 or -1 and random faces with the shape parameters uniformly </span>
+<span class="s2">distributed), the camera is placed at the center of the pupil of the right eye.</span>
+<span class="s2">The head is surrounded by a constant emitter with ``radiance = 1`` at all </span>
+<span class="s2">wavelengths. The head is completely non-reflective, creating complete contrast </span>
+<span class="s2">between the head and the background. This makes it easier to tell where the </span>
+<span class="s2">Visual Field (VF) boundary is. The FOV of the camera is 90 degrees.</span>
+<span class="s2">The images are rendered with the camera pointing in the front, up, down, left, </span>
+<span class="s2">and right directions, thus covering the entire hemisphere in front of the eye. </span>
+<span class="s2">The images are saved as .npy files in the ``rendered_images_numpy`` directory.</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="c1"># Set the Mitsuba variant to use according to the priority list</span>
+<span class="n">MI_VARIANTS_PRIORITY</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cuda_ad_spectral&#39;</span><span class="p">,</span> <span class="s1">&#39;cuda_spectral&#39;</span><span class="p">,</span> <span class="s1">&#39;llvm_ad_spectral&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;llvm_spectral&#39;</span><span class="p">,</span> <span class="s1">&#39;scalar_ad_spectral&#39;</span><span class="p">]</span>
+
+<span class="n">MI_VARIANTS_AVAILABLE</span> <span class="o">=</span> <span class="n">mi</span><span class="o">.</span><span class="n">variants</span><span class="p">()</span>
+
+<span class="n">MI_VARIANTS_AVAILABLE_PRIORITY</span> <span class="o">=</span> <span class="p">[</span><span class="n">variant</span> <span class="k">for</span> <span class="n">variant</span> <span class="ow">in</span> <span class="n">MI_VARIANTS_PRIORITY</span>
+                                  <span class="k">if</span> <span class="n">variant</span> <span class="ow">in</span> <span class="n">MI_VARIANTS_AVAILABLE</span><span class="p">]</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">MI_VARIANTS_AVAILABLE_PRIORITY</span><span class="p">:</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;None of the available Mitsuba variants are suitable.</span><span class="se">\n</span><span class="s1">&#39;</span>
+                     <span class="s1">&#39;Please make sure that at least one of the following &#39;</span>
+                     <span class="sa">f</span><span class="s1">&#39;variants is available: </span><span class="si">{</span><span class="n">MI_VARIANTS_PRIORITY</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">mi</span><span class="o">.</span><span class="n">set_variant</span><span class="p">(</span><span class="n">MI_VARIANTS_AVAILABLE_PRIORITY</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="kn">from</span> <span class="nn">mitsuba</span> <span class="kn">import</span> <span class="n">ScalarTransform4f</span> <span class="k">as</span> <span class="n">Transform</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">eye_centers</span><span class="o">.</span><span class="n">right</span><span class="o">.</span><span class="n">json</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">EYE_CENTERS_RIGHT</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+
+<span class="n">FILM</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;specfilm&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;width&#39;</span><span class="p">:</span> <span class="n">CAMERA</span><span class="o">.</span><span class="n">image_size</span><span class="p">,</span>
+    <span class="s1">&#39;height&#39;</span><span class="p">:</span> <span class="n">CAMERA</span><span class="o">.</span><span class="n">image_size</span><span class="p">,</span>
+    <span class="s1">&#39;component_format&#39;</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;rfilter&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;box&#39;</span>
+    <span class="p">},</span>
+    <span class="nb">str</span><span class="p">(</span><span class="n">NAMING</span><span class="o">.</span><span class="n">y_cie</span><span class="p">):</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;spectrum&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filename&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">output_channels</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">y_cie</span><span class="o">.</span><span class="n">spd</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="camera_dict">
+<a class="viewcode-back" href="../render_ply.html#render_ply.camera_dict">[docs]</a>
+<span class="k">def</span> <span class="nf">camera_dict</span><span class="p">(</span><span class="n">origin_</span><span class="p">,</span> <span class="n">camera_direction_</span><span class="p">,</span> <span class="n">up_</span><span class="p">,</span> <span class="n">fov_</span><span class="p">,</span> <span class="n">fov_axis_</span><span class="o">=</span><span class="n">CAMERA</span><span class="o">.</span><span class="n">fov_axis</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a dictionary with the camera parameters.</span>
+
+<span class="sd">    The camera is placed at the center of the right eye of the</span>
+<span class="sd">    head model (:py:attr:`origin`) and points towards</span>
+<span class="sd">    :py:attr:`camera_direction`. The field of view is :py:attr:`fov` degrees.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    origin_ : numpy.ndarray</span>
+<span class="sd">        The location of the center of projection of the camera.</span>
+<span class="sd">    camera_direction_ : numpy.ndarray</span>
+<span class="sd">        The direction in which the camera is pointing.</span>
+<span class="sd">    up_ : numpy.ndarray</span>
+<span class="sd">        The direction that is considered &#39;up&#39; in the camera&#39;s coordinate system.</span>
+<span class="sd">    fov_ : float</span>
+<span class="sd">        The field of view of the camera.</span>
+<span class="sd">    fov_axis_ : str, default CAMERA.fov_axis = &#39;x&#39;</span>
+<span class="sd">        The axis along which the field of view is specified.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        A dictionary with the camera parameters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">target</span> <span class="o">=</span> <span class="n">origin_</span> <span class="o">+</span> <span class="n">camera_direction_</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;perspective&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;near_clip&#39;</span><span class="p">:</span> <span class="n">CAMERA</span><span class="o">.</span><span class="n">near_clip</span><span class="p">,</span>
+        <span class="s1">&#39;fov&#39;</span><span class="p">:</span> <span class="n">fov_</span><span class="p">,</span>
+        <span class="s1">&#39;fov_axis&#39;</span><span class="p">:</span> <span class="n">fov_axis_</span><span class="p">,</span>
+        <span class="s1">&#39;to_world&#39;</span><span class="p">:</span> <span class="n">Transform</span><span class="o">.</span><span class="n">look_at</span><span class="p">(</span>
+            <span class="n">origin</span><span class="o">=</span><span class="n">origin_</span><span class="p">,</span>
+            <span class="n">target</span><span class="o">=</span><span class="n">target</span><span class="p">,</span>
+            <span class="n">up</span><span class="o">=</span><span class="n">up_</span>
+        <span class="p">),</span>
+        <span class="s1">&#39;sampler&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;independent&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;sample_count&#39;</span><span class="p">:</span> <span class="mi">150</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;film&#39;</span><span class="p">:</span> <span class="n">FILM</span>
+    <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="scene_dict">
+<a class="viewcode-back" href="../render_ply.html#render_ply.scene_dict">[docs]</a>
+<span class="k">def</span> <span class="nf">scene_dict</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a dictionary with the scene parameters.</span>
+
+<span class="sd">    The head model is surrounded by a constant emitter with ``radiance = 1``</span>
+<span class="sd">    at all wavelengths.</span>
+<span class="sd">    The head model is completely non-reflective.</span>
+<span class="sd">    This creates complete contrast between the head model and the background</span>
+<span class="sd">    and makes it easier to determine the visual field boundary.</span>
+<span class="sd">    Since we are using the ``Y CIE 1931`` spectrum for the sensor response,</span>
+<span class="sd">    the expected value of the bright pixels will be ``106.857``, which is the</span>
+<span class="sd">    integral of the ``Y CIE 1931`` spectrum.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filepath : str</span>
+<span class="sd">        The path to the PLY file that contains the head model.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    dict</span>
+<span class="sd">        A dictionary with the scene parameters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;scene&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;integrator&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;path&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;max_depth&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;rr_depth&quot;</span><span class="p">:</span> <span class="mi">20</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;emitter_constant&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;constant&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;radiance&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;spectrum&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;head&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;ply&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">filepath</span><span class="p">,</span>
+            <span class="s1">&#39;to_world&#39;</span><span class="p">:</span> <span class="n">Transform</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">cm_to_mm</span><span class="p">)</span><span class="o">.</span><span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mi">90</span><span class="p">),</span>
+            <span class="s1">&#39;bsdf&#39;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;diffuse&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;reflectance&#39;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;spectrum&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">0</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span></div>
+
+
+
+<div class="viewcode-block" id="camera_is_in_front_of_eye">
+<a class="viewcode-back" href="../render_ply.html#render_ply.camera_is_in_front_of_eye">[docs]</a>
+<span class="k">def</span> <span class="nf">camera_is_in_front_of_eye</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">center_threshold</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">unique_threshold</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if the camera is in front of the eye.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image : numpy.ndarray</span>
+<span class="sd">        The image rendered by the camera.</span>
+<span class="sd">    center_threshold : float, default 100</span>
+<span class="sd">        The threshold for the pixel value at the center of the image.</span>
+<span class="sd">        If the camera is behind the mesh, this value will be much lower.</span>
+<span class="sd">        The threshold is set to 100 because the expected value of the pixel</span>
+<span class="sd">        at the center of the image is ``106.857`` (integral of the ``Y CIE 1931``</span>
+<span class="sd">        spectrum, because the radiance of the constant light source is 1</span>
+<span class="sd">        for all wavelengths).</span>
+<span class="sd">    unique_threshold : float, default 10000</span>
+<span class="sd">        The threshold for the number of unique pixel values in the image.</span>
+<span class="sd">        If the camera is in front of the mesh, this value will be much lower</span>
+<span class="sd">        because there is complete contrast between the mesh and the background.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool</span>
+<span class="sd">        ``True`` if the camera is in front of the eye, ``False`` otherwise.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">image</span><span class="p">[</span><span class="n">CAMERA</span><span class="o">.</span><span class="n">image_size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">CAMERA</span><span class="o">.</span><span class="n">image_size</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">center_threshold</span> <span class="ow">and</span>
+            <span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">image</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">unique_threshold</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="render">
+<a class="viewcode-back" href="../render_ply.html#render_ply.render">[docs]</a>
+<span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">file_stem</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Render images from the perspective of the right eye of the head model.</span>
+
+<span class="sd">    First the camera is placed at the coordinates of the center of the right eye</span>
+<span class="sd">    obtained from the PLY file. The camera is then moved forward by 1e-4 mm</span>
+<span class="sd">    until it is in front of the eye. The camera is then moved forward by</span>
+<span class="sd">    another 1e-4 mm. The camera has a field of view of 90 degrees.</span>
+<span class="sd">    The images are rendered with the camera pointing in the front, up, down,</span>
+<span class="sd">    left, and right directions</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    file_stem : str</span>
+<span class="sd">        The stem of the PLY file name that contains the head model.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        An array of shape ``(5, *CAMERA.image_shape)`` containing the</span>
+<span class="sd">        rendered images.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">scene</span> <span class="o">=</span> <span class="n">mi</span><span class="o">.</span><span class="n">load_dict</span><span class="p">(</span><span class="n">scene_dict</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">ply</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">make_pathlike</span><span class="p">(</span><span class="n">file_stem</span><span class="p">)</span><span class="o">.</span><span class="n">ply</span><span class="p">)))</span>
+    <span class="c1"># The further shift forward by tan(FOV / 2) * near_clip is to ensure that</span>
+    <span class="c1"># the near clip plane of the camera pointing in directions other than</span>
+    <span class="c1"># the front does not intersect the mesh.</span>
+    <span class="n">camera_origin</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">EYE_CENTERS_RIGHT</span><span class="p">[</span><span class="n">file_stem</span><span class="p">])</span> <span class="o">+</span>
+                     <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">CAMERA</span><span class="o">.</span><span class="n">fov</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">CAMERA</span><span class="o">.</span><span class="n">near_clip</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+    <span class="n">camera_dictionary</span> <span class="o">=</span> <span class="n">camera_dict</span><span class="p">(</span><span class="n">camera_origin</span><span class="p">,</span> <span class="n">CAMERA</span><span class="o">.</span><span class="n">directions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;camera_direction&#39;</span><span class="p">],</span> <span class="n">CAMERA</span><span class="o">.</span><span class="n">directions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;up&#39;</span><span class="p">],</span>
+                                    <span class="n">CAMERA</span><span class="o">.</span><span class="n">fov</span><span class="p">)</span>
+    <span class="n">camera</span> <span class="o">=</span> <span class="n">mi</span><span class="o">.</span><span class="n">load_dict</span><span class="p">(</span><span class="n">camera_dictionary</span><span class="p">)</span>
+    <span class="n">rendered_image</span> <span class="o">=</span> <span class="n">mi</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">scene</span><span class="p">,</span> <span class="n">sensor</span><span class="o">=</span><span class="n">camera</span><span class="p">)</span>
+    <span class="k">while</span> <span class="ow">not</span> <span class="n">camera_is_in_front_of_eye</span><span class="p">(</span><span class="n">rendered_image</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">CAMERA</span><span class="o">.</span><span class="n">image_shape</span><span class="p">)):</span>
+        <span class="n">camera_origin</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+        <span class="n">camera_dictionary</span> <span class="o">=</span> <span class="n">camera_dict</span><span class="p">(</span><span class="n">camera_origin</span><span class="p">,</span> <span class="n">CAMERA</span><span class="o">.</span><span class="n">directions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;camera_direction&#39;</span><span class="p">],</span>
+                                        <span class="n">CAMERA</span><span class="o">.</span><span class="n">directions</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;up&#39;</span><span class="p">],</span> <span class="n">CAMERA</span><span class="o">.</span><span class="n">fov</span><span class="p">)</span>
+        <span class="n">camera</span> <span class="o">=</span> <span class="n">mi</span><span class="o">.</span><span class="n">load_dict</span><span class="p">(</span><span class="n">camera_dictionary</span><span class="p">)</span>
+        <span class="n">rendered_image</span> <span class="o">=</span> <span class="n">mi</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">scene</span><span class="p">,</span> <span class="n">sensor</span><span class="o">=</span><span class="n">camera</span><span class="p">)</span>
+    <span class="n">camera_origin</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1e-4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">images_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">CAMERA</span><span class="o">.</span><span class="n">directions</span><span class="p">),</span> <span class="o">*</span><span class="n">CAMERA</span><span class="o">.</span><span class="n">image_shape</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">CAMERA</span><span class="o">.</span><span class="n">directions</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">camera</span> <span class="o">=</span> <span class="n">mi</span><span class="o">.</span><span class="n">load_dict</span><span class="p">(</span><span class="n">camera_dict</span><span class="p">(</span><span class="n">camera_origin</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;camera_direction&#39;</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;up&#39;</span><span class="p">],</span> <span class="n">CAMERA</span><span class="o">.</span><span class="n">fov</span><span class="p">))</span>
+        <span class="n">rendered_image</span> <span class="o">=</span> <span class="n">mi</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">scene</span><span class="p">,</span> <span class="n">sensor</span><span class="o">=</span><span class="n">camera</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">mitsuba_seed</span><span class="p">)</span>
+        <span class="n">images_</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">rendered_image</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">CAMERA</span><span class="o">.</span><span class="n">image_shape</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">images_</span></div>
+
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../render_ply.html#render_ply.main">[docs]</a>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Render images from the perspective of the right eye of the head models.</span>
+
+<span class="sd">    The images are saved as npy files in the ``rendered_images_numpy`` directory.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">file_stem</span> <span class="ow">in</span> <span class="n">EYE_CENTERS_RIGHT</span><span class="p">:</span>
+        <span class="n">images</span> <span class="o">=</span> <span class="n">render</span><span class="p">(</span><span class="n">file_stem</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">rendered_imgs_np</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">add_suffix</span><span class="p">(</span><span class="n">file_stem</span><span class="p">,</span> <span class="s1">&#39;rendered&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">npy</span><span class="p">,</span> <span class="n">images</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Uday Nakade, Prof. Dr. Manuel Spitschan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Uday Nakade, Prof. Dr. Manuel Spitschan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

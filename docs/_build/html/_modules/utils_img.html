@@ -1,0 +1,1076 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>utils_img &#8212; visual-field-pca 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/utils_img';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">visual-field-pca 0.0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">README</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../common_params.html">common_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../naming.html">naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils_img.html">utils_img</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../export_from_blender.html">export_from_blender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_eye_centers.html">get_eye_centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render_ply.html">render_ply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_vf_boundaries.html">get_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tf_funcs.html">tf_funcs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optimize_vf_boundaries.html">optimize_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hemispherical_interpolator.html">hemispherical_interpolator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_hemispherical_vf_images.html">create_hemispherical_vf_images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">plotting</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for utils_img</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="vm">__doc__</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Library containing utility functions for dealing with images.&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="normalize">
+<a class="viewcode-back" href="../utils_img.html#utils_img.normalize">[docs]</a>
+<span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">xyz_</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Normalize a vector, a list of vectors or an array of vectors.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    xyz_ : numpy.ndarray</span>
+<span class="sd">        The vector(s) to be normalized.</span>
+<span class="sd">        The last axis should contain the x, y, z components.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        The normalized vector(s). Has the same shape as :py:attr:`xyz_`.</span>
+<span class="sd">        Returns ``xyz_ / norm(xyz_, axis=-1)``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">xyz_</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">xyz_</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="img_shape_to_xy">
+<a class="viewcode-back" href="../utils_img.html#utils_img.img_shape_to_xy">[docs]</a>
+<span class="k">def</span> <span class="nf">img_shape_to_xy</span><span class="p">(</span><span class="n">img_shape</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get (x, y) coordinates of the centers of pixels from image size.</span>
+
+<span class="sd">    The x and y axes are in the plane of the sensor.</span>
+<span class="sd">    Origin is at the center of the image. ``+x`` is to the right, ``+y`` is up.</span>
+<span class="sd">    The units are pixels.</span>
+<span class="sd">    If there are an odd number of pixels in a direction,</span>
+<span class="sd">    the origin is at the center of a pixel.</span>
+<span class="sd">    Hence, the centers of pixels are at integer coordinates.</span>
+<span class="sd">    If there are an even number of pixels in a direction,</span>
+<span class="sd">    the origin is between two pixels.</span>
+<span class="sd">    Hence, the centers of pixels are at half-integer coordinates.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    img_shape : tuple[int, int]</span>
+<span class="sd">        ``(height, width)`` of the image.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list[numpy.ndarray, numpy.ndarray]</span>
+
+<span class="sd">        [x, y]</span>
+
+<span class="sd">        The x and y coordinates of the centers of the pixels.</span>
+<span class="sd">        x and y are 2D arrays with ``shape = img_shape``.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+
+<span class="sd">    &gt;&gt;&gt; img_shape_to_xy((3,4))</span>
+<span class="sd">    [array([[-1.5, -0.5,  0.5,  1.5],</span>
+<span class="sd">           [-1.5, -0.5,  0.5,  1.5],</span>
+<span class="sd">           [-1.5, -0.5,  0.5,  1.5]]),</span>
+<span class="sd">    array([[ 1.,  1.,  1.,  1.],</span>
+<span class="sd">           [ 0.,  0.,  0.,  0.],</span>
+<span class="sd">           [-1., -1., -1., -1.]])]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">img_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="n">img_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">img_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">img_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">img_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">img_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)]</span></div>
+
+
+
+<div class="viewcode-block" id="img_to_xy">
+<a class="viewcode-back" href="../utils_img.html#utils_img.img_to_xy">[docs]</a>
+<span class="k">def</span> <span class="nf">img_to_xy</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get (x, y) coordinates of the centers of pixels of an image.</span>
+
+<span class="sd">    Please see :py:func:`img_shape_to_xy` for more details.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    img : numpy.ndarray</span>
+<span class="sd">        The input image</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list[numpy.ndarray, numpy.ndarray]</span>
+
+<span class="sd">        [x, y]</span>
+
+<span class="sd">        The x and y coordinates of the centers of pixels.</span>
+<span class="sd">        x and y are 2D arrays with the same shape as ``img.shape[:2]``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">img_shape_to_xy</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="xy_to_r_phi">
+<a class="viewcode-back" href="../utils_img.html#utils_img.xy_to_r_phi">[docs]</a>
+<span class="k">def</span> <span class="nf">xy_to_r_phi</span><span class="p">(</span><span class="n">xy</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert cartesian to polar coordinates in the image plane.</span>
+
+<span class="sd">    The origin is at the center of the image.</span>
+<span class="sd">    ``+x`` is to the right, ``+y`` is up.</span>
+<span class="sd">    Returns the distance from the origin and</span>
+<span class="sd">    the angle measured anticlockwise from ``+x``.</span>
+<span class="sd">    The distance is given in pixels.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    xy : list[numpy.ndarray, numpy.ndarray]</span>
+
+<span class="sd">        [x, y]</span>
+
+<span class="sd">        The x and y coordinates of the centers of pixels.</span>
+<span class="sd">        x and y are 2D arrays with the same shape as img_shape[:2].</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list[numpy.ndarray, numpy.ndarray]</span>
+
+<span class="sd">        [r, phi]</span>
+
+<span class="sd">        r is the distance from the origin.</span>
+<span class="sd">        phi is the angle measured anticlockwise from ``+x``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">phi</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">phi</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">phi</span><span class="p">)</span>  <span class="c1"># phi in the range [0, 2*pi)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">phi</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="img_shape_to_r_phi">
+<a class="viewcode-back" href="../utils_img.html#utils_img.img_shape_to_r_phi">[docs]</a>
+<span class="k">def</span> <span class="nf">img_shape_to_r_phi</span><span class="p">(</span><span class="n">img_shape</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get (r, phi) coordinates of the centers of pixels from image size.</span>
+
+<span class="sd">    Refer to :py:func:`img_shape_to_xy` and :py:func:`xy_to_r_phi` for more</span>
+<span class="sd">    details.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    img_shape : tuple[int, int]</span>
+<span class="sd">        ``(height, width)`` of the image.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list[numpy.ndarray, numpy.ndarray]</span>
+<span class="sd">        [r, phi]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">xy_to_r_phi</span><span class="p">(</span><span class="n">img_shape_to_xy</span><span class="p">(</span><span class="n">img_shape</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="img_to_r_phi">
+<a class="viewcode-back" href="../utils_img.html#utils_img.img_to_r_phi">[docs]</a>
+<span class="k">def</span> <span class="nf">img_to_r_phi</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get (r, phi) coordinates of the centers of pixels of an image.</span>
+
+<span class="sd">    Refer to :py:func:`img_shape_to_xy` and :py:func:`xy_to_r_phi` for more</span>
+<span class="sd">    details.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    img : numpy.ndarray</span>
+<span class="sd">        The image.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list[numpy.ndarray, numpy.ndarray]</span>
+<span class="sd">        [r, phi]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">img_shape_to_r_phi</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="gray_img_to_single_color">
+<a class="viewcode-back" href="../utils_img.html#utils_img.gray_img_to_single_color">[docs]</a>
+<span class="k">def</span> <span class="nf">gray_img_to_single_color</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert gray image to single color image.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    img : numpy.ndarray</span>
+<span class="sd">        Gray image.</span>
+<span class="sd">    color : tuple[float, float, float] | tuple[int, int, int]</span>
+<span class="sd">        Color to convert to.</span>
+<span class="sd">        If the values are floats, they are assumed to be in the range ``[0, 1]``.</span>
+<span class="sd">        If the values are integers, they are assumed to be in the range</span>
+<span class="sd">        ``[0, 255]``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        ``img * color``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">img</span> <span class="o">*</span> <span class="n">color</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="mi">255</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">img</span> <span class="o">*</span> <span class="n">color</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="xyz_to_theta_phi">
+<a class="viewcode-back" href="../utils_img.html#utils_img.xyz_to_theta_phi">[docs]</a>
+<span class="k">def</span> <span class="nf">xyz_to_theta_phi</span><span class="p">(</span><span class="n">xyz</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert (x, y, z) to directions in spherical coordinates (theta, phi).</span>
+
+<span class="sd">    Theta is measured away from ``+x``.</span>
+<span class="sd">    Phi is measured away from ``-y`` around ``-x``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    xyz : numpy.ndarray</span>
+<span class="sd">        numpy array with x, y, z along the last axis.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple[numpy.ndarray, numpy.ndarray]</span>
+
+<span class="sd">        (theta, phi)</span>
+
+<span class="sd">        Theta is measured away from ``+x``.</span>
+<span class="sd">        Phi is measured away from ``-y`` around ``-x``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">xyz</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arccos</span><span class="p">(</span><span class="n">xyz</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">xyz</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="o">-</span><span class="n">xyz</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">theta</span><span class="p">,</span> <span class="n">phi</span></div>
+
+
+
+<div class="viewcode-block" id="img_shape_to_3d_coordinates">
+<a class="viewcode-back" href="../utils_img.html#utils_img.img_shape_to_3d_coordinates">[docs]</a>
+<span class="k">def</span> <span class="nf">img_shape_to_3d_coordinates</span><span class="p">(</span><span class="n">camera_direction</span><span class="p">,</span> <span class="n">up</span><span class="p">,</span> <span class="n">image_shape_</span><span class="p">,</span> <span class="n">fov_</span><span class="p">,</span> <span class="n">fov_axis_</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Gives ``(x, y, z)`` coordinates of the centers of pixels of an image.</span>
+
+<span class="sd">    The distance unit is pixel.</span>
+<span class="sd">    The origin is at the eye (center of projection) of the perspective camera.</span>
+<span class="sd">    The sensor is parallel to the xy plane with :py:attr:`camera_direction`</span>
+<span class="sd">    along ``-z``. ``+y`` is along the :py:attr:`up` direction.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    camera_direction : numpy.ndarray</span>
+<span class="sd">        The direction in which the camera is pointing.</span>
+<span class="sd">    up : numpy.ndarray</span>
+<span class="sd">        The up direction of the camera.</span>
+<span class="sd">        It must be orthogonal to :py:attr:`camera_direction`.</span>
+<span class="sd">    image_shape_ : tuple[int, int]</span>
+<span class="sd">        The shape of the image as a ``(height, width)`` tuple.</span>
+<span class="sd">    fov_ : float</span>
+<span class="sd">        The field of view of the camera in degrees.</span>
+<span class="sd">    fov_axis_ : {&#39;x&#39;, &#39;y&#39;}, default &#39;x&#39;</span>
+<span class="sd">        The axis along which the field of view is specified.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        The 3D cartesian coordinates of the centers of the pixels.</span>
+<span class="sd">        Shape is ``image_shape_ + (3,)``.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If :py:attr:`up` and :py:attr:`camera_direction` are not orthogonal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">camera_direction</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">camera_direction</span><span class="p">)</span>
+    <span class="n">up</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">up</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">camera_direction</span><span class="p">,</span> <span class="n">up</span><span class="p">),</span> <span class="mi">0</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;camera_direction and up are not orthogonal&#39;</span><span class="p">)</span>
+    <span class="n">x_array</span><span class="p">,</span> <span class="n">y_array</span> <span class="o">=</span> <span class="n">img_shape_to_xy</span><span class="p">(</span><span class="n">image_shape_</span><span class="p">)</span>
+    <span class="n">fov_</span> <span class="o">=</span> <span class="n">fov_</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
+    <span class="k">if</span> <span class="n">fov_axis_</span> <span class="o">==</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span>
+        <span class="n">image_size</span> <span class="o">=</span> <span class="n">image_shape_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">image_size</span> <span class="o">=</span> <span class="n">image_shape_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="n">image_size</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">fov_</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">pixel_mid_coordinates</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_array</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">camera_direction</span><span class="p">,</span> <span class="n">up</span><span class="p">)</span> <span class="o">+</span>
+                             <span class="n">y_array</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">*</span> <span class="n">up</span> <span class="o">+</span>
+                             <span class="n">camera_direction</span> <span class="o">*</span> <span class="n">distance</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pixel_mid_coordinates</span></div>
+
+
+
+<div class="viewcode-block" id="img_shape_to_theta_phi">
+<a class="viewcode-back" href="../utils_img.html#utils_img.img_shape_to_theta_phi">[docs]</a>
+<span class="k">def</span> <span class="nf">img_shape_to_theta_phi</span><span class="p">(</span><span class="n">camera_direction</span><span class="p">,</span> <span class="n">up</span><span class="p">,</span> <span class="n">image_shape_</span><span class="p">,</span> <span class="n">fov_</span><span class="p">,</span> <span class="n">fov_axis_</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Gives (theta, phi) coordinates of the centers of pixels from image shape.</span>
+
+<span class="sd">    The distance unit is pixel.</span>
+<span class="sd">    The origin is at the eye (center of projection) of the perspective camera.</span>
+<span class="sd">    The sensor is parallel to the xy plane with :py:attr:`camera_direction`</span>
+<span class="sd">    along ``-z``. ``+y`` is along the :py:attr:`up` direction.</span>
+<span class="sd">    Theta is measured away from ``+x``.</span>
+<span class="sd">    Phi is measured away from ``-y`` around ``-x``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    camera_direction : numpy.ndarray</span>
+<span class="sd">        The direction in which the camera is pointing.</span>
+<span class="sd">    up : numpy.ndarray</span>
+<span class="sd">        The up direction of the camera.</span>
+<span class="sd">        It must be orthogonal to :py:attr:`camera_direction`.</span>
+<span class="sd">    image_shape_ : tuple[int, int]</span>
+<span class="sd">        The shape of the image as a ``(height, width)`` tuple.</span>
+<span class="sd">    fov_ : float</span>
+<span class="sd">        The field of view of the camera in degrees.</span>
+<span class="sd">    fov_axis_ : {&#39;x&#39;, &#39;y&#39;}, default &#39;x&#39;</span>
+<span class="sd">        The axis along which the field of view is specified.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple[numpy.ndarray, numpy.ndarray]</span>
+
+<span class="sd">        (theta, phi)</span>
+
+<span class="sd">        Theta is measured away from ``+x``.</span>
+<span class="sd">        Phi is measured away from ``-y`` around ``-x``.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If :py:attr:`up` and :py:attr:`camera_direction` are not orthogonal.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pixel_mid_coordinates</span> <span class="o">=</span> <span class="n">img_shape_to_3d_coordinates</span><span class="p">(</span><span class="n">camera_direction</span><span class="p">,</span> <span class="n">up</span><span class="p">,</span>
+                                                        <span class="n">image_shape_</span><span class="p">,</span> <span class="n">fov_</span><span class="p">,</span> <span class="n">fov_axis_</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xyz_to_theta_phi</span><span class="p">(</span><span class="n">pixel_mid_coordinates</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="binary_search">
+<a class="viewcode-back" href="../utils_img.html#utils_img.binary_search">[docs]</a>
+<span class="k">def</span> <span class="nf">binary_search</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generalized binary search using a callable.</span>
+
+<span class="sd">    Binary search for the argument to :py:attr:`func` that would make it equal</span>
+<span class="sd">    to :py:attr:`target`.</span>
+<span class="sd">    Searches between :py:attr:`low` and :py:attr:`high`.</span>
+<span class="sd">    :py:attr:`target` must be between ``func(low)`` and ``func(high)``.</span>
+<span class="sd">    ``func(binary_search(func, target, low, high, tol) +- tol) ~ target``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    func : callable</span>
+<span class="sd">        A function that takes a single argument.</span>
+<span class="sd">    target : float</span>
+<span class="sd">        The target value of func. Same type as the output of :py:attr:`func`.</span>
+<span class="sd">    low : float</span>
+<span class="sd">        Lower limit of the search domain. Same type as the input of</span>
+<span class="sd">        :py:attr:`func`.</span>
+<span class="sd">    high : float</span>
+<span class="sd">        Higher limit of the search domain. Same type as the input of</span>
+<span class="sd">        :py:attr:`func`.</span>
+<span class="sd">    tol : float, default 1e-6</span>
+<span class="sd">        Acceptable tolerance around the argument to :py:attr:`func`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        The argument that would make ``func(argument +- tol) ~ target``.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If :py:attr:`target` is not between ``func(low)`` and ``func(high)``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">high</span><span class="p">)</span> <span class="o">-</span> <span class="n">target</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">low</span><span class="p">)</span> <span class="o">-</span> <span class="n">target</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;target must be between func(low) and func(high).&#39;</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">high</span> <span class="o">-</span> <span class="n">low</span> <span class="o">&gt;</span> <span class="n">tol</span><span class="p">:</span>
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">func</span><span class="p">(</span><span class="n">mid</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">target</span><span class="p">:</span>
+            <span class="n">low</span> <span class="o">=</span> <span class="n">mid</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">high</span> <span class="o">=</span> <span class="n">mid</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">low</span> <span class="o">+</span> <span class="n">high</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span></div>
+
+
+
+<div class="viewcode-block" id="phi_neg_to_pos">
+<a class="viewcode-back" href="../utils_img.html#utils_img.phi_neg_to_pos">[docs]</a>
+<span class="k">def</span> <span class="nf">phi_neg_to_pos</span><span class="p">(</span><span class="n">phi</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Change the input from the range ``(-pi, pi]`` to the range ``[0, 2*pi)``.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    phi : numpy.ndarray</span>
+<span class="sd">        The ``phi`` values in the range ``(-pi, pi]``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        Returns :py:attr:`phi` if it&#39;s positive or ``phi + 2*pi`` if it&#39;s</span>
+<span class="sd">        negative</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">phi</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">phi</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">phi</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="solid_angle_integral">
+<a class="viewcode-back" href="../utils_img.html#utils_img.solid_angle_integral">[docs]</a>
+<span class="k">def</span> <span class="nf">solid_angle_integral</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The indefinite integral for the solid angle subtended by a pixel at the eye.</span>
+
+<span class="sd">    The perpendicular distance of the sensor from the eye is assumed to be 1.</span>
+<span class="sd">    :py:attr:`x` and :py:attr:`y` must have the same shape, given by</span>
+<span class="sd">    ``(height, width)`` of the image. The solid angle (:math:`d \Omega`)</span>
+<span class="sd">    subtended by an infinitesimal area (:math:`dA`) at the eye is given by:</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        d \\Omega &amp;= \\frac{dA \\cdot cos(\\theta)}{r^2} \\\\</span>
+<span class="sd">        &amp;= \\frac{dx dy \\cdot (1/\sqrt{x^2 + y^2 + 1})}{x^2 + y^2 + 1} \\\\</span>
+<span class="sd">        &amp;= \\frac{dx dy}{(x^2 + y^2 + 1)^{3/2}}</span>
+
+<span class="sd">    Hence, the solid angle subtended by a pixel at the eye is given by</span>
+
+<span class="sd">    .. math::</span>
+
+<span class="sd">        \\Delta \\Omega &amp;= \\int\\int\\frac{dx dy}{(x^2 + y^2 + 1)^{3/2}} \\\\</span>
+<span class="sd">        &amp;= atan\\left(\\frac{x y}{\sqrt{x^2 + y^2 + 1}}\\right)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : numpy.ndarray</span>
+<span class="sd">        The x coordinates of the pixel centers.</span>
+<span class="sd">    y : numpy.ndarray</span>
+<span class="sd">        The y coordinates of the pixel centers.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        :math:`atan\\left(\\frac{x y}{\\sqrt{1 + x^2 + y^2}}\\right)`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">y</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="solid_angle_limits_x">
+<a class="viewcode-back" href="../utils_img.html#utils_img.solid_angle_limits_x">[docs]</a>
+<span class="k">def</span> <span class="nf">solid_angle_limits_x</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;:py:func:`solid_angle_integral` definite along the x-axis.</span>
+
+<span class="sd">    The perpendicular distance of the sensor from the eye is assumed to be 1.</span>
+<span class="sd">    Refer to :py:func:`solid_angle_integral` for more details.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x_min : numpy.ndarray</span>
+<span class="sd">        The lower limits of the x coordinates (left edges) of the pixels.</span>
+<span class="sd">    x_max : numpy.ndarray</span>
+<span class="sd">        The upper limits of the x coordinates (right edges) of the pixels.</span>
+<span class="sd">    y : numpy.ndarray</span>
+<span class="sd">        The y coordinates of the pixel centers.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        The solid angle integral definite along the x-axis.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">solid_angle_integral</span><span class="p">(</span><span class="n">x_max</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">-</span> \
+        <span class="n">solid_angle_integral</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="solid_angle_limits_x_y">
+<a class="viewcode-back" href="../utils_img.html#utils_img.solid_angle_limits_x_y">[docs]</a>
+<span class="k">def</span> <span class="nf">solid_angle_limits_x_y</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The solid angles subtended by pixels at the eye of the perspective camera.</span>
+
+<span class="sd">    The edges of the pixels are given by :py:attr:`x_min`, :py:attr:`x_max`,</span>
+<span class="sd">    :py:attr:`y_min`, :py:attr:`y_max`.</span>
+<span class="sd">    The perpendicular distance of the sensor from the eye is assumed to be 1.</span>
+<span class="sd">    Refer to :py:func:`solid_angle_integral` for more details.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x_min : numpy.ndarray</span>
+<span class="sd">        The lower limits of the x coordinates (left edges) of the pixels.</span>
+<span class="sd">    x_max : numpy.ndarray</span>
+<span class="sd">        The upper limits of the x coordinates (right edges) of the pixels.</span>
+<span class="sd">    y_min : numpy.ndarray</span>
+<span class="sd">        The lower limits of the y coordinates (bottom edges) of the pixels.</span>
+<span class="sd">    y_max : numpy.ndarray</span>
+<span class="sd">        The upper limits of the y coordinates (upper edges) of the pixels.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        The solid angles subtended by the pixels.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">solid_angle_limits_x</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">y_max</span><span class="p">)</span> <span class="o">-</span> \
+        <span class="n">solid_angle_limits_x</span><span class="p">(</span><span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">y_min</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="xy_min_max_mid">
+<a class="viewcode-back" href="../utils_img.html#utils_img.xy_min_max_mid">[docs]</a>
+<span class="k">def</span> <span class="nf">xy_min_max_mid</span><span class="p">(</span><span class="n">image_shape_</span><span class="p">,</span> <span class="n">fov_</span><span class="p">,</span> <span class="n">fov_axis_</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;The x and y coordinates of the lower, middle and upper limits</span>
+<span class="sd">    of the pixels in the image.</span>
+
+<span class="sd">    The origin is assumed to be at the center of the image.</span>
+<span class="sd">    The return values correspond to the edges and the center of a pixel</span>
+<span class="sd">    as shown below:</span>
+
+<span class="sd">    .. code-block:: text</span>
+
+<span class="sd">        The square represents one pixel.</span>
+
+<span class="sd">        (x_min, y_max) ._______________________. (x_max, y_max)</span>
+<span class="sd">                       |                       |</span>
+<span class="sd">                       |                       |</span>
+<span class="sd">                       |                       |</span>
+<span class="sd">                       |           .           |</span>
+<span class="sd">                       |    (x_mid, y_mid)     |</span>
+<span class="sd">                       |                       |</span>
+<span class="sd">                       |                       |</span>
+<span class="sd">                       !_______________________!</span>
+<span class="sd">        (x_min, y_min)                           (x_max, y_min)</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image_shape_ : tuple[int, int]</span>
+<span class="sd">        The shape of the image as a ``(height, width)`` tuple.</span>
+<span class="sd">    fov_ : float</span>
+<span class="sd">        The field of view of the camera.</span>
+<span class="sd">    fov_axis_ : {&#39;x&#39;, &#39;y&#39;}, default &#39;x&#39;</span>
+<span class="sd">        The axis along which the field of view is specified.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple[</span>
+<span class="sd">    numpy.ndarray, numpy.ndarray, numpy.ndarray,</span>
+<span class="sd">    numpy.ndarray, numpy.ndarray, numpy.ndarray</span>
+<span class="sd">    ]</span>
+<span class="sd">        x_min: numpy.ndarray</span>
+<span class="sd">            The lower limits of the x coordinates (left edges) of the pixels.</span>
+<span class="sd">        x_max: numpy.ndarray</span>
+<span class="sd">            The upper limits of the x coordinates (right edges) of the pixels.</span>
+<span class="sd">        x_mid: numpy.ndarray</span>
+<span class="sd">            The x coordinates of the centers of the pixels.</span>
+<span class="sd">        y_min: numpy.ndarray</span>
+<span class="sd">            The lower limits of the y coordinates (bottom edges) of the pixels.</span>
+<span class="sd">        y_max: numpy.ndarray</span>
+<span class="sd">            The upper limits of the y coordinates (top edges) of the pixels.</span>
+<span class="sd">        y_mid: numpy.ndarray</span>
+<span class="sd">            The y coordinates of the centers of the pixels.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If :py:attr:`fov_axis_` is not ``&#39;x&#39;`` or ``&#39;y&#39;``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">fov_axis_</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;fov_axis_ must be either &quot;x&quot; or &quot;y&quot;&#39;</span><span class="p">)</span>
+    <span class="n">j_array</span><span class="p">,</span> <span class="n">i_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">image_shape_</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">image_shape_</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">fov_</span> <span class="o">=</span> <span class="n">fov_</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span>
+    <span class="k">if</span> <span class="n">fov_axis_</span> <span class="o">==</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span>
+        <span class="n">image_size</span> <span class="o">=</span> <span class="n">image_shape_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">delta_</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">fov_</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">image_size</span>
+        <span class="n">x_0</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">fov_</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">y_0</span> <span class="o">=</span> <span class="n">image_shape_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">delta_</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">image_size</span> <span class="o">=</span> <span class="n">image_shape_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">delta_</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">fov_</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">image_size</span>
+        <span class="n">y_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">fov_</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">x_0</span> <span class="o">=</span> <span class="o">-</span><span class="n">image_shape_</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">delta_</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">x_min</span> <span class="o">=</span> <span class="n">x_0</span> <span class="o">+</span> <span class="n">j_array</span> <span class="o">*</span> <span class="n">delta_</span>
+    <span class="n">x_max</span> <span class="o">=</span> <span class="n">x_min</span> <span class="o">+</span> <span class="n">delta_</span>
+    <span class="n">x_mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_min</span> <span class="o">+</span> <span class="n">x_max</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># the x coordinates of the centers of the pixels</span>
+    <span class="n">y_max</span> <span class="o">=</span> <span class="n">y_0</span> <span class="o">-</span> <span class="n">i_array</span> <span class="o">*</span> <span class="n">delta_</span>  <span class="c1"># y decreases when index increases</span>
+    <span class="n">y_min</span> <span class="o">=</span> <span class="n">y_max</span> <span class="o">-</span> <span class="n">delta_</span>
+    <span class="n">y_mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_min</span> <span class="o">+</span> <span class="n">y_max</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="n">x_min</span><span class="p">,</span> <span class="n">x_max</span><span class="p">,</span> <span class="n">x_mid</span><span class="p">,</span> <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="n">y_mid</span></div>
+
+
+
+<div class="viewcode-block" id="transformation_matrix_transpose">
+<a class="viewcode-back" href="../utils_img.html#utils_img.transformation_matrix_transpose">[docs]</a>
+<span class="k">def</span> <span class="nf">transformation_matrix_transpose</span><span class="p">(</span><span class="n">camera_direction</span><span class="p">,</span> <span class="n">up</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Gives the matrix needed to transform a point from camera to world coordinates.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    camera_direction : numpy.ndarray</span>
+<span class="sd">        The direction in which the camera is pointing (in world coordinates).</span>
+<span class="sd">        ``shape = (3,)``.</span>
+<span class="sd">    up : numpy.ndarray</span>
+<span class="sd">        The up direction of the camera (in world coordinates).</span>
+<span class="sd">        ``shape = (3,)``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        The transformation matrix. ``shape = (3, 3)``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">camera_direction</span><span class="p">,</span> <span class="n">up</span><span class="p">),</span> <span class="n">up</span><span class="p">,</span> <span class="o">-</span><span class="n">camera_direction</span><span class="p">])</span></div>
+
+
+
+<div class="viewcode-block" id="camera_to_world_coordinates">
+<a class="viewcode-back" href="../utils_img.html#utils_img.camera_to_world_coordinates">[docs]</a>
+<span class="k">def</span> <span class="nf">camera_to_world_coordinates</span><span class="p">(</span><span class="n">pixel_coordinates</span><span class="p">,</span>
+                                <span class="n">camera_direction</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">up</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Transforms points from camera to world coordinates.</span>
+
+<span class="sd">    In camera coordinates, the origin is assumed to be at the eye,</span>
+<span class="sd">    the xy plane is parallel to the sensor and :py:attr:`up` points towards</span>
+<span class="sd">    ``+y``.</span>
+<span class="sd">    The vector ``(0,0,-1)`` joins the origin to the center of the sensor.</span>
+<span class="sd">    The origin is common between the world and the camera coordinates.</span>
+<span class="sd">    :py:attr:`camera_direction` and :py:attr:`up` must be normalized and</span>
+<span class="sd">    orthogonal to each other.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    pixel_coordinates : numpy.ndarray</span>
+<span class="sd">        ``(x, y, z)`` coordinates of the centers of the pixels in camera frame.</span>
+<span class="sd">        ``shape = (height, width, 3)``.</span>
+<span class="sd">    camera_direction : numpy.ndarray</span>
+<span class="sd">        The direction of the camera in the world frame. ``shape = (3,)``.</span>
+<span class="sd">    up : numpy.ndarray</span>
+<span class="sd">        The up direction of the camera in the world frame. ``shape = (3,)``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        Transformed coordinates. ``shape = (height, width, 3)``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">camera_direction</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">camera_direction</span><span class="p">))</span>
+    <span class="n">up</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">up</span><span class="p">))</span>
+    <span class="n">pixel_coordinates</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">pixel_coordinates</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s1">&#39;ijk,kl&#39;</span><span class="p">,</span> <span class="n">pixel_coordinates</span><span class="p">,</span>
+                     <span class="n">transformation_matrix_transpose</span><span class="p">(</span><span class="n">camera_direction</span><span class="p">,</span> <span class="n">up</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="theta_phi_to_graph_coordinates">
+<a class="viewcode-back" href="../utils_img.html#utils_img.theta_phi_to_graph_coordinates">[docs]</a>
+<span class="k">def</span> <span class="nf">theta_phi_to_graph_coordinates</span><span class="p">(</span><span class="n">theta_</span><span class="p">,</span> <span class="n">phi_</span><span class="p">,</span> <span class="n">graph_res_</span><span class="p">,</span> <span class="n">front_</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A function to map theta and phi to planar coordinates x and y</span>
+
+<span class="sd">    Converts the :py:attr:`theta_` and :py:attr:`phi_` coordinates covering a</span>
+<span class="sd">    hemisphere to planar cartesian coordinates. A square with side length</span>
+<span class="sd">    :py:attr:`graph_res_` is drawn with its center at the origin.</span>
+<span class="sd">    :py:attr:`theta_`, which covers an interval of pi/2 for a hemisphere,</span>
+<span class="sd">    is mapped to the r coordinate with pi/2 at the edge of the square.</span>
+<span class="sd">    :py:attr:`phi_`, which covers an interval of 2*pi for a hemisphere,</span>
+<span class="sd">    is mapped to the theta coordinate with 0 at the right edge.</span>
+<span class="sd">    r and theta are converted to x and y and returned.</span>
+<span class="sd">    :py:attr:`theta_` is measured away from the direction</span>
+<span class="sd">    directly towards the front of the eye and :py:attr:`phi_` is measured around</span>
+<span class="sd">    it, anti-clockwise starting from the direction pointing right.</span>
+<span class="sd">    For the hemisphere in front of the eye, :py:attr:`theta_` varies from 0 to</span>
+<span class="sd">    pi/2 and :py:attr:`phi_` varies from 0 to 2*pi. For the hemisphere behind</span>
+<span class="sd">    the eye, :py:attr:`theta_` varies from pi/2 to pi and :py:attr:`phi_` varies</span>
+<span class="sd">    from 0 to 2*pi.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    theta_ : numpy.ndarray</span>
+<span class="sd">        The theta coordinates. Must have the same shape as :py:attr:`phi_`.</span>
+<span class="sd">    phi_ :numpy.ndarray</span>
+<span class="sd">        The phi coordinates. Must have the same shape as :py:attr:`theta_`.</span>
+<span class="sd">    graph_res_ : int</span>
+<span class="sd">        The resolution of the final graph</span>
+<span class="sd">    front_ : bool, default True</span>
+<span class="sd">        If ``True``, the hemisphere in front of the eye is considered.</span>
+<span class="sd">        If ``False``, the hemisphere behind the eye is considered.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple[numpy.ndarray, numpy.ndarray]</span>
+
+<span class="sd">        (x, y)</span>
+
+<span class="sd">        :py:attr:`theta_` and :py:attr:`phi_` converted to graph coordinates.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If :py:attr:`theta_` and :py:attr:`phi_` do not have the same shape.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">theta_</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="n">phi_</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;theta_ and phi_ must have the same shape&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">front_</span><span class="p">:</span>
+        <span class="n">graph_r</span> <span class="o">=</span> <span class="n">theta_</span> <span class="o">*</span> <span class="n">graph_res_</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">graph_r</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="n">theta_</span><span class="p">)</span> <span class="o">*</span> <span class="n">graph_res_</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+    <span class="n">graph_theta</span> <span class="o">=</span> <span class="n">phi_</span>
+    <span class="k">return</span> <span class="n">graph_r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">graph_theta</span><span class="p">),</span> <span class="n">graph_r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">graph_theta</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_transparency">
+<a class="viewcode-back" href="../utils_img.html#utils_img.get_transparency">[docs]</a>
+<span class="k">def</span> <span class="nf">get_transparency</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Array to make everything outside the largest circle transparent.</span>
+
+<span class="sd">    Gives a 2D array that&#39;s 0 where distance from the center is larger than</span>
+<span class="sd">    the distance to the closest edge of the image and 1 otherwise.</span>
+<span class="sd">    This highlights the largest circle that can be drawn in the image</span>
+<span class="sd">    with its center at the center of the image.</span>
+<span class="sd">    This array can be added as the transparency channel to an image to make</span>
+<span class="sd">    everything lying outside this circle transparent.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    img : numpy.ndarray</span>
+<span class="sd">        The image for which a circular transparency is required.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        2D array that&#39;s 0 where distance from the center is larger than</span>
+<span class="sd">        the distance to the closest edge of the image and 1 otherwise.</span>
+<span class="sd">        0 is transparent, 1 is opaque.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">img_shape_to_xy</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">xx</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">yy</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">r</span> <span class="o">&gt;</span> <span class="nb">min</span><span class="p">(</span><span class="n">xx</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">yy</span><span class="o">.</span><span class="n">max</span><span class="p">()),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="add_transparency">
+<a class="viewcode-back" href="../utils_img.html#utils_img.add_transparency">[docs]</a>
+<span class="k">def</span> <span class="nf">add_transparency</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add an edge to edge circular transparency to the image.</span>
+
+<span class="sd">    Consider the largest circle that can be drawn in the image with its center</span>
+<span class="sd">    at the center of the image. This function makes everything outside this</span>
+<span class="sd">    circle transparent and everything inside it opaque.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    img : numpy.ndarray</span>
+<span class="sd">        The image.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        New image which is transparent outside the largest circle centered</span>
+<span class="sd">        at the center of the image and opaque inside it.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">transparency</span> <span class="o">=</span> <span class="n">get_transparency</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="n">img_</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">img_</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">img_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">img_</span><span class="p">,</span> <span class="n">img_</span><span class="p">,</span> <span class="n">img_</span><span class="p">,</span> <span class="n">transparency</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">img_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">img_</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">img_</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">img_</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">transparency</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">img_</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Uday Nakade, Prof. Dr. Manuel Spitschan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Uday Nakade, Prof. Dr. Manuel Spitschan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

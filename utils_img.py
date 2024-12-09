@@ -15,17 +15,17 @@ def normalize(xyz_):
     Returns
     -------
     numpy.ndarray
-        The normalized vector(s). Has the same shape as `xyz_`.
-        Returns `xyz_ / norm(xyz_, axis=-1)`.
+        The normalized vector(s). Has the same shape as :py:attr:`xyz_`.
+        Returns ``xyz_ / norm(xyz_, axis=-1)``.
     """
     return xyz_ / np.linalg.norm(xyz_, axis=-1, keepdims=True)
 
 
-def img_shape_to_xy(img_shape: tuple) -> list[np.ndarray, np.ndarray]:
+def img_shape_to_xy(img_shape):
     """Get (x, y) coordinates of the centers of pixels from image size.
 
     The x and y axes are in the plane of the sensor.
-    Origin is at the center of the image. +x is to the right, +y is up.
+    Origin is at the center of the image. ``+x`` is to the right, ``+y`` is up.
     The units are pixels.
     If there are an odd number of pixels in a direction,
     the origin is at the center of a pixel.
@@ -37,19 +37,20 @@ def img_shape_to_xy(img_shape: tuple) -> list[np.ndarray, np.ndarray]:
     Parameters
     ----------
     img_shape : tuple[int, int]
-        (height, width) of the image.
+        ``(height, width)`` of the image.
 
     Returns
     -------
     list[numpy.ndarray, numpy.ndarray]
+
         [x, y]
-        The x and y coordinates of the centers of pixels.
-        x and y are 2D arrays with the shape = `img_shape`.
+
+        The x and y coordinates of the centers of the pixels.
+        x and y are 2D arrays with ``shape = img_shape``.
 
     Examples
     --------
-    In case of an odd number of pixels in a dimension,
-    the origin is at the center of a pixel.
+
     >>> img_shape_to_xy((3,4))
     [array([[-1.5, -0.5,  0.5,  1.5],
            [-1.5, -0.5,  0.5,  1.5],
@@ -57,16 +58,17 @@ def img_shape_to_xy(img_shape: tuple) -> list[np.ndarray, np.ndarray]:
     array([[ 1.,  1.,  1.,  1.],
            [ 0.,  0.,  0.,  0.],
            [-1., -1., -1., -1.]])]
+
     """
     x = np.arange(img_shape[1]) - img_shape[1] // 2 + 0.5 * (1 - img_shape[1] % 2)
     y = img_shape[0] // 2 - np.arange(img_shape[0]) - 0.5 * (1 - img_shape[0] % 2)
     return [*np.meshgrid(x, y)]
 
 
-def img_to_xy(img: np.ndarray) -> list[np.ndarray, np.ndarray]:
+def img_to_xy(img):
     """Get (x, y) coordinates of the centers of pixels of an image.
 
-    Please see `img_shape_to_xy` for more details.
+    Please see :py:func:`img_shape_to_xy` for more details.
 
     Parameters
     ----------
@@ -76,35 +78,41 @@ def img_to_xy(img: np.ndarray) -> list[np.ndarray, np.ndarray]:
     Returns
     -------
     list[numpy.ndarray, numpy.ndarray]
+
         [x, y]
+
         The x and y coordinates of the centers of pixels.
-        x and y are 2D arrays with the same shape as `img.shape[:2]`.
+        x and y are 2D arrays with the same shape as ``img.shape[:2]``.
     """
     return img_shape_to_xy(img.shape)
 
 
-def xy_to_r_phi(xy: list[np.ndarray, np.ndarray]) -> list[np.ndarray, np.ndarray]:
+def xy_to_r_phi(xy):
     """Convert cartesian to polar coordinates in the image plane.
 
     The origin is at the center of the image.
-    +x is to the right, +y is up.
+    ``+x`` is to the right, ``+y`` is up.
     Returns the distance from the origin and
-    the angle measured anticlockwise from +x.
+    the angle measured anticlockwise from ``+x``.
     The distance is given in pixels.
 
     Parameters
     ----------
     xy : list[numpy.ndarray, numpy.ndarray]
+
         [x, y]
+
         The x and y coordinates of the centers of pixels.
         x and y are 2D arrays with the same shape as img_shape[:2].
 
     Returns
     -------
     list[numpy.ndarray, numpy.ndarray]
+
         [r, phi]
+
         r is the distance from the origin.
-        phi is the angle measured anticlockwise from +x.
+        phi is the angle measured anticlockwise from ``+x``.
     """
     r = np.sqrt(xy[0] ** 2 + xy[1] ** 2)
     phi = np.arctan2(xy[1], xy[0])
@@ -112,15 +120,16 @@ def xy_to_r_phi(xy: list[np.ndarray, np.ndarray]) -> list[np.ndarray, np.ndarray
     return [r, phi]
 
 
-def img_shape_to_r_phi(img_shape: tuple) -> list[np.ndarray, np.ndarray]:
+def img_shape_to_r_phi(img_shape):
     """Get (r, phi) coordinates of the centers of pixels from image size.
 
-    Refer to `img_shape_to_xy` and `xy_to_r_phi` for more details.
+    Refer to :py:func:`img_shape_to_xy` and :py:func:`xy_to_r_phi` for more
+    details.
 
     Parameters
     ----------
     img_shape : tuple[int, int]
-        (height, width) of the image.
+        ``(height, width)`` of the image.
 
     Returns
     -------
@@ -130,10 +139,11 @@ def img_shape_to_r_phi(img_shape: tuple) -> list[np.ndarray, np.ndarray]:
     return xy_to_r_phi(img_shape_to_xy(img_shape))
 
 
-def img_to_r_phi(img: np.ndarray) -> list[np.ndarray, np.ndarray]:
+def img_to_r_phi(img):
     """Get (r, phi) coordinates of the centers of pixels of an image.
 
-    Refer to `img_shape_to_xy` and `xy_to_r_phi` for more details.
+    Refer to :py:func:`img_shape_to_xy` and :py:func:`xy_to_r_phi` for more
+    details.
 
     Parameters
     ----------
@@ -148,10 +158,7 @@ def img_to_r_phi(img: np.ndarray) -> list[np.ndarray, np.ndarray]:
     return img_shape_to_r_phi(img.shape[:2])
 
 
-def gray_img_to_single_color(
-        img: np.ndarray,
-        color: tuple[float, float, float] | tuple[int, int, int]
-) -> np.ndarray:
+def gray_img_to_single_color(img, color):
     """Convert gray image to single color image.
 
     Parameters
@@ -160,13 +167,14 @@ def gray_img_to_single_color(
         Gray image.
     color : tuple[float, float, float] | tuple[int, int, int]
         Color to convert to.
-        If the values are floats, they are assumed to be in the range [0, 1].
-        If the values are integers, they are assumed to be in the range [0, 255].
+        If the values are floats, they are assumed to be in the range ``[0, 1]``.
+        If the values are integers, they are assumed to be in the range
+        ``[0, 255]``.
 
     Returns
     -------
     numpy.ndarray
-        img * color
+        ``img * color``.
     """
     if isinstance(color[0], int):
         return np.stack([img * color[i] / 255 for i in range(3)], axis=-1).astype(img.dtype)
@@ -176,8 +184,8 @@ def gray_img_to_single_color(
 def xyz_to_theta_phi(xyz):
     """Convert (x, y, z) to directions in spherical coordinates (theta, phi).
 
-    Theta is measured away from +x.
-    Phi is measured away from -y around -x.
+    Theta is measured away from ``+x``.
+    Phi is measured away from ``-y`` around ``-x``.
 
     Parameters
     ----------
@@ -187,9 +195,11 @@ def xyz_to_theta_phi(xyz):
     Returns
     -------
     tuple[numpy.ndarray, numpy.ndarray]
+
         (theta, phi)
-        Theta is measured away from +x.
-        Phi is measured away from -y around -x.
+
+        Theta is measured away from ``+x``.
+        Phi is measured away from ``-y`` around ``-x``.
     """
     xyz = normalize(xyz)
     theta = np.arccos(xyz[..., 0])
@@ -198,12 +208,12 @@ def xyz_to_theta_phi(xyz):
 
 
 def img_shape_to_3d_coordinates(camera_direction, up, image_shape_, fov_, fov_axis_='x'):
-    """Gives (x, y, z) coordinates of the centers of pixels of an image.
+    """Gives ``(x, y, z)`` coordinates of the centers of pixels of an image.
 
     The distance unit is pixel.
     The origin is at the eye (center of projection) of the perspective camera.
-    The sensor is parallel to the xy plane with `camera_direction` along -z.
-    +y is along the `up` direction.
+    The sensor is parallel to the xy plane with :py:attr:`camera_direction`
+    along ``-z``. ``+y`` is along the :py:attr:`up` direction.
 
     Parameters
     ----------
@@ -211,24 +221,24 @@ def img_shape_to_3d_coordinates(camera_direction, up, image_shape_, fov_, fov_ax
         The direction in which the camera is pointing.
     up : numpy.ndarray
         The up direction of the camera.
-        It must be orthogonal to `camera_direction`.
+        It must be orthogonal to :py:attr:`camera_direction`.
     image_shape_ : tuple[int, int]
-        The shape of the image as a (height, width) tuple.
+        The shape of the image as a ``(height, width)`` tuple.
     fov_ : float
         The field of view of the camera in degrees.
-    fov_axis_ : str, default 'x'
+    fov_axis_ : {'x', 'y'}, default 'x'
         The axis along which the field of view is specified.
 
     Returns
     -------
     numpy.ndarray
         The 3D cartesian coordinates of the centers of the pixels.
-        Shape is `image_shape_ + (3,)`.
+        Shape is ``image_shape_ + (3,)``.
 
     Raises
     ------
     ValueError
-        If `up` and `camera_direction` are not orthogonal.
+        If :py:attr:`up` and :py:attr:`camera_direction` are not orthogonal.
     """
     camera_direction = normalize(camera_direction)
     up = normalize(up)
@@ -252,10 +262,10 @@ def img_shape_to_theta_phi(camera_direction, up, image_shape_, fov_, fov_axis_='
 
     The distance unit is pixel.
     The origin is at the eye (center of projection) of the perspective camera.
-    The sensor is parallel to the xy plane with `camera_direction` along -z.
-    +y is along the `up` direction.
-    Theta is measured away from +x.
-    Phi is measured away from -y around -x.
+    The sensor is parallel to the xy plane with :py:attr:`camera_direction`
+    along ``-z``. ``+y`` is along the :py:attr:`up` direction.
+    Theta is measured away from ``+x``.
+    Phi is measured away from ``-y`` around ``-x``.
 
     Parameters
     ----------
@@ -263,25 +273,27 @@ def img_shape_to_theta_phi(camera_direction, up, image_shape_, fov_, fov_axis_='
         The direction in which the camera is pointing.
     up : numpy.ndarray
         The up direction of the camera.
-        It must be orthogonal to `camera_direction`.
+        It must be orthogonal to :py:attr:`camera_direction`.
     image_shape_ : tuple[int, int]
-        The shape of the image as a (height, width) tuple.
+        The shape of the image as a ``(height, width)`` tuple.
     fov_ : float
         The field of view of the camera in degrees.
-    fov_axis_ : str, default 'x'
+    fov_axis_ : {'x', 'y'}, default 'x'
         The axis along which the field of view is specified.
 
     Returns
     -------
     tuple[numpy.ndarray, numpy.ndarray]
+
         (theta, phi)
-        Theta is measured away from +x.
-        Phi is measured away from -y around -x.
+
+        Theta is measured away from ``+x``.
+        Phi is measured away from ``-y`` around ``-x``.
 
     Raises
     ------
     ValueError
-        If `up` and `camera_direction` are not orthogonal.
+        If :py:attr:`up` and :py:attr:`camera_direction` are not orthogonal.
     """
     pixel_mid_coordinates = img_shape_to_3d_coordinates(camera_direction, up,
                                                         image_shape_, fov_, fov_axis_)
@@ -291,33 +303,36 @@ def img_shape_to_theta_phi(camera_direction, up, image_shape_, fov_, fov_axis_='
 def binary_search(func, target, low, high, tol=1e-6):
     """Generalized binary search using a callable.
 
-    Binary search for the argument to `func` that would make it equal to `target`.
-    Searches between `low` and `high`.
-    `target` must be between `func(low)` and `func(high)`.
-    `func(binary_search(func, target, low, high, tol) +- tol)` ~ `target`.
+    Binary search for the argument to :py:attr:`func` that would make it equal
+    to :py:attr:`target`.
+    Searches between :py:attr:`low` and :py:attr:`high`.
+    :py:attr:`target` must be between ``func(low)`` and ``func(high)``.
+    ``func(binary_search(func, target, low, high, tol) +- tol) ~ target``.
 
     Parameters
     ----------
     func : callable
         A function that takes a single argument.
     target : float
-        The target value of func. Same type as the output of `func`.
+        The target value of func. Same type as the output of :py:attr:`func`.
     low : float
-        Lower limit of the search domain. Same type as the input of `func`.
+        Lower limit of the search domain. Same type as the input of
+        :py:attr:`func`.
     high : float
-        Higher limit of the search domain. Same type as the input of `func`.
+        Higher limit of the search domain. Same type as the input of
+        :py:attr:`func`.
     tol : float, default 1e-6
-        Acceptable tolerance around the argument to `func`.
+        Acceptable tolerance around the argument to :py:attr:`func`.
 
     Returns
     -------
     float
-        The argument that would make `func(argument +- tol)` ~ `target`.
+        The argument that would make ``func(argument +- tol) ~ target``.
 
     Raises
     ------
     ValueError
-        If `target` is not between `func(low)` and `func(high)`.
+        If :py:attr:`target` is not between ``func(low)`` and ``func(high)``.
     """
     if (func(high) - target) * (func(low) - target) > 0:
         raise ValueError(f'target must be between func(low) and func(high).')
@@ -331,56 +346,63 @@ def binary_search(func, target, low, high, tol=1e-6):
 
 
 def phi_neg_to_pos(phi):
-    """Change the input from the range (-pi, pi] to the range [0, 2*pi).
+    """Change the input from the range ``(-pi, pi]`` to the range ``[0, 2*pi)``.
 
     Parameters
     ----------
     phi : numpy.ndarray
-        The `phi` values in the range (-pi, pi].
+        The ``phi`` values in the range ``(-pi, pi]``.
 
     Returns
     -------
     numpy.ndarray
-        Returns `phi` if it's positive or `phi` + 2*pi if it's negative
+        Returns :py:attr:`phi` if it's positive or ``phi + 2*pi`` if it's
+        negative
     """
     return np.where(phi < 0, phi + 2 * np.pi, phi)
 
 
-def solid_angle_integral(x_, y_):
+def solid_angle_integral(x, y):
     """The indefinite integral for the solid angle subtended by a pixel at the eye.
 
     The perpendicular distance of the sensor from the eye is assumed to be 1.
-    `x_` and `y_` must have the same shape, given by (height, width) of the image.
-    The solid angle subtended by an infinitesimal area dA at the eye is given by
+    :py:attr:`x` and :py:attr:`y` must have the same shape, given by
+    ``(height, width)`` of the image. The solid angle (:math:`d \Omega`)
+    subtended by an infinitesimal area (:math:`dA`) at the eye is given by:
+
     .. math::
-        d\\Omega = \\frac{dA * cos(\theta)}{r^2}
-                 = \\frac{dx * dy * (1/sqrt(x^2 + y^2 + 1))}{(x^2 + y^2 + 1)}
-                 = \\frac{dx * dy}{(x^2 + y^2 + 1)^{3/2}}
+
+        d \\Omega &= \\frac{dA \\cdot cos(\\theta)}{r^2} \\\\
+        &= \\frac{dx dy \\cdot (1/\sqrt{x^2 + y^2 + 1})}{x^2 + y^2 + 1} \\\\
+        &= \\frac{dx dy}{(x^2 + y^2 + 1)^{3/2}}
+
     Hence, the solid angle subtended by a pixel at the eye is given by
+
     .. math::
-        \\int\\int\\frac{dx * dy}{(x^2 + y^2 + 1)^{3/2}}
-        = atan((x * y) / sqrt(x^2 + y^2 + 1))
+
+        \\Delta \\Omega &= \\int\\int\\frac{dx dy}{(x^2 + y^2 + 1)^{3/2}} \\\\
+        &= atan\\left(\\frac{x y}{\sqrt{x^2 + y^2 + 1}}\\right)
 
     Parameters
     ----------
-    x_ : numpy.ndarray
+    x : numpy.ndarray
         The x coordinates of the pixel centers.
-    y_ : numpy.ndarray
+    y : numpy.ndarray
         The y coordinates of the pixel centers.
 
     Returns
     -------
     numpy.ndarray
-        `atan((x_ * y_) / sqrt(1 + x_^2 + y_^2))`
+        :math:`atan\\left(\\frac{x y}{\\sqrt{1 + x^2 + y^2}}\\right)`
     """
-    return np.arctan(x_ * y_ / np.sqrt(1 + x_ ** 2 + y_ ** 2))
+    return np.arctan(x * y / np.sqrt(1 + x ** 2 + y ** 2))
 
 
-def solid_angle_limits_x(x_min, x_max, y_):
-    """`solid_angle_integral` definite along the x-axis.
+def solid_angle_limits_x(x_min, x_max, y):
+    """:py:func:`solid_angle_integral` definite along the x-axis.
 
     The perpendicular distance of the sensor from the eye is assumed to be 1.
-    Refer to `solid_angle_integral` for more details.
+    Refer to :py:func:`solid_angle_integral` for more details.
 
     Parameters
     ----------
@@ -388,7 +410,7 @@ def solid_angle_limits_x(x_min, x_max, y_):
         The lower limits of the x coordinates (left edges) of the pixels.
     x_max : numpy.ndarray
         The upper limits of the x coordinates (right edges) of the pixels.
-    y_ : numpy.ndarray
+    y : numpy.ndarray
         The y coordinates of the pixel centers.
 
     Returns
@@ -396,16 +418,17 @@ def solid_angle_limits_x(x_min, x_max, y_):
     numpy.ndarray
         The solid angle integral definite along the x-axis.
     """
-    return solid_angle_integral(x_max, y_) - \
-        solid_angle_integral(x_min, y_)
+    return solid_angle_integral(x_max, y) - \
+        solid_angle_integral(x_min, y)
 
 
 def solid_angle_limits_x_y(x_min, x_max, y_min, y_max):
     """The solid angles subtended by pixels at the eye of the perspective camera.
 
-    The edges of the pixels are given by `x_min`, `x_max`, `y_min`, `y_max`.
+    The edges of the pixels are given by :py:attr:`x_min`, :py:attr:`x_max`,
+    :py:attr:`y_min`, :py:attr:`y_max`.
     The perpendicular distance of the sensor from the eye is assumed to be 1.
-    Refer to `solid_angle_integral` for more details.
+    Refer to :py:func:`solid_angle_integral` for more details.
 
     Parameters
     ----------
@@ -435,23 +458,28 @@ def xy_min_max_mid(image_shape_, fov_, fov_axis_='x'):
     The return values correspond to the edges and the center of a pixel
     as shown below:
 
-    (x_min, y_max) ._______________________. (x_max, y_max)
-                   |                       |
-                   |                       |
-                   |                       |
-                   |           .           |
-                   |    (x_mid, y_mid)     |
-                   |                       |
-                   |                       |
-    (x_min, y_min) ._______________________. (x_max, y_min)
+    .. code-block:: text
+
+        The square represents one pixel.
+
+        (x_min, y_max) ._______________________. (x_max, y_max)
+                       |                       |
+                       |                       |
+                       |                       |
+                       |           .           |
+                       |    (x_mid, y_mid)     |
+                       |                       |
+                       |                       |
+                       !_______________________!
+        (x_min, y_min)                           (x_max, y_min)
 
     Parameters
     ----------
     image_shape_ : tuple[int, int]
-        The shape of the image as a (height, width) tuple.
+        The shape of the image as a ``(height, width)`` tuple.
     fov_ : float
         The field of view of the camera.
-    fov_axis_ : {'x', 'y'}
+    fov_axis_ : {'x', 'y'}, default 'x'
         The axis along which the field of view is specified.
 
     Returns
@@ -476,7 +504,7 @@ def xy_min_max_mid(image_shape_, fov_, fov_axis_='x'):
     Raises
     ------
     ValueError
-        If `fov_axis_` is not 'x' or 'y'.
+        If :py:attr:`fov_axis_` is not ``'x'`` or ``'y'``.
     """
     if fov_axis_ not in ['x', 'y']:
         raise ValueError('fov_axis_ must be either "x" or "y"')
@@ -508,15 +536,15 @@ def transformation_matrix_transpose(camera_direction, up):
     ----------
     camera_direction : numpy.ndarray
         The direction in which the camera is pointing (in world coordinates).
-        shape = (3,)
+        ``shape = (3,)``.
     up : numpy.ndarray
         The up direction of the camera (in world coordinates).
-        shape = (3,)
+        ``shape = (3,)``.
 
     Returns
     -------
     numpy.ndarray
-        The transformation matrix. shape = (3, 3)
+        The transformation matrix. ``shape = (3, 3)``.
     """
     return np.array([np.cross(camera_direction, up), up, -camera_direction])
 
@@ -526,25 +554,27 @@ def camera_to_world_coordinates(pixel_coordinates,
     """Transforms points from camera to world coordinates.
 
     In camera coordinates, the origin is assumed to be at the eye,
-    the xy plane is parallel to the sensor and `up` points towards +y.
-    The vector (0,0,-1) joins the origin to the center of the sensor.
+    the xy plane is parallel to the sensor and :py:attr:`up` points towards
+    ``+y``.
+    The vector ``(0,0,-1)`` joins the origin to the center of the sensor.
     The origin is common between the world and the camera coordinates.
-    `camera_direction` and `up` must be normalized and orthogonal to each other.
+    :py:attr:`camera_direction` and :py:attr:`up` must be normalized and
+    orthogonal to each other.
 
     Parameters
     ----------
     pixel_coordinates : numpy.ndarray
-        (x, y, z) coordinates of the centers of the pixels in camera frame.
-        shape = (height, width, 3)
+        ``(x, y, z)`` coordinates of the centers of the pixels in camera frame.
+        ``shape = (height, width, 3)``.
     camera_direction : numpy.ndarray
-        The direction of the camera in the world frame. shape = (3,)
+        The direction of the camera in the world frame. ``shape = (3,)``.
     up : numpy.ndarray
-        The up direction of the camera in the world frame. shape = (3,)
+        The up direction of the camera in the world frame. ``shape = (3,)``.
 
     Returns
     -------
     numpy.ndarray
-        Transformed coordinates. shape = (height, width, 3)
+        Transformed coordinates. ``shape = (height, width, 3)``.
     """
     camera_direction = normalize(np.array(camera_direction))
     up = normalize(np.array(up))
@@ -556,43 +586,46 @@ def camera_to_world_coordinates(pixel_coordinates,
 def theta_phi_to_graph_coordinates(theta_, phi_, graph_res_, front_=True):
     """A function to map theta and phi to planar coordinates x and y
 
-    Converts the `theta_` and `phi_` coordinates covering a hemisphere to
-    planar cartesian coordinates. A square with side length `graph_res_`
-    is drawn with its center at the origin. `theta_`,
-    which covers an interval of pi/2 for a hemisphere,
+    Converts the :py:attr:`theta_` and :py:attr:`phi_` coordinates covering a
+    hemisphere to planar cartesian coordinates. A square with side length
+    :py:attr:`graph_res_` is drawn with its center at the origin.
+    :py:attr:`theta_`, which covers an interval of pi/2 for a hemisphere,
     is mapped to the r coordinate with pi/2 at the edge of the square.
-    `phi_`, which covers an interval of 2*pi for a hemisphere,
+    :py:attr:`phi_`, which covers an interval of 2*pi for a hemisphere,
     is mapped to the theta coordinate with 0 at the right edge.
     r and theta are converted to x and y and returned.
-    `theta_` is measured away from the direction
-    directly towards the front of the eye and `phi_` is measured around it,
-    anti-clockwise starting from the direction pointing right.
-    For the hemisphere in front of the eye, `theta_` varies from 0 to pi/2 and
-    `phi_` varies from 0 to 2*pi. For the hemisphere behind the eye,
-    `theta_` varies from pi/2 to pi and `phi_` varies from 0 to 2*pi.
+    :py:attr:`theta_` is measured away from the direction
+    directly towards the front of the eye and :py:attr:`phi_` is measured around
+    it, anti-clockwise starting from the direction pointing right.
+    For the hemisphere in front of the eye, :py:attr:`theta_` varies from 0 to
+    pi/2 and :py:attr:`phi_` varies from 0 to 2*pi. For the hemisphere behind
+    the eye, :py:attr:`theta_` varies from pi/2 to pi and :py:attr:`phi_` varies
+    from 0 to 2*pi.
 
     Parameters
     ----------
     theta_ : numpy.ndarray
-        The theta coordinates. Must have the same shape as `phi_`.
+        The theta coordinates. Must have the same shape as :py:attr:`phi_`.
     phi_ :numpy.ndarray
-        The phi coordinates. Must have the same shape as `theta_`.
+        The phi coordinates. Must have the same shape as :py:attr:`theta_`.
     graph_res_ : int
         The resolution of the final graph
     front_ : bool, default True
-        If True, the hemisphere in front of the eye is considered.
-        If False, the hemisphere behind the eye is considered.
+        If ``True``, the hemisphere in front of the eye is considered.
+        If ``False``, the hemisphere behind the eye is considered.
 
     Returns
     -------
     tuple[numpy.ndarray, numpy.ndarray]
+
         (x, y)
-        `theta_` and `phi_` converted to graph coordinates.
+
+        :py:attr:`theta_` and :py:attr:`phi_` converted to graph coordinates.
 
     Raises
     ------
     ValueError
-        If `theta_` and `phi_` do not have the same shape.
+        If :py:attr:`theta_` and :py:attr:`phi_` do not have the same shape.
     """
     if theta_.shape != phi_.shape:
         raise ValueError('theta_ and phi_ must have the same shape')

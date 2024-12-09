@@ -4,9 +4,53 @@ from scipy.interpolate import LinearNDInterpolator
 import utils_img
 from common_params import CAMERA
 
+__doc__ = """Module for interpolating values on a hemisphere.
+
+The :py:mod:`render_ply.py <render_ply>` script renders 5 images from the 
+location of the right eye of the head model. Each time, the camera has an FOV 
+of 90 degrees and is pointing in one of the following directions: 
+``front, up, down, left, right``.
+This covers the entire hemisphere in front of the eye. 
+
+This module contains classes to stitch together the images and interpolate
+the values to create a continuous image on the hemisphere. This image is then
+mapped to a flat 2D surface and returned as output.
+
+This module can only work as expected if there is no overlap between the
+rendered images. The FOV and camera directions used in the paper (90 degree FOV 
+and cameras pointing front, up, down, left and right) ensure this.
+"""
+
 
 class ImageSetWeights:
     """Class for storing solid angles, pixel coordinates and cosine weights.
+
+    Parameters
+    ----------
+    image_shape_ : tuple[int, int]
+        The shape of each image given as ``(height, width)``.
+    num_images_ : int
+        The number of images.
+    fov_ : float
+        The field of view of the camera in degrees.
+    fov_axis_ : str
+        The axis of the field of view.
+    camera_directions_ : dict
+        The camera directions for the images. The keys are integers from 0 to
+        (number of images - 1). The values are dictionaries with the
+        following items: \n
+        - 'camera_direction' : numpy.ndarray
+            The direction in which the individual camera is pointing.
+        - 'up' : numpy.ndarray
+            The up vector of the camera.
+        - 'name' : str
+            The name of the camera direction.
+    front_ : numpy.ndarray
+        The front vector of the camera. Not necessarily the same as the
+        direction in which each sub-camera is pointing.
+        There are multiple sub-cameras so that we can cover the entire
+        hemisphere in front of the eye and a perspective camera cannot have
+        a field of view equal to 180 degrees.
 
     Attributes
     ----------
@@ -24,35 +68,6 @@ class ImageSetWeights:
         This is the product of the solid angles and the cosine weights.
     """
     def __init__(self, image_shape_, num_images_, fov_, fov_axis_, camera_directions_, front_):
-        """Initialize the attributes.
-
-        Parameters
-        ----------
-        image_shape_ : tuple[int, int]
-            The shape of each image given as (height, width).
-        num_images_ : int
-            The number of images.
-        fov_ : float
-            The field of view of the camera in degrees.
-        fov_axis_ : str
-            The axis of the field of view.
-        camera_directions_ : dict
-            The camera directions for the images. The keys are integers from 0 to
-            (number of images - 1). The values are dictionaries with the
-            following items:
-            - 'camera_direction' : numpy.ndarray
-                The direction in which the individual camera is pointing.
-            - 'up' : numpy.ndarray
-                The up vector of the camera.
-            - 'name' : str
-                The name of the camera direction.
-        front_ : numpy.ndarray
-            The front vector of the camera. Not necessarily the same as the
-            direction in which each sub-camera is pointing.
-            There are multiple sub-cameras so that we can cover the entire
-            hemisphere in front of the eye and a perspective camera cannot have
-            a field of view equal to 180 degrees.
-        """
         self.num_images = num_images_
         x_min, x_max, x_mid, y_min, y_max, y_mid = utils_img.xy_min_max_mid(image_shape_,
                                                                             fov_, fov_axis_)
@@ -96,7 +111,7 @@ class HemisphericInterpolator:
         For the interpolator for one of the hemispheres, points outside the
         hemisphere are also included. This ensures that the interpolated values
         at the boundary of the hemisphere do not suffer from edge effects.
-        The pixels are cut off where |cosine weight| is less than this value.
+        The pixels are cut off where \|cosine weight\| is less than this value.
     lattice_front : numpy.ndarray
         The lattice points used for interpolation on the front hemisphere.
     internal_coords_lattice_front : numpy.ndarray
@@ -115,6 +130,15 @@ class HemisphericInterpolator:
     transparency : numpy.ndarray
         Transparency that makes the largest circle centered at the center of
         the image opaque and the rest transparent.
+
+    Methods
+    -------
+    map_to_internal_rep(vector, front=True)
+        Map the 3D coordinates to the internal 2D representation.
+    create_interpolator(front=True)
+        Create an interpolator for the front or back hemisphere.
+    output(front=True)
+        Get the output image.
     """
     def __init__(self, lattice_, values, interpolator=LinearNDInterpolator,
                  mapping_resolution=1024, cos_cutoff=0.1):
@@ -231,6 +255,11 @@ class ImageSet:
     weights : ImageSetWeights
         The weights for the images.
         This includes the solid angles, pixel coordinates and cosine weights.
+
+    Methods
+    -------
+    get_hemispherical_output(weightings=None, front=True)
+        Get the output of the interpolator for a hemisphere.
     """
     def __init__(self, images, camera=CAMERA):
         """Initialize the attributes.

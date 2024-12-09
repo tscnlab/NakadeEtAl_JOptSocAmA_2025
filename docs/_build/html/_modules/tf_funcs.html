@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tf_funcs &#8212; visual-field-pca 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/tf_funcs';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">visual-field-pca 0.0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">README</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../common_params.html">common_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../naming.html">naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils_img.html">utils_img</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../export_from_blender.html">export_from_blender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_eye_centers.html">get_eye_centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render_ply.html">render_ply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_vf_boundaries.html">get_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tf_funcs.html">tf_funcs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optimize_vf_boundaries.html">optimize_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hemispherical_interpolator.html">hemispherical_interpolator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_hemispherical_vf_images.html">create_hemispherical_vf_images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">plotting</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for tf_funcs</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">common_params</span> <span class="kn">import</span> <span class="n">DIRECTORIES</span><span class="p">,</span> <span class="n">NUMBERS</span>
+<span class="kn">from</span> <span class="nn">naming</span> <span class="kn">import</span> <span class="n">NAMING</span>
+
+
+<div class="viewcode-block" id="separate_pos_neg_params">
+<a class="viewcode-back" href="../tf_funcs.html#tf_funcs.separate_pos_neg_params">[docs]</a>
+<span class="k">def</span> <span class="nf">separate_pos_neg_params</span><span class="p">(</span><span class="n">params_</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create separate arrays for positive and negative parameters.</span>
+
+<span class="sd">    :py:attr:`params_` is a 2D array with shape (number of faces, number of</span>
+<span class="sd">    parameters). First, two separate arrays with the same shape as</span>
+<span class="sd">    :py:attr:`params_` are created. They are named :py:obj:`pos_params` and</span>
+<span class="sd">    :py:obj:`neg_params` and set to 0. Then, for each element in</span>
+<span class="sd">    :py:attr:`params_`, if it is positive, ``pos_params[corresponding index]``</span>
+<span class="sd">    is set to the element. If it is negative, ``neg_params[corresponding index]``</span>
+<span class="sd">    is set to the negative of the element.</span>
+<span class="sd">    Finally, the two arrays are concatenated along the second axis and returned.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    params_ : numpy.ndarray</span>
+<span class="sd">        2D array with ``shape = (number of faces, number of parameters)``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    numpy.ndarray</span>
+<span class="sd">        2D array with ``shape = (number of faces, 2 * number of parameters)``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pos_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">params_</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">neg_params</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">params_</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">pos_inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">params_</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">neg_inds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">params_</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">pos_params</span><span class="p">[</span><span class="n">pos_inds</span><span class="p">]</span> <span class="o">=</span> <span class="n">params_</span><span class="p">[</span><span class="n">pos_inds</span><span class="p">]</span>
+    <span class="n">neg_params</span><span class="p">[</span><span class="n">neg_inds</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">params_</span><span class="p">[</span><span class="n">neg_inds</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">pos_params</span><span class="p">,</span> <span class="n">neg_params</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></div>
+
+
+
+<span class="n">VF_POS_NP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">pos</span><span class="o">.</span><span class="n">theta_boundary</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
+<span class="n">VF_NEG_NP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">neg</span><span class="o">.</span><span class="n">theta_boundary</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
+<span class="n">RANDOM_NP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">theta_boundary</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
+<span class="n">RANDOM_VAL_NP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">theta_boundary</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
+<span class="n">PARAMS_NP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
+<span class="n">PARAMS_VAL_NP</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
+
+
+<span class="n">VF</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">VF_POS_NP</span><span class="p">,</span> <span class="n">VF_NEG_NP</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">theta_boundary</span><span class="o">.</span><span class="n">npy</span><span class="p">))</span>
+
+<span class="n">RANDOM</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">RANDOM_NP</span><span class="p">)</span>
+<span class="n">PARAMS</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">separate_pos_neg_params</span><span class="p">(</span><span class="n">PARAMS_NP</span><span class="p">))</span>
+
+<span class="n">RANDOM_VAL</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">RANDOM_VAL_NP</span><span class="p">)</span>
+<span class="n">PARAMS_VAL</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">separate_pos_neg_params</span><span class="p">(</span><span class="n">PARAMS_VAL_NP</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="predict">
+<a class="viewcode-back" href="../tf_funcs.html#tf_funcs.predict">[docs]</a>
+<span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
+<span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">visual_fields</span><span class="p">,</span> <span class="n">generic</span><span class="p">,</span> <span class="n">params_</span><span class="o">=</span><span class="n">PARAMS</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Predict the Visual Field boundaries for faces given by :py:attr:`params_`.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    visual_fields : tf.Tensor | numpy.ndarray</span>
+<span class="sd">        The VF boundaries corresponding to the id parameters.</span>
+<span class="sd">    generic : tf.Tensor | numpy.ndarray</span>
+<span class="sd">        The VF boundary corresponding to the generic mesh.</span>
+<span class="sd">    params_ : tf.Tensor | numpy.ndarray</span>
+<span class="sd">        The parameters of the faces for which the VF boundaries</span>
+<span class="sd">        are to be predicted.</span>
+<span class="sd">        The shape is (number of faces, 2 * number of parameters) because</span>
+<span class="sd">        the parameters are separated into positive and negative parts.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tf.Tensor</span>
+<span class="sd">        The predicted VF boundaries for the faces.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">params_</span> <span class="o">@</span> <span class="p">(</span><span class="n">visual_fields</span> <span class="o">-</span> <span class="n">generic</span><span class="p">)</span> <span class="o">+</span> <span class="n">generic</span></div>
+
+
+
+<div class="viewcode-block" id="loss_pred">
+<a class="viewcode-back" href="../tf_funcs.html#tf_funcs.loss_pred">[docs]</a>
+<span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
+<span class="k">def</span> <span class="nf">loss_pred</span><span class="p">(</span><span class="n">visual_fields</span><span class="p">,</span> <span class="n">generic</span><span class="p">,</span> <span class="n">params_</span><span class="o">=</span><span class="n">PARAMS</span><span class="p">,</span> <span class="n">rand_</span><span class="o">=</span><span class="n">RANDOM</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the squared error for the predicted Visual Fields.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    visual_fields : tf.Tensor | numpy.ndarray</span>
+<span class="sd">        The VF boundaries corresponding to the id parameters.</span>
+<span class="sd">    generic : tf.Tensor | numpy.ndarray</span>
+<span class="sd">        The VF boundary corresponding to the generic mesh.</span>
+<span class="sd">    params_ : tf.Tensor | numpy.ndarray</span>
+<span class="sd">        The parameters of the faces for which the VF boundaries</span>
+<span class="sd">        are to be predicted.</span>
+<span class="sd">        The shape is ``(number of faces, 2 * number of parameters)`` because</span>
+<span class="sd">        the parameters are separated into positive and negative parts.</span>
+<span class="sd">    rand_ : tf.Tensor | numpy.ndarray</span>
+<span class="sd">        The rendered VF boundaries for the faces given by :py:attr:`params_`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tf.Tensor</span>
+<span class="sd">        The squared error of the predicted VF boundaries from the rendered ones.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">predicted</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">visual_fields</span><span class="p">,</span> <span class="n">generic</span><span class="p">,</span> <span class="n">params_</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">((</span><span class="n">rand_</span> <span class="o">-</span> <span class="n">predicted</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="loss_orig">
+<a class="viewcode-back" href="../tf_funcs.html#tf_funcs.loss_orig">[docs]</a>
+<span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
+<span class="k">def</span> <span class="nf">loss_orig</span><span class="p">(</span><span class="n">visual_fields</span><span class="p">,</span> <span class="n">generic</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the squared error of the optimized VF boundaries for the</span>
+<span class="sd">    id and generic faces from the rendered ones.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    visual_fields : tf.Tensor | numpy.ndarray</span>
+<span class="sd">        The optimized VF boundaries corresponding to the id parameters.</span>
+<span class="sd">    generic : tf.Tensor | numpy.ndarray</span>
+<span class="sd">        The optimized VF boundary corresponding to the generic mesh.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tf.Tensor</span>
+<span class="sd">        The squared error of the optimized VF boundaries from the rendered ones.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">((</span><span class="n">visual_fields</span> <span class="o">-</span> <span class="n">VF</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span>
+            <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">((</span><span class="n">generic</span> <span class="o">-</span> <span class="n">G</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="loss">
+<a class="viewcode-back" href="../tf_funcs.html#tf_funcs.loss">[docs]</a>
+<span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
+<span class="k">def</span> <span class="nf">loss</span><span class="p">(</span><span class="n">visual_fields</span><span class="p">,</span> <span class="n">generic</span><span class="p">,</span> <span class="n">params_</span><span class="o">=</span><span class="n">PARAMS</span><span class="p">,</span> <span class="n">rand_</span><span class="o">=</span><span class="n">RANDOM</span><span class="p">,</span> <span class="n">frac_pred</span><span class="o">=</span><span class="mf">0.75</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the loss for VF boundary optimization.</span>
+
+<span class="sd">    The loss is a weighted sum of the loss for the predicted VF boundaries</span>
+<span class="sd">    for random faces and the loss for the optimized id and generic VF boundaries</span>
+<span class="sd">    from the rendered values.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    visual_fields : tf.Tensor | numpy.ndarray</span>
+<span class="sd">        The optimized VF boundaries corresponding to the id parameters.</span>
+<span class="sd">    generic : tf.Tensor | numpy.ndarray</span>
+<span class="sd">        The optimized VF boundary corresponding to the generic mesh.</span>
+<span class="sd">    params_ : tf.Tensor | numpy.ndarray</span>
+<span class="sd">        The parameters of the faces for which the VF boundaries</span>
+<span class="sd">        are to be predicted.</span>
+<span class="sd">        The shape is ``(number of faces, 2 * number of parameters)`` because</span>
+<span class="sd">        the parameters are separated into positive and negative parts.</span>
+<span class="sd">    rand_ : tf.Tensor | numpy.ndarray</span>
+<span class="sd">        The rendered VF boundaries for the faces given by :py:attr:`params_`.</span>
+<span class="sd">    frac_pred : float, default 0.75</span>
+<span class="sd">        The weight for the loss of the predicted VF boundaries for random faces.</span>
+<span class="sd">        The weight for the loss of the optimized VF boundaries is</span>
+<span class="sd">        ``1 - frac_pred``.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tf.Tensor</span>
+<span class="sd">        The loss for the VF boundary optimization.</span>
+<span class="sd">        ``frac_pred * loss_pred + (1 - frac_pred) * loss_orig``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">frac_pred</span> <span class="o">*</span> <span class="n">loss_pred</span><span class="p">(</span><span class="n">visual_fields</span><span class="p">,</span> <span class="n">generic</span><span class="p">,</span> <span class="n">params_</span><span class="p">,</span> <span class="n">rand_</span><span class="p">)</span> <span class="o">+</span>
+            <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">frac_pred</span><span class="p">)</span> <span class="o">*</span> <span class="n">loss_orig</span><span class="p">(</span><span class="n">visual_fields</span><span class="p">,</span> <span class="n">generic</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="loss_val">
+<a class="viewcode-back" href="../tf_funcs.html#tf_funcs.loss_val">[docs]</a>
+<span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
+<span class="k">def</span> <span class="nf">loss_val</span><span class="p">(</span><span class="n">visual_fields</span><span class="p">,</span> <span class="n">generic</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the loss for the validation set.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    visual_fields : tf.Tensor | numpy.ndarray</span>
+<span class="sd">        The VF boundaries corresponding to the id parameters.</span>
+<span class="sd">    generic : tf.Tensor | numpy.ndarray</span>
+<span class="sd">        The VF boundary corresponding to the generic mesh.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tf.Tensor</span>
+<span class="sd">        The loss for the validation set. Calculated using :py:attr:`loss_pred`.</span>
+<span class="sd">        Divided by the number of faces in the validation set.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">loss_pred</span><span class="p">(</span><span class="n">visual_fields</span><span class="p">,</span> <span class="n">generic</span><span class="p">,</span> <span class="n">PARAMS_VAL</span><span class="p">,</span> <span class="n">RANDOM_VAL</span><span class="p">)</span> <span class="o">/</span> <span class="n">NUMBERS</span><span class="o">.</span><span class="n">num_val</span></div>
+
+
+
+<div class="viewcode-block" id="any_nan">
+<a class="viewcode-back" href="../tf_funcs.html#tf_funcs.any_nan">[docs]</a>
+<span class="nd">@tf</span><span class="o">.</span><span class="n">function</span>
+<span class="k">def</span> <span class="nf">any_nan</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if there are any ``NaN`` values in the array.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    arr : tf.Tensor | numpy.ndarray</span>
+<span class="sd">        The array to check for ``NaN`` values.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tf.Tensor</span>
+<span class="sd">        ``True`` if there are any ``NaN`` values in the array, ``False``</span>
+<span class="sd">        otherwise. To get the boolean value, use :py:obj:`.numpy()`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">reduce_any</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">is_nan</span><span class="p">(</span><span class="n">arr</span><span class="p">))</span></div>
+
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Uday Nakade, Prof. Dr. Manuel Spitschan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Uday Nakade, Prof. Dr. Manuel Spitschan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

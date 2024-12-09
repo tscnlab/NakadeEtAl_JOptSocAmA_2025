@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>optimize_vf_boundaries &#8212; visual-field-pca 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=e645c8fa"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/optimize_vf_boundaries';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">visual-field-pca 0.0.1 documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../README.html">README</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modules.html">Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../common_params.html">common_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../naming.html">naming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../utils_img.html">utils_img</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../export_from_blender.html">export_from_blender</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_eye_centers.html">get_eye_centers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../render_ply.html">render_ply</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_vf_boundaries.html">get_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tf_funcs.html">tf_funcs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../optimize_vf_boundaries.html">optimize_vf_boundaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hemispherical_interpolator.html">hemispherical_interpolator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create_hemispherical_vf_images.html">create_hemispherical_vf_images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">plotting</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for optimize_vf_boundaries</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">common_params</span> <span class="kn">import</span> <span class="n">DIRECTORIES</span><span class="p">,</span> <span class="n">NUMBERS</span><span class="p">,</span> <span class="n">save_npy_files</span>
+<span class="kn">from</span> <span class="nn">naming</span> <span class="kn">import</span> <span class="n">NAMING</span>
+<span class="kn">from</span> <span class="nn">tf_funcs</span> <span class="kn">import</span> <span class="n">predict</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">loss_val</span><span class="p">,</span> <span class="n">any_nan</span><span class="p">,</span> <span class="n">VF</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">PARAMS_VAL</span>
+
+
+<div class="viewcode-block" id="gradient_step">
+<a class="viewcode-back" href="../optimize_vf_boundaries.html#optimize_vf_boundaries.gradient_step">[docs]</a>
+<span class="k">def</span> <span class="nf">gradient_step</span><span class="p">(</span><span class="n">vf_var_</span><span class="p">,</span> <span class="n">g_var_</span><span class="p">,</span> <span class="n">lr_</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Perform a gradient descent step.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    vf_var_ : tf.Variable</span>
+<span class="sd">        The variable containing the visual field boundaries for id parameters.</span>
+<span class="sd">    g_var_ : tf.Variable</span>
+<span class="sd">        The variable containing the generic visual field boundary.</span>
+<span class="sd">    lr_ : float</span>
+<span class="sd">        The learning rate.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    tuple[float, float]</span>
+<span class="sd">        The loss and validation loss values at the step.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
+        <span class="n">loss_temp_</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">vf_var_</span><span class="p">,</span> <span class="n">g_var_</span><span class="p">)</span>
+        <span class="n">dl_dvf_</span><span class="p">,</span> <span class="n">dl_dg_</span> <span class="o">=</span> <span class="n">tape</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">loss_temp_</span><span class="p">,</span> <span class="p">[</span><span class="n">vf_var_</span><span class="p">,</span> <span class="n">g_var_</span><span class="p">])</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="n">vf_var_</span><span class="o">.</span><span class="n">assign_sub</span><span class="p">(</span><span class="n">lr_</span> <span class="o">*</span> <span class="n">dl_dvf_</span><span class="p">)</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="n">g_var_</span><span class="o">.</span><span class="n">assign_sub</span><span class="p">(</span><span class="n">lr_</span> <span class="o">*</span> <span class="n">dl_dg_</span><span class="p">)</span>
+    <span class="n">loss_val_temp_</span> <span class="o">=</span> <span class="n">loss_val</span><span class="p">(</span><span class="n">vf_var_</span><span class="p">,</span> <span class="n">g_var_</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">loss_temp_</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">loss_val_temp_</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="monotonically_increasing">
+<a class="viewcode-back" href="../optimize_vf_boundaries.html#optimize_vf_boundaries.monotonically_increasing">[docs]</a>
+<span class="k">def</span> <span class="nf">monotonically_increasing</span><span class="p">(</span><span class="n">losses_record_</span><span class="p">,</span> <span class="n">n_</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if the last :py:attr:`n_` losses are monotonically increasing.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    losses_record_ : TrainLossesRecord</span>
+<span class="sd">        The record of losses.</span>
+<span class="sd">    n_ : int</span>
+<span class="sd">        The number of losses to check.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    bool</span>
+<span class="sd">        ``True`` if the last :py:attr:`n_` losses are monotonically increasing,</span>
+<span class="sd">        ``False`` otherwise.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">losses_record_</span><span class="o">.</span><span class="n">losses</span><span class="p">[</span><span class="o">-</span><span class="n">n_</span><span class="p">:])</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="LowestValLoss">
+<a class="viewcode-back" href="../optimize_vf_boundaries.html#optimize_vf_boundaries.LowestValLoss">[docs]</a>
+<span class="k">class</span> <span class="nc">LowestValLoss</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Record the Visual Fields corresponding to the lowest validation loss.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    val_loss : float</span>
+<span class="sd">        The lowest validation loss yet.</span>
+<span class="sd">    iteration : int</span>
+<span class="sd">        The iteration at which the lowest validation loss occurred.</span>
+<span class="sd">    vf : np.ndarray</span>
+<span class="sd">        The id Visual Fields corresponding to the lowest validation loss.</span>
+<span class="sd">    g : np.ndarray</span>
+<span class="sd">        The generic Visual Field corresponding to the lowest validation loss.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    record(val_loss_, vf_var_, g_var_, iteration_)</span>
+<span class="sd">        Update the attributes if the new :py:attr:`val_loss_` is lower than the</span>
+<span class="sd">        recorded :py:attr:`val_loss`.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val_loss</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;inf&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">iteration</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vf</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="LowestValLoss.record">
+<a class="viewcode-back" href="../optimize_vf_boundaries.html#optimize_vf_boundaries.LowestValLoss.record">[docs]</a>
+    <span class="k">def</span> <span class="nf">record</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val_loss_</span><span class="p">,</span> <span class="n">vf_var_</span><span class="p">,</span> <span class="n">g_var_</span><span class="p">,</span> <span class="n">iteration_</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update the attributes if the :py:attr:`val_loss_` is lower than</span>
+<span class="sd">        :py:attr:`val_loss`</span>
+
+<span class="sd">        During training, the new val loss is compared to the stored val loss.</span>
+<span class="sd">        If the new val loss is lower, the attributes are updated.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        val_loss_ : float</span>
+<span class="sd">            The new validation loss.</span>
+<span class="sd">        vf_var_ : tf.Variable</span>
+<span class="sd">            The new id Visual Fields.</span>
+<span class="sd">        g_var_ : tf.Variable</span>
+<span class="sd">            The new generic Visual Field.</span>
+<span class="sd">        iteration_ : int</span>
+<span class="sd">            The iteration at which the new validation loss occurred.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">val_loss_</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">val_loss</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">val_loss</span> <span class="o">=</span> <span class="n">val_loss_</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">iteration</span> <span class="o">=</span> <span class="n">iteration_</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">vf</span> <span class="o">=</span> <span class="n">vf_var_</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="n">g_var_</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="TrainLossesRecord">
+<a class="viewcode-back" href="../optimize_vf_boundaries.html#optimize_vf_boundaries.TrainLossesRecord">[docs]</a>
+<span class="k">class</span> <span class="nc">TrainLossesRecord</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Record the training and validation losses.</span>
+
+<span class="sd">    Attributes</span>
+<span class="sd">    ----------</span>
+<span class="sd">    losses : list[float, ...]</span>
+<span class="sd">        The training losses.</span>
+<span class="sd">    losses_val : list[float, ...]</span>
+<span class="sd">        The validation losses.</span>
+
+<span class="sd">    Methods</span>
+<span class="sd">    -------</span>
+<span class="sd">    record(loss_, val_loss_)</span>
+<span class="sd">        Add the new losses to the records.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">losses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">losses_val</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="TrainLossesRecord.record">
+<a class="viewcode-back" href="../optimize_vf_boundaries.html#optimize_vf_boundaries.TrainLossesRecord.record">[docs]</a>
+    <span class="k">def</span> <span class="nf">record</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loss_</span><span class="p">,</span> <span class="n">val_loss_</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add the new losses to the records.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        loss_ : float</span>
+<span class="sd">            The new training loss.</span>
+<span class="sd">        val_loss_ : float</span>
+<span class="sd">            The new validation loss.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">loss_</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">losses_val</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">val_loss_</span><span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="optimize">
+<a class="viewcode-back" href="../optimize_vf_boundaries.html#optimize_vf_boundaries.optimize">[docs]</a>
+<span class="k">def</span> <span class="nf">optimize</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Optimize the Visual Fields (VFs).</span>
+
+<span class="sd">    Optimizes the VFs till the validation loss stops decreasing.</span>
+<span class="sd">    The training data is obtained from the rendered VF boundaries for</span>
+<span class="sd">    ``NUMBERS.num_rand`` random faces and validation data from</span>
+<span class="sd">    ``NUMBERS.num_val`` random faces.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    LowestValLoss</span>
+<span class="sd">        The Visual Fields corresponding to the lowest validation loss.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">vf_var</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">VF</span><span class="p">)</span>
+    <span class="n">g_var</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+    <span class="n">train_losses_record</span> <span class="o">=</span> <span class="n">TrainLossesRecord</span><span class="p">()</span>
+    <span class="n">lowest_val_loss</span> <span class="o">=</span> <span class="n">LowestValLoss</span><span class="p">()</span>
+    <span class="n">iteration</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">iteration</span> <span class="o">-</span> <span class="n">lowest_val_loss</span><span class="o">.</span><span class="n">iteration</span> <span class="o">&lt;</span> <span class="n">NUMBERS</span><span class="o">.</span><span class="n">patience</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">iteration</span> <span class="o">%</span> <span class="mi">100</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Iteration: </span><span class="si">{</span><span class="n">iteration</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">iteration</span> <span class="o">&gt;</span> <span class="n">NUMBERS</span><span class="o">.</span><span class="n">training_patience</span> <span class="ow">and</span>
+                <span class="n">monotonically_increasing</span><span class="p">(</span><span class="n">train_losses_record</span><span class="p">,</span> <span class="n">NUMBERS</span><span class="o">.</span><span class="n">training_patience</span><span class="p">)):</span>
+            <span class="k">break</span>  <span class="c1"># Training loss has been increasing for the last training_patience iterations</span>
+        <span class="k">if</span> <span class="n">any_nan</span><span class="p">(</span><span class="n">vf_var</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="ow">or</span> <span class="n">any_nan</span><span class="p">(</span><span class="n">g_var</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">():</span>
+            <span class="k">break</span>  <span class="c1"># NaN found</span>
+        <span class="n">loss_at_step</span><span class="p">,</span> <span class="n">val_loss_at_step</span> <span class="o">=</span> <span class="n">gradient_step</span><span class="p">(</span><span class="n">vf_var</span><span class="p">,</span> <span class="n">g_var</span><span class="p">,</span> <span class="n">NUMBERS</span><span class="o">.</span><span class="n">learning_rate</span><span class="p">)</span>
+        <span class="n">train_losses_record</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">loss_at_step</span><span class="p">,</span> <span class="n">val_loss_at_step</span><span class="p">)</span>
+        <span class="n">lowest_val_loss</span><span class="o">.</span><span class="n">record</span><span class="p">(</span><span class="n">val_loss_at_step</span><span class="p">,</span> <span class="n">vf_var</span><span class="p">,</span> <span class="n">g_var</span><span class="p">,</span> <span class="n">iteration</span><span class="p">)</span>
+        <span class="n">iteration</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">save_npy_files</span><span class="p">({</span>
+        <span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">optimized</span><span class="o">.</span><span class="n">theta_boundary</span><span class="o">.</span><span class="n">npy</span><span class="p">:</span> <span class="n">lowest_val_loss</span><span class="o">.</span><span class="n">vf</span><span class="p">,</span>
+        <span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">generic</span><span class="o">.</span><span class="n">optimized</span><span class="o">.</span><span class="n">theta_boundary</span><span class="o">.</span><span class="n">npy</span><span class="p">:</span> <span class="n">lowest_val_loss</span><span class="o">.</span><span class="n">g</span><span class="p">,</span>
+        <span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">optimization</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">npy</span><span class="p">:</span> <span class="n">train_losses_record</span><span class="o">.</span><span class="n">losses</span><span class="p">,</span>
+        <span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">optimization</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">npy</span><span class="p">:</span> <span class="n">train_losses_record</span><span class="o">.</span><span class="n">losses_val</span>
+    <span class="p">})</span>
+    <span class="k">return</span> <span class="n">lowest_val_loss</span></div>
+
+
+
+<div class="viewcode-block" id="create_predictions">
+<a class="viewcode-back" href="../optimize_vf_boundaries.html#optimize_vf_boundaries.create_predictions">[docs]</a>
+<span class="k">def</span> <span class="nf">create_predictions</span><span class="p">(</span><span class="n">visual_fields</span><span class="p">,</span> <span class="n">generic</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create predictions for the Visual Fields of the random faces.</span>
+
+<span class="sd">    Create predictions for the Visual Fields (VFs) of random faces</span>
+<span class="sd">    from the optimized id and generic VFs.</span>
+<span class="sd">    Saves the predictions in the :py:obj:`NAMING.optimization.predictions.npy`</span>
+<span class="sd">    file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    visual_fields : np.ndarray</span>
+<span class="sd">        The Visual Fields corresponding to the id parameters.</span>
+<span class="sd">    generic : np.ndarray</span>
+<span class="sd">        The Visual Field corresponding to the generic mesh.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">predictions</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">visual_fields</span><span class="p">,</span> <span class="n">generic</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="n">predictions_val</span> <span class="o">=</span> <span class="n">predict</span><span class="p">(</span><span class="n">visual_fields</span><span class="p">,</span> <span class="n">generic</span><span class="p">,</span> <span class="n">params_</span><span class="o">=</span><span class="n">PARAMS_VAL</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+    <span class="n">save_npy_files</span><span class="p">({</span>
+        <span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">optimization</span><span class="o">.</span><span class="n">predictions</span><span class="o">.</span><span class="n">npy</span><span class="p">:</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">predictions</span><span class="p">,</span> <span class="n">predictions_val</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="p">})</span></div>
+
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../optimize_vf_boundaries.html#optimize_vf_boundaries.main">[docs]</a>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Optimize the Visual Fields and create predictions.</span>
+
+<span class="sd">    Optimize the Visual Field boundaries of id+, id- and generic faces and</span>
+<span class="sd">    create predictions for the random faces using the linear model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">tf_seed</span><span class="p">)</span>
+    <span class="n">lowest_val_loss</span> <span class="o">=</span> <span class="n">optimize</span><span class="p">()</span>
+    <span class="n">create_predictions</span><span class="p">(</span><span class="n">lowest_val_loss</span><span class="o">.</span><span class="n">vf</span><span class="p">,</span> <span class="n">lowest_val_loss</span><span class="o">.</span><span class="n">g</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Uday Nakade, Prof. Dr. Manuel Spitschan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, Uday Nakade, Prof. Dr. Manuel Spitschan.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

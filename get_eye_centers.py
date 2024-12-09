@@ -11,7 +11,10 @@ INDEX_R = 23728  # Index of the center of the right eye pupil in the PLY file
 INDEX_L = 23577  # Index of the center of the left eye pupil in the PLY file
 LEN_HEADER = 15  # Number of lines in the header of the PLY file
 
-# Matrix to rotate the mesh in the PLY file to the desired orientation
+# Matrix to rotate the mesh in the PLY file to the desired orientation.
+# After this, the head will be facing along -z.
+# This is helpful because the right and up directions from the perspective
+# of the head will be +x and +y directions respectively.
 ROTATION = np.array([[0, -1, 0],
                      [1, 0, 0],
                      [0, 0, 1]])
@@ -20,7 +23,7 @@ ROTATION = np.array([[0, -1, 0],
 def get_ply_vertex_coordinates(index_, lines_):
     """Get the coordinates of the vertex in the PLY file.
 
-    Rotates the vertex by 90 degrees around the z-axis and scales it by 10.
+    Rotates the vertex by 90 degrees around ``+z`` and scales it by 10.
     This is done to match the orientation of the mesh in the PLY file with
     the one that Mitsuba will render.
 
@@ -44,7 +47,7 @@ def get_ply_vertex_coordinates(index_, lines_):
 def get_eye_centers(file_paths):
     """Get the eye centers from the PLY files.
 
-    Rotates the eye centers by 90 degrees around the z-axis and
+    Rotates the eye centers by 90 degrees around ``+z`` and
     scales them by 10.
     This is done to match the orientation of the mesh in the PLY file with
     the one that Mitsuba will render.
@@ -74,9 +77,9 @@ def get_eye_centers(file_paths):
 def main():
     """Get the eye centers from the PLY files and save them to JSON files.
 
-    Searches for the PLY files in the Visual_Field_PCA/ply_files directory.
-    Saves the eye centers to Visual_Field_PCA/eye_centers_right.json and
-    Visual_Field_PCA/eye_centers_left.json.
+    Searches for the PLY files in the ``Visual_Field_PCA/ply_files`` directory.
+    Saves the eye centers to ``Visual_Field_PCA/eye_centers_right.json`` and
+    ``Visual_Field_PCA/eye_centers_left.json``.
     """
     ls = DIRECTORIES.ply.glob(str(NAMING.asterisk.ascii.ply))
     ls = sorted(ls, key=str)

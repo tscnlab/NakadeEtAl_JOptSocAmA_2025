@@ -1,5 +1,5 @@
 # Repository for the code used in the paper "Predicting visual field boundaries from head features"
-### Authors: Uday Nakade and Prof. Dr. Manuel Spitschan
+## Authors: Uday Nakade and Prof. Dr. Manuel Spitschan
 
 This repository contains the code used in our paper. In order to run it, 
 you will need `python3` with `numpy`, `matplotlib`, `scipy` and `tensorflow`, [Blender](https://www.blender.org/) and at least one of the following variants of [Mitsuba 3](https://www.mitsuba-renderer.org/): 
@@ -30,7 +30,7 @@ mouth, etc.) and triangulated all faces, which is required by Mitsuba 3.
 
 We used `python` version `3.10.12` and `Blender` version `3.3.21`. The commit hash of the version of `Mitsuba 3` we used was 
 `d310cfd4dc5662903e0ebcbaf4a3704e8d57c953` with the output of `git submodule status` as follows:
-```
+```text
  cae01e3964a44d76cb32ba574d80828217636704 ext/asmjit (heads/master)
  50532d291b2dcf3fc910fcba751d452d7cfedb78 ext/drjit (heads/master)
  7d93c92c2ea6c4f1369d1b8688528b5fe26e91b4 ext/embree (heads/master)

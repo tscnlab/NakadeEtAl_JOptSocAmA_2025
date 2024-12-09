@@ -33,7 +33,7 @@ def gradient_step(vf_var_, g_var_, lr_):
 
 
 def monotonically_increasing(losses_record_, n_):
-    """Check if the last `n_` losses are monotonically increasing.
+    """Check if the last :py:attr:`n_` losses are monotonically increasing.
 
     Parameters
     ----------
@@ -45,8 +45,8 @@ def monotonically_increasing(losses_record_, n_):
     Returns
     -------
     bool
-        True if the last `n_` losses are monotonically increasing,
-        False otherwise.
+        ``True`` if the last :py:attr:`n_` losses are monotonically increasing,
+        ``False`` otherwise.
     """
     return np.all(np.diff(losses_record_.losses[-n_:]) >= 0)
 
@@ -64,6 +64,12 @@ class LowestValLoss:
         The id Visual Fields corresponding to the lowest validation loss.
     g : np.ndarray
         The generic Visual Field corresponding to the lowest validation loss.
+
+    Methods
+    -------
+    record(val_loss_, vf_var_, g_var_, iteration_)
+        Update the attributes if the new :py:attr:`val_loss_` is lower than the
+        recorded :py:attr:`val_loss`.
     """
     def __init__(self):
         self.val_loss = float('inf')
@@ -72,7 +78,8 @@ class LowestValLoss:
         self.g = None
 
     def record(self, val_loss_, vf_var_, g_var_, iteration_):
-        """Update the attributes if the `val_loss_` is lower than `val_loss`
+        """Update the attributes if the :py:attr:`val_loss_` is lower than
+        :py:attr:`val_loss`
 
         During training, the new val loss is compared to the stored val loss.
         If the new val loss is lower, the attributes are updated.
@@ -104,6 +111,11 @@ class TrainLossesRecord:
         The training losses.
     losses_val : list[float, ...]
         The validation losses.
+
+    Methods
+    -------
+    record(loss_, val_loss_)
+        Add the new losses to the records.
     """
     def __init__(self):
         self.losses = []
@@ -128,8 +140,8 @@ def optimize():
 
     Optimizes the VFs till the validation loss stops decreasing.
     The training data is obtained from the rendered VF boundaries for
-    NUMBERS.num_rand random faces and validation data from NUMBERS.num_val
-    random faces.
+    ``NUMBERS.num_rand`` random faces and validation data from
+    ``NUMBERS.num_val`` random faces.
 
     Returns
     -------
@@ -167,7 +179,8 @@ def create_predictions(visual_fields, generic):
 
     Create predictions for the Visual Fields (VFs) of random faces
     from the optimized id and generic VFs.
-    Saves the predictions in the `NAMING.optimization.predictions.npy` file.
+    Saves the predictions in the :py:obj:`NAMING.optimization.predictions.npy`
+    file.
 
     Parameters
     ----------
@@ -189,7 +202,11 @@ def create_predictions(visual_fields, generic):
 
 
 def main():
-    """Optimize the Visual Fields and create predictions."""
+    """Optimize the Visual Fields and create predictions.
+
+    Optimize the Visual Field boundaries of id+, id- and generic faces and
+    create predictions for the random faces using the linear model.
+    """
     tf.random.set_seed(NUMBERS.tf_seed)
     lowest_val_loss = optimize()
     create_predictions(lowest_val_loss.vf, lowest_val_loss.g)

@@ -45,7 +45,8 @@ def add_image(fig_, image_, axes_coords_, cmap='gray', **kwargs):
     cmap : str, default 'gray'
         The colormap to be used for the image.
     kwargs : dict
-        Additional keyword arguments to be passed to `imshow`.
+        Additional keyword arguments to be passed to
+        :py:func:`matplotlib.axes.Axes.imshow`.
 
     Returns
     -------
@@ -68,7 +69,8 @@ def polar_plot_grayscale_image(image_, output_file_path, **kwargs):
     output_file_path : str | pathlib.Path
         The path to the output file.
     kwargs : dict
-        Additional keyword arguments to be passed to `imshow`.
+        Additional keyword arguments to be passed to
+        :py:func:`matplotlib.axes.Axes.imshow`.
 
     Returns
     -------
@@ -86,7 +88,7 @@ def polar_plot_grayscale_image(image_, output_file_path, **kwargs):
 def polar_plot_grayscale_images(images_, output_file_paths):
     """Plot grayscale images and add polar axes with ticks.
 
-    Calls `polar_plot_grayscale_image` for multiple images.
+    Calls :py:func:`polar_plot_grayscale_image` for multiple images.
 
     Parameters
     ----------
@@ -136,7 +138,8 @@ def polar_plot_color_image(image_, output_file_path, cmap='bwr', **kwargs):
     cmap : str | matplotlib.colors.Colormap, default 'bwr'
         The colormap to be used for the image.
     kwargs : dict
-        Additional keyword arguments to be passed to `imshow`.
+        Additional keyword arguments to be passed to
+        :py:func:`matplotlib.axes.Axes.imshow`.
 
     Returns
     -------
@@ -153,7 +156,8 @@ def polar_plot_color_image(image_, output_file_path, cmap='bwr', **kwargs):
 
 
 def get_ticks(min_, max_, tick_at_every_):
-    """Get all the multiples of `tick_at_every_` between `min_` and `max_`.
+    """Get all the multiples of :py:attr:`tick_at_every_` between
+    :py:attr:`min_` and :py:attr:`max_`.
 
     Parameters
     ----------
@@ -167,8 +171,8 @@ def get_ticks(min_, max_, tick_at_every_):
     Returns
     -------
     numpy.ndarray
-        An array containing all the multiples of `tick_at_every_` between
-        `min_` and `max_`.
+        An array containing all the multiples of :py:attr:`tick_at_every_`
+        between :py:attr:`min_` and :py:attr:`max_`.
     """
     tick_min = (min_ // tick_at_every_ + 1) * tick_at_every_
     tick_max = (max_ // tick_at_every_) * tick_at_every_
@@ -185,12 +189,15 @@ def plot_vf_xy(plots_dict, output_file_path):
         A dictionary containing the data to be plotted.
         The keys are the labels for the plots and the values are
         dictionaries with the following keys
+
         - 'thetas' : numpy.ndarray
             The theta values for the boundary pixels.
         - 'phis' : numpy.ndarray
             The phi values for the boundary pixels.
         - 'kwargs' : dict
-            Additional keyword arguments to be passed to `matplotlib.pyplot.plot`.
+            Additional keyword arguments to be passed to
+            :py:meth:`matplotlib.pyplot.plot`.
+
     output_file_path : str | pathlib.Path
         The path to the output file
 
@@ -241,7 +248,7 @@ def plot_rendered_predicted_comparison(rendered_thetas, predicted_thetas, phis, 
 def plot_rendered_predicted_comparisons(random_predicted, random_rendered, phis):
     """Plot the rendered and predicted Visual Field boundaries for random faces.
 
-    Calls `plot_rendered_predicted_comparison` for multiple faces.
+    Calls :py:func:`plot_rendered_predicted_comparison` for multiple faces.
 
     Parameters
     ----------
@@ -302,7 +309,7 @@ def plot_id_pm_diff(id_num):
 def plot_id_pm_diffs(id_nums_arr):
     """Plot the differences in the VFs when id parameters change from -1 to 1.
 
-    Calls `plot_id_pm_diff` for multiple id numbers.
+    Calls :py:func:`plot_id_pm_diff` for multiple id numbers.
 
     Parameters
     ----------

@@ -13,7 +13,9 @@ __doc__ = """Export the generic neutral, id+-, and random meshes to PLY files.""
 def change_shape_key_slider_limits(shape_keys_, shape_key_name_, min_=-1, max_=1):
     """ Change the slider limits for one shape key.
 
-    Refer to `change_all_shape_key_slider_limits` for more details.
+    The blendshape sliders in Blender are limited to the range ``[0, 1]`` by
+    default. This function changes the limits to the specified range
+    (``[-1, 1]`` by default).
 
     Parameters
     ----------
@@ -22,9 +24,9 @@ def change_shape_key_slider_limits(shape_keys_, shape_key_name_, min_=-1, max_=1
     shape_key_name_ : str
         The name of the shape key.
     min_ : float, default -1
-        The lower limit.
+        The intended lower limit.
     max_ : float, default 1
-        The upper limit.
+        The intended upper limit.
 
     Returns
     -------
@@ -38,17 +40,16 @@ def change_shape_key_slider_limits(shape_keys_, shape_key_name_, min_=-1, max_=1
 def change_all_shape_key_slider_limits(shape_keys_, min_=-1, max_=1):
     """Change the slider limits of all shape keys.
 
-    The blendshape sliders in Blender are limited to the range [0, 1] by default.
-    This function changes the limits to the specified range (-1 to 1 by default).
+    Refer to :py:func:`change_shape_key_slider_limits` for more details.
 
     Parameters
     ----------
     shape_keys_ : bpy.types.bpy_prop_collection
         A dict like object containing the shape keys.
     min_ : float, default -1
-        The lower limit.
+        The intended lower limit.
     max_ : float, default 1
-        The upper limit.
+        The intended upper limit.
 
     Returns
     -------
@@ -115,8 +116,8 @@ def id_pm_shape_key_values(id_num_, pm1_, num_ids_=NUMBERS.num_ids):
     Returns
     -------
     numpy.ndarray
-        An array of size `num_ids_` with the `id_num_`th value equal
-        to `pm1_` and others 0.
+        An array of size :py:attr:`num_ids_` with the :py:attr:`id_num_`\\th
+        value equal to :py:attr:`pm1_` and others 0.
     """
     values_temp = np.zeros(num_ids_)
     values_temp[id_num_] = pm1_
@@ -132,8 +133,11 @@ def random_shape_key_values(rng_, size_, min_=-1, max_=1):
     ----------
     rng_ : numpy.random.Generator
         A random number generator.
-    size_ : int
-        The number of shape keys (also the number of random values generated).
+    size_ : int | tuple[int, int]
+        In case it's an int, the number of shape keys
+        (also the number of random values generated).
+        In case it's a tuple, the shape of the random array to be generated.
+        (number of faces, number of shape keys).
     min_ : float, default -1
         The lower limit for the uniform distribution
         (lower limit of the shape key slider).
@@ -144,7 +148,8 @@ def random_shape_key_values(rng_, size_, min_=-1, max_=1):
     Returns
     -------
     numpy.ndarray
-        An array of uniform random values between `min_` and `max_`.
+        An array of uniform random values between :py:attr:`min_` and
+        :py:attr:`max_`.
     """
     return rng_.uniform(min_, max_, size=size_)
 
@@ -178,9 +183,9 @@ def export_ply(filepath_, shape_keys_, shape_key_values_, use_selection_=True, u
 def export_generic_neutral_mesh(shape_keys_):
     """Export the mesh with all shape keys 0.
 
-    Two PLY files are exported: one in ASCII format and the other in binary format.
-    The ASCII format is required to get the coordinates of the eye centers.
-    The binary format is used with mitsuba 3 as it's faster to load.
+    Two PLY files are exported: one in ASCII format and the other in binary
+    format. The ASCII format is required to get the coordinates of the eye
+    centers. The binary format is used with ``Mitsuba 3`` as it's faster to load.
 
     Parameters
     ----------
@@ -263,11 +268,11 @@ def export_random_meshes(shape_keys_, rng_, num_random_=NUMBERS.num_rand,
 def main():
     """Export generic neutral, id+-, and random meshes.
 
-    Changes all shape key limits to -1 to 1.
-    Exports the generic neutral mesh to a PLY file.
-    Exports the meshes with individual id parameters set to -1 and 1 to PLY files.
-    Exports the random meshes to PLY files.
-    Saves the random parameters to numpy files.
+    | Changes all shape key limits to -1 to 1.
+    | Exports the generic neutral mesh to a PLY file.
+    | Exports the meshes with individual id parameters set to -1 and 1 to PLY files.
+    | Exports the random meshes to PLY files.
+    | Saves the random parameters to numpy files.
     """
     DIRECTORIES.create_directories()
     ict_face_model = bpy.data.objects['ICTFaceModel']
