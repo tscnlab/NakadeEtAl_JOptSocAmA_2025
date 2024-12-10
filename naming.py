@@ -33,6 +33,13 @@ class BaseNaming(os.PathLike):
     The :py:meth:`__fspath__` method returns an empty string.
     """
     def __fspath__(self):
+        """Return an empty string.
+
+        This method is required for classes inheriting from 
+        :py:class:`os.PathLike`. It's supposed to return the string 
+        representation of the path, which in this case should be an 
+        empty string.
+        """
         return ''
 
 
