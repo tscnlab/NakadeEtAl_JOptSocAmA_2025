@@ -366,7 +366,11 @@ for creating file names.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="naming.BaseNaming.__fspath__">
 <span class="sig-name descname"><span class="pre">__fspath__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/naming.html#BaseNaming.__fspath__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#naming.BaseNaming.__fspath__" title="Link to this definition">#</a></dt>
-<dd><p>Return the file system path representation of the object.</p>
+<dd><p>Return an empty string.</p>
+<p>This method is required for classes inheriting from 
+<code class="xref py py-class docutils literal notranslate"><span class="pre">os.PathLike</span></code>. It’s supposed to return the string 
+representation of the path, which in this case should be an 
+empty string.</p>
 </dd></dl>
 
 </dd></dl>
