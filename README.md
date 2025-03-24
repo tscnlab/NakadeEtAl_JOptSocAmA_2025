@@ -2,7 +2,7 @@
 ## Authors: Uday Nakade and Prof. Dr. Manuel Spitschan
 
 This repository contains the code used in our paper. In order to run it, 
-you will need `python3` with `numpy`, `matplotlib`, `scipy` and `tensorflow`, [Blender](https://www.blender.org/) and at least one of the following variants of [Mitsuba 3](https://www.mitsuba-renderer.org/): 
+you will need `python3` with `numpy`, `matplotlib`, `scipy`, `tqdm` and `tensorflow`, [Blender](https://www.blender.org/) and at least one of the following variants of [Mitsuba 3](https://www.mitsuba-renderer.org/): 
 `cuda_ad_spectral` (the one we used), `cuda_spectral`, `llvm_ad_spectral`, `llvm_spectral` or `scalar_spectral`.
 
 Cloning with `git clone <url>` will only download the code. By default, the code writes output to a new folder `Visual_Field_PCA`.
@@ -29,7 +29,7 @@ We first imported the face model into Blender, removed irrelevant parts (eyeball
 mouth, etc.) and triangulated all faces, which is required by Mitsuba 3.
 
 We used `python` version `3.10.12` and `Blender` version `3.3.21`. The commit hash of the version of `Mitsuba 3` we used was 
-`d310cfd4dc5662903e0ebcbaf4a3704e8d57c953` with the output of `git submodule status` as follows:
+`d310cfd4dc5662903e0ebcbaf4a3704e8d57c953` with the output of `git submodule status` issued in the directory where `Mitsuba 3` was cloned being:
 ```text
  cae01e3964a44d76cb32ba574d80828217636704 ext/asmjit (heads/master)
  50532d291b2dcf3fc910fcba751d452d7cfedb78 ext/drjit (heads/master)
@@ -47,5 +47,5 @@ We used `python` version `3.10.12` and `Blender` version `3.3.21`. The commit ha
  8b05b3188d84ddf623b45af22e45a6d77ba079d2 resources/data (heads/master)
  0b77266a0eff13719ee5000a049d33320d3637bf tutorials (heads/master)
 ```
-We only installed `numpy`, `scipy`, `matplotlib` and `tensorflow` in the Python environment. 
+We only installed `numpy`, `scipy`, `matplotlib`, `tqdm` and `tensorflow` in the Python environment. 
 For reference, we have included a `requirements.txt` file in the repository (result of `pip freeze`).
