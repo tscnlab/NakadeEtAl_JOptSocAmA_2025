@@ -5,11 +5,6 @@ This repository contains the code used in our paper. In order to run it,
 you will need `python3` with `numpy`, `matplotlib`, `scipy`, `tqdm` and `tensorflow`, [Blender](https://www.blender.org/) and at least one of the following variants of [Mitsuba 3](https://www.mitsuba-renderer.org/): 
 `cuda_ad_spectral` (the one we used), `cuda_spectral`, `llvm_ad_spectral`, `llvm_spectral` or `scalar_spectral`.
 
-Cloning with `git clone <url>` will only download the code. By default, the code writes output to a new folder `Visual_Field_PCA`.
-For the sake of reproducibility, we have included our outputs in a submodule to this repository (in a directory `outputs`). 
-If you would like to download it for comparison, either clone with `git clone --recurse-submodules <url>`,
-or if you have already cloned the repository in the usual way, issue the command `git submodule update --init`.
-
 In a terminal, run the following commands in the given order to reproduce our results:
 
 ```bash
@@ -23,6 +18,10 @@ python3 optimize_vf_boundaries.py
 python3 create_hemispherical_vf_images.py  # Time consuming, can be skipped
 python3 plotting.py
 ```
+
+By default, the code writes output to a new folder `Visual_Field_PCA`. 
+For the sake of reproducibility, all of our output files will be made available online in due course, 
+with access instructions added to this README.
 
 The `ICT-FaceKit-just-face-tri.blend` file was generated using the [ICT FaceKit](https://github.com/ICT-VGL/ICT-FaceKit).
 We first imported the face model into Blender, removed irrelevant parts (eyeballs, eyelashes, internal structure of the 
