@@ -1,4 +1,5 @@
 import numpy as np
+from tqdm import tqdm
 
 from hemispherical_interpolator import ImageSet
 from common_params import DIRECTORIES
@@ -35,7 +36,7 @@ def main():
         str(NAMING.asterisk.rendered.npy))
     rendered_images_file_paths = list(filter(lambda x: not x.name.startswith(str(NAMING.random_)),
                                              rendered_images_file_paths))
-    for file_path in sorted(rendered_images_file_paths, key=str):
+    for file_path in tqdm(sorted(rendered_images_file_paths, key=str), desc='Creating hemispherical VF images'):
         hemispherical_vf_image = create_hemispherical_vf_image(file_path)
         hemispherical_vf_image = np.clip(hemispherical_vf_image, 0, 1)
         np.save(DIRECTORIES.boundaries / NAMING.replace_suffix(

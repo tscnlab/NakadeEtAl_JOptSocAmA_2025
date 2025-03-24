@@ -1,6 +1,7 @@
 import os
 import json
 import numpy as np
+from tqdm import tqdm
 
 from common_params import NUMBERS, DIRECTORIES
 from naming import NAMING
@@ -64,7 +65,7 @@ def get_eye_centers(file_paths):
     """
     eye_centers_right_dict = {}
     eye_centers_left_dict = {}
-    for filepath in file_paths:
+    for filepath in tqdm(file_paths, desc='Getting eye centers'):
         with open(filepath.resolve(), 'r') as file:
             lines = file.readlines()
         file_key = str(NAMING.replace_suffix(filepath.stem, 'ascii', ''))

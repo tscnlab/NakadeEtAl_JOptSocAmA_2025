@@ -1,4 +1,5 @@
 import numpy as np
+from tqdm import tqdm
 
 import utils_img
 from common_params import CAMERA, NUMBERS, DIRECTORIES, save_npy_files
@@ -172,13 +173,13 @@ def main():
     """
     thetas_phis_for_img_pixels = get_pixel_theta_phi(CAMERA.directions,
                                                      CAMERA.image_shape, CAMERA.fov)
-    ls = DIRECTORIES.rendered_imgs_np.glob(str(NAMING.asterisk.rendered.npy))
+    ls = list(DIRECTORIES.rendered_imgs_np.glob(str(NAMING.asterisk.rendered.npy)))
     p_mids = get_bin_mids(0, 2 * np.pi, NUMBERS.num_phi_bins)
     id_p_t_mids = np.zeros((NUMBERS.num_ids, NUMBERS.num_phi_bins))
     id_m_t_mids = np.zeros((NUMBERS.num_ids, NUMBERS.num_phi_bins))
     rand_t_mids = np.zeros((NUMBERS.num_total_rand, NUMBERS.num_phi_bins))
     generic_t_mids = np.zeros(NUMBERS.num_phi_bins)
-    for file_path in ls:
+    for file_path in tqdm(ls, desc='Getting VF boundaries'):
         file_pathlike = NAMING.replace_suffix(file_path.stem, 'rendered', '')
         file_stem = str(file_pathlike)
         images = np.load(file_path)
@@ -201,8 +202,8 @@ def main():
         DIRECTORIES.vf / NAMING.phis.npy: p_mids,
         DIRECTORIES.vf / NAMING.id.pos.theta_boundary.npy: id_p_t_mids,
         DIRECTORIES.vf / NAMING.id.neg.theta_boundary.npy: id_m_t_mids,
-        DIRECTORIES.vf / NAMING.random.theta_boundary.npy: rand_t_mids[:NUMBERS.num_rand],
-        DIRECTORIES.vf / NAMING.random.val.theta_boundary.npy: rand_t_mids[NUMBERS.num_rand:],
+        DIRECTORIES.vf / NAMING.random.theta_boundary.npy: rand_t_mids[NUMBERS.num_val:],
+        DIRECTORIES.vf / NAMING.random.val.theta_boundary.npy: rand_t_mids[:NUMBERS.num_val],
         DIRECTORIES.vf / NAMING.generic.theta_boundary.npy: generic_t_mids
     })
 

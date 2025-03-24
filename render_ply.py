@@ -1,5 +1,6 @@
 import json
 import numpy as np
+from tqdm import tqdm
 
 from common_params import CAMERA, NUMBERS, DIRECTORIES
 from naming import NAMING
@@ -232,7 +233,7 @@ def main():
 
     The images are saved as npy files in the ``rendered_images_numpy`` directory.
     """
-    for file_stem in EYE_CENTERS_RIGHT:
+    for file_stem in tqdm(EYE_CENTERS_RIGHT, desc='Rendering images'):
         images = render(file_stem)
         np.save(DIRECTORIES.rendered_imgs_np / NAMING.add_suffix(file_stem, 'rendered').npy, images)
 

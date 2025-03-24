@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from tqdm import tqdm
 
 from utils_img import add_transparency
 from common_params import DIRECTORIES, NUMBERS, COLORS
@@ -101,7 +102,7 @@ def polar_plot_grayscale_images(images_, output_file_paths):
     -------
     None
     """
-    for image_, output_file_path in zip(images_, output_file_paths):
+    for image_, output_file_path in tqdm(zip(images_, output_file_paths), desc='Creating random face VF plots'):
         polar_plot_grayscale_image(image_, output_file_path)
 
 
@@ -263,7 +264,7 @@ def plot_rendered_predicted_comparisons(random_predicted, random_rendered, phis)
     -------
     None
     """
-    for i in range(random_rendered.shape[0]):
+    for i in tqdm(range(random_rendered.shape[0]), desc='Creating rendered vs predicted comparison plots'):
         plot_rendered_predicted_comparison(
             random_rendered[i], random_predicted[i], phis,
             DIRECTORIES.comparison_plots / NAMING.random(i).comparison.png
@@ -320,7 +321,7 @@ def plot_id_pm_diffs(id_nums_arr):
     -------
     None
     """
-    for id_num in id_nums_arr:
+    for id_num in tqdm(id_nums_arr, desc='Creating VF difference plots for ID parameters'):
         plot_id_pm_diff(id_num)
 
 

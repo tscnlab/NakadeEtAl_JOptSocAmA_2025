@@ -1,5 +1,8 @@
 import numpy as np
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
+from tqdm import tqdm
 
 from common_params import DIRECTORIES, NUMBERS, save_npy_files
 from naming import NAMING
@@ -152,24 +155,25 @@ def optimize():
     g_var = tf.Variable(G)
     train_losses_record = TrainLossesRecord()
     lowest_val_loss = LowestValLoss()
-    iteration = 0
-    while iteration - lowest_val_loss.iteration < NUMBERS.patience:
-        if iteration % 100 == 0:
-            print(f'Iteration: {iteration}')
-        if (iteration > NUMBERS.training_patience and
-                monotonically_increasing(train_losses_record, NUMBERS.training_patience)):
-            break  # Training loss has been increasing for the last training_patience iterations
-        if any_nan(vf_var).numpy() or any_nan(g_var).numpy():
-            break  # NaN found
-        loss_at_step, val_loss_at_step = gradient_step(vf_var, g_var, NUMBERS.learning_rate)
-        train_losses_record.record(loss_at_step, val_loss_at_step)
-        lowest_val_loss.record(val_loss_at_step, vf_var, g_var, iteration)
-        iteration += 1
+    with tqdm() as pbar:
+        iteration = 0
+        while iteration - lowest_val_loss.iteration < NUMBERS.patience:
+            if (iteration > NUMBERS.training_patience and
+                    monotonically_increasing(train_losses_record, NUMBERS.training_patience)):
+                break  # Training loss has been increasing for the last training_patience iterations
+            if any_nan(vf_var).numpy() or any_nan(g_var).numpy():
+                break  # NaN found
+            loss_at_step, val_loss_at_step = gradient_step(vf_var, g_var, NUMBERS.learning_rate)
+            train_losses_record.record(loss_at_step, val_loss_at_step)
+            lowest_val_loss.record(val_loss_at_step, vf_var, g_var, iteration)
+            iteration += 1
+            pbar.set_description(f'Iteration {iteration}')
+            _ = pbar.update(1)
     save_npy_files({
-        DIRECTORIES.vf / NAMING.id.optimized.theta_boundary.npy: lowest_val_loss.vf,
-        DIRECTORIES.vf / NAMING.generic.optimized.theta_boundary.npy: lowest_val_loss.g,
-        DIRECTORIES.vf / NAMING.optimization.losses.npy: train_losses_record.losses,
-        DIRECTORIES.vf / NAMING.optimization.losses.val.npy: train_losses_record.losses_val
+        DIRECTORIES.nrand / NAMING.id.optimized.theta_boundary.npy: lowest_val_loss.vf,
+        DIRECTORIES.nrand / NAMING.generic.optimized.theta_boundary.npy: lowest_val_loss.g,
+        DIRECTORIES.nrand / NAMING.optimization.losses.npy: train_losses_record.losses,
+        DIRECTORIES.nrand / NAMING.optimization.losses.val.npy: train_losses_record.losses_val
     })
     return lowest_val_loss
 
@@ -196,8 +200,8 @@ def create_predictions(visual_fields, generic):
     predictions = predict(visual_fields, generic).numpy()
     predictions_val = predict(visual_fields, generic, params_=PARAMS_VAL).numpy()
     save_npy_files({
-        DIRECTORIES.vf / NAMING.optimization.predictions.npy:
-            np.concatenate([predictions, predictions_val], axis=0)
+        DIRECTORIES.nrand / NAMING.optimization.predictions.npy:
+            np.concatenate([predictions_val, predictions], axis=0)
     })
 
 

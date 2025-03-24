@@ -4,6 +4,12 @@ from pathlib import Path
 __doc__ = """Module containing common parameters for the project."""
 
 
+NUM_TOTAL_RAND = 10000
+NUM_VAL = 100
+NUM_RAND = NUM_TOTAL_RAND - NUM_VAL
+NUM_RAND_OPTIMIZATION = NUM_RAND  # Can be reduced for faster convergence. Also pick appropriate learning rate
+
+
 def save_npy_files(paths_arrays_dict):
     """Save numpy arrays to disk.
 
@@ -129,6 +135,7 @@ class Directories:
         self.rendered_imgs_np = self.vf / 'rendered_images_numpy'
         self.boundaries = self.vf / 'boundaries'
         self.comparison_plots = self.vf / 'comparison_plots'
+        self.nrand = self.vf / f'VFs_optimized_using_{NUM_RAND}_random_faces'
 
     def create_directories(self):
         """Create all the required directories if they do not exist.
@@ -235,14 +242,15 @@ class Numbers:
         self.num_phi_bins = 36000
         self.num_ids = 100
         self.digits_num_ids = len(str(self.num_ids - 1))
-        self.num_rand = 200
-        self.num_val = 20
-        self.num_total_rand = self.num_rand + self.num_val
+        self.num_total_rand = NUM_TOTAL_RAND
+        self.num_val = NUM_VAL
+        self.num_rand = NUM_RAND
+        self.num_rand_optimization = NUM_RAND
         self.digits_num_rand = len(str(self.num_total_rand - 1))
         self.np_seed = 42
         self.mitsuba_seed = 42
         self.tf_seed = 42
-        self.learning_rate = 1e-6
+        self.learning_rate = 5e-8
         self.patience = 50
         self.training_patience = 5
         self.x_tick_every = 60
@@ -254,6 +262,7 @@ class Numbers:
         self.figsize_colorbar = (12.5/2, 11/2)
         self.colorbar_axes_coords_colorbar = (1/12.5, 1/11, 0.5/12.5, 9/11)
         self.dpi = 250
+        self.y_channel_integral = 106.856914916766
 
 
 NUMBERS = Numbers()

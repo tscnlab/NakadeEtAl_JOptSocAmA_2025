@@ -1,3 +1,6 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 import tensorflow as tf
 import numpy as np
 from common_params import DIRECTORIES, NUMBERS
@@ -37,9 +40,9 @@ def separate_pos_neg_params(params_):
 
 VF_POS_NP = np.load(DIRECTORIES.vf / NAMING.id.pos.theta_boundary.npy)
 VF_NEG_NP = np.load(DIRECTORIES.vf / NAMING.id.neg.theta_boundary.npy)
-RANDOM_NP = np.load(DIRECTORIES.vf / NAMING.random.theta_boundary.npy)
+RANDOM_NP = np.load(DIRECTORIES.vf / NAMING.random.theta_boundary.npy)[:NUMBERS.num_rand_optimization]
 RANDOM_VAL_NP = np.load(DIRECTORIES.vf / NAMING.random.val.theta_boundary.npy)
-PARAMS_NP = np.load(DIRECTORIES.vf / NAMING.random.params.npy)
+PARAMS_NP = np.load(DIRECTORIES.vf / NAMING.random.params.npy)[:NUMBERS.num_rand_optimization]
 PARAMS_VAL_NP = np.load(DIRECTORIES.vf / NAMING.random.val.params.npy)
 
 

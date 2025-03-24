@@ -261,8 +261,8 @@ def export_random_meshes(shape_keys_, rng_, num_random_=NUMBERS.num_rand,
         export_ply(
             DIRECTORIES.ply / NAMING.random(j).ascii.ply,
             shape_keys_, random_params[j], use_ascii_=True)
-    np.save(DIRECTORIES.vf / NAMING.random.params.npy, random_params[:NUMBERS.num_rand])
-    np.save(DIRECTORIES.vf / NAMING.random.val.params.npy, random_params[NUMBERS.num_rand:])
+    np.save(DIRECTORIES.vf / NAMING.random.params.npy, random_params[num_validation_:])
+    np.save(DIRECTORIES.vf / NAMING.random.val.params.npy, random_params[:num_validation_])
 
 
 def main():
