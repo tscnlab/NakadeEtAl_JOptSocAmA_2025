@@ -6,6 +6,10 @@ from utils_img import add_transparency
 from common_params import DIRECTORIES, NUMBERS, COLORS
 from naming import NAMING
 
+import matplotlib as mpl
+mpl.rcParams['font.family'] = 'sans-serif'
+mpl.rcParams['font.sans-serif'] = 'Arial'
+
 
 def add_polar_axes(fig_, axes_coords_):
     """Add polar axes to the figure.
@@ -325,20 +329,35 @@ def plot_id_pm_diffs(id_nums_arr):
         plot_id_pm_diff(id_num)
 
 
+def plot_projected_solid_angles_hist(projected_solid_angles, file_name):
+    plt.clf()
+    _ = plt.hist(projected_solid_angles, bins=NUMBERS.projected_solid_angles_hist_bins)
+    plt.ylabel('Counts')
+    plt.xlabel('Percent change in projected solid angle')
+    plt.gca().xaxis.set_major_formatter('{x}%')
+    plt.xticks(np.arange(int(projected_solid_angles.min()) - 1, int(projected_solid_angles.max()) + 1, 2))
+    plt.savefig(file_name, dpi=NUMBERS.dpi)
+    plt.clf()
+
+
 def main():
     """Plot various Visual Field (VF) boundaries and VF differences.
 
+    Plot a histogram of the projected solid angles for random faces.
     Plot the rendered and predicted VF boundaries for random faces,
     the difference in the VF when an id parameter changes from -1 to 1,
     and the hemispherical VF images for all faces.
     """
+    projected_solid_angles_percentages = np.load(DIRECTORIES.vf / NAMING.random.projected_solid_angles_percentages.npy)
+    plot_projected_solid_angles_hist(projected_solid_angles_percentages,
+                                     DIRECTORIES.vf / NAMING.projected_solid_angles_hist.png)
     random_thetas = np.load(DIRECTORIES.vf / NAMING.random.theta_boundary.npy)
     random_val_thetas = np.load(DIRECTORIES.vf / NAMING.random.val.theta_boundary.npy)
-    predicted_thetas = np.load(DIRECTORIES.vf / NAMING.optimization.predictions.npy)
+    predicted_thetas = np.load(DIRECTORIES.num_rand / NAMING.optimization.predictions.npy)
     phis = np.load(DIRECTORIES.vf / NAMING.phis.npy)
     plot_rendered_predicted_comparisons(
         random_predicted=predicted_thetas,
-        random_rendered=np.concatenate([random_thetas, random_val_thetas], axis=0),
+        random_rendered=np.concatenate([random_val_thetas, random_thetas], axis=0),
         phis=phis
     )
     try:

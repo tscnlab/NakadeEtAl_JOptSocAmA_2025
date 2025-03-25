@@ -174,7 +174,9 @@ ID_NUM_RANDOM_SUFFIXES = {
     'theta_boundary': 'thetas',
     'hemispherical_vf': 'hemispherical_vf',
     'comparison': 'rendered_vs_predicted',
-    'diff': 'diff'
+    'diff': 'diff',
+    'projected_solid_angles': 'projected_solid_angles',
+    'projected_solid_angles_percentages': 'projected_solid_angles_percentages',
 }
 
 ID_PM_SUFFIXES = {
@@ -186,7 +188,7 @@ ID_NUM_PM_SUFFIXES = {k: v + '1' for k, v in ID_PM_SUFFIXES.items()}
 
 RANDOM_SUFFIXES = {
     'params': 'params',
-    'theta_boundary': 'thetas'
+    'theta_boundary': 'thetas',
 }
 
 VAL_SUFFIX = 'val'
@@ -301,6 +303,7 @@ class Naming:
         self.asterisk = NamingPathLike(self.base, '*', next_suffixes=ID_NUM_RANDOM_SUFFIXES)
         self.y_cie = NamingPathLike(self.base, 'y_CIE_1931')
         self.phis = NamingPathLike(self.base, 'phis')
+        self.projected_solid_angles_hist = NamingPathLike(self.base, 'percent_change_projected_solid_angles_histogram')
 
     def id(self, num):
         """Create a new :py:class:`NamingPathLike` object for the id file names.

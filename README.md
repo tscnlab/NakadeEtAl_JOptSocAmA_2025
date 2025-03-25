@@ -16,6 +16,7 @@ python3 render_ply.py
 python3 get_vf_boundaries.py
 python3 optimize_vf_boundaries.py
 python3 create_hemispherical_vf_images.py  # Time consuming, can be skipped
+python3 get_projected_solid_angles.py
 python3 plotting.py
 ```
 

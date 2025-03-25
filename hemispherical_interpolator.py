@@ -86,7 +86,7 @@ class ImageSetWeights:
         self.weights = self.solid_angles * self.cosine_weights
 
 
-class HemisphericInterpolator:
+class HemisphericalInterpolator:
     """Class for interpolating values on a hemisphere.
 
     As there are no good interpolators for data that varies as a function of 3D
@@ -301,7 +301,7 @@ class ImageSet:
         if 'cosine' in weightings:
             images_temp = images_temp * self.weights.cosine_weights
         images_temp = np.concatenate(images_temp, axis=0)
-        two_hemispheres_interpolator = HemisphericInterpolator(
+        two_hemispheres_interpolator = HemisphericalInterpolator(
             self.weights.pixel_coordinates.reshape((-1, 3)),
             images_temp.reshape(-1))
         return two_hemispheres_interpolator.output(front=front)

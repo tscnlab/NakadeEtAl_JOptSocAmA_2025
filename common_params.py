@@ -262,6 +262,7 @@ class Numbers:
         self.learning_rate = 5e-8
         self.patience = 50
         self.training_patience = 5
+        self.projected_solid_angles_hist_bins = 25
         self.x_tick_every = 60
         self.y_tick_every = 15
         self.polar_axes_coords = (0.1, 0.1, 0.8, 0.8)
