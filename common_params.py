@@ -121,6 +121,10 @@ class Directories:
     comparison_plots : pathlib.Path
         Directory containing the rendered vs predicted comparison plots.
         Set to ``vf / 'comparison_plots'``.
+    num_rand : pathlib.Path
+        Directory containing the results of the VF optimization procedure.
+        The directory is marked by the number of random faces used in the training set.
+        Set to ``vf / f'VFs_optimized_using_{NUM_RAND_OPTIMIZATION}_random_faces'``
 
     Methods
     -------
@@ -135,7 +139,7 @@ class Directories:
         self.rendered_imgs_np = self.vf / 'rendered_images_numpy'
         self.boundaries = self.vf / 'boundaries'
         self.comparison_plots = self.vf / 'comparison_plots'
-        self.nrand = self.vf / f'VFs_optimized_using_{NUM_RAND}_random_faces'
+        self.num_rand = self.vf / f'VFs_optimized_using_{NUM_RAND_OPTIMIZATION}_random_faces'
 
     def create_directories(self):
         """Create all the required directories if they do not exist.
@@ -189,14 +193,17 @@ class Numbers:
         Number of id parameters. Equal to ``100``.
     digits_num_ids : int
         Number of digits in id file names. Set to ``2``.
-    num_rand : int
-        Number of random faces. Set to ``200``.
-    num_val : int
-        Number of random validation faces. Set to ``20``.
     num_total_rand : int
-        Total number of random faces. Equal to ``num_rand + num_val = 220``.
+        Total number of random faces. Equal to ``num_rand + num_val = 10000``.
+    num_val : int
+        Number of random validation faces. Set to ``100``.
+    num_rand : int
+        Number of random faces. Set to ``num_total_rand - num_val = 9900``.
+    num_rand_optimization : int
+        Number of random faces to use during the optimization of VF boundaries.
+        Currently set to use all available ``num_rand`` faces.
     digits_num_rand : int
-        Number of digits in the random face file names. Set to ``3``.
+        Number of digits in the random face file names. Equal to ``4``
     np_seed : int
         Seed for numpy random number generator. Set to ``42``.
     mitsuba_seed : int
@@ -204,7 +211,7 @@ class Numbers:
     tf_seed : int
         Seed for TensorFlow random number generator. Set to ``42``.
     learning_rate : float
-        Learning rate for the optimization of the VF boundaries. Set to ``1e-6``.
+        Learning rate for the optimization of the VF boundaries. Set to ``5e-8``.
     patience : int
         Number of gradient steps after which to stop if there is no improvement
         in :py:attr:`val_loss`. Set to ``50``.
@@ -235,6 +242,8 @@ class Numbers:
         Set to ``(1/12.5,1/11,.5/12.5,9/11)``.
     dpi : int
         Dots per inch for the plots. Set to ``250``.
+    y_channel_integral : float
+        Integral of the CIE S026 1931 Y channel spectrum
     """
     def __init__(self):
         self.cm_to_mm = 10
@@ -245,7 +254,7 @@ class Numbers:
         self.num_total_rand = NUM_TOTAL_RAND
         self.num_val = NUM_VAL
         self.num_rand = NUM_RAND
-        self.num_rand_optimization = NUM_RAND
+        self.num_rand_optimization = NUM_RAND_OPTIMIZATION
         self.digits_num_rand = len(str(self.num_total_rand - 1))
         self.np_seed = 42
         self.mitsuba_seed = 42

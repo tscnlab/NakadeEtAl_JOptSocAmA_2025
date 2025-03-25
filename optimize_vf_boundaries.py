@@ -170,10 +170,10 @@ def optimize():
             pbar.set_description(f'Iteration {iteration}')
             _ = pbar.update(1)
     save_npy_files({
-        DIRECTORIES.nrand / NAMING.id.optimized.theta_boundary.npy: lowest_val_loss.vf,
-        DIRECTORIES.nrand / NAMING.generic.optimized.theta_boundary.npy: lowest_val_loss.g,
-        DIRECTORIES.nrand / NAMING.optimization.losses.npy: train_losses_record.losses,
-        DIRECTORIES.nrand / NAMING.optimization.losses.val.npy: train_losses_record.losses_val
+        DIRECTORIES.num_rand / NAMING.id.optimized.theta_boundary.npy: lowest_val_loss.vf,
+        DIRECTORIES.num_rand / NAMING.generic.optimized.theta_boundary.npy: lowest_val_loss.g,
+        DIRECTORIES.num_rand / NAMING.optimization.losses.npy: train_losses_record.losses,
+        DIRECTORIES.num_rand / NAMING.optimization.losses.val.npy: train_losses_record.losses_val
     })
     return lowest_val_loss
 
@@ -200,7 +200,7 @@ def create_predictions(visual_fields, generic):
     predictions = predict(visual_fields, generic).numpy()
     predictions_val = predict(visual_fields, generic, params_=PARAMS_VAL).numpy()
     save_npy_files({
-        DIRECTORIES.nrand / NAMING.optimization.predictions.npy:
+        DIRECTORIES.num_rand / NAMING.optimization.predictions.npy:
             np.concatenate([predictions_val, predictions], axis=0)
     })
 
