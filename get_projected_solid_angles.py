@@ -19,8 +19,8 @@ def get_projected_solid_angle(images, image_set_weights=IMAGE_SET_WEIGHTS):
     Parameters
     ----------
     images : numpy.ndarray
-        The rendered images. The shape is assumed to be (no. of sensors, *shape of each sensor).
-    image_set_weights : hemispherical_interpolator.ImageSetWeights
+        The rendered images. The shape is assumed to be `(no. of sensors, *shape of each sensor)`.
+    image_set_weights : :py:class:`hemispherical_interpolator.ImageSetWeights`
         The weights corresponding to the images.
 
     Returns
@@ -37,8 +37,8 @@ def get_projected_solid_angles(images_multiple_heads, image_set_weights=IMAGE_SE
     Parameters
     ----------
     images_multiple_heads : numpy.ndarray
-        The rendered images. The shape is assumed to be (no. of heads, no. of sensors, *shape of each sensor).
-    image_set_weights : hemispherical_interpolator.ImageSetWeights
+        The rendered images. The shape is assumed to be `(no. of heads, no. of sensors, *shape of each sensor)`.
+    image_set_weights : :py:class:`hemispherical_interpolator.ImageSetWeights`
         The weights corresponding to the images. Assumed to be the same for all the heads.
 
     Returns

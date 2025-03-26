@@ -15,4 +15,5 @@ Modules
    optimize_vf_boundaries
    hemispherical_interpolator
    create_hemispherical_vf_images
+   get_projected_solid_angles
    plotting

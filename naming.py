@@ -9,7 +9,7 @@ be used as follows::
 
     NAMING.generic.theta_boundary.npy -> 'generic_neutral_mesh_thetas.npy'
     NAMING.id(1).pos.rendered.npy -> 'id_01_+1_rendered_images.npy'
-    NAMING.random(20).comparison.png -> 'random_020_rendered_vs_predicted.png'
+    NAMING.random(20).comparison.png -> 'random_0020_rendered_vs_predicted.png'
 
 The reason for inheriting from :py:class:`os.PathLike` is that such objects 
 can be used along with :py:class:`pathlib.Path` objects. For example:
@@ -33,12 +33,18 @@ class BaseNaming(os.PathLike):
     The :py:meth:`__fspath__` method returns an empty string.
     """
     def __fspath__(self):
-        """Return an empty string.
+        """String representation of objects derived from :py:class:`os.PathLike`.
 
-        This method is required for classes inheriting from 
-        :py:class:`os.PathLike`. It's supposed to return the string 
-        representation of the path, which in this case should be an 
+        This method is required for classes inheriting from
+        :py:class:`os.PathLike`. It's supposed to return the string
+        representation of the path, which in this case should be an
         empty string.
+
+        Returns
+        -------
+        str
+            The string representation of :py:class:`BaseNaming` objects.
+            Returns an empty string :py:obj:`''`.
         """
         return ''
 
@@ -63,8 +69,8 @@ class NamingPathLike(os.PathLike):
         The suffix to be added to the file name.
         This can either be an internal suffix or a file type suffix.
         For an internal suffix, the :py:attr:`separator` should preferably
-        be '_', but can be changed if necessary.
-        For a file type suffix, the :py:attr:`separator` must be '.'.
+        be :py:obj:`'_'`, but can be changed if necessary.
+        For a file type suffix, the :py:attr:`separator` must be :py:obj:`'.'`.
     separator : str, default '_'
         The separator between the :py:attr:`start` and :py:attr:`suffix`.
     next_suffixes : dict, optional

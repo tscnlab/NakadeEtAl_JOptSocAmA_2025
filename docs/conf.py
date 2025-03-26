@@ -22,7 +22,7 @@ autodoc_member_order = 'bysource'
 mathjax_path="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
 add_function_parentheses = False
 
-extensions = ['numpydoc', 'sphinx.ext.mathjax', 'sphinx.ext.todo', 'sphinx.ext.viewcode', 'sphinx.ext.autodoc']  #, 'myst_parser']
+extensions = ['numpydoc', 'sphinx.ext.mathjax', 'sphinx.ext.todo', 'sphinx.ext.viewcode', 'sphinx.ext.autodoc', 'myst_parser']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
@@ -33,4 +33,4 @@ autodoc_preserve_defaults = True
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_theme = 'sphinx_book_theme'
-html_static_path = ['_static']
+# html_static_path = ['_static']

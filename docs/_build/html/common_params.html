@@ -16,28 +16,25 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
   
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=e645c8fa"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
@@ -50,7 +47,6 @@
     <link rel="prev" title="Modules" href="modules.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -66,8 +62,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -75,6 +82,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -82,8 +90,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -99,8 +107,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -130,11 +137,15 @@
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
@@ -154,6 +165,7 @@
 <li class="toctree-l2"><a class="reference internal" href="optimize_vf_boundaries.html">optimize_vf_boundaries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hemispherical_interpolator.html">hemispherical_interpolator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="create_hemispherical_vf_images.html">create_hemispherical_vf_images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="get_projected_solid_angles.html">get_projected_solid_angles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="plotting.html">plotting</a></li>
 </ul>
 </details></li>
@@ -264,16 +276,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -403,6 +423,10 @@ Set to <code class="docutils literal notranslate"><span class="pre">vf</span> <s
 <dt><strong>comparison_plots</strong><span class="classifier">pathlib.Path</span></dt><dd><p>Directory containing the rendered vs predicted comparison plots.
 Set to <code class="docutils literal notranslate"><span class="pre">vf</span> <span class="pre">/</span> <span class="pre">'comparison_plots'</span></code>.</p>
 </dd>
+<dt><strong>num_rand</strong><span class="classifier">pathlib.Path</span></dt><dd><p>Directory containing the results of the VF optimization procedure.
+The directory is marked by the number of random faces used in the training set.
+Set to <code class="docutils literal notranslate"><span class="pre">vf</span> <span class="pre">/</span> <span class="pre">f'VFs_optimized_using_{NUM_RAND_OPTIMIZATION}_random_faces'</span></code></p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -467,13 +491,16 @@ Set to <code class="docutils literal notranslate"><span class="pre">vf</span> <s
 </dd>
 <dt><strong>digits_num_ids</strong><span class="classifier">int</span></dt><dd><p>Number of digits in id file names. Set to <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
 </dd>
-<dt><strong>num_rand</strong><span class="classifier">int</span></dt><dd><p>Number of random faces. Set to <code class="docutils literal notranslate"><span class="pre">200</span></code>.</p>
+<dt><strong>num_total_rand</strong><span class="classifier">int</span></dt><dd><p>Total number of random faces. Equal to <code class="docutils literal notranslate"><span class="pre">num_rand</span> <span class="pre">+</span> <span class="pre">num_val</span> <span class="pre">=</span> <span class="pre">10000</span></code>.</p>
 </dd>
-<dt><strong>num_val</strong><span class="classifier">int</span></dt><dd><p>Number of random validation faces. Set to <code class="docutils literal notranslate"><span class="pre">20</span></code>.</p>
+<dt><strong>num_val</strong><span class="classifier">int</span></dt><dd><p>Number of random validation faces. Set to <code class="docutils literal notranslate"><span class="pre">100</span></code>.</p>
 </dd>
-<dt><strong>num_total_rand</strong><span class="classifier">int</span></dt><dd><p>Total number of random faces. Equal to <code class="docutils literal notranslate"><span class="pre">num_rand</span> <span class="pre">+</span> <span class="pre">num_val</span> <span class="pre">=</span> <span class="pre">220</span></code>.</p>
+<dt><strong>num_rand</strong><span class="classifier">int</span></dt><dd><p>Number of random faces. Set to <code class="docutils literal notranslate"><span class="pre">num_total_rand</span> <span class="pre">-</span> <span class="pre">num_val</span> <span class="pre">=</span> <span class="pre">9900</span></code>.</p>
 </dd>
-<dt><strong>digits_num_rand</strong><span class="classifier">int</span></dt><dd><p>Number of digits in the random face file names. Set to <code class="docutils literal notranslate"><span class="pre">3</span></code>.</p>
+<dt><strong>num_rand_optimization</strong><span class="classifier">int</span></dt><dd><p>Number of random faces to use during the optimization of VF boundaries.
+Currently set to use all available <code class="docutils literal notranslate"><span class="pre">num_rand</span></code> faces.</p>
+</dd>
+<dt><strong>digits_num_rand</strong><span class="classifier">int</span></dt><dd><p>Number of digits in the random face file names. Equal to <code class="docutils literal notranslate"><span class="pre">4</span></code></p>
 </dd>
 <dt><strong>np_seed</strong><span class="classifier">int</span></dt><dd><p>Seed for numpy random number generator. Set to <code class="docutils literal notranslate"><span class="pre">42</span></code>.</p>
 </dd>
@@ -481,7 +508,7 @@ Set to <code class="docutils literal notranslate"><span class="pre">vf</span> <s
 </dd>
 <dt><strong>tf_seed</strong><span class="classifier">int</span></dt><dd><p>Seed for TensorFlow random number generator. Set to <code class="docutils literal notranslate"><span class="pre">42</span></code>.</p>
 </dd>
-<dt><strong>learning_rate</strong><span class="classifier">float</span></dt><dd><p>Learning rate for the optimization of the VF boundaries. Set to <code class="docutils literal notranslate"><span class="pre">1e-6</span></code>.</p>
+<dt><strong>learning_rate</strong><span class="classifier">float</span></dt><dd><p>Learning rate for the optimization of the VF boundaries. Set to <code class="docutils literal notranslate"><span class="pre">5e-8</span></code>.</p>
 </dd>
 <dt><strong>patience</strong><span class="classifier">int</span></dt><dd><p>Number of gradient steps after which to stop if there is no improvement
 in <code class="xref py py-attr docutils literal notranslate"><span class="pre">val_loss</span></code>. Set to <code class="docutils literal notranslate"><span class="pre">50</span></code>.</p>
@@ -512,6 +539,8 @@ Set to <code class="docutils literal notranslate"><span class="pre">(2.5</span> 
 Set to <code class="docutils literal notranslate"><span class="pre">(1/12.5,1/11,.5/12.5,9/11)</span></code>.</p>
 </dd>
 <dt><strong>dpi</strong><span class="classifier">int</span></dt><dd><p>Dots per inch for the plots. Set to <code class="docutils literal notranslate"><span class="pre">250</span></code>.</p>
+</dd>
+<dt><strong>y_channel_integral</strong><span class="classifier">float</span></dt><dd><p>Integral of the CIE S026 1931 Y channel spectrum</p>
 </dd>
 </dl>
 </dd>
@@ -556,8 +585,7 @@ Set to <code class="docutils literal notranslate"><span class="pre">(1/12.5,1/11
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -622,8 +650,8 @@ By Uday Nakade, Prof. Dr. Manuel Spitschan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

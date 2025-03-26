@@ -15,28 +15,25 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=e645c8fa"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
@@ -47,7 +44,6 @@
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -63,8 +59,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -72,6 +79,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -79,8 +87,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -98,8 +106,7 @@
       
         
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -129,11 +136,15 @@
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
@@ -153,6 +164,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../optimize_vf_boundaries.html">optimize_vf_boundaries</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hemispherical_interpolator.html">hemispherical_interpolator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../create_hemispherical_vf_images.html">create_hemispherical_vf_images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../get_projected_solid_angles.html">get_projected_solid_angles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../plotting.html">plotting</a></li>
 </ul>
 </details></li>
@@ -215,16 +227,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 
 </div></div>
       
@@ -262,7 +282,7 @@
 
 <span class="s2">    NAMING.generic.theta_boundary.npy -&gt; &#39;generic_neutral_mesh_thetas.npy&#39;</span>
 <span class="s2">    NAMING.id(1).pos.rendered.npy -&gt; &#39;id_01_+1_rendered_images.npy&#39;</span>
-<span class="s2">    NAMING.random(20).comparison.png -&gt; &#39;random_020_rendered_vs_predicted.png&#39;</span>
+<span class="s2">    NAMING.random(20).comparison.png -&gt; &#39;random_0020_rendered_vs_predicted.png&#39;</span>
 
 <span class="s2">The reason for inheriting from :py:class:`os.PathLike` is that such objects </span>
 <span class="s2">can be used along with :py:class:`pathlib.Path` objects. For example:</span>
@@ -290,12 +310,18 @@
 <div class="viewcode-block" id="BaseNaming.__fspath__">
 <a class="viewcode-back" href="../naming.html#naming.BaseNaming.__fspath__">[docs]</a>
     <span class="k">def</span> <span class="nf">__fspath__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return an empty string.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;String representation of objects derived from :py:class:`os.PathLike`.</span>
 
-<span class="sd">        This method is required for classes inheriting from </span>
-<span class="sd">        :py:class:`os.PathLike`. It&#39;s supposed to return the string </span>
-<span class="sd">        representation of the path, which in this case should be an </span>
+<span class="sd">        This method is required for classes inheriting from</span>
+<span class="sd">        :py:class:`os.PathLike`. It&#39;s supposed to return the string</span>
+<span class="sd">        representation of the path, which in this case should be an</span>
 <span class="sd">        empty string.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        str</span>
+<span class="sd">            The string representation of :py:class:`BaseNaming` objects.</span>
+<span class="sd">            Returns an empty string :py:obj:`&#39;&#39;`.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 </div>
@@ -324,8 +350,8 @@
 <span class="sd">        The suffix to be added to the file name.</span>
 <span class="sd">        This can either be an internal suffix or a file type suffix.</span>
 <span class="sd">        For an internal suffix, the :py:attr:`separator` should preferably</span>
-<span class="sd">        be &#39;_&#39;, but can be changed if necessary.</span>
-<span class="sd">        For a file type suffix, the :py:attr:`separator` must be &#39;.&#39;.</span>
+<span class="sd">        be :py:obj:`&#39;_&#39;`, but can be changed if necessary.</span>
+<span class="sd">        For a file type suffix, the :py:attr:`separator` must be :py:obj:`&#39;.&#39;`.</span>
 <span class="sd">    separator : str, default &#39;_&#39;</span>
 <span class="sd">        The separator between the :py:attr:`start` and :py:attr:`suffix`.</span>
 <span class="sd">    next_suffixes : dict, optional</span>
@@ -454,7 +480,9 @@
     <span class="s1">&#39;theta_boundary&#39;</span><span class="p">:</span> <span class="s1">&#39;thetas&#39;</span><span class="p">,</span>
     <span class="s1">&#39;hemispherical_vf&#39;</span><span class="p">:</span> <span class="s1">&#39;hemispherical_vf&#39;</span><span class="p">,</span>
     <span class="s1">&#39;comparison&#39;</span><span class="p">:</span> <span class="s1">&#39;rendered_vs_predicted&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;diff&#39;</span><span class="p">:</span> <span class="s1">&#39;diff&#39;</span>
+    <span class="s1">&#39;diff&#39;</span><span class="p">:</span> <span class="s1">&#39;diff&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;projected_solid_angles&#39;</span><span class="p">:</span> <span class="s1">&#39;projected_solid_angles&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;projected_solid_angles_percentages&#39;</span><span class="p">:</span> <span class="s1">&#39;projected_solid_angles_percentages&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">ID_PM_SUFFIXES</span> <span class="o">=</span> <span class="p">{</span>
@@ -466,7 +494,7 @@
 
 <span class="n">RANDOM_SUFFIXES</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;params&#39;</span><span class="p">:</span> <span class="s1">&#39;params&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;theta_boundary&#39;</span><span class="p">:</span> <span class="s1">&#39;thetas&#39;</span>
+    <span class="s1">&#39;theta_boundary&#39;</span><span class="p">:</span> <span class="s1">&#39;thetas&#39;</span><span class="p">,</span>
 <span class="p">}</span>
 
 <span class="n">VAL_SUFFIX</span> <span class="o">=</span> <span class="s1">&#39;val&#39;</span>
@@ -584,7 +612,8 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">VAL_SUFFIX</span><span class="p">],</span> <span class="n">suffix</span><span class="p">,</span> <span class="n">next_suffixes</span><span class="o">=</span><span class="n">ID_NUM_RANDOM_SUFFIXES</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">asterisk</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">next_suffixes</span><span class="o">=</span><span class="n">ID_NUM_RANDOM_SUFFIXES</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">y_cie</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;y_CIE_1931&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">phis</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;phis&#39;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phis</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;phis&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">projected_solid_angles_hist</span> <span class="o">=</span> <span class="n">NamingPathLike</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">base</span><span class="p">,</span> <span class="s1">&#39;percent_change_projected_solid_angles_histogram&#39;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="Naming.id">
@@ -922,8 +951,8 @@ By Uday Nakade, Prof. Dr. Manuel Spitschan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

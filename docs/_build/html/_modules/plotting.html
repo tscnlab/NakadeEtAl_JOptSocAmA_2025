@@ -15,28 +15,25 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=e645c8fa"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
@@ -47,7 +44,6 @@
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -63,8 +59,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -72,6 +79,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -79,8 +87,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -98,8 +106,7 @@
       
         
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -129,11 +136,15 @@
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
@@ -215,16 +226,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 
 </div></div>
       
@@ -253,10 +272,15 @@
   <h1>Source code for plotting</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
 <span class="kn">from</span> <span class="nn">utils_img</span> <span class="kn">import</span> <span class="n">add_transparency</span>
 <span class="kn">from</span> <span class="nn">common_params</span> <span class="kn">import</span> <span class="n">DIRECTORIES</span><span class="p">,</span> <span class="n">NUMBERS</span><span class="p">,</span> <span class="n">COLORS</span>
 <span class="kn">from</span> <span class="nn">naming</span> <span class="kn">import</span> <span class="n">NAMING</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.family&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sans-serif&#39;</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.sans-serif&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Arial&#39;</span>
 
 
 <div class="viewcode-block" id="add_polar_axes">
@@ -365,7 +389,7 @@
 <span class="sd">    -------</span>
 <span class="sd">    None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">image_</span><span class="p">,</span> <span class="n">output_file_path</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">images_</span><span class="p">,</span> <span class="n">output_file_paths</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">image_</span><span class="p">,</span> <span class="n">output_file_path</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">images_</span><span class="p">,</span> <span class="n">output_file_paths</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Creating random face VF plots&#39;</span><span class="p">):</span>
         <span class="n">polar_plot_grayscale_image</span><span class="p">(</span><span class="n">image_</span><span class="p">,</span> <span class="n">output_file_path</span><span class="p">)</span></div>
 
 
@@ -545,7 +569,7 @@
 <span class="sd">    -------</span>
 <span class="sd">    None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">random_rendered</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">random_rendered</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Creating rendered vs predicted comparison plots&#39;</span><span class="p">):</span>
         <span class="n">plot_rendered_predicted_comparison</span><span class="p">(</span>
             <span class="n">random_rendered</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">random_predicted</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">phis</span><span class="p">,</span>
             <span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">comparison_plots</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">comparison</span><span class="o">.</span><span class="n">png</span>
@@ -611,8 +635,22 @@
 <span class="sd">    -------</span>
 <span class="sd">    None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">id_num</span> <span class="ow">in</span> <span class="n">id_nums_arr</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">id_num</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">id_nums_arr</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s1">&#39;Creating VF difference plots for ID parameters&#39;</span><span class="p">):</span>
         <span class="n">plot_id_pm_diff</span><span class="p">(</span><span class="n">id_num</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="plot_projected_solid_angles_hist">
+<a class="viewcode-back" href="../plotting.html#plotting.plot_projected_solid_angles_hist">[docs]</a>
+<span class="k">def</span> <span class="nf">plot_projected_solid_angles_hist</span><span class="p">(</span><span class="n">projected_solid_angles</span><span class="p">,</span> <span class="n">file_name</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">projected_solid_angles</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">projected_solid_angles_hist_bins</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Counts&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Percent change in projected solid angle&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{x}</span><span class="s1">%&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">projected_solid_angles</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">projected_solid_angles</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="n">NUMBERS</span><span class="o">.</span><span class="n">dpi</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span></div>
 
 
 
@@ -621,17 +659,21 @@
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot various Visual Field (VF) boundaries and VF differences.</span>
 
+<span class="sd">    Plot a histogram of the projected solid angles for random faces.</span>
 <span class="sd">    Plot the rendered and predicted VF boundaries for random faces,</span>
 <span class="sd">    the difference in the VF when an id parameter changes from -1 to 1,</span>
 <span class="sd">    and the hemispherical VF images for all faces.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">projected_solid_angles_percentages</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">projected_solid_angles_percentages</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
+    <span class="n">plot_projected_solid_angles_hist</span><span class="p">(</span><span class="n">projected_solid_angles_percentages</span><span class="p">,</span>
+                                     <span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">projected_solid_angles_hist</span><span class="o">.</span><span class="n">png</span><span class="p">)</span>
     <span class="n">random_thetas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">theta_boundary</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
     <span class="n">random_val_thetas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">val</span><span class="o">.</span><span class="n">theta_boundary</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
-    <span class="n">predicted_thetas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">optimization</span><span class="o">.</span><span class="n">predictions</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
+    <span class="n">predicted_thetas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">num_rand</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">optimization</span><span class="o">.</span><span class="n">predictions</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
     <span class="n">phis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">DIRECTORIES</span><span class="o">.</span><span class="n">vf</span> <span class="o">/</span> <span class="n">NAMING</span><span class="o">.</span><span class="n">phis</span><span class="o">.</span><span class="n">npy</span><span class="p">)</span>
     <span class="n">plot_rendered_predicted_comparisons</span><span class="p">(</span>
         <span class="n">random_predicted</span><span class="o">=</span><span class="n">predicted_thetas</span><span class="p">,</span>
-        <span class="n">random_rendered</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">random_thetas</span><span class="p">,</span> <span class="n">random_val_thetas</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+        <span class="n">random_rendered</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">random_val_thetas</span><span class="p">,</span> <span class="n">random_thetas</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
         <span class="n">phis</span><span class="o">=</span><span class="n">phis</span>
     <span class="p">)</span>
     <span class="k">try</span><span class="p">:</span>
@@ -708,8 +750,8 @@ By Uday Nakade, Prof. Dr. Manuel Spitschan
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
