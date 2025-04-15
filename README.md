@@ -4,7 +4,7 @@
 
 ## Full reference
 
-Nakade, U., & Spitschan, M. (2025). Predicting visual field boundaries. Journal of the Optical Society of America A, 42(6). https://doi.org/10.1364/JOSAA.551858
+Nakade, U. & Spitschan, M. (2025). Predicting visual field boundaries from head features. *Journal of the Optical Society of America A, 42*(6). https://doi.org/10.1364/JOSAA.551858
 
 ## Background
 
