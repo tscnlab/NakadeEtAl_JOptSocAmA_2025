@@ -1,8 +1,11 @@
 # Repository for the code used in the paper "Predicting visual field boundaries from head features"
 ## Authors: Uday Nakade and Prof. Dr. Manuel Spitschan
 
-This repository contains the code used in our paper. In order to run it, 
-you will need `python3` with `numpy`, `matplotlib`, `scipy`, `tqdm` and `tensorflow`, [Blender](https://www.blender.org/) and at least one of the following variants of [Mitsuba 3](https://www.mitsuba-renderer.org/): 
+This repository contains the code used in our paper, html documentation generated from the docstrings (`docs/_build/html`),
+and the plots showing the change in visual field when individual ID parameters change from -1 to 1 (`Visual_Field_PCA/comparison_plots`).
+
+In order to run the code, you will need `python3` with `numpy`, `matplotlib`, `scipy`, `tqdm` and `tensorflow`, 
+[Blender](https://www.blender.org/) and at least one of the following variants of [Mitsuba 3](https://www.mitsuba-renderer.org/): 
 `cuda_ad_spectral` (the one we used), `cuda_spectral`, `llvm_ad_spectral`, `llvm_spectral` or `scalar_spectral`.
 
 In a terminal, run the following commands in the given order to reproduce our results:
@@ -20,7 +23,7 @@ python3 get_projected_solid_angles.py
 python3 plotting.py
 ```
 
-By default, the code writes output to a new folder `Visual_Field_PCA`. 
+By default, the code writes output to the folder `Visual_Field_PCA`. 
 For the sake of reproducibility, all of our output files will be made available online in due course, 
 with access instructions added to this README.
 
