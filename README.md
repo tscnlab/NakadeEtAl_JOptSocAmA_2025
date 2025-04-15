@@ -29,7 +29,7 @@ python3 plotting.py
 
 By default, the code writes output to the folder `Visual_Field_PCA`. 
 
-For full reproducibility and transparency, all of our output files are available in the [Edmond repository](https://edmond.mpg.de/) with DOI [10.5281/zenodo.15223805](https://doi.org/10.5281/zenodo.15223805).
+For full reproducibility and transparency, all of our output files are available in the [Edmond repository](https://edmond.mpg.de/) with DOI [10.17617/3.N6QSJP](https://doi.org/10.17617/3.N6QSJP).
 
 The `ICT-FaceKit-just-face-tri.blend` file was generated using the [ICT FaceKit](https://github.com/ICT-VGL/ICT-FaceKit). We first imported the face model into Blender, removed irrelevant parts (eyeballs, eyelashes, internal structure of the  mouth, etc.) and triangulated all faces, which is required by Mitsuba 3.
 
