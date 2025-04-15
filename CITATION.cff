@@ -1,6 +1,10 @@
 cff-version: 1.2.0
-message: "If you use this work, please cite it as below."
+message: "If you use this work, please cite the following publication."
 title: "Predicting visual field boundaries from head features"
+version: "1.0.0"
+doi: 10.5281/zenodo.15223805
+date-released: 2025-06-01
+url: https://doi.org/10.5281/zenodo.15223805
 authors:
   - family-names: Nakade
     given-names: Uday
@@ -8,11 +12,19 @@ authors:
   - family-names: Spitschan
     given-names: Manuel
     orcid: https://orcid.org/0000-0002-8572-9268
-date-released: 2025-06-01
-doi: 10.1364/JOSAA.551858
-version: "1.0.0"
-type: article
-journal: Journal of the Optical Society of America A
-volume: 42
-issue: 6
-url: "https://doi.org/10.1364/JOSAA.551858"
+preferred-citation:
+  type: article
+  title: "Predicting visual field boundaries from head features"
+  authors:
+    - family-names: Nakade
+      given-names: Uday
+      orcid: https://orcid.org/0000-0002-6819-1582
+    - family-names: Spitschan
+      given-names: Manuel
+      orcid: https://orcid.org/0000-0002-8572-9268
+  journal: Journal of the Optical Society of America A
+  volume: 42
+  issue: 6
+  year: 2025
+  doi: 10.1364/JOSAA.551858
+  url: https://doi.org/10.1364/JOSAA.551858
